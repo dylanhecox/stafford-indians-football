@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin: 10px 0 4px 0;
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 15px;
+        }
+
+        .team-block {
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .team-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .score {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .record {
+            margin-top: 5px;
+        }
+
+        .nav-links {
+            margin-top: 10px;
+        }
+
+        .nav-links a {
+            margin: 0 10px;
+        }
+
+        .meta {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .meta p {
+            margin: 2px 0;
+        }
+
+        /* ================= TEAM STATS ================= */
+        #teamStatsSection {
+            margin-top: 25px;
+        }
+
+        #teamStatsTable {
+            border-collapse: collapse;
+            margin-top: 0;
+        }
+
+        #teamStatsTable {
+    border-collapse: collapse;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+        #teamStatsTable th, #teamStatsTable td {
+            border: 1px solid #ccc;
+            padding: 6px;
+        }
+
+        #teamStatsTable th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        #teamStatsTable td {
+            text-align: center;
+        }
+
+        #teamStatsTable td.left {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        /* ================= SKILL TABLE ================= */
+        table.skill {
+    border-collapse: collapse;
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    width: auto;
+    display: inline-table;
+    table-layout: auto;
+}
+
+        table.skill th, table.skill td {
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: center;
+        }
+
+        table.skill th {
+            background-color: #f2f2f2;
+        }
+
+        table.skill td.left {
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        /* ================= KICKING TABLE ================= */
+        table.kicking {
+    border-collapse: collapse;
+    margin: 0 0 20px 0;
+    width: auto;
+}
+
+table.kicking th,
+table.kicking td {
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: center;
+}
+
+table.kicking th {
+    background-color: #f2f2f2;
+}
+
+table.kicking td.left {
+    text-align: left;
+    white-space: nowrap;
+    width: 1%;
+}
+
+        /* RIGHT-ALIGN ALL STAT VALUES */
+table.skill td:not(.left),
+table.kicking td:not(.left) {
+    text-align: right;
+}
+
+table.other-scoring {
+    border-collapse: collapse;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+table.other-scoring {
+    width: auto;
+    display: inline-table;
+    table-layout: auto;
+}
+
+
+table.other-scoring th, table.other-scoring td {
+    border: 1px solid #ccc;
+    padding: 6px;
+}
+
+table.other-scoring th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+table.other-scoring td {
+    text-align: right;
+}
+
+table.other-scoring td.left {
+    text-align: left;
+    white-space: nowrap;
+}
+
+table.other-scoring th:nth-child(3),
+table.other-scoring td:nth-child(3) {
+    text-align: center;
+}
+
+.table-wrap {
+    display: flex;
+    justify-content: left;
+}
+
+/* ================= SORT UI ================= */
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+}
+
+th.sortable:hover {
+    background-color: #dcdcdc;
+}
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="nav.js"></script>
+</head>
+
+<body>
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+<h1 id="gameTitle"></h1>
+
+<div class="scoreboard">
+    <div class="team-block" id="awayBlock">
+        <div id="awayTeam" class="team-name"></div>
+        <div id="awayScore" class="score"></div>
+        <div id="awayExtras"></div>
+    </div>
+
+    <div class="team-block" id="homeBlock">
+        <div id="homeTeam" class="team-name"></div>
+        <div id="homeScore" class="score"></div>
+        <div id="homeExtras"></div>
+    </div>
+</div>
+
+<div class="meta">
+    <p id="dateLine"></p>
+    <p id="stadium"></p>
+    <p id="attendance"></p>
+    <p id="location"></p>
+    <p id="gameStory"></p>
+    <p id="notes"></p>
+</div>
+
+<!-- ================= TEAM STATS ================= -->
+<div id="teamStatsSection">
+    <h2>Team Stats</h2>
+    <table id="teamStatsTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th id="awayHeader"></th>
+                <th id="homeHeader"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="left">Total Yards</td>
+                <td id="awayTY"></td>
+                <td id="homeTY"></td>
+            </tr>
+            <tr>
+                <td class="left">Passing Yards</td>
+                <td id="awayPY"></td>
+                <td id="homePY"></td>
+            </tr>
+            <tr>
+                <td class="left">Rushing Yards</td>
+                <td id="awayRY"></td>
+                <td id="homeRY"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ================= PASS/RUSH/REC ================= -->
+<h2>Passing, Rushing, & Receiving</h2>
+
+<table class="skill">
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="5">Passing</th>
+            <th colspan="3">Rushing</th>
+            <th colspan="3">Receiving</th>
+        </tr>
+        <tr>
+            <th class="left">Player</th>
+            <th>Cmp</th>
+            <th>Att</th>
+            <th>Yds</th>
+            <th>TD</th>
+            <th>Int</th>
+            <th>Att</th>
+            <th>Yds</th>
+            <th>TD</th>
+            <th>Rec</th>
+            <th>Yds</th>
+            <th>TD</th>
+        </tr>
+    </thead>
+    <tbody id="skillBody"></tbody>
+</table>
+
+<!-- ================= KICKING ================= -->
+<h2>Kicking</h2>
+
+<div class="table-wrap">
+    <table class="kicking">
+    <thead>
+        <tr>
+            <th class="left">Player</th>
+            <th>XPM</th>
+            <th>XPA</th>
+            <th>FGM</th>
+            <th>FG Distance</th>
+        </tr>
+    </thead>
+    <tbody id="kickBody"></tbody>
+    </table>
+</div>
+
+<!-- ================= OTHER SCORING ================= -->
+<h2>Other Scoring Stats</h2>
+
+<table class="other-scoring">
+    <thead>
+        <tr>
+            <th class="left">Player</th>
+            <th id="patHeader">PAT</th>
+            <th>Score Type</th>
+            <th>Yards</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody id="otherBody"></tbody>
+</table>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const gameId = params.get("game_id");
+
+function formatFullDate(d) {
+    return new Date(d).toLocaleDateString("en-US", {
+        weekday: "long",
+        month: "short",
+        day: "numeric",
+        year: "numeric"
+    });
+}
+
+function formatTitleDate(d) {
+    return new Date(d).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+    });
+}
+
+function sortSimpleTable(table, colIndex, asc) {
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+
+        let A = a.cells[colIndex]?.innerText.trim() || "";
+        let B = b.cells[colIndex]?.innerText.trim() || "";
+
+        // Player column: sort by player_id
+        if (colIndex === 0) {
+            const aId = a.dataset.playerid || "";
+            const bId = b.dataset.playerid || "";
+
+            return aId.localeCompare(bId) * dir;
+        }
+
+        // Numeric columns
+        const numA = parseFloat(A.replace(/,/g, ""));
+        const numB = parseFloat(B.replace(/,/g, ""));
+
+        if (!isNaN(numA) && !isNaN(numB)) {
+            return (numA - numB) * dir;
+        }
+
+        return A.localeCompare(B) * dir;
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+}
+
+Promise.all([
+    fetch("Master_GameInfo.csv").then(r => r.text()),
+    fetch("Master_TeamStats.csv").then(r => r.text()),
+    fetch("Master_Seasons.csv").then(r => r.text()),
+    fetch("Master_IndividualStats.csv").then(r => r.text()),
+    fetch("Master_GameEvents.csv").then(r => r.text()) // ← ADD THIS
+])
+    
+.then(([gamesCSV, statsCSV, seasonsCSV, indivCSV, eventsCSV]) => {
+
+    const games = Papa.parse(gamesCSV, { header:true, skipEmptyLines:true, transformHeader:h=>h.trim().toLowerCase() }).data;
+    const stats = Papa.parse(statsCSV, { header:true, skipEmptyLines:true, transformHeader:h=>h.trim().toLowerCase() }).data;
+    const seasons = Papa.parse(seasonsCSV, { header:true, skipEmptyLines:true, transformHeader:h=>h.trim().toLowerCase() }).data;
+    const indiv = Papa.parse(indivCSV, {
+    header: true,
+    skipEmptyLines: true,
+    transformHeader: h => h.trim().toLowerCase()
+}).data;
+const events = Papa.parse(eventsCSV, {
+    header: true,
+    skipEmptyLines: true,
+    transformHeader: h => h.trim().toLowerCase()
+}).data;
+    
+    const gameStats = indiv.filter(r => r.game_id === gameId);
+    const players = {};
+
+gameStats.forEach(r => {
+    const playerId = r.player_id || r.scoring_player_id;
+    const name = r.player;
+
+    if (!playerId) return;
+
+    if (!players[playerId]) {
+        players[playerId] = {
+            name: name,
+            passing: {},
+            rushing: {},
+            receiving: {},
+            kicking: {}
+        };
+    }
+
+    const val = Number(r.stat_value) || 0;
+
+    if (r.stat_category === "Passing") {
+        players[playerId].passing[r.stat_name] = val;
+    }
+
+    if (r.stat_category === "Rushing") {
+        players[playerId].rushing[r.stat_name] = val;
+    }
+
+    if (r.stat_category === "Receiving") {
+        players[playerId].receiving[r.stat_name] = val;
+    }
+
+    if (r.stat_category === "Kicking") {
+
+    // Field Goal Distances can contain multiple values
+    // such as "27, 31", so keep them as text.
+    if (r.stat_name === "Field Goal Distances") {
+        players[playerId].kicking[r.stat_name] = r.stat_value || "";
+    } else {
+        players[playerId].kicking[r.stat_name] = val;
+    }
+}
+});
+
+function renderSkillTable() {
+    const tbody = document.getElementById("skillBody");
+    tbody.innerHTML = "";
+
+    Object.keys(players).forEach(playerId => {
+    const p = players[playerId];
+
+        const tr = document.createElement("tr");
+tr.dataset.playerid = playerId;
+
+        tr.innerHTML = `
+            <td class="left">
+    <a href="player.html?player_id=${playerId}">${p.name}</a>
+</td>
+
+            <td>${p.passing.Completions || 0}</td>
+            <td>${p.passing.Attempts || 0}</td>
+            <td>${p.passing.PassYards || 0}</td>
+            <td>${p.passing.PassTD || 0}</td>
+            <td>${p.passing.Interceptions || 0}</td>
+
+            <td>${p.rushing.RushAtt || 0}</td>
+            <td>${p.rushing.RushYds || 0}</td>
+            <td>${p.rushing.RushTD || 0}</td>
+
+            <td>${p.receiving.Receptions || 0}</td>
+            <td>${p.receiving.RecYards || 0}</td>
+            <td>${p.receiving.RecTD || 0}</td>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+    
+    const game = games.find(g => g.game_id == gameId);
+
+if (!game) return;
+
+const season = game.season;
+
+// compute game number within season
+const gamesInSeason = games
+    .filter(g => g.season === season)
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+const gameNumber =
+    gamesInSeason.findIndex(g => g.game_id === gameId) + 1;
+renderBreadcrumb([
+    { label: "Stafford Indians", link: "index.html" },
+    { label: "Seasons", link: "seasons.html" },
+    { label: `${season} Season`, link: `season.html?season=${season}` },
+    { label: `Game ${gameNumber}` }
+]);
+    console.log("ATTENDANCE FIELDS:", {
+    paid: game.attendance_paid,
+    estimated: game.attendance_estimated,
+    raw: game.attendance
+});
+    if (!game) return;
+
+// Dynamic PAT header
+const patHeader = document.getElementById("patHeader");
+
+if (Number(game.season) >= 1969) {
+    patHeader.innerText = "2PT PAT";
+} else {
+    patHeader.innerText = "1PT PAT";
+}
+
+    renderSkillTable();
+
+const skillTable = document.querySelector("table.skill");
+const skillHeaders = skillTable.querySelectorAll("thead tr:last-child th");
+
+let skillSortState = {};
+
+skillHeaders.forEach((th, i) => {
+    th.classList.add("sortable");
+    skillSortState[i] = true;
+
+    th.addEventListener("click", () => {
+        sortSimpleTable(skillTable, i, skillSortState[i]);
+        skillSortState[i] = !skillSortState[i];
+    });
+});
+
+// Default: Passing Yards descending
+sortSimpleTable(skillTable, 3, false);
+
+    function renderKickTable() {
+    const tbody = document.getElementById("kickBody");
+    tbody.innerHTML = "";
+
+    Object.keys(players).forEach(playerId => {
+    const k = players[playerId]?.kicking || {};
+
+        const xpMade = k["Extra Points Made"] || 0;
+        const xpAtt = k["Extra Points Attempted"] || 0;
+        const fgMade = k["Field Goals Made"] || 0;
+        const fgDist = k["Field Goal Distances"] || "";
+
+        // skip empty kickers
+        if (!xpMade && !xpAtt && !fgMade && !fgDist) return;
+
+        const tr = document.createElement("tr");
+tr.dataset.playerid = playerId;
+
+        tr.innerHTML = `
+            <td class="left">
+    <a href="player.html?player_id=${playerId}">${players[playerId].name}</a>
+</td>
+            <td>${xpMade}</td>
+            <td>${xpAtt}</td>
+            <td>${fgMade}</td>
+            <td>${fgDist}</td>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+
+renderKickTable();
+
+const kickingTable = document.querySelector("table.kicking");
+const kickingHeaders = kickingTable.querySelectorAll("thead th");
+
+let kickingSortState = {};
+
+kickingHeaders.forEach((th, i) => {
+    th.classList.add("sortable");
+    kickingSortState[i] = true;
+
+    th.addEventListener("click", () => {
+        sortSimpleTable(kickingTable, i, kickingSortState[i]);
+        kickingSortState[i] = !kickingSortState[i];
+    });
+});
+
+// Default: Player
+sortSimpleTable(kickingTable, 0, true);
+
+const gameEvents = events.filter(e => e.game_id == gameId);
+
+function formatScoreType(type) {
+    switch (String(type).toLowerCase()) {
+        case "punt_return_td": return "Punt Return TD";
+        case "kick_return_td": return "Kick Return TD";
+        case "interception_return_td": return "INT Return TD";
+        case "fumble_return_td": return "Fumble Return TD";
+        case "blocked_punt_return_td": return "Blocked Punt TD";
+        case "blocked_field_goal_return_td": return "Blocked FG TD";
+        case "team_safety": return "Team Safety";
+        default: return type || "";
+    }
+}
+
+function buildOtherScoringData(events) {
+    const players = {};
+
+    events.forEach(e => {
+        const playerId = e.scoring_player_id || e.scoring_player;
+        const type = String(e.event_type || "").toLowerCase();
+
+        if (!players[playerId]) {
+    players[playerId] = {
+        name: e.scoring_player || playerId,
+        pats: 0,
+        scores: []
+    };
+}
+
+        // PAT EVENTS
+        if (
+            type === "one_pt_pass" ||
+            type === "one_pt_rush" ||
+            type === "two_pt_pass" ||
+            type === "two_pt_rush"
+        ) {
+            players[playerId].pats++;
+        }
+
+        // OTHER SCORING EVENTS
+        else {
+            players[playerId].scores.push({
+                type: formatScoreType(type),
+                yards: e.yards || "",
+                desc: e.description || ""
+            });
+        }
+    });
+
+    return players;
+}
+
+function renderOtherScoring(events) {
+    const tbody = document.getElementById("otherBody");
+    tbody.innerHTML = "";
+
+    const data = buildOtherScoringData(events);
+
+    Object.keys(data).forEach(playerId => {
+    const player = data[playerId];
+        const scoreCount = player.scores.length;
+
+        // CASE 1: PLAYER HAS NO SCORING PLAYS (PAT ONLY)
+        if (scoreCount === 0) {
+            const tr = document.createElement("tr");
+tr.dataset.playerid = playerId;
+
+            tr.innerHTML = `
+                <td class="left">
+    <a href="player.html?player_id=${playerId}">
+${player.name}
+</a></td>
+                <td>${player.pats || ""}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            `;
+
+            tbody.appendChild(tr);
+            return;
+        }
+
+        // CASE 2: PLAYER HAS SCORING PLAYS (WITH OR WITHOUT PATs)
+        player.scores.forEach((s, i) => {
+            const tr = document.createElement("tr");
+tr.dataset.playerid = playerId;
+
+            if (i === 0) {
+                tr.innerHTML = `
+                    <td class="left" rowspan="${scoreCount}">
+    <a href="player.html?player_id=${playerId}">
+        ${player.name}
+    </a>
+</td>
+                    <td rowspan="${scoreCount}">${player.pats || ""}</td>
+                    <td>${s.type}</td>
+                    <td>${s.yards}</td>
+                    <td>${s.desc}</td>
+                `;
+            } else {
+                tr.innerHTML = `
+                    <td>${s.type}</td>
+                    <td>${s.yards}</td>
+                    <td>${s.desc}</td>
+                `;
+            }
+
+            tbody.appendChild(tr);
+        });
+    });
+}
+
+renderOtherScoring(gameEvents);
+
+const otherTable = document.querySelector("table.other-scoring");
+const otherHeaders = otherTable.querySelectorAll("thead th");
+
+let otherSortState = {};
+
+otherHeaders.forEach((th, i) => {
+
+    // Don't sort the individual scoring-play columns
+    if (i > 1) return;
+
+    th.classList.add("sortable");
+    otherSortState[i] = true;
+
+    th.addEventListener("click", () => {
+        sortSimpleTable(otherTable, i, otherSortState[i]);
+        otherSortState[i] = !otherSortState[i];
+    });
+});
+
+// Default: Player
+sortSimpleTable(otherTable, 0, true);
+    // ================= STAFFORD SEASON RECORD =================
+const seasonGames = games.filter(g => g.season == game.season);
+
+let wins = 0;
+let losses = 0;
+
+seasonGames.sort((a,b) => new Date(a.date) - new Date(b.date));
+
+for (let g of seasonGames) {
+    const s = stats.find(x => x.game_id == g.game_id && x.team.toLowerCase() === "stafford");
+    if (!s) continue;
+
+    const pf = Number(s.points_for || 0);
+    const pa = Number(s.points_against || 0);
+
+    const resultWin = pf > pa;
+
+    if (g.game_id === gameId) {
+        if (resultWin) wins++;
+        else losses++;
+        break;
+    }
+
+    if (resultWin) wins++;
+    else losses++;
+}
+
+const staffordRecord = `${wins}-${losses}`;
+
+    const staffordStats = stats.find(s =>
+        s.game_id == gameId &&
+        s.team.toLowerCase() === "stafford"
+    );
+
+    const pf = Number(staffordStats?.points_for || 0);
+    const pa = Number(staffordStats?.points_against || 0);
+
+    const isHome = !["away","a"].includes(String(game.home_away).toLowerCase());
+
+    const opponentFull = `${game.opponent || ""} ${game.team_name || ""}`.trim();
+    const stafford = "Stafford Indians";
+
+    const awayTeam = isHome ? opponentFull : stafford;
+    const homeTeam = isHome ? stafford : opponentFull;
+    
+    const staffordIsHome = homeTeam === "Stafford Indians";
+    const staffordExtrasId = staffordIsHome ? "homeExtras" : "awayExtras";
+    
+    document.getElementById("gameTitle").innerText =
+        `${awayTeam} at ${homeTeam} - ${formatTitleDate(game.date)}`;
+
+    document.getElementById("awayScore").innerText = isHome ? pa : pf;
+    document.getElementById("homeScore").innerText = isHome ? pf : pa;
+const sortedSeason = seasonGames.sort((a,b) => new Date(a.date) - new Date(b.date));
+const currentIndex = sortedSeason.findIndex(g => g.game_id == gameId);
+
+const prevGame = currentIndex > 0 ? sortedSeason[currentIndex - 1] : null;
+const nextGame = currentIndex < sortedSeason.length - 1 ? sortedSeason[currentIndex + 1] : null;
+
+    // ================= SCOREBOARD EXTRAS (STAFFORD ONLY) =================
+const coachId = game.coach_id;
+const coachName = game.head_coach;
+
+    let navLinks = "";
+
+if (prevGame) {
+    navLinks += `<a href="game.html?game_id=${prevGame.game_id}">Prev Game</a>`;
+}
+
+if (prevGame && nextGame) {
+    navLinks += " | ";
+}
+
+if (nextGame) {
+    navLinks += `<a href="game.html?game_id=${nextGame.game_id}">Next Game</a>`;
+}
+
+document.getElementById("homeExtras").innerHTML = "";
+document.getElementById("awayExtras").innerHTML = "";
+
+document.getElementById(staffordExtrasId).innerHTML = `
+    <div class="record">${staffordRecord}</div>
+    <div class="nav-links">${navLinks}</div>
+    <div><b>Coach:</b>
+  <a href="coach.html?coach=${coachId}">
+    ${coachName || "Unknown"}
+  </a>
+</div>
+`;
+
+    function staffordLink(season) {
+        return `<a href="season.html?season=${season}">Stafford Indians</a>`;
+    }
+
+    document.getElementById("awayTeam").innerHTML =
+        awayTeam === "Stafford Indians" ? staffordLink(game.season) : awayTeam;
+
+    document.getElementById("homeTeam").innerHTML =
+        homeTeam === "Stafford Indians" ? staffordLink(game.season) : homeTeam;
+
+    const shortOpponent = game.opponent || "";
+    const shortStafford = "Stafford";
+
+    document.getElementById("awayHeader").innerText = isHome ? shortOpponent : shortStafford;
+    document.getElementById("homeHeader").innerText = isHome ? shortStafford : shortOpponent;
+
+    document.getElementById("awayTY").innerText = isHome ? staffordStats.total_yards_allowed : staffordStats.total_yards;
+    document.getElementById("homeTY").innerText = isHome ? staffordStats.total_yards : staffordStats.total_yards_allowed;
+
+    document.getElementById("awayPY").innerText = isHome ? staffordStats.passing_yards_allowed : staffordStats.passing_yards;
+    document.getElementById("homePY").innerText = isHome ? staffordStats.passing_yards : staffordStats.passing_yards_allowed;
+
+    document.getElementById("awayRY").innerText = isHome ? staffordStats.rushing_yards_allowed : staffordStats.rushing_yards;
+    document.getElementById("homeRY").innerText = isHome ? staffordStats.rushing_yards : staffordStats.rushing_yards_allowed;
+
+    document.getElementById("dateLine").innerText = formatFullDate(game.date);
+
+    document.getElementById("stadium").innerHTML =
+        game.stadium ? `<b>Stadium:</b> ${game.stadium}` : "";
+
+    let attendanceText = "";
+
+if (game.attendance_paid) {
+    attendanceText = `<b>Paid Attendance:</b> ${Number(game.attendance_paid).toLocaleString()}`;
+} else if (game.attendance_estimated) {
+    attendanceText = `<b>Est. Attendance:</b> ${Number(game.attendance_estimated).toLocaleString()}`;
+}
+
+document.getElementById("attendance").innerHTML = attendanceText;
+    const locationValue =
+        game.location || ((game.city && game.state) ? `${game.city}, ${game.state}` : "");
+
+    document.getElementById("location").innerHTML =
+        locationValue ? `<b>Location:</b> ${locationValue}` : "";
+
+        document.getElementById("gameStory").innerHTML =
+    game.game_story
+        ? `<a href="${game.game_story}" target="_blank" rel="noopener">Game Story</a>`
+        : "";
+
+    document.getElementById("notes").innerHTML =
+        game.notes ? `<b>Note:</b> ${game.notes}` : "";
+});
+
+</script>
+
+</body>
+</html>

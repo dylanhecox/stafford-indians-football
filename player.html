@@ -1,0 +1,3816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: auto;
+            display: inline-table;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td {
+            text-align: right;
+        }
+
+        td.left {
+            text-align: left;
+        }
+
+        td.center {
+            text-align: center;
+        }
+
+        a {
+            color: #0000ee;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        th.sortable {
+            cursor: pointer;
+        }
+
+        th.sortable:hover {
+            background-color: #dcdcdc;
+        }
+
+        .career-row {
+            background-color: #e8e8e8;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Free Lance-Star styling */
+
+        .fls-header {
+            background-color: #e8e8e8;
+        }
+
+        .fls-cell {
+            background-color: #fafafa;
+        }
+
+        .fls-start {
+            border-left: 3px solid #888 !important;
+        }
+
+        .career-row .fls-cell {
+            background-color: #e8e8e8;
+        }
+
+        /* Source superscripts */
+
+        sup.source-note {
+            cursor: help;
+            font-size: 0.7em;
+            margin-left: 1px;
+        }
+
+        .career-override-note {
+            cursor: help;
+            font-size: 0.7em;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 1px;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="nav.js"></script>
+</head>
+
+<body>
+
+    <div id="breadcrumb"></div>
+
+    <h1 id="playerTitle"></h1>
+
+    <div id="notFound" class="hidden">
+        Player not found.
+    </div>
+
+
+    <!-- PLAYER INFORMATION -->
+
+    <div id="playerInfoSection">
+        <h2>Player Information</h2>
+
+        <table id="playerInfoTable">
+            <thead>
+                <tr>
+                    <th class="sortable">Season</th>
+                    <th class="sortable">Class</th>
+                    <th class="sortable">Position</th>
+                    <th class="sortable">Height</th>
+                    <th class="sortable">Weight</th>
+                    <th class="sortable">No.</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+    <!-- PASSING -->
+
+    <div id="passingSection" class="hidden">
+        <h2>Passing</h2>
+
+        <table id="passingTable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+    <!-- RUSHING & RECEIVING -->
+
+    <div id="rushingReceivingSection" class="hidden">
+        <h2>Rushing &amp; Receiving</h2>
+
+        <table id="rushingReceivingTable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+    <!-- KICKING -->
+
+    <div id="kickingSection" class="hidden">
+        <h2>Kicking</h2>
+
+        <table id="kickingTable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+    <!-- OTHER SCORING -->
+
+    <div id="otherScoringSection" class="hidden">
+        <h2>Other Scoring Stats</h2>
+
+        <table id="otherScoringTable">
+            <thead>
+                <tr>
+                    <th class="sortable">Season</th>
+                    <th class="sortable">1PT PAT</th>
+                    <th class="sortable">2PT PAT</th>
+                    <th class="sortable">PR TD</th>
+                    <th class="sortable">KR TD</th>
+                    <th class="sortable">Int TD</th>
+                    <th class="sortable">FR TD</th>
+                    <th class="sortable">Blocked Punt TD</th>
+                    <th class="sortable">Blocked FG TD</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+    <!-- POINTS -->
+
+    <div id="pointsSection" class="hidden">
+        <h2>Points Scored</h2>
+
+        <table id="pointsTable">
+            <thead>
+                <tr>
+                    <th class="sortable">Season</th>
+                    <th class="sortable">Points</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </div>
+
+
+<script>
+
+/* ============================================================
+   URL
+   ============================================================ */
+
+const params = new URLSearchParams(window.location.search);
+const playerId = params.get("player_id");
+
+
+/* ============================================================
+   GENERAL HELPERS
+   ============================================================ */
+
+function normalize(value) {
+    return String(value ?? "").trim().toLowerCase();
+}
+
+
+function parseOptionalNumber(value) {
+
+    if (value === null || value === undefined) {
+        return null;
+    }
+
+    const text = String(value).trim();
+
+    if (text === "") {
+        return null;
+    }
+
+    const number = Number(text);
+
+    return Number.isFinite(number) ? number : null;
+}
+
+
+function formatNumber(value) {
+
+    if (
+        value === null ||
+        value === undefined ||
+        Number.isNaN(value)
+    ) {
+        return "";
+    }
+
+    return Number(value).toLocaleString();
+}
+
+
+function addValue(object, key, value) {
+
+    if (value === null) {
+        return;
+    }
+
+    if (
+        object[key] === null ||
+        object[key] === undefined
+    ) {
+        object[key] = value;
+    } else {
+        object[key] += value;
+    }
+}
+
+
+function sumNullable(values) {
+
+    let total = null;
+
+    values.forEach(value => {
+
+        if (
+            value !== null &&
+            value !== undefined
+        ) {
+
+            total =
+                (total === null ? 0 : total) +
+                value;
+        }
+    });
+
+    return total;
+}
+
+
+function maxNullable(values) {
+
+    let max = null;
+
+    values.forEach(value => {
+
+        if (
+            value !== null &&
+            value !== undefined
+        ) {
+
+            if (
+                max === null ||
+                value > max
+            ) {
+                max = value;
+            }
+        }
+    });
+
+    return max;
+}
+
+
+function setSectionVisibility(sectionId, visible) {
+
+    document
+        .getElementById(sectionId)
+        .classList.toggle(
+            "hidden",
+            !visible
+        );
+}
+
+
+/* ============================================================
+   SOURCE HEADERS
+   ============================================================ */
+
+function gameSourceHeader(colspan) {
+
+    return `
+        <th colspan="${colspan}">
+            Game Statistics<sup
+                class="source-note"
+                title="Game statistics are compiled from individual game records."
+            >1</sup>
+        </th>
+    `;
+}
+
+
+function flsSourceHeader(colspan) {
+
+    return `
+        <th
+            colspan="${colspan}"
+            class="fls-header fls-start"
+        >
+            Free Lance-Star Statistics<sup
+                class="source-note"
+                title="Free Lance-Star statistics are season totals published by The Free Lance-Star."
+            >2</sup>
+        </th>
+    `;
+}
+
+
+/* ============================================================
+   SORTING
+   ============================================================ */
+
+/*
+   sortTable uses the actual table-body cell index.
+
+   For tables with a two- or three-row header, the final header
+   row does NOT contain the Season header because Season has
+   rowspan. Therefore setupSorting adds the Season header to the
+   sortable-header list so that Season can also be sorted.
+*/
+
+function setupSorting(
+    tableId,
+    headerSelector,
+    finalHeaderRowHasSeasonOffset = false,
+    includeRowspanSeason = false
+) {
+
+    const table =
+        document.getElementById(tableId);
+
+    if (!table) {
+        return;
+    }
+
+
+    /*
+       Get the sortable headers from the requested header row.
+    */
+
+    let headers = Array.from(
+        table.querySelectorAll(
+            headerSelector
+        )
+    );
+
+
+    /*
+       Add the Season header when it has rowspan and therefore
+       is not part of the final header row.
+    */
+
+    if (includeRowspanSeason) {
+
+        const seasonHeader =
+            table.querySelector(
+                "thead tr:first-child th[rowspan]"
+            );
+
+        if (seasonHeader) {
+
+            headers = [
+                seasonHeader,
+                ...headers
+            ];
+        }
+    }
+
+
+    headers.forEach((header, index) => {
+
+        header.classList.add("sortable");
+
+        header.addEventListener(
+            "click",
+            () => {
+
+                const currentlyAscending =
+                    header.dataset.sortAsc !== "false";
+
+                const newAscending =
+                    !currentlyAscending;
+
+
+                headers.forEach(h => {
+                    delete h.dataset.sortAsc;
+                });
+
+
+                header.dataset.sortAsc =
+                    newAscending
+                        ? "true"
+                        : "false";
+
+
+                /*
+                   Season is always actual table column 0.
+
+                   Every statistical header follows Season, so its
+                   actual table column is its position in the
+                   combined headers array.
+                */
+
+                const actualColumn =
+                    index;
+
+
+                sortTable(
+                    table,
+                    actualColumn,
+                    newAscending
+                );
+            }
+        );
+    });
+
+
+    /*
+       Default sort is the first sortable column.
+
+       For the Passing, Rushing & Receiving, and Kicking tables,
+       this is Season, so seasons initially appear oldest to
+       newest.
+    */
+
+    if (headers.length > 0) {
+
+        headers.forEach(h => {
+            delete h.dataset.sortAsc;
+        });
+
+
+        headers[0].dataset.sortAsc =
+            "true";
+
+
+        sortTable(
+            table,
+            0,
+            true
+        );
+    }
+}
+
+
+/* ============================================================
+   TABLE SORTING
+   ============================================================ */
+
+function sortTable(
+    table,
+    colIndex,
+    asc
+) {
+
+    const tbody =
+        table.querySelector("tbody");
+
+
+    const rows =
+        Array.from(
+            tbody.querySelectorAll("tr")
+        );
+
+
+    const careerRow =
+        rows.find(
+            row =>
+                row.classList.contains(
+                    "career-row"
+                )
+        );
+
+
+    const dataRows =
+        rows.filter(
+            row =>
+                !row.classList.contains(
+                    "career-row"
+                )
+        );
+
+
+    dataRows.sort((a, b) => {
+
+        if (colIndex === 0) {
+
+            const aSeason =
+                Number(a.dataset.season);
+
+            const bSeason =
+                Number(b.dataset.season);
+
+
+            if (
+                !Number.isNaN(aSeason) &&
+                !Number.isNaN(bSeason)
+            ) {
+
+                return asc
+                    ? aSeason - bSeason
+                    : bSeason - aSeason;
+            }
+        }
+
+
+        let aValue =
+            a.cells[colIndex]?.textContent
+                .trim()
+                .replace(/,/g, "") || "";
+
+        let bValue =
+            b.cells[colIndex]?.textContent
+                .trim()
+                .replace(/,/g, "") || "";
+
+
+        const aNumber =
+            parseFloat(aValue);
+
+        const bNumber =
+            parseFloat(bValue);
+
+
+        if (
+            !Number.isNaN(aNumber) &&
+            !Number.isNaN(bNumber)
+        ) {
+
+            if (aNumber !== bNumber) {
+
+                return asc
+                    ? aNumber - bNumber
+                    : bNumber - aNumber;
+            }
+        }
+
+
+        const textCompare =
+            aValue.localeCompare(
+                bValue
+            );
+
+
+        if (textCompare !== 0) {
+
+            return asc
+                ? textCompare
+                : -textCompare;
+        }
+
+
+        const aSeason =
+            Number(a.dataset.season);
+
+        const bSeason =
+            Number(b.dataset.season);
+
+
+        return bSeason - aSeason;
+    });
+
+
+    dataRows.forEach(row => {
+        tbody.appendChild(row);
+    });
+
+
+    if (careerRow) {
+        tbody.appendChild(careerRow);
+    }
+}
+
+
+/* ============================================================
+   PLAYER INFORMATION SORTING
+   ============================================================ */
+
+function parseHeight(height) {
+
+    const text =
+        String(height || "").trim();
+
+    const match =
+        text.match(
+            /^(\d+)\s*['′]\s*(\d+(?:\.\d+)?)?\s*["″]?/
+        );
+
+
+    if (!match) {
+        return null;
+    }
+
+
+    const feet =
+        Number(match[1]);
+
+    const inches =
+        match[2]
+            ? Number(match[2])
+            : 0;
+
+
+    return feet * 12 + inches;
+}
+
+
+function sortPlayerInfoTable(
+    table,
+    colIndex,
+    asc
+) {
+
+    const tbody =
+        table.querySelector("tbody");
+
+    const rows =
+        Array.from(
+            tbody.querySelectorAll("tr")
+        );
+
+
+    rows.sort((a, b) => {
+
+        let aValue =
+            a.cells[colIndex]?.textContent.trim() || "";
+
+        let bValue =
+            b.cells[colIndex]?.textContent.trim() || "";
+
+
+        if (colIndex === 0) {
+
+            const aSeason =
+                Number(a.dataset.season);
+
+            const bSeason =
+                Number(b.dataset.season);
+
+            return asc
+                ? aSeason - bSeason
+                : bSeason - aSeason;
+        }
+
+
+        if (colIndex === 3) {
+
+            const aHeight =
+                parseHeight(aValue);
+
+            const bHeight =
+                parseHeight(bValue);
+
+
+            if (
+                aHeight !== null &&
+                bHeight !== null
+            ) {
+
+                return asc
+                    ? aHeight - bHeight
+                    : bHeight - aHeight;
+            }
+
+
+            if (aHeight !== null) return -1;
+            if (bHeight !== null) return 1;
+        }
+
+
+        if (
+            colIndex === 4 ||
+            colIndex === 5
+        ) {
+
+            const aNumber =
+                parseFloat(
+                    aValue.replace(/,/g, "")
+                );
+
+            const bNumber =
+                parseFloat(
+                    bValue.replace(/,/g, "")
+                );
+
+
+            if (
+                !Number.isNaN(aNumber) &&
+                !Number.isNaN(bNumber)
+            ) {
+
+                return asc
+                    ? aNumber - bNumber
+                    : bNumber - aNumber;
+            }
+        }
+
+
+        return asc
+            ? aValue.localeCompare(bValue)
+            : bValue.localeCompare(aValue);
+    });
+
+
+    rows.forEach(row => {
+        tbody.appendChild(row);
+    });
+}
+
+
+function setupPlayerInfoSorting() {
+
+    const table =
+        document.getElementById(
+            "playerInfoTable"
+        );
+
+
+    const headers =
+        table.querySelectorAll(
+            "thead th"
+        );
+
+
+    headers.forEach((header, index) => {
+
+        header.classList.add("sortable");
+
+        header.addEventListener(
+            "click",
+            () => {
+
+                const currentlyAscending =
+                    header.dataset.sortAsc !== "false";
+
+                const newAscending =
+                    !currentlyAscending;
+
+
+                headers.forEach(h => {
+                    delete h.dataset.sortAsc;
+                });
+
+
+                header.dataset.sortAsc =
+                    newAscending
+                        ? "true"
+                        : "false";
+
+
+                sortPlayerInfoTable(
+                    table,
+                    index,
+                    newAscending
+                );
+            }
+        );
+    });
+
+
+    headers[0].dataset.sortAsc =
+        "true";
+
+
+    sortPlayerInfoTable(
+        table,
+        0,
+        true
+    );
+}
+
+
+/* ============================================================
+   FLS HELPERS
+   ============================================================ */
+
+function getFlsCategory(row) {
+    return normalize(row.stat_category);
+}
+
+
+function getFlsStatName(row) {
+    return normalize(row.stat_name);
+}
+
+
+function isFlsStat(
+    row,
+    category,
+    names
+) {
+
+    const rowCategory =
+        getFlsCategory(row);
+
+    const rowStat =
+        getFlsStatName(row);
+
+
+    if (
+        rowCategory !==
+        normalize(category)
+    ) {
+        return false;
+    }
+
+
+    return names.some(
+        name =>
+            rowStat === normalize(name)
+    );
+}
+
+
+/* ============================================================
+   LOAD CSV
+   ============================================================ */
+
+function loadCsv(filename) {
+
+    /*
+       Cache-busting is intentional. It prevents Live Server/browser
+       caching from causing an old CSV to be displayed after the
+       CSV has been replaced.
+    */
+
+    const url =
+        `${filename}?v=${Date.now()}`;
+
+
+    return fetch(url)
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(
+                    `${filename} returned HTTP ${response.status}`
+                );
+            }
+
+            return response.text();
+        })
+        .then(text => {
+
+            const result =
+                Papa.parse(
+                    text,
+                    {
+                        header: true,
+                        skipEmptyLines: true
+                    }
+                );
+
+
+            if (
+                result.errors &&
+                result.errors.length > 0
+            ) {
+
+                console.warn(
+                    `PapaParse warnings for ${filename}:`,
+                    result.errors
+                );
+            }
+
+
+            return result.data;
+        });
+}
+
+
+/* ============================================================
+   LOAD DATA
+   ============================================================ */
+
+Promise.all([
+
+    loadCsv("Master_PlayerList.csv"),
+
+    loadCsv("Master_IndividualStats.csv"),
+
+    loadCsv("Master_GameEvents.csv"),
+
+    loadCsv("Master_FLSSeasonStats.csv")
+
+])
+.then(
+    ([players, stats, events, fls]) => {
+
+    console.log(
+        "PlayerList rows loaded:",
+        players.length
+    );
+
+    console.log(
+        "IndividualStats rows loaded:",
+        stats.length
+    );
+
+    console.log(
+        "GameEvents rows loaded:",
+        events.length
+    );
+
+    console.log(
+        "FLS rows loaded:",
+        fls.length
+    );
+
+
+    /* ========================================================
+       PLAYER
+       ======================================================== */
+
+    const playerRows =
+        players.filter(
+            p =>
+                normalize(p.player_id) ===
+                normalize(playerId)
+        );
+
+
+    if (playerRows.length === 0) {
+
+        document
+            .getElementById("notFound")
+            .classList.remove("hidden");
+
+        console.warn(
+            "Player not found in Master_PlayerList.csv:",
+            playerId
+        );
+
+        return;
+    }
+
+
+    const playerName =
+        playerRows[0].player ||
+        playerId;
+
+
+    document
+        .getElementById("playerTitle")
+        .textContent = playerName;
+
+
+    /* ========================================================
+       BREADCRUMB
+       ======================================================== */
+
+    document
+        .getElementById("breadcrumb")
+        .innerHTML = `
+            <a href="index.html">Stafford Indians</a>
+            &gt;
+            <a href="players.html">Players</a>
+            &gt;
+            ${playerName}
+        `;
+
+
+    /* ========================================================
+       PLAYER INFORMATION
+       ======================================================== */
+
+    const infoBody =
+        document.querySelector(
+            "#playerInfoTable tbody"
+        );
+
+
+    playerRows
+        .sort(
+            (a, b) =>
+                Number(a.season) -
+                Number(b.season)
+        )
+        .forEach(row => {
+
+            const tr =
+                document.createElement("tr");
+
+
+            tr.dataset.season =
+                row.season;
+
+
+            tr.innerHTML = `
+                <td class="left">
+                    <a href="season.html?season=${encodeURIComponent(row.season)}">
+                        ${row.season}
+                    </a>
+                </td>
+
+                <td class="center">
+                    ${row.class || ""}
+                </td>
+
+                <td class="center">
+                    ${row.position || ""}
+                </td>
+
+                <td class="center">
+                    ${row.height || ""}
+                </td>
+
+                <td class="center">
+                    ${row.weight || ""}
+                </td>
+
+                <td class="center">
+                    ${row.jersey_number || ""}
+                </td>
+            `;
+
+
+            infoBody.appendChild(tr);
+        });
+
+
+    setupPlayerInfoSorting();
+
+
+    /* ========================================================
+       PLAYER DATA
+       ======================================================== */
+
+    const playerStats =
+        stats.filter(
+            r =>
+                normalize(r.player_id) ===
+                normalize(playerId)
+        );
+
+
+    const playerEvents =
+        events.filter(
+            r =>
+                normalize(r.scoring_player_id) ===
+                normalize(playerId)
+        );
+
+
+    const playerFls =
+        fls.filter(
+            r =>
+                normalize(r.player_id) ===
+                normalize(playerId)
+        );
+
+
+    console.log(
+        "Player:",
+        playerName,
+        "| Player ID:",
+        playerId
+    );
+
+    console.log(
+        "Game stat rows for player:",
+        playerStats.length
+    );
+
+    console.log(
+        "Game event rows for player:",
+        playerEvents.length
+    );
+
+    console.log(
+        "FLS stat rows for player:",
+        playerFls.length
+    );
+
+    if (playerFls.length > 0) {
+
+        console.log(
+            "FLS rows for player:",
+            playerFls
+        );
+    }
+
+
+    /* ========================================================
+       PASSING
+       ======================================================== */
+
+    const gamePassing = {};
+    const flsPassing = {};
+
+
+    playerStats.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+        const stat =
+            normalize(r.stat_name);
+
+
+        if (!season) {
+            return;
+        }
+
+
+        if (!gamePassing[season]) {
+
+            gamePassing[season] = {
+                cmp: 0,
+                att: 0,
+                yds: 0,
+                td: 0,
+                int: 0
+            };
+        }
+
+
+        const value =
+            Number(r.stat_value || 0);
+
+
+        if (stat === "completions") {
+
+            gamePassing[season].cmp +=
+                value;
+        }
+
+        else if (stat === "attempts") {
+
+            gamePassing[season].att +=
+                value;
+        }
+
+        else if (
+            stat === "passyards" ||
+            stat === "passing yards"
+        ) {
+
+            gamePassing[season].yds +=
+                value;
+        }
+
+        else if (
+            stat === "passtd" ||
+            (
+                stat === "touchdowns" &&
+                normalize(r.stat_category) === "passing"
+            )
+        ) {
+
+            gamePassing[season].td +=
+                value;
+        }
+
+        else if (stat === "interceptions") {
+
+            gamePassing[season].int +=
+                value;
+        }
+    });
+
+
+    playerFls.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+
+        if (!season) {
+            return;
+        }
+
+
+        if (
+            !isFlsStat(
+                r,
+                "Passing",
+                [
+                    "Completions",
+                    "Attempts",
+                    "PassYards",
+                    "PassTD",
+                    "Interceptions"
+                ]
+            )
+        ) {
+            return;
+        }
+
+
+        if (!flsPassing[season]) {
+
+            flsPassing[season] = {
+                cmp: null,
+                att: null,
+                yds: null,
+                td: null,
+                int: null,
+                hasData: false
+            };
+        }
+
+
+        const value =
+            parseOptionalNumber(
+                r.stat_value
+            );
+
+
+        if (value === null) {
+            return;
+        }
+
+
+        flsPassing[season].hasData =
+            true;
+
+
+        const stat =
+            getFlsStatName(r);
+
+
+        if (stat === "completions") {
+
+            addValue(
+                flsPassing[season],
+                "cmp",
+                value
+            );
+        }
+
+        else if (stat === "attempts") {
+
+            addValue(
+                flsPassing[season],
+                "att",
+                value
+            );
+        }
+
+        else if (stat === "passyards") {
+
+            addValue(
+                flsPassing[season],
+                "yds",
+                value
+            );
+        }
+
+        else if (stat === "passtd") {
+
+            addValue(
+                flsPassing[season],
+                "td",
+                value
+            );
+        }
+
+        else if (stat === "interceptions") {
+
+            addValue(
+                flsPassing[season],
+                "int",
+                value
+            );
+        }
+    });
+
+
+    const passingGameSeasons =
+        Object.keys(gamePassing)
+            .filter(
+                season =>
+                    gamePassing[season].att !== 0
+            );
+
+
+    const passingFlsSeasons =
+        Object.keys(flsPassing)
+            .filter(
+                season =>
+                    flsPassing[season].hasData
+            );
+
+
+    const passingHasGame =
+        passingGameSeasons.length > 0;
+
+    const passingHasFls =
+        passingFlsSeasons.length > 0;
+
+
+    const passingSeasons =
+        [
+            ...new Set([
+                ...passingGameSeasons,
+                ...passingFlsSeasons
+            ])
+        ]
+        .sort(
+            (a, b) =>
+                Number(a) - Number(b)
+        );
+
+
+    if (
+        passingHasGame ||
+        passingHasFls
+    ) {
+
+        setSectionVisibility(
+            "passingSection",
+            true
+        );
+
+
+        const table =
+            document.getElementById(
+                "passingTable"
+            );
+
+
+        const thead =
+            table.querySelector("thead");
+
+        const tbody =
+            table.querySelector("tbody");
+
+
+        let header =
+            `
+            <tr>
+                <th rowspan="2" class="sortable">
+                    Season
+                </th>
+            `;
+
+
+        if (passingHasGame) {
+
+            header +=
+                gameSourceHeader(6);
+        }
+
+
+        if (passingHasFls) {
+
+            header +=
+                flsSourceHeader(6);
+        }
+
+
+        header += `
+            </tr>
+            <tr>
+        `;
+
+
+        if (passingHasGame) {
+
+            header += `
+                <th class="sortable">Cmp</th>
+                <th class="sortable">Att</th>
+                <th class="sortable">Cmp%</th>
+                <th class="sortable">Yds</th>
+                <th class="sortable">TD</th>
+                <th class="sortable">Int</th>
+            `;
+        }
+
+
+        if (passingHasFls) {
+
+            header += `
+                <th class="sortable fls-header fls-start">
+                    Cmp
+                </th>
+
+                <th class="sortable fls-header">
+                    Att
+                </th>
+
+                <th class="sortable fls-header">
+                    Cmp%
+                </th>
+
+                <th class="sortable fls-header">
+                    Yds
+                </th>
+
+                <th class="sortable fls-header">
+                    TD
+                </th>
+
+                <th class="sortable fls-header">
+                    Int
+                </th>
+            `;
+        }
+
+
+        header += `
+            </tr>
+        `;
+
+
+        thead.innerHTML =
+            header;
+
+
+        passingSeasons.forEach(
+            season => {
+
+                const g =
+                    gamePassing[season];
+
+                const f =
+                    flsPassing[season];
+
+
+                const tr =
+                    document.createElement("tr");
+
+
+                tr.dataset.season =
+                    season;
+
+
+                let html = `
+                    <td class="left">
+                        <a href="season.html?season=${encodeURIComponent(season)}">
+                            ${season}
+                        </a>
+                    </td>
+                `;
+
+
+                if (passingHasGame) {
+
+                    const cmpPct =
+                        g && g.att
+                            ? (
+                                g.cmp /
+                                g.att *
+                                100
+                            ).toFixed(1)
+                            : g
+                                ? "0.0"
+                                : "";
+
+
+                    html += `
+                        <td>
+                            ${g ? formatNumber(g.cmp) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.att) : ""}
+                        </td>
+
+                        <td>
+                            ${cmpPct}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.yds) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.td) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.int) : ""}
+                        </td>
+                    `;
+                }
+
+
+                if (passingHasFls) {
+
+                    const cmpPct =
+                        f &&
+                        f.att !== null &&
+                        f.att !== 0 &&
+                        f.cmp !== null
+                            ? (
+                                f.cmp /
+                                f.att *
+                                100
+                            ).toFixed(1)
+                            : "";
+
+
+                    html += `
+                        <td class="fls-cell fls-start">
+                            ${f ? formatNumber(f.cmp) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.att) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${cmpPct}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.yds) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.td) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.int) : ""}
+                        </td>
+                    `;
+                }
+
+
+                tr.innerHTML =
+                    html;
+
+                tbody.appendChild(tr);
+            }
+        );
+
+
+        /* Career */
+
+        const careerGame = {
+
+            cmp: sumNullable(
+                passingGameSeasons.map(
+                    s =>
+                        gamePassing[s].cmp
+                )
+            ),
+
+            att: sumNullable(
+                passingGameSeasons.map(
+                    s =>
+                        gamePassing[s].att
+                )
+            ),
+
+            yds: sumNullable(
+                passingGameSeasons.map(
+                    s =>
+                        gamePassing[s].yds
+                )
+            ),
+
+            td: sumNullable(
+                passingGameSeasons.map(
+                    s =>
+                        gamePassing[s].td
+                )
+            ),
+
+            int: sumNullable(
+                passingGameSeasons.map(
+                    s =>
+                        gamePassing[s].int
+                )
+            )
+        };
+
+
+        const careerFls = {
+
+            cmp: sumNullable(
+                passingFlsSeasons.map(
+                    s =>
+                        flsPassing[s].cmp
+                )
+            ),
+
+            att: sumNullable(
+                passingFlsSeasons.map(
+                    s =>
+                        flsPassing[s].att
+                )
+            ),
+
+            yds: sumNullable(
+                passingFlsSeasons.map(
+                    s =>
+                        flsPassing[s].yds
+                )
+            ),
+
+            td: sumNullable(
+                passingFlsSeasons.map(
+                    s =>
+                        flsPassing[s].td
+                )
+            ),
+
+            int: sumNullable(
+                passingFlsSeasons.map(
+                    s =>
+                        flsPassing[s].int
+                )
+            )
+        };
+
+
+        const careerTr =
+            document.createElement("tr");
+
+
+        careerTr.className =
+            "career-row";
+
+
+        careerTr.dataset.season =
+            Math.max(
+                ...passingSeasons.map(Number)
+            );
+
+
+        let careerHtml = `
+            <td class="left">
+                Career
+            </td>
+        `;
+
+
+        if (passingHasGame) {
+
+            const pct =
+                careerGame.att !== null &&
+                careerGame.att !== 0 &&
+                careerGame.cmp !== null
+                    ? (
+                        careerGame.cmp /
+                        careerGame.att *
+                        100
+                    ).toFixed(1)
+                    : "";
+
+
+            careerHtml += `
+                <td>
+                    ${formatNumber(careerGame.cmp)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.att)}
+                </td>
+
+                <td>
+                    ${pct}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.yds)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.td)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.int)}
+                </td>
+            `;
+        }
+
+
+        if (passingHasFls) {
+
+            const pct =
+                careerFls.att !== null &&
+                careerFls.att !== 0 &&
+                careerFls.cmp !== null
+                    ? (
+                        careerFls.cmp /
+                        careerFls.att *
+                        100
+                    ).toFixed(1)
+                    : "";
+
+
+            careerHtml += `
+                <td class="fls-cell fls-start">
+                    ${formatNumber(careerFls.cmp)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.att)}
+                </td>
+
+                <td class="fls-cell">
+                    ${pct}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.yds)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.td)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.int)}
+                </td>
+            `;
+        }
+
+
+        careerTr.innerHTML =
+            careerHtml;
+
+
+        tbody.appendChild(careerTr);
+
+
+        setupSorting(
+            "passingTable",
+            "thead tr:last-child th",
+            true,
+            true
+        );
+    }
+
+
+    /* ========================================================
+       RUSHING & RECEIVING
+       ======================================================== */
+
+    const gameRR = {};
+    const flsRR = {};
+
+
+    playerStats.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+        const stat =
+            normalize(r.stat_name);
+
+
+        if (!season) {
+            return;
+        }
+
+
+        if (!gameRR[season]) {
+
+            gameRR[season] = {
+                rushAtt: 0,
+                rushYds: 0,
+                rushTD: 0,
+                rec: 0,
+                recYds: 0,
+                recTD: 0
+            };
+        }
+
+
+        const value =
+            Number(r.stat_value || 0);
+
+
+        if (stat === "rushatt") {
+
+            gameRR[season].rushAtt +=
+                value;
+        }
+
+        else if (stat === "rushyds") {
+
+            gameRR[season].rushYds +=
+                value;
+        }
+
+        else if (stat === "rushtd") {
+
+            gameRR[season].rushTD +=
+                value;
+        }
+
+        else if (stat === "receptions") {
+
+            gameRR[season].rec +=
+                value;
+        }
+
+        else if (stat === "recyards") {
+
+            gameRR[season].recYds +=
+                value;
+        }
+
+        else if (stat === "rectd") {
+
+            gameRR[season].recTD +=
+                value;
+        }
+    });
+
+
+    playerFls.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+
+        if (!season) {
+            return;
+        }
+
+
+        const validRushing =
+            isFlsStat(
+                r,
+                "Rushing",
+                [
+                    "RushAtt",
+                    "RushYds",
+                    "RushTD"
+                ]
+            );
+
+
+        const validReceiving =
+            isFlsStat(
+                r,
+                "Receiving",
+                [
+                    "Receptions",
+                    "RecYards",
+                    "RecTD"
+                ]
+            );
+
+
+        if (
+            !validRushing &&
+            !validReceiving
+        ) {
+            return;
+        }
+
+
+        if (!flsRR[season]) {
+
+            flsRR[season] = {
+                rushAtt: null,
+                rushYds: null,
+                rushTD: null,
+                rec: null,
+                recYds: null,
+                recTD: null,
+                hasData: false
+            };
+        }
+
+
+        const value =
+            parseOptionalNumber(
+                r.stat_value
+            );
+
+
+        if (value === null) {
+            return;
+        }
+
+
+        flsRR[season].hasData =
+            true;
+
+
+        const category =
+            getFlsCategory(r);
+
+        const stat =
+            getFlsStatName(r);
+
+
+        if (category === "rushing") {
+
+            if (stat === "rushatt") {
+
+                addValue(
+                    flsRR[season],
+                    "rushAtt",
+                    value
+                );
+            }
+
+            else if (stat === "rushyds") {
+
+                addValue(
+                    flsRR[season],
+                    "rushYds",
+                    value
+                );
+            }
+
+            else if (stat === "rushtd") {
+
+                addValue(
+                    flsRR[season],
+                    "rushTD",
+                    value
+                );
+            }
+        }
+
+
+        else if (category === "receiving") {
+
+            if (stat === "receptions") {
+
+                addValue(
+                    flsRR[season],
+                    "rec",
+                    value
+                );
+            }
+
+            else if (stat === "recyards") {
+
+                addValue(
+                    flsRR[season],
+                    "recYds",
+                    value
+                );
+            }
+
+            else if (stat === "rectd") {
+
+                addValue(
+                    flsRR[season],
+                    "recTD",
+                    value
+                );
+            }
+        }
+    });
+
+
+    const rrGameSeasons =
+        Object.keys(gameRR)
+            .filter(season => {
+
+                const x =
+                    gameRR[season];
+
+                return (
+                    x.rushAtt !== 0 ||
+                    x.rushYds !== 0 ||
+                    x.rushTD !== 0 ||
+                    x.rec !== 0 ||
+                    x.recYds !== 0 ||
+                    x.recTD !== 0
+                );
+            });
+
+
+    const rrFlsSeasons =
+        Object.keys(flsRR)
+            .filter(
+                season =>
+                    flsRR[season].hasData
+            );
+
+
+    const rrHasGame =
+        rrGameSeasons.length > 0;
+
+    const rrHasFls =
+        rrFlsSeasons.length > 0;
+
+
+    const rrSeasons =
+        [
+            ...new Set([
+                ...rrGameSeasons,
+                ...rrFlsSeasons
+            ])
+        ]
+        .sort(
+            (a, b) =>
+                Number(a) - Number(b)
+        );
+
+
+    if (
+        rrHasGame ||
+        rrHasFls
+    ) {
+
+        setSectionVisibility(
+            "rushingReceivingSection",
+            true
+        );
+
+
+        const table =
+            document.getElementById(
+                "rushingReceivingTable"
+            );
+
+
+        const thead =
+            table.querySelector("thead");
+
+        const tbody =
+            table.querySelector("tbody");
+
+
+        let header = `
+            <tr>
+                <th rowspan="3" class="sortable">
+                    Season
+                </th>
+        `;
+
+
+        if (rrHasGame) {
+
+            header += `
+                <th colspan="9">
+                    Game Statistics<sup
+                        class="source-note"
+                        title="Game statistics are compiled from individual game records."
+                    >1</sup>
+                </th>
+            `;
+        }
+
+
+        if (rrHasFls) {
+
+            header += `
+                <th
+                    colspan="9"
+                    class="fls-header fls-start"
+                >
+                    Free Lance-Star Statistics<sup
+                        class="source-note"
+                        title="Free Lance-Star statistics are season totals published by The Free Lance-Star."
+                    >2</sup>
+                </th>
+            `;
+        }
+
+
+        header += `
+            </tr>
+            <tr>
+        `;
+
+
+        if (rrHasGame) {
+
+            header += `
+                <th colspan="3">Rushing</th>
+                <th colspan="3">Receiving</th>
+                <th colspan="3">Total</th>
+            `;
+        }
+
+
+        if (rrHasFls) {
+
+            header += `
+                <th
+                    colspan="3"
+                    class="fls-header fls-start"
+                >
+                    Rushing
+                </th>
+
+                <th
+                    colspan="3"
+                    class="fls-header"
+                >
+                    Receiving
+                </th>
+
+                <th
+                    colspan="3"
+                    class="fls-header"
+                >
+                    Total
+                </th>
+            `;
+        }
+
+
+        header += `
+            </tr>
+            <tr>
+        `;
+
+
+        if (rrHasGame) {
+
+            header += `
+                <th class="sortable">Att</th>
+                <th class="sortable">Yds</th>
+                <th class="sortable">TD</th>
+
+                <th class="sortable">Rec</th>
+                <th class="sortable">Yds</th>
+                <th class="sortable">TD</th>
+
+                <th class="sortable">Tou</th>
+                <th class="sortable">Yds</th>
+                <th class="sortable">TD</th>
+            `;
+        }
+
+
+        if (rrHasFls) {
+
+            header += `
+                <th
+                    class="sortable fls-header fls-start"
+                >
+                    Att
+                </th>
+
+                <th class="sortable fls-header">
+                    Yds
+                </th>
+
+                <th class="sortable fls-header">
+                    TD
+                </th>
+
+                <th class="sortable fls-header">
+                    Rec
+                </th>
+
+                <th class="sortable fls-header">
+                    Yds
+                </th>
+
+                <th class="sortable fls-header">
+                    TD
+                </th>
+
+                <th class="sortable fls-header">
+                    Tou
+                </th>
+
+                <th class="sortable fls-header">
+                    Yds
+                </th>
+
+                <th class="sortable fls-header">
+                    TD
+                </th>
+            `;
+        }
+
+
+        header += `
+            </tr>
+        `;
+
+
+        thead.innerHTML =
+            header;
+
+
+        rrSeasons.forEach(
+            season => {
+
+                const g =
+                    gameRR[season];
+
+                const f =
+                    flsRR[season];
+
+
+                const tr =
+                    document.createElement("tr");
+
+
+                tr.dataset.season =
+                    season;
+
+
+                let html = `
+                    <td class="left">
+                        <a href="season.html?season=${encodeURIComponent(season)}">
+                            ${season}
+                        </a>
+                    </td>
+                `;
+
+
+                if (rrHasGame) {
+
+                    const touches =
+                        g
+                            ? g.rushAtt + g.rec
+                            : null;
+
+                    const yards =
+                        g
+                            ? g.rushYds + g.recYds
+                            : null;
+
+                    const touchdowns =
+                        g
+                            ? g.rushTD + g.recTD
+                            : null;
+
+
+                    html += `
+                        <td>
+                            ${g ? formatNumber(g.rushAtt) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.rushYds) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.rushTD) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.rec) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.recYds) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.recTD) : ""}
+                        </td>
+
+                        <td>
+                            ${formatNumber(touches)}
+                        </td>
+
+                        <td>
+                            ${formatNumber(yards)}
+                        </td>
+
+                        <td>
+                            ${formatNumber(touchdowns)}
+                        </td>
+                    `;
+                }
+
+
+                if (rrHasFls) {
+
+                    const touches =
+                        f
+                            ? sumNullable([
+                                f.rushAtt,
+                                f.rec
+                            ])
+                            : null;
+
+                    const yards =
+                        f
+                            ? sumNullable([
+                                f.rushYds,
+                                f.recYds
+                            ])
+                            : null;
+
+                    const touchdowns =
+                        f
+                            ? sumNullable([
+                                f.rushTD,
+                                f.recTD
+                            ])
+                            : null;
+
+
+                    html += `
+                        <td class="fls-cell fls-start">
+                            ${f ? formatNumber(f.rushAtt) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.rushYds) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.rushTD) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.rec) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.recYds) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.recTD) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${formatNumber(touches)}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${formatNumber(yards)}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${formatNumber(touchdowns)}
+                        </td>
+                    `;
+                }
+
+
+                tr.innerHTML =
+                    html;
+
+                tbody.appendChild(tr);
+            }
+        );
+
+
+        /* Career */
+
+        const careerGame = {
+
+            rushAtt: sumNullable(
+                rrGameSeasons.map(
+                    s =>
+                        gameRR[s].rushAtt
+                )
+            ),
+
+            rushYds: sumNullable(
+                rrGameSeasons.map(
+                    s =>
+                        gameRR[s].rushYds
+                )
+            ),
+
+            rushTD: sumNullable(
+                rrGameSeasons.map(
+                    s =>
+                        gameRR[s].rushTD
+                )
+            ),
+
+            rec: sumNullable(
+                rrGameSeasons.map(
+                    s =>
+                        gameRR[s].rec
+                )
+            ),
+
+            recYds: sumNullable(
+                rrGameSeasons.map(
+                    s =>
+                        gameRR[s].recYds
+                )
+            ),
+
+            recTD: sumNullable(
+                rrGameSeasons.map(
+                    s =>
+                        gameRR[s].recTD
+                )
+            )
+        };
+
+
+        const careerFls = {
+
+            rushAtt: sumNullable(
+                rrFlsSeasons.map(
+                    s =>
+                        flsRR[s].rushAtt
+                )
+            ),
+
+            rushYds: sumNullable(
+                rrFlsSeasons.map(
+                    s =>
+                        flsRR[s].rushYds
+                )
+            ),
+
+            rushTD: sumNullable(
+                rrFlsSeasons.map(
+                    s =>
+                        flsRR[s].rushTD
+                )
+            ),
+
+            rec: sumNullable(
+                rrFlsSeasons.map(
+                    s =>
+                        flsRR[s].rec
+                )
+            ),
+
+            recYds: sumNullable(
+                rrFlsSeasons.map(
+                    s =>
+                        flsRR[s].recYds
+                )
+            ),
+
+            recTD: sumNullable(
+                rrFlsSeasons.map(
+                    s =>
+                        flsRR[s].recTD
+                )
+            )
+        };
+
+
+        /*
+           Published career totals override the calculated
+           Free Lance-Star career totals for Horace Green only.
+
+           Season rows remain unchanged.
+        */
+
+        const careerRROverrides = {
+
+            "greenhorace": {
+                rushAtt: 371,
+                rushYds: 2781
+            }
+        };
+
+
+        const careerRROverride =
+            careerRROverrides[
+                normalize(playerId)
+            ];
+
+
+        if (
+            rrHasFls &&
+            careerRROverride
+        ) {
+
+            if (
+                careerRROverride.rushAtt !== undefined
+            ) {
+
+                careerFls.rushAtt =
+                    careerRROverride.rushAtt;
+            }
+
+
+            if (
+                careerRROverride.rushYds !== undefined
+            ) {
+
+                careerFls.rushYds =
+                    careerRROverride.rushYds;
+            }
+        }
+
+
+        const careerGameTouches =
+            sumNullable([
+                careerGame.rushAtt,
+                careerGame.rec
+            ]);
+
+
+        const careerGameYards =
+            sumNullable([
+                careerGame.rushYds,
+                careerGame.recYds
+            ]);
+
+
+        const careerGameTD =
+            sumNullable([
+                careerGame.rushTD,
+                careerGame.recTD
+            ]);
+
+
+        const careerFlsTouches =
+            sumNullable([
+                careerFls.rushAtt,
+                careerFls.rec
+            ]);
+
+
+        const careerFlsYards =
+            sumNullable([
+                careerFls.rushYds,
+                careerFls.recYds
+            ]);
+
+
+        const careerFlsTD =
+            sumNullable([
+                careerFls.rushTD,
+                careerFls.recTD
+            ]);
+
+
+        const careerTr =
+            document.createElement("tr");
+
+
+        careerTr.className =
+            "career-row";
+
+
+        careerTr.dataset.season =
+            Math.max(
+                ...rrSeasons.map(Number)
+            );
+
+
+        let careerHtml = `
+            <td class="left">
+                Career
+            </td>
+        `;
+
+
+        if (rrHasGame) {
+
+            careerHtml += `
+                <td>
+                    ${formatNumber(careerGame.rushAtt)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.rushYds)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.rushTD)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.rec)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.recYds)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.recTD)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGameTouches)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGameYards)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGameTD)}
+                </td>
+            `;
+        }
+
+
+        if (rrHasFls) {
+
+            const rushAttOverride =
+                careerRROverride &&
+                careerRROverride.rushAtt !== undefined;
+
+            const rushYdsOverride =
+                careerRROverride &&
+                careerRROverride.rushYds !== undefined;
+
+
+            careerHtml += `
+                <td class="fls-cell fls-start">
+                    ${formatNumber(careerFls.rushAtt)}${rushAttOverride ? `<span class="career-override-note" title="Published career total. Used because complete game records are unavailable for portions of the 1963 and 1964 seasons.">†</span>` : ""}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.rushYds)}${rushYdsOverride ? `<span class="career-override-note" title="Published career total. Used because complete game records are unavailable for portions of the 1963 and 1964 seasons.">†</span>` : ""}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.rushTD)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.rec)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.recYds)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.recTD)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFlsTouches)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFlsYards)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFlsTD)}
+                </td>
+            `;
+        }
+
+
+        careerTr.innerHTML =
+            careerHtml;
+
+
+        tbody.appendChild(careerTr);
+
+
+        setupSorting(
+            "rushingReceivingTable",
+            "thead tr:last-child th",
+            true,
+            true
+        );
+    }
+
+
+    /* ========================================================
+       KICKING
+       ======================================================== */
+
+    const gameKicking = {};
+    const flsKicking = {};
+
+
+    playerStats.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+        const stat =
+            normalize(r.stat_name);
+
+
+        if (!season) {
+            return;
+        }
+
+
+        if (!gameKicking[season]) {
+
+            gameKicking[season] = {
+                xpm: 0,
+                xpa: 0,
+                fgm: 0,
+                long: null
+            };
+        }
+
+
+        if (stat === "field goal distances") {
+
+            const raw =
+                String(r.stat_value || "");
+
+
+            const distances =
+                raw
+                    .split(/[,\s;]+/)
+                    .map(x => Number(x))
+                    .filter(
+                        x => Number.isFinite(x)
+                    );
+
+
+            distances.forEach(distance => {
+
+                if (
+                    gameKicking[season].long === null ||
+                    distance >
+                    gameKicking[season].long
+                ) {
+
+                    gameKicking[season].long =
+                        distance;
+                }
+            });
+
+
+            return;
+        }
+
+
+        const value =
+            Number(r.stat_value || 0);
+
+
+        if (
+            stat ===
+            "extra points made"
+        ) {
+
+            gameKicking[season].xpm +=
+                value;
+        }
+
+        else if (
+            stat ===
+            "extra points attempted"
+        ) {
+
+            gameKicking[season].xpa +=
+                value;
+        }
+
+        else if (
+            stat ===
+            "field goals made"
+        ) {
+
+            gameKicking[season].fgm +=
+                value;
+        }
+    });
+
+
+    playerFls.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+
+        if (!season) {
+            return;
+        }
+
+
+        if (
+            !isFlsStat(
+                r,
+                "Kicking",
+                [
+                    "Extra Points Made",
+                    "Extra Points Attempted",
+                    "Field Goals Made",
+                    "Longest Field Goal"
+                ]
+            )
+        ) {
+            return;
+        }
+
+
+        if (!flsKicking[season]) {
+
+            flsKicking[season] = {
+                xpm: null,
+                xpa: null,
+                fgm: null,
+                long: null,
+                hasData: false
+            };
+        }
+
+
+        const value =
+            parseOptionalNumber(
+                r.stat_value
+            );
+
+
+        if (value === null) {
+            return;
+        }
+
+
+        flsKicking[season].hasData =
+            true;
+
+
+        const stat =
+            getFlsStatName(r);
+
+
+        if (
+            stat ===
+            "extra points made"
+        ) {
+
+            addValue(
+                flsKicking[season],
+                "xpm",
+                value
+            );
+        }
+
+        else if (
+            stat ===
+            "extra points attempted"
+        ) {
+
+            addValue(
+                flsKicking[season],
+                "xpa",
+                value
+            );
+        }
+
+        else if (
+            stat ===
+            "field goals made"
+        ) {
+
+            addValue(
+                flsKicking[season],
+                "fgm",
+                value
+            );
+        }
+
+        else if (
+            stat ===
+            "longest field goal"
+        ) {
+
+            if (
+                flsKicking[season].long === null ||
+                value >
+                flsKicking[season].long
+            ) {
+
+                flsKicking[season].long =
+                    value;
+            }
+        }
+    });
+
+
+    const kickingGameSeasons =
+        Object.keys(gameKicking)
+            .filter(season => {
+
+                const x =
+                    gameKicking[season];
+
+                return (
+                    x.xpm !== 0 ||
+                    x.xpa !== 0 ||
+                    x.fgm !== 0 ||
+                    x.long !== null
+                );
+            });
+
+
+    const kickingFlsSeasons =
+        Object.keys(flsKicking)
+            .filter(
+                season =>
+                    flsKicking[season].hasData
+            );
+
+
+    const kickingHasGame =
+        kickingGameSeasons.length > 0;
+
+    const kickingHasFls =
+        kickingFlsSeasons.length > 0;
+
+
+    const kickingSeasons =
+        [
+            ...new Set([
+                ...kickingGameSeasons,
+                ...kickingFlsSeasons
+            ])
+        ]
+        .sort(
+            (a, b) =>
+                Number(a) - Number(b)
+        );
+
+
+    if (
+        kickingHasGame ||
+        kickingHasFls
+    ) {
+
+        setSectionVisibility(
+            "kickingSection",
+            true
+        );
+
+
+        const table =
+            document.getElementById(
+                "kickingTable"
+            );
+
+
+        const thead =
+            table.querySelector("thead");
+
+        const tbody =
+            table.querySelector("tbody");
+
+
+        let header = `
+            <tr>
+                <th rowspan="2" class="sortable">
+                    Season
+                </th>
+        `;
+
+
+        if (kickingHasGame) {
+
+            header +=
+                gameSourceHeader(5);
+        }
+
+
+        if (kickingHasFls) {
+
+            header +=
+                flsSourceHeader(5);
+        }
+
+
+        header += `
+            </tr>
+            <tr>
+        `;
+
+
+        if (kickingHasGame) {
+
+            header += `
+                <th class="sortable">XPM</th>
+                <th class="sortable">XPA</th>
+                <th class="sortable">XP%</th>
+                <th class="sortable">FGM</th>
+                <th class="sortable">Long</th>
+            `;
+        }
+
+
+        if (kickingHasFls) {
+
+            header += `
+                <th
+                    class="sortable fls-header fls-start"
+                >
+                    XPM
+                </th>
+
+                <th class="sortable fls-header">
+                    XPA
+                </th>
+
+                <th class="sortable fls-header">
+                    XP%
+                </th>
+
+                <th class="sortable fls-header">
+                    FGM
+                </th>
+
+                <th class="sortable fls-header">
+                    Long
+                </th>
+            `;
+        }
+
+
+        header += `
+            </tr>
+        `;
+
+
+        thead.innerHTML =
+            header;
+
+
+        kickingSeasons.forEach(
+            season => {
+
+                const g =
+                    gameKicking[season];
+
+                const f =
+                    flsKicking[season];
+
+
+                const tr =
+                    document.createElement("tr");
+
+
+                tr.dataset.season =
+                    season;
+
+
+                let html = `
+                    <td class="left">
+                        <a href="season.html?season=${encodeURIComponent(season)}">
+                            ${season}
+                        </a>
+                    </td>
+                `;
+
+
+                if (kickingHasGame) {
+
+                    const xp =
+                        g && g.xpa
+                            ? (
+                                g.xpm /
+                                g.xpa *
+                                100
+                            ).toFixed(1)
+                            : g
+                                ? "0.0"
+                                : "";
+
+
+                    html += `
+                        <td>
+                            ${g ? formatNumber(g.xpm) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.xpa) : ""}
+                        </td>
+
+                        <td>
+                            ${xp}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.fgm) : ""}
+                        </td>
+
+                        <td>
+                            ${g ? formatNumber(g.long) : ""}
+                        </td>
+                    `;
+                }
+
+
+                if (kickingHasFls) {
+
+                    const xp =
+                        f &&
+                        f.xpa !== null &&
+                        f.xpa !== 0 &&
+                        f.xpm !== null
+                            ? (
+                                f.xpm /
+                                f.xpa *
+                                100
+                            ).toFixed(1)
+                            : "";
+
+
+                    html += `
+                        <td class="fls-cell fls-start">
+                            ${f ? formatNumber(f.xpm) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.xpa) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${xp}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.fgm) : ""}
+                        </td>
+
+                        <td class="fls-cell">
+                            ${f ? formatNumber(f.long) : ""}
+                        </td>
+                    `;
+                }
+
+
+                tr.innerHTML =
+                    html;
+
+                tbody.appendChild(tr);
+            }
+        );
+
+
+        /* Career */
+
+        const careerGame = {
+
+            xpm: sumNullable(
+                kickingGameSeasons.map(
+                    s =>
+                        gameKicking[s].xpm
+                )
+            ),
+
+            xpa: sumNullable(
+                kickingGameSeasons.map(
+                    s =>
+                        gameKicking[s].xpa
+                )
+            ),
+
+            fgm: sumNullable(
+                kickingGameSeasons.map(
+                    s =>
+                        gameKicking[s].fgm
+                )
+            ),
+
+            long: maxNullable(
+                kickingGameSeasons.map(
+                    s =>
+                        gameKicking[s].long
+                )
+            )
+        };
+
+
+        const careerFls = {
+
+            xpm: sumNullable(
+                kickingFlsSeasons.map(
+                    s =>
+                        flsKicking[s].xpm
+                )
+            ),
+
+            xpa: sumNullable(
+                kickingFlsSeasons.map(
+                    s =>
+                        flsKicking[s].xpa
+                )
+            ),
+
+            fgm: sumNullable(
+                kickingFlsSeasons.map(
+                    s =>
+                        flsKicking[s].fgm
+                )
+            ),
+
+            long: maxNullable(
+                kickingFlsSeasons.map(
+                    s =>
+                        flsKicking[s].long
+                )
+            )
+        };
+
+
+        const careerTr =
+            document.createElement("tr");
+
+
+        careerTr.className =
+            "career-row";
+
+
+        careerTr.dataset.season =
+            Math.max(
+                ...kickingSeasons.map(Number)
+            );
+
+
+        let careerHtml = `
+            <td class="left">
+                Career
+            </td>
+        `;
+
+
+        if (kickingHasGame) {
+
+            const xp =
+                careerGame.xpa !== null &&
+                careerGame.xpa !== 0 &&
+                careerGame.xpm !== null
+                    ? (
+                        careerGame.xpm /
+                        careerGame.xpa *
+                        100
+                    ).toFixed(1)
+                    : "";
+
+
+            careerHtml += `
+                <td>
+                    ${formatNumber(careerGame.xpm)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.xpa)}
+                </td>
+
+                <td>
+                    ${xp}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.fgm)}
+                </td>
+
+                <td>
+                    ${formatNumber(careerGame.long)}
+                </td>
+            `;
+        }
+
+
+        if (kickingHasFls) {
+
+            const xp =
+                careerFls.xpa !== null &&
+                careerFls.xpa !== 0 &&
+                careerFls.xpm !== null
+                    ? (
+                        careerFls.xpm /
+                        careerFls.xpa *
+                        100
+                    ).toFixed(1)
+                    : "";
+
+
+            careerHtml += `
+                <td class="fls-cell fls-start">
+                    ${formatNumber(careerFls.xpm)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.xpa)}
+                </td>
+
+                <td class="fls-cell">
+                    ${xp}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.fgm)}
+                </td>
+
+                <td class="fls-cell">
+                    ${formatNumber(careerFls.long)}
+                </td>
+            `;
+        }
+
+
+        careerTr.innerHTML =
+            careerHtml;
+
+
+        tbody.appendChild(careerTr);
+
+
+        setupSorting(
+            "kickingTable",
+            "thead tr:last-child th",
+            true,
+            true
+        );
+    }
+
+
+    /* ========================================================
+       OTHER SCORING STATS
+       ======================================================== */
+
+    const otherScoring = {};
+
+
+    const scoringTypes = {
+
+        one_pt_rush: "onePt",
+        one_pt_pass: "onePt",
+
+        two_pt_rush: "twoPt",
+        two_pt_pass: "twoPt",
+
+        punt_return_td: "puntReturn",
+        kick_return_td: "kickReturn",
+        interception_return_td: "interceptionReturn",
+        fumble_return_td: "fumbleReturn",
+        blocked_punt_return_td: "blockedPunt",
+        blocked_field_goal_return_td: "blockedFG"
+    };
+
+
+    playerEvents.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+        const type =
+            normalize(r.event_type);
+
+
+        if (
+            !season ||
+            !scoringTypes[type]
+        ) {
+            return;
+        }
+
+
+        if (!otherScoring[season]) {
+
+            otherScoring[season] = {
+                onePt: 0,
+                twoPt: 0,
+                puntReturn: 0,
+                kickReturn: 0,
+                interceptionReturn: 0,
+                fumbleReturn: 0,
+                blockedPunt: 0,
+                blockedFG: 0
+            };
+        }
+
+
+        otherScoring[season][
+            scoringTypes[type]
+        ]++;
+    });
+
+
+    const otherSeasons =
+        Object.keys(otherScoring)
+            .sort(
+                (a, b) =>
+                    Number(a) - Number(b)
+            );
+
+
+    if (otherSeasons.length > 0) {
+
+        setSectionVisibility(
+            "otherScoringSection",
+            true
+        );
+
+
+        const tbody =
+            document.querySelector(
+                "#otherScoringTable tbody"
+            );
+
+
+        otherSeasons.forEach(
+            season => {
+
+                const x =
+                    otherScoring[season];
+
+
+                const tr =
+                    document.createElement("tr");
+
+
+                tr.dataset.season =
+                    season;
+
+
+                tr.innerHTML = `
+                    <td class="left">
+                        <a href="season.html?season=${encodeURIComponent(season)}">
+                            ${season}
+                        </a>
+                    </td>
+
+                    <td>${x.onePt}</td>
+                    <td>${x.twoPt}</td>
+                    <td>${x.puntReturn}</td>
+                    <td>${x.kickReturn}</td>
+                    <td>${x.interceptionReturn}</td>
+                    <td>${x.fumbleReturn}</td>
+                    <td>${x.blockedPunt}</td>
+                    <td>${x.blockedFG}</td>
+                `;
+
+
+                tbody.appendChild(tr);
+            }
+        );
+
+
+        const career = {
+
+            onePt: 0,
+            twoPt: 0,
+            puntReturn: 0,
+            kickReturn: 0,
+            interceptionReturn: 0,
+            fumbleReturn: 0,
+            blockedPunt: 0,
+            blockedFG: 0
+        };
+
+
+        otherSeasons.forEach(
+            season => {
+
+                const x =
+                    otherScoring[season];
+
+
+                Object.keys(career)
+                    .forEach(key => {
+
+                        career[key] +=
+                            x[key];
+                    });
+            }
+        );
+
+
+        const careerTr =
+            document.createElement("tr");
+
+
+        careerTr.className =
+            "career-row";
+
+
+        careerTr.dataset.season =
+            Math.max(
+                ...otherSeasons.map(Number)
+            );
+
+
+        careerTr.innerHTML = `
+            <td class="left">
+                Career
+            </td>
+
+            <td>${career.onePt}</td>
+            <td>${career.twoPt}</td>
+            <td>${career.puntReturn}</td>
+            <td>${career.kickReturn}</td>
+            <td>${career.interceptionReturn}</td>
+            <td>${career.fumbleReturn}</td>
+            <td>${career.blockedPunt}</td>
+            <td>${career.blockedFG}</td>
+        `;
+
+
+        tbody.appendChild(careerTr);
+
+
+        setupSorting(
+            "otherScoringTable",
+            "thead th"
+        );
+    }
+
+
+    /* ========================================================
+       POINTS SCORED
+       ======================================================== */
+
+    const points = {};
+
+
+    function addPoints(
+        season,
+        amount
+    ) {
+
+        if (!points[season]) {
+            points[season] = 0;
+        }
+
+        points[season] += amount;
+    }
+
+
+    playerStats.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+        const stat =
+            normalize(r.stat_name);
+
+
+        if (!season) {
+            return;
+        }
+
+
+        const value =
+            Number(r.stat_value || 0);
+
+
+        if (
+            stat === "rushtd" ||
+            stat === "rectd"
+        ) {
+
+            addPoints(
+                season,
+                value * 6
+            );
+        }
+
+        else if (
+            stat ===
+            "extra points made"
+        ) {
+
+            addPoints(
+                season,
+                value
+            );
+        }
+
+        else if (
+            stat ===
+            "field goals made"
+        ) {
+
+            addPoints(
+                season,
+                value * 3
+            );
+        }
+    });
+
+
+    playerEvents.forEach(r => {
+
+        const season =
+            String(r.season || "").trim();
+
+        const type =
+            normalize(r.event_type);
+
+
+        if (!season) {
+            return;
+        }
+
+
+        if (
+            type === "one_pt_rush" ||
+            type === "one_pt_pass"
+        ) {
+
+            const year =
+                Number(season);
+
+
+            addPoints(
+                season,
+                year <= 1968
+                    ? 1
+                    : 2
+            );
+        }
+
+
+        else if (
+            type === "two_pt_rush" ||
+            type === "two_pt_pass"
+        ) {
+
+            addPoints(
+                season,
+                2
+            );
+        }
+
+
+        else if (
+            type === "punt_return_td" ||
+            type === "kick_return_td" ||
+            type === "interception_return_td" ||
+            type === "fumble_return_td" ||
+            type === "blocked_punt_return_td" ||
+            type === "blocked_field_goal_return_td"
+        ) {
+
+            addPoints(
+                season,
+                6
+            );
+        }
+    });
+
+
+    const pointSeasons =
+        Object.keys(points)
+            .sort(
+                (a, b) =>
+                    Number(a) - Number(b)
+            );
+
+
+    if (pointSeasons.length > 0) {
+
+        setSectionVisibility(
+            "pointsSection",
+            true
+        );
+
+
+        const tbody =
+            document.querySelector(
+                "#pointsTable tbody"
+            );
+
+
+        pointSeasons.forEach(
+            season => {
+
+                const tr =
+                    document.createElement("tr");
+
+
+                tr.dataset.season =
+                    season;
+
+
+                tr.innerHTML = `
+                    <td class="left">
+                        <a href="season.html?season=${encodeURIComponent(season)}">
+                            ${season}
+                        </a>
+                    </td>
+
+                    <td>
+                        ${points[season].toLocaleString()}
+                    </td>
+                `;
+
+
+                tbody.appendChild(tr);
+            }
+        );
+
+
+        const careerPoints =
+            pointSeasons.reduce(
+                (sum, season) =>
+                    sum + points[season],
+                0
+            );
+
+
+        const careerTr =
+            document.createElement("tr");
+
+
+        careerTr.className =
+            "career-row";
+
+
+        careerTr.dataset.season =
+            Math.max(
+                ...pointSeasons.map(Number)
+            );
+
+
+        careerTr.innerHTML = `
+            <td class="left">
+                Career
+            </td>
+
+            <td>
+                ${careerPoints.toLocaleString()}
+            </td>
+        `;
+
+
+        tbody.appendChild(careerTr);
+
+
+        setupSorting(
+            "pointsTable",
+            "thead th"
+        );
+    }
+
+})
+.catch(error => {
+
+    console.error(
+        "Error loading player page data:",
+        error
+    );
+
+
+    document
+        .getElementById("notFound")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("notFound")
+        .textContent =
+            "Error loading player data. See the browser console for details.";
+});
+
+</script>
+
+</body>
+</html>

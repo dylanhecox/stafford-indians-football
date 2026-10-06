@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Games</title>
+    
+</head>
+<body>
+
+<h1>Games</h1>
+
+<table border="1" id="gamesTable">
+    <tr>
+        <th>Date</th>
+        <th>Opponent</th>
+        <th>Home/Away</th>
+    </tr>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script>
+Papa.parse("Master_GameInfo.csv", {
+    download: true,
+    header: true,
+    complete: function(results) {
+        const data = results.data;
+        const table = document.getElementById("gamesTable");
+
+        data.forEach(row => {
+            // Skip empty rows
+            if (!row.game_id) return;
+
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+                <td>${row.date}</td>
+                <td><a href="game.html?game_id=${row.game_id}">${row.opponent}</a></td>
+                <td>${row.home_away}</td>
+            `;
+
+            table.appendChild(tr);
+        });
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seasons</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        th {
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+th:hover {
+    background-color: #ddd;
+}
+    </style>
+    <script src="nav.js"></script>
+</head>
+<body>
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1>Stafford Football Seasons</h1>
+
+<table id="seasonsTable">
+<tr>
+    <th onclick="sortTable(0)">Season</th>
+    <th onclick="sortTable(1)">District</th>
+    <th onclick="sortTable(2)">Team</th>
+    <th onclick="sortTable(3)">W</th>
+    <th onclick="sortTable(4)">L</th>
+    <th onclick="sortTable(5)">T</th>
+    <th onclick="sortTable(6)">District Finish</th>
+    <th onclick="sortTable(7)">Playoffs</th>
+    <th onclick="sortTable(8)">Points For</th>
+    <th onclick="sortTable(9)">Points Against</th>
+    <th onclick="sortTable(10)">Point Diff</th>
+    <th onclick="sortTable(11)">Coach</th>
+</tr>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script>
+
+Papa.parse("Master_Seasons.csv", {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    transformHeader: h => h.trim().toLowerCase(),
+    complete: function(results) {
+
+        let data = results.data;
+
+        // Sort newest → oldest
+        data.sort((a, b) => Number(b.season) - Number(a.season));
+
+        const table = document.getElementById("seasonsTable");
+
+        data.forEach(row => {
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+                <td>
+                    <a href="season.html?season=${row.season}">
+    ${row.season}
+</a>
+                </td>
+                <td>${row.district}</td>
+                <td>${row.team}</td>
+                <td>${row.w}</td>
+                <td>${row.l}</td>
+                <td>${row.t}</td>
+                <td>${row.district_finish}</td>
+                <td>${row.playoffs}</td>
+                <td>${row.points_for}</td>
+                <td>${row.points_against}</td>
+                <td>${row.point_diff}</td>
+                <td>
+    <a href="coach.html?coach=${(row.coach_id || "").trim().toLowerCase()}">
+        ${row.coach}
+    </a>
+</td>
+            `;
+
+            table.appendChild(tr);
+        });
+    }
+});
+let sortDirection = {};
+
+function sortTable(colIndex) {
+    const table = document.getElementById("seasonsTable");
+    const rows = Array.from(table.rows).slice(1); // skip header
+
+    // Toggle direction
+    sortDirection[colIndex] = !sortDirection[colIndex];
+
+    rows.sort((a, b) => {
+        let valA = a.cells[colIndex].innerText.trim();
+let valB = b.cells[colIndex].innerText.trim();
+
+// SPECIAL CASE: District Finish column
+if (colIndex === 6) {
+    valA = valA.replace(/^T-/, "");
+    valB = valB.replace(/^T-/, "");
+}
+
+        // Try numeric comparison first
+        let numA = parseFloat(valA);
+        let numB = parseFloat(valB);
+
+        if (!isNaN(numA) && !isNaN(numB)) {
+            return sortDirection[colIndex] ? numA - numB : numB - numA;
+        }
+
+        // Otherwise text comparison
+        return sortDirection[colIndex]
+            ? valA.localeCompare(valB)
+            : valB.localeCompare(valA);
+    });
+
+    // Re-append sorted rows
+    rows.forEach(row => table.appendChild(row));
+}
+function getParam(name) {
+    return new URLSearchParams(window.location.search).get(name);
+}
+renderBreadcrumb([
+    { label: "Stafford Indians", link: "index.html" },
+    { label: "Seasons" }
+]);
+</script>
+
+</body>
+</html>

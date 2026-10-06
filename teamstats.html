@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Stats</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            margin-top: 25px;
+            margin-bottom: 5px;
+        }
+
+        table {
+    border-collapse: collapse;
+    width: max-content;
+    table-layout: auto;
+}
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        td {
+            white-space: nowrap;
+        }
+
+        /* DATE + OPPONENT */
+        td.left {
+            text-align: left;
+        }
+
+        /* STAT COLUMNS */
+        td.right {
+            text-align: right;
+        }
+
+        /* KEEP STAT COLS TIGHT */
+        th.stat {
+            width: 1%;
+        }
+
+        .toggle-wrap {
+            margin-top: 8px;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="nav.js"></script>
+</head>
+
+<body>
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1>Team Stats</h1>
+
+<h2>Team Stats - Game</h2>
+
+<table id="gameTable">
+    <thead>
+        <tr>
+            <th onclick="sortTable('date')">Date</th>
+
+            <th onclick="sortTable('opponent')">
+                Opponent
+            </th>
+
+            <th class="stat" onclick="sortTable('points_for')">
+                Points<br>For
+            </th>
+
+            <th class="stat" onclick="sortTable('points_against')">
+                Points<br>Against
+            </th>
+
+            <th class="stat" onclick="sortTable('point_diff')">
+                Point<br>Diff
+            </th>
+
+            <th class="stat" onclick="sortTable('passing_yards')">
+                Passing<br>Yards
+            </th>
+
+            <th class="stat" onclick="sortTable('rushing_yards')">
+                Rushing<br>Yards
+            </th>
+
+            <th class="stat" onclick="sortTable('total_yards')">
+                Total<br>Yards
+            </th>
+
+            <th class="stat" onclick="sortTable('passing_yards_allowed')">
+                Passing Yards<br>Allowed
+            </th>
+
+            <th class="stat" onclick="sortTable('rushing_yards_allowed')">
+                Rushing Yards<br>Allowed
+            </th>
+
+            <th class="stat" onclick="sortTable('total_yards_allowed')">
+                Total Yards<br>Allowed
+            </th>
+        </tr>
+    </thead>
+
+    <tbody id="gameBody"></tbody>
+</table>
+
+<div class="toggle-wrap">
+    <button id="toggleBtn" onclick="toggleRows()">Show All</button>
+</div>
+
+<h2>Team Stats - Season</h2>
+
+<table id="seasonTable">
+    <thead>
+        <tr>
+
+            <th onclick="sortSeasonTable('season')">
+                Season
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('points_for')">
+                Points<br>For
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('points_against')">
+                Points<br>Against
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('point_diff')">
+                Point<br>Diff
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('passing_yards')">
+                Passing<br>Yards
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('rushing_yards')">
+                Rushing<br>Yards
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('total_yards')">
+                Total<br>Yards
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('passing_yards_allowed')">
+                Passing Yards<br>Allowed
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('rushing_yards_allowed')">
+                Rushing Yards<br>Allowed
+            </th>
+
+            <th class="stat" onclick="sortSeasonTable('total_yards_allowed')">
+                Total Yards<br>Allowed
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody id="seasonBody"></tbody>
+</table>
+
+<div class="toggle-wrap">
+    <button id="seasonToggleBtn" onclick="toggleSeasonRows()">
+        Show All
+    </button>
+</div>
+
+<h2>Team Stats - All-Time</h2>
+
+<table id="allTimeTable">
+    <thead>
+        <tr>
+
+            <th>
+                Seasons
+            </th>
+
+            <th class="stat">
+                Points<br>For
+            </th>
+
+            <th class="stat">
+                Points<br>Against
+            </th>
+
+            <th class="stat">
+                Point<br>Diff
+            </th>
+
+            <th class="stat">
+                Passing<br>Yards
+            </th>
+
+            <th class="stat">
+                Rushing<br>Yards
+            </th>
+
+            <th class="stat">
+                Total<br>Yards
+            </th>
+
+            <th class="stat">
+                Passing Yards<br>Allowed
+            </th>
+
+            <th class="stat">
+                Rushing Yards<br>Allowed
+            </th>
+
+            <th class="stat">
+                Total Yards<br>Allowed
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody id="allTimeBody"></tbody>
+</table>
+
+<script>
+
+let allRows = [];
+
+let seasonRows = [];
+
+let currentSeasonSort = {
+    column: "season",
+    desc: true
+};
+
+let showAll = false;
+let showAllSeasons = false;
+
+let currentSort = {
+    column: "date",
+    desc: true
+};
+
+Promise.all([
+    fetch("Master_TeamStats.csv").then(r => r.text())
+])
+
+.then(([statsCSV]) => {
+
+    const stats = Papa.parse(statsCSV, {
+        header: true,
+        skipEmptyLines: true,
+        transformHeader: h => h.trim().toLowerCase()
+    }).data;
+
+    allRows = stats
+        .filter(r => r.team === "Stafford")
+        .map(r => ({
+            ...r,
+            point_diff:
+                Number(r.points_for || 0) -
+                Number(r.points_against || 0)
+        }));
+
+    sortAndRender();
+buildSeasonRows();
+buildAllTimeRow();
+});
+
+function sortAndRender() {
+
+    allRows.sort((a, b) => {
+
+        let valA = a[currentSort.column];
+        let valB = b[currentSort.column];
+
+        if (currentSort.column === "date") {
+            valA = new Date(valA);
+            valB = new Date(valB);
+        }
+
+        else if (
+            currentSort.column !== "opponent"
+        ) {
+            valA = Number(valA || 0);
+            valB = Number(valB || 0);
+        }
+
+        else {
+            valA = String(valA || "").toLowerCase();
+            valB = String(valB || "").toLowerCase();
+        }
+
+        if (valA < valB) {
+            return currentSort.desc ? 1 : -1;
+        }
+
+        if (valA > valB) {
+            return currentSort.desc ? -1 : 1;
+        }
+
+        return 0;
+    });
+
+    renderTable();
+}
+
+function renderTable() {
+
+    const tbody = document.getElementById("gameBody");
+    tbody.innerHTML = "";
+
+    const rowsToShow = showAll
+        ? allRows
+        : allRows.slice(0, 10);
+
+    rowsToShow.forEach(r => {
+
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+            <td class="left">
+                <a href="game.html?game_id=${r.game_id}">
+                    ${r.date}
+                </a>
+            </td>
+
+            <td class="left">${r.opponent}</td>
+
+            <td class="right">${r.points_for}</td>
+            <td class="right">${r.points_against}</td>
+            <td class="right">${r.point_diff}</td>
+
+            <td class="right">${r.passing_yards}</td>
+            <td class="right">${r.rushing_yards}</td>
+            <td class="right">${r.total_yards}</td>
+
+            <td class="right">${r.passing_yards_allowed}</td>
+            <td class="right">${r.rushing_yards_allowed}</td>
+            <td class="right">${r.total_yards_allowed}</td>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+
+function toggleRows() {
+
+    showAll = !showAll;
+
+    document.getElementById("toggleBtn").innerText =
+        showAll ? "Show 10" : "Show All";
+
+    renderTable();
+}
+
+function sortTable(column) {
+
+    if (currentSort.column === column) {
+        currentSort.desc = !currentSort.desc;
+    }
+
+    else {
+        currentSort.column = column;
+        currentSort.desc = true;
+    }
+
+    sortAndRender();
+}
+
+function buildSeasonRows() {
+
+    const seasons = {};
+
+    allRows.forEach(r => {
+
+        const season = r.season;
+
+        if (!seasons[season]) {
+
+            seasons[season] = {
+                season: season,
+
+                points_for: 0,
+                points_against: 0,
+                point_diff: 0,
+
+                passing_yards: 0,
+                rushing_yards: 0,
+                total_yards: 0,
+
+                passing_yards_allowed: 0,
+                rushing_yards_allowed: 0,
+                total_yards_allowed: 0
+            };
+        }
+
+        seasons[season].points_for += Number(r.points_for || 0);
+        seasons[season].points_against += Number(r.points_against || 0);
+
+        seasons[season].passing_yards += Number(r.passing_yards || 0);
+        seasons[season].rushing_yards += Number(r.rushing_yards || 0);
+        seasons[season].total_yards += Number(r.total_yards || 0);
+
+        seasons[season].passing_yards_allowed += Number(r.passing_yards_allowed || 0);
+        seasons[season].rushing_yards_allowed += Number(r.rushing_yards_allowed || 0);
+        seasons[season].total_yards_allowed += Number(r.total_yards_allowed || 0);
+    });
+
+    seasonRows = Object.values(seasons);
+
+    seasonRows.forEach(r => {
+
+        r.point_diff =
+            r.points_for -
+            r.points_against;
+    });
+
+    sortSeasonAndRender();
+}
+
+function sortSeasonAndRender() {
+
+    seasonRows.sort((a, b) => {
+
+        let valA = a[currentSeasonSort.column];
+        let valB = b[currentSeasonSort.column];
+
+        if (currentSeasonSort.column === "season") {
+
+            valA = Number(valA);
+            valB = Number(valB);
+        }
+
+        else {
+
+            valA = Number(valA || 0);
+            valB = Number(valB || 0);
+        }
+
+        if (valA < valB) {
+            return currentSeasonSort.desc ? 1 : -1;
+        }
+
+        if (valA > valB) {
+            return currentSeasonSort.desc ? -1 : 1;
+        }
+
+        return 0;
+    });
+
+    renderSeasonTable();
+}
+
+function toggleSeasonRows() {
+
+    showAllSeasons = !showAllSeasons;
+
+    document.getElementById("seasonToggleBtn").innerText =
+        showAllSeasons ? "Show 10" : "Show All";
+
+    renderSeasonTable();
+}
+
+function renderSeasonTable() {
+
+    const tbody = document.getElementById("seasonBody");
+    tbody.innerHTML = "";
+
+    const rowsToShow = showAllSeasons
+    ? seasonRows
+    : seasonRows.slice(0, 10);
+
+rowsToShow.forEach(r => {
+
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+
+            <td class="left">
+                <a href="season.html?season=${r.season}">
+                    ${r.season}
+                </a>
+            </td>
+
+            <td class="right">${r.points_for}</td>
+            <td class="right">${r.points_against}</td>
+            <td class="right">${r.point_diff}</td>
+
+            <td class="right">${Number(r.passing_yards).toLocaleString()}</td>
+<td class="right">${Number(r.rushing_yards).toLocaleString()}</td>
+<td class="right">${Number(r.total_yards).toLocaleString()}</td>
+
+            <td class="right">${Number(r.passing_yards_allowed).toLocaleString()}</td>
+<td class="right">${Number(r.rushing_yards_allowed).toLocaleString()}</td>
+<td class="right">${Number(r.total_yards_allowed).toLocaleString()}</td>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+
+function sortSeasonTable(column) {
+
+    if (currentSeasonSort.column === column) {
+
+        currentSeasonSort.desc =
+            !currentSeasonSort.desc;
+    }
+
+    else {
+
+        currentSeasonSort.column = column;
+        currentSeasonSort.desc = true;
+    }
+
+    sortSeasonAndRender();
+}
+
+function buildAllTimeRow() {
+
+    const totals = {
+
+        points_for: 0,
+        points_against: 0,
+        point_diff: 0,
+
+        passing_yards: 0,
+        rushing_yards: 0,
+        total_yards: 0,
+
+        passing_yards_allowed: 0,
+        rushing_yards_allowed: 0,
+        total_yards_allowed: 0
+    };
+
+    allRows.forEach(r => {
+
+        totals.points_for += Number(r.points_for || 0);
+        totals.points_against += Number(r.points_against || 0);
+
+        totals.passing_yards += Number(r.passing_yards || 0);
+        totals.rushing_yards += Number(r.rushing_yards || 0);
+        totals.total_yards += Number(r.total_yards || 0);
+
+        totals.passing_yards_allowed += Number(r.passing_yards_allowed || 0);
+        totals.rushing_yards_allowed += Number(r.rushing_yards_allowed || 0);
+        totals.total_yards_allowed += Number(r.total_yards_allowed || 0);
+    });
+
+    totals.point_diff =
+        totals.points_for -
+        totals.points_against;
+
+    const tbody = document.getElementById("allTimeBody");
+
+    tbody.innerHTML = `
+
+        <tr>
+
+            <td class="left">
+                1952-present
+            </td>
+
+            <td class="right">${totals.points_for.toLocaleString()}</td>
+
+            <td class="right">${totals.points_against.toLocaleString()}</td>
+
+            <td class="right">${totals.point_diff.toLocaleString()}</td>
+
+            <td class="right">${totals.passing_yards.toLocaleString()}</td>
+
+            <td class="right">${totals.rushing_yards.toLocaleString()}</td>
+
+            <td class="right">${totals.total_yards.toLocaleString()}</td>
+
+            <td class="right">${totals.passing_yards_allowed.toLocaleString()}</td>
+
+            <td class="right">${totals.rushing_yards_allowed.toLocaleString()}</td>
+
+            <td class="right">${totals.total_yards_allowed.toLocaleString()}</td>
+
+        </tr>
+    `;
+}
+
+renderBreadcrumb([
+    { label: "Stafford Indians", link: "index.html" },
+    { label: "Team Stats" }
+]);
+</script>
+
+</body>
+</html>

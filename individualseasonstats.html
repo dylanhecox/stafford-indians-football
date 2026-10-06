@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Individual Stats - Season</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .nav-links {
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: blue;
+            margin: 0 5px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: auto;
+            display: inline-table;
+            margin-bottom: 25px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td {
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        th.sortable {
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s ease;
+        }
+
+        th.sortable:hover {
+            background-color: #dcdcdc;
+        }
+
+        .expand-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 6px 12px;
+            cursor: pointer;
+            border: 1px solid #999;
+            background-color: #f2f2f2;
+        }
+
+        .expand-button:hover {
+            background-color: #ddd;
+        }
+
+        .extra-row {
+            display: none;
+        }
+
+        /* ================= SOURCE STYLING ================= */
+
+        .fls-header {
+            background-color: #e8e8e8;
+        }
+
+        .fls-cell {
+            background-color: #fafafa;
+        }
+
+        .fls-start {
+            border-left: 3px solid #888 !important;
+        }
+
+        .source-note {
+            cursor: help;
+            font-size: 0.7em;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 1px;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="nav.js"></script>
+</head>
+
+<body>
+
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1>Individual Stats - Season</h1>
+
+<div class="nav-links">
+    <a href="#passing">Passing</a> -
+    <a href="#rr">Rushing & Receiving</a> -
+    <a href="#kicking">Kicking</a> -
+    <a href="#otherscoring">Other Scoring</a> -
+    <a href="#points">Points Scored</a>
+</div>
+
+
+<!-- ========================================================= -->
+<!-- PASSING -->
+<!-- ========================================================= -->
+
+<h2 id="passing">Passing</h2>
+
+<table id="passingTable">
+    <thead>
+        <tr>
+            <th class="left" rowspan="2">Player</th>
+            <th rowspan="2">Season</th>
+
+            <th colspan="6">
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+            </th>
+
+            <th class="fls-header fls-start" colspan="6">
+                Free Lance-Star Statistics<span
+                    class="source-note"
+                    title="Free Lance-Star statistics are season totals published by The Free Lance-Star."
+                >2</span>
+            </th>
+        </tr>
+
+        <tr>
+            <th>Cmp</th>
+            <th>Att</th>
+            <th>Cmp%</th>
+            <th>Yds</th>
+            <th>TD</th>
+            <th>Int</th>
+
+            <th class="fls-header fls-start">Cmp</th>
+            <th class="fls-header">Att</th>
+            <th class="fls-header">Cmp%</th>
+            <th class="fls-header">Yds</th>
+            <th class="fls-header">TD</th>
+            <th class="fls-header">Int</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+</table>
+
+<br>
+
+<button id="passingExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<!-- ========================================================= -->
+<!-- RUSHING & RECEIVING -->
+<!-- ========================================================= -->
+
+<h2 id="rr">Rushing & Receiving</h2>
+
+<table id="rrTable">
+    <thead>
+        <tr>
+            <th class="left" rowspan="3">Player</th>
+            <th rowspan="3">Season</th>
+
+            <th colspan="9">
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+            </th>
+
+            <th class="fls-header fls-start" colspan="9">
+                Free Lance-Star Statistics<span
+                    class="source-note"
+                    title="Free Lance-Star statistics are season totals published by The Free Lance-Star."
+                >2</span>
+            </th>
+        </tr>
+
+        <tr>
+            <th colspan="3">Rushing</th>
+            <th colspan="3">Receiving</th>
+            <th colspan="3">Total</th>
+
+            <th class="fls-header fls-start" colspan="3">Rushing</th>
+            <th class="fls-header" colspan="3">Receiving</th>
+            <th class="fls-header" colspan="3">Total</th>
+        </tr>
+
+        <tr>
+            <th>Att</th>
+            <th>Yds</th>
+            <th>TD</th>
+
+            <th>Rec</th>
+            <th>Yds</th>
+            <th>TD</th>
+
+            <th>Tou</th>
+            <th>Yds</th>
+            <th>TD</th>
+
+            <th class="fls-header fls-start">Att</th>
+            <th class="fls-header">Yds</th>
+            <th class="fls-header">TD</th>
+
+            <th class="fls-header">Rec</th>
+            <th class="fls-header">Yds</th>
+            <th class="fls-header">TD</th>
+
+            <th class="fls-header">Tou</th>
+            <th class="fls-header">Yds</th>
+            <th class="fls-header">TD</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+</table>
+
+<br>
+
+<button id="rrExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<!-- ========================================================= -->
+<!-- KICKING -->
+<!-- ========================================================= -->
+
+<h2 id="kicking">Kicking</h2>
+
+<table id="kickingTable">
+    <thead>
+        <tr>
+            <th class="left" rowspan="2">Player</th>
+            <th rowspan="2">Season</th>
+
+            <th colspan="6">
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+            </th>
+
+            <th class="fls-header fls-start" colspan="6">
+                Free Lance-Star Statistics<span
+                    class="source-note"
+                    title="Free Lance-Star statistics are season totals published by The Free Lance-Star."
+                >2</span>
+            </th>
+        </tr>
+
+        <tr>
+            <th>XPM</th>
+            <th>XPA</th>
+            <th>XP%</th>
+            <th>FGM</th>
+            <th>Long</th>
+            <th>Points Scored</th>
+
+            <th class="fls-header fls-start">XPM</th>
+            <th class="fls-header">XPA</th>
+            <th class="fls-header">XP%</th>
+            <th class="fls-header">FGM</th>
+            <th class="fls-header">Long</th>
+            <th class="fls-header">Points Scored</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+</table>
+
+<br>
+
+<button id="kickingExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<!-- ========================================================= -->
+<!-- OTHER SCORING STATS -->
+<!-- ========================================================= -->
+
+<h2 id="otherscoring">Other Scoring Stats</h2>
+
+<table id="otherScoringTable">
+    <thead>
+        <tr>
+            <th class="left">Player</th>
+            <th>Season</th>
+            <th>1PT PAT</th>
+            <th>2PT PAT</th>
+            <th>PR TD</th>
+            <th>KR TD</th>
+            <th>Int TD</th>
+            <th>FR TD</th>
+            <th>Blocked Punt TD</th>
+            <th>Blocked FG TD</th>
+            <th>Total TD</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+</table>
+
+<br>
+
+<button id="otherScoringExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<!-- ========================================================= -->
+<!-- POINTS SCORED -->
+<!-- ========================================================= -->
+
+<h2 id="points">Points Scored</h2>
+
+<table id="pointsTable">
+    <thead>
+        <tr>
+            <th class="left">Player</th>
+            <th>Season</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+</table>
+
+<br>
+
+<button id="pointsExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<script>
+
+// ============================================================
+// SORTING
+// ============================================================
+
+function sortTable(table, colIndex, asc) {
+
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+
+        // ====================================================
+        // PLAYER SORT = PLAYER ID
+        // ====================================================
+
+        if (colIndex === 0) {
+
+            const aId = a.dataset.playerid || "";
+            const bId = b.dataset.playerid || "";
+
+            return aId.localeCompare(bId) * dir;
+        }
+
+        // ====================================================
+        // SEASON SORT = NUMERICAL
+        // ====================================================
+
+        if (colIndex === 1) {
+
+            const aSeason = Number(a.dataset.season || 0);
+            const bSeason = Number(b.dataset.season || 0);
+
+            return (aSeason - bSeason) * dir;
+        }
+
+        // ====================================================
+        // NORMAL STAT SORT
+        // ====================================================
+
+        let A = a.cells[colIndex]
+            .innerText
+            .trim()
+            .replace(/,/g, "");
+
+        let B = b.cells[colIndex]
+            .innerText
+            .trim()
+            .replace(/,/g, "");
+
+        const numA = parseFloat(A);
+        const numB = parseFloat(B);
+
+        // ====================================================
+        // NUMERIC SORT
+        // ====================================================
+
+        if (!isNaN(numA) && !isNaN(numB)) {
+
+            if (numA !== numB) {
+                return (numA - numB) * dir;
+            }
+
+            // Tie = newest season first
+            const aSeason = Number(a.dataset.season || 0);
+            const bSeason = Number(b.dataset.season || 0);
+
+            return bSeason - aSeason;
+        }
+
+        // ====================================================
+        // TEXT SORT
+        // ====================================================
+
+        const textCompare = A.localeCompare(B);
+
+        if (textCompare !== 0) {
+            return textCompare * dir;
+        }
+
+        // Tie = newest season first
+        const aSeason = Number(a.dataset.season || 0);
+        const bSeason = Number(b.dataset.season || 0);
+
+        return bSeason - aSeason;
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+
+    applyTop10(table);
+}
+
+
+// ============================================================
+// TOP 10
+// ============================================================
+
+function applyTop10(table) {
+
+    const rows = table.querySelectorAll("tbody tr");
+
+    rows.forEach((row, index) => {
+
+        if (index >= 10) {
+            row.classList.add("extra-row");
+        }
+        else {
+            row.classList.remove("extra-row");
+            row.style.display = "";
+        }
+    });
+}
+
+
+// ============================================================
+// EXPAND BUTTON
+// ============================================================
+
+function setupExpandButton(buttonId, tableId) {
+
+    const button = document.getElementById(buttonId);
+    const table = document.getElementById(tableId);
+
+    let expanded = false;
+
+    button.addEventListener("click", () => {
+
+        expanded = !expanded;
+
+        const rows = table.querySelectorAll("tbody tr");
+
+        rows.forEach((row, index) => {
+
+            if (index >= 10) {
+
+                row.style.display =
+                    expanded
+                        ? "table-row"
+                        : "none";
+            }
+        });
+
+        button.innerText =
+            expanded
+                ? "Show Top 10 Only"
+                : "Show Full Table";
+    });
+}
+
+
+// ============================================================
+// LOAD DATA
+// ============================================================
+
+Promise.all([
+
+    fetch("Master_IndividualStats.csv").then(r => r.text()),
+    fetch("Master_GameEvents.csv").then(r => r.text()),
+    fetch("Master_FLSSeasonStats.csv").then(r => r.text())
+
+])
+
+.then(([individualCSV, eventsCSV, flsCSV]) => {
+
+    // ========================================================
+    // PARSE GAME INDIVIDUAL STATS
+    // ========================================================
+
+    const data = Papa.parse(individualCSV, {
+        header: true,
+        skipEmptyLines: true,
+        transformHeader: h => h.trim()
+    }).data;
+
+
+    // ========================================================
+    // PARSE GAME EVENTS
+    // ========================================================
+
+    const events = Papa.parse(eventsCSV, {
+        header: true,
+        skipEmptyLines: true,
+        transformHeader: h => h.trim()
+    }).data;
+
+
+    // ========================================================
+    // PARSE FLS SEASON STATS
+    // ========================================================
+
+    const flsData = Papa.parse(flsCSV, {
+        header: true,
+        skipEmptyLines: true,
+        transformHeader: h => h.trim()
+    }).data;
+
+
+    // ========================================================
+    // BUILD FLS PASSING
+    // ========================================================
+
+    const flsPassing = {};
+
+    flsData.forEach(row => {
+
+        const stat = String(row.stat_name || "").trim();
+
+        const passingStats = [
+            "Completions",
+            "Attempts",
+            "PassYards",
+            "PassTD",
+            "Interceptions"
+        ];
+
+        if (!passingStats.includes(stat)) return;
+
+        const player = String(row.player || "").trim();
+        const playerId = String(row.player_id || "").trim();
+        const season = String(row.season || "").trim();
+
+        if (!playerId || !season) return;
+
+        const key = `${season}_${playerId}`;
+
+        if (!flsPassing[key]) {
+
+            flsPassing[key] = {
+                player,
+                playerId,
+                season,
+                cmp: null,
+                att: null,
+                yds: null,
+                td: null,
+                int: null
+            };
+        }
+
+        const value = Number(row.stat_value);
+
+        if (stat === "Completions") {
+            flsPassing[key].cmp = value;
+        }
+        else if (stat === "Attempts") {
+            flsPassing[key].att = value;
+        }
+        else if (stat === "PassYards") {
+            flsPassing[key].yds = value;
+        }
+        else if (stat === "PassTD") {
+            flsPassing[key].td = value;
+        }
+        else if (stat === "Interceptions") {
+            flsPassing[key].int = value;
+        }
+    });
+
+
+    // ========================================================
+    // BUILD GAME PASSING
+    // ========================================================
+
+    const passingSeasons = {};
+
+    data.forEach(row => {
+
+        const stat = String(row.stat_name || "").trim();
+
+        const passingStats = [
+            "Completions",
+            "Attempts",
+            "PassYards",
+            "PassTD",
+            "Interceptions"
+        ];
+
+        if (!passingStats.includes(stat)) return;
+
+        const player = String(row.player || "").trim();
+        const playerId = String(row.player_id || "").trim();
+        const season = String(row.season || "").trim();
+
+        const key = `${season}_${playerId}`;
+
+        if (!passingSeasons[key]) {
+
+            passingSeasons[key] = {
+                player,
+                playerId,
+                season,
+                cmp: 0,
+                att: 0,
+                yds: 0,
+                td: 0,
+                int: 0
+            };
+        }
+
+        const ps = passingSeasons[key];
+        const value = Number(row.stat_value || 0);
+
+        if (stat === "Completions") {
+            ps.cmp += value;
+        }
+        else if (stat === "Attempts") {
+            ps.att += value;
+        }
+        else if (stat === "PassYards") {
+            ps.yds += value;
+        }
+        else if (stat === "PassTD") {
+            ps.td += value;
+        }
+        else if (stat === "Interceptions") {
+            ps.int += value;
+        }
+    });
+
+
+    // ========================================================
+    // RENDER PASSING
+    // ========================================================
+
+    const passingBody =
+        document.querySelector("#passingTable tbody");
+
+    const passingKeys =
+        new Set([
+            ...Object.keys(passingSeasons),
+            ...Object.keys(flsPassing)
+        ]);
+
+    passingKeys.forEach(key => {
+
+        const game = passingSeasons[key];
+        const fls = flsPassing[key];
+
+        const player =
+            game?.player ||
+            fls?.player ||
+            "";
+
+        const playerId =
+            game?.playerId ||
+            fls?.playerId ||
+            "";
+
+        const season =
+            game?.season ||
+            fls?.season ||
+            "";
+
+        const gameExists =
+            !!game && game.att !== 0;
+
+        const flsExists =
+            !!fls;
+
+        if (!gameExists && !flsExists) return;
+
+        let gameCmp = "";
+        let gameAtt = "";
+        let gamePct = "";
+        let gameYds = "";
+        let gameTD = "";
+        let gameInt = "";
+
+        if (gameExists) {
+
+            gameCmp = game.cmp;
+            gameAtt = game.att;
+            gamePct =
+                game.att
+                    ? (game.cmp / game.att * 100).toFixed(1)
+                    : "0.0";
+
+            gameYds =
+                Number(game.yds).toLocaleString();
+
+            gameTD = game.td;
+            gameInt = game.int;
+        }
+
+        let flsCmp = "";
+        let flsAtt = "";
+        let flsPct = "";
+        let flsYds = "";
+        let flsTD = "";
+        let flsInt = "";
+
+        if (flsExists) {
+
+            flsCmp =
+                fls.cmp === null ? "" : fls.cmp;
+
+            flsAtt =
+                fls.att === null ? "" : fls.att;
+
+            if (
+                fls.att !== null &&
+                fls.att !== 0 &&
+                fls.cmp !== null
+            ) {
+                flsPct =
+                    (fls.cmp / fls.att * 100).toFixed(1);
+            }
+
+            flsYds =
+                fls.yds === null
+                    ? ""
+                    : Number(fls.yds).toLocaleString();
+
+            flsTD =
+                fls.td === null ? "" : fls.td;
+
+            flsInt =
+                fls.int === null ? "" : fls.int;
+        }
+
+        const tr = document.createElement("tr");
+
+        tr.dataset.playerid = playerId;
+        tr.dataset.season = season;
+
+        tr.innerHTML = `
+            <td class="left">
+                <a href="player.html?player_id=${playerId}">
+                    ${player}
+                </a>
+            </td>
+
+            <td class="center">
+                <a href="season.html?season=${season}">
+                    ${season}
+                </a>
+            </td>
+
+            <td>${gameCmp}</td>
+            <td>${gameAtt}</td>
+            <td>${gamePct}</td>
+            <td>${gameYds}</td>
+            <td>${gameTD}</td>
+            <td>${gameInt}</td>
+
+            <td class="fls-cell fls-start">${flsCmp}</td>
+            <td class="fls-cell">${flsAtt}</td>
+            <td class="fls-cell">${flsPct}</td>
+            <td class="fls-cell">${flsYds}</td>
+            <td class="fls-cell">${flsTD}</td>
+            <td class="fls-cell">${flsInt}</td>
+        `;
+
+        passingBody.appendChild(tr);
+    });
+
+
+    // ========================================================
+    // BUILD GAME RUSHING & RECEIVING
+    // ========================================================
+
+    const rrSeasons = {};
+
+    data.forEach(row => {
+
+        const stat = String(row.stat_name || "").trim();
+
+        const rrStats = [
+            "RushAtt",
+            "RushYds",
+            "RushTD",
+            "Receptions",
+            "RecYards",
+            "RecTD"
+        ];
+
+        if (!rrStats.includes(stat)) return;
+
+        const player = String(row.player || "").trim();
+        const playerId = String(row.player_id || "").trim();
+        const season = String(row.season || "").trim();
+
+        const key = `${season}_${playerId}`;
+
+        if (!rrSeasons[key]) {
+
+            rrSeasons[key] = {
+                player,
+                playerId,
+                season,
+                rushAtt: 0,
+                rushYds: 0,
+                rushTD: 0,
+                rec: 0,
+                recYds: 0,
+                recTD: 0
+            };
+        }
+
+        const rs = rrSeasons[key];
+        const value = Number(row.stat_value || 0);
+
+        if (stat === "RushAtt") {
+            rs.rushAtt += value;
+        }
+        else if (stat === "RushYds") {
+            rs.rushYds += value;
+        }
+        else if (stat === "RushTD") {
+            rs.rushTD += value;
+        }
+        else if (stat === "Receptions") {
+            rs.rec += value;
+        }
+        else if (stat === "RecYards") {
+            rs.recYds += value;
+        }
+        else if (stat === "RecTD") {
+            rs.recTD += value;
+        }
+    });
+
+
+    // ========================================================
+    // BUILD FLS RUSHING & RECEIVING
+    // ========================================================
+
+    const flsRR = {};
+
+    flsData.forEach(row => {
+
+        const stat = String(row.stat_name || "").trim();
+
+        const rrStats = [
+            "RushAtt",
+            "RushYds",
+            "RushTD",
+            "Receptions",
+            "RecYards",
+            "RecTD"
+        ];
+
+        if (!rrStats.includes(stat)) return;
+
+        const player = String(row.player || "").trim();
+        const playerId = String(row.player_id || "").trim();
+        const season = String(row.season || "").trim();
+
+        if (!playerId || !season) return;
+
+        const key = `${season}_${playerId}`;
+
+        if (!flsRR[key]) {
+
+            flsRR[key] = {
+                player,
+                playerId,
+                season,
+                rushAtt: null,
+                rushYds: null,
+                rushTD: null,
+                rec: null,
+                recYds: null,
+                recTD: null
+            };
+        }
+
+        const value = Number(row.stat_value);
+
+        if (stat === "RushAtt") {
+            flsRR[key].rushAtt = value;
+        }
+        else if (stat === "RushYds") {
+            flsRR[key].rushYds = value;
+        }
+        else if (stat === "RushTD") {
+            flsRR[key].rushTD = value;
+        }
+        else if (stat === "Receptions") {
+            flsRR[key].rec = value;
+        }
+        else if (stat === "RecYards") {
+            flsRR[key].recYds = value;
+        }
+        else if (stat === "RecTD") {
+            flsRR[key].recTD = value;
+        }
+    });
+
+
+    // ========================================================
+    // RENDER RUSHING & RECEIVING
+    // ========================================================
+
+    const rrBody =
+        document.querySelector("#rrTable tbody");
+
+    const rrKeys =
+        new Set([
+            ...Object.keys(rrSeasons),
+            ...Object.keys(flsRR)
+        ]);
+
+    rrKeys.forEach(key => {
+
+        const game = rrSeasons[key];
+        const fls = flsRR[key];
+
+        const player =
+            game?.player ||
+            fls?.player ||
+            "";
+
+        const playerId =
+            game?.playerId ||
+            fls?.playerId ||
+            "";
+
+        const season =
+            game?.season ||
+            fls?.season ||
+            "";
+
+        const gameTouches =
+            game
+                ? game.rushAtt + game.rec
+                : 0;
+
+        const gameYards =
+            game
+                ? game.rushYds + game.recYds
+                : 0;
+
+        const gameTD =
+            game
+                ? game.rushTD + game.recTD
+                : 0;
+
+        const gameExists =
+            !!game &&
+            (
+                gameTouches !== 0 ||
+                gameYards !== 0 ||
+                gameTD !== 0
+            );
+
+        const flsTouches =
+            fls
+                ? (fls.rushAtt || 0) + (fls.rec || 0)
+                : 0;
+
+        const flsYards =
+            fls
+                ? (fls.rushYds || 0) + (fls.recYds || 0)
+                : 0;
+
+        const flsTD =
+            fls
+                ? (fls.rushTD || 0) + (fls.recTD || 0)
+                : 0;
+
+        const flsExists =
+            !!fls &&
+            (
+                fls.rushAtt !== null ||
+                fls.rushYds !== null ||
+                fls.rushTD !== null ||
+                fls.rec !== null ||
+                fls.recYds !== null ||
+                fls.recTD !== null
+            );
+
+        if (!gameExists && !flsExists) return;
+
+
+        // ====================================================
+        // GAME VALUES
+        // ====================================================
+
+        const gRushAtt =
+            gameExists ? game.rushAtt : "";
+
+        const gRushYds =
+            gameExists
+                ? Number(game.rushYds).toLocaleString()
+                : "";
+
+        const gRushTD =
+            gameExists ? game.rushTD : "";
+
+        const gRec =
+            gameExists ? game.rec : "";
+
+        const gRecYds =
+            gameExists
+                ? Number(game.recYds).toLocaleString()
+                : "";
+
+        const gRecTD =
+            gameExists ? game.recTD : "";
+
+        const gTouches =
+            gameExists ? gameTouches : "";
+
+        const gYards =
+            gameExists
+                ? Number(gameYards).toLocaleString()
+                : "";
+
+        const gTD =
+            gameExists ? gameTD : "";
+
+
+        // ====================================================
+        // FLS VALUES
+        // ====================================================
+
+        const fRushAtt =
+            flsExists && fls.rushAtt !== null
+                ? fls.rushAtt
+                : "";
+
+        const fRushYds =
+            flsExists && fls.rushYds !== null
+                ? Number(fls.rushYds).toLocaleString()
+                : "";
+
+        const fRushTD =
+            flsExists && fls.rushTD !== null
+                ? fls.rushTD
+                : "";
+
+        const fRec =
+            flsExists && fls.rec !== null
+                ? fls.rec
+                : "";
+
+        const fRecYds =
+            flsExists && fls.recYds !== null
+                ? Number(fls.recYds).toLocaleString()
+                : "";
+
+        const fRecTD =
+            flsExists && fls.recTD !== null
+                ? fls.recTD
+                : "";
+
+        const fTouches =
+            flsExists
+                ? flsTouches
+                : "";
+
+        const fYards =
+            flsExists
+                ? Number(flsYards).toLocaleString()
+                : "";
+
+        const fTD =
+            flsExists
+                ? flsTD
+                : "";
+
+
+        const tr = document.createElement("tr");
+
+        tr.dataset.playerid = playerId;
+        tr.dataset.season = season;
+
+        tr.innerHTML = `
+            <td class="left">
+                <a href="player.html?player_id=${playerId}">
+                    ${player}
+                </a>
+            </td>
+
+            <td class="center">
+                <a href="season.html?season=${season}">
+                    ${season}
+                </a>
+            </td>
+
+            <td>${gRushAtt}</td>
+            <td>${gRushYds}</td>
+            <td>${gRushTD}</td>
+
+            <td>${gRec}</td>
+            <td>${gRecYds}</td>
+            <td>${gRecTD}</td>
+
+            <td>${gTouches}</td>
+            <td>${gYards}</td>
+            <td>${gTD}</td>
+
+            <td class="fls-cell fls-start">${fRushAtt}</td>
+            <td class="fls-cell">${fRushYds}</td>
+            <td class="fls-cell">${fRushTD}</td>
+
+            <td class="fls-cell">${fRec}</td>
+            <td class="fls-cell">${fRecYds}</td>
+            <td class="fls-cell">${fRecTD}</td>
+
+            <td class="fls-cell">${fTouches}</td>
+            <td class="fls-cell">${fYards}</td>
+            <td class="fls-cell">${fTD}</td>
+        `;
+
+        rrBody.appendChild(tr);
+    });
+
+
+    // ========================================================
+    // BUILD GAME KICKING
+    // ========================================================
+
+    const kickingSeasons = {};
+
+    data.forEach(row => {
+
+        const stat = String(row.stat_name || "").trim();
+
+        const kickingStats = [
+            "Extra Points Made",
+            "Extra Points Attempted",
+            "Field Goals Made",
+            "Field Goal Distances"
+        ];
+
+        if (!kickingStats.includes(stat)) return;
+
+        const player = String(row.player || "").trim();
+        const playerId = String(row.player_id || "").trim();
+        const season = String(row.season || "").trim();
+
+        const key = `${season}_${playerId}`;
+
+        if (!kickingSeasons[key]) {
+
+            kickingSeasons[key] = {
+                player,
+                playerId,
+                season,
+                xpm: 0,
+                xpa: 0,
+                fgm: 0,
+                long: 0
+            };
+        }
+
+        const ks = kickingSeasons[key];
+        const value = Number(row.stat_value || 0);
+
+        if (stat === "Extra Points Made") {
+            ks.xpm += value;
+        }
+        else if (stat === "Extra Points Attempted") {
+            ks.xpa += value;
+        }
+        else if (stat === "Field Goals Made") {
+            ks.fgm += value;
+        }
+        else if (stat === "Field Goal Distances") {
+
+            const distances =
+                String(row.stat_value)
+                    .split(",")
+                    .map(x => parseInt(x.trim()))
+                    .filter(x => !isNaN(x));
+
+            if (distances.length > 0) {
+                ks.long =
+                    Math.max(ks.long, ...distances);
+            }
+        }
+    });
+
+
+    // ========================================================
+    // BUILD FLS KICKING
+    // ========================================================
+
+    const flsKicking = {};
+
+    flsData.forEach(row => {
+
+        const stat = String(row.stat_name || "").trim();
+
+        const kickingStats = [
+            "Extra Points Made",
+            "Extra Points Attempted",
+            "Field Goals Made",
+            "Longest Field Goal",
+            "Points Scored"
+        ];
+
+        if (!kickingStats.includes(stat)) return;
+
+        const player = String(row.player || "").trim();
+        const playerId = String(row.player_id || "").trim();
+        const season = String(row.season || "").trim();
+
+        if (!playerId || !season) return;
+
+        const key = `${season}_${playerId}`;
+
+        if (!flsKicking[key]) {
+
+            flsKicking[key] = {
+                player,
+                playerId,
+                season,
+                xpm: null,
+                xpa: null,
+                fgm: null,
+                long: null,
+                points: null
+            };
+        }
+
+        const value = Number(row.stat_value);
+
+        if (stat === "Extra Points Made") {
+            flsKicking[key].xpm = value;
+        }
+        else if (stat === "Extra Points Attempted") {
+            flsKicking[key].xpa = value;
+        }
+        else if (stat === "Field Goals Made") {
+            flsKicking[key].fgm = value;
+        }
+        else if (stat === "Longest Field Goal") {
+            flsKicking[key].long = value;
+        }
+        else if (stat === "Points Scored") {
+            flsKicking[key].points = value;
+        }
+    });
+
+
+    // ========================================================
+    // RENDER KICKING
+    // ========================================================
+
+    const kickingBody =
+        document.querySelector("#kickingTable tbody");
+
+    const kickingKeys =
+        new Set([
+            ...Object.keys(kickingSeasons),
+            ...Object.keys(flsKicking)
+        ]);
+
+    kickingKeys.forEach(key => {
+
+        const game = kickingSeasons[key];
+        const fls = flsKicking[key];
+
+        const player =
+            game?.player ||
+            fls?.player ||
+            "";
+
+        const playerId =
+            game?.playerId ||
+            fls?.playerId ||
+            "";
+
+        const season =
+            game?.season ||
+            fls?.season ||
+            "";
+
+        const gameExists =
+            !!game &&
+            (
+                game.xpa !== 0 ||
+                game.fgm !== 0
+            );
+
+        const flsExists =
+            !!fls &&
+            (
+                fls.xpm !== null ||
+                fls.xpa !== null ||
+                fls.fgm !== null ||
+                fls.long !== null ||
+                fls.points !== null
+            );
+
+        if (!gameExists && !flsExists) return;
+
+
+        // ====================================================
+        // GAME VALUES
+        // ====================================================
+
+        let gXPM = "";
+        let gXPA = "";
+        let gXPPct = "";
+        let gFGM = "";
+        let gLong = "";
+        let gPoints = "";
+
+        if (gameExists) {
+
+            gXPM = game.xpm;
+            gXPA = game.xpa;
+
+            gXPPct =
+                game.xpa
+                    ? (game.xpm / game.xpa * 100).toFixed(1)
+                    : "0.0";
+
+            gFGM = game.fgm;
+
+            gLong =
+                Number(game.long).toLocaleString();
+
+            gPoints =
+                game.xpm + (game.fgm * 3);
+        }
+
+
+        // ====================================================
+        // FLS VALUES
+        // ====================================================
+
+        let fXPM = "";
+        let fXPA = "";
+        let fXPPct = "";
+        let fFGM = "";
+        let fLong = "";
+        let fPoints = "";
+
+        if (flsExists) {
+
+            fXPM =
+                fls.xpm === null ? "" : fls.xpm;
+
+            fXPA =
+                fls.xpa === null ? "" : fls.xpa;
+
+            if (
+                fls.xpm !== null &&
+                fls.xpa !== null &&
+                fls.xpa !== 0
+            ) {
+                fXPPct =
+                    (fls.xpm / fls.xpa * 100).toFixed(1);
+            }
+
+            fFGM =
+                fls.fgm === null ? "" : fls.fgm;
+
+            fLong =
+                fls.long === null
+                    ? ""
+                    : Number(fls.long).toLocaleString();
+
+            fPoints =
+                fls.points === null
+                    ? ""
+                    : fls.points;
+        }
+
+
+        const tr = document.createElement("tr");
+
+        tr.dataset.playerid = playerId;
+        tr.dataset.season = season;
+
+        tr.innerHTML = `
+            <td class="left">
+                <a href="player.html?player_id=${playerId}">
+                    ${player}
+                </a>
+            </td>
+
+            <td class="center">
+                <a href="season.html?season=${season}">
+                    ${season}
+                </a>
+            </td>
+
+            <td>${gXPM}</td>
+            <td>${gXPA}</td>
+            <td>${gXPPct}</td>
+            <td>${gFGM}</td>
+            <td>${gLong}</td>
+            <td>${gPoints}</td>
+
+            <td class="fls-cell fls-start">${fXPM}</td>
+            <td class="fls-cell">${fXPA}</td>
+            <td class="fls-cell">${fXPPct}</td>
+            <td class="fls-cell">${fFGM}</td>
+            <td class="fls-cell">${fLong}</td>
+            <td class="fls-cell">${fPoints}</td>
+        `;
+
+        kickingBody.appendChild(tr);
+    });
+
+
+    // ========================================================
+    // BUILD OTHER SCORING STATS
+    // ========================================================
+
+    const otherScoring = {};
+
+    events.forEach(e => {
+
+        const player =
+            String(e.scoring_player || "").trim();
+
+        const playerId =
+            String(e.scoring_player_id || "").trim();
+
+        if (!player) return;
+
+        const season =
+            String(e.season || "").trim();
+
+        const key =
+            `${season}_${playerId}`;
+
+        if (!otherScoring[key]) {
+
+            otherScoring[key] = {
+                player,
+                playerId,
+                season,
+                onePt: 0,
+                twoPt: 0,
+                pr: 0,
+                kr: 0,
+                int: 0,
+                fr: 0,
+                blkPunt: 0,
+                blkFg: 0
+            };
+        }
+
+        const o = otherScoring[key];
+
+        const type =
+            String(e.event_type || "").trim();
+
+        if (
+            type === "one_pt_rush" ||
+            type === "one_pt_pass"
+        ) {
+            o.onePt++;
+        }
+        else if (
+            type === "two_pt_rush" ||
+            type === "two_pt_pass"
+        ) {
+            o.twoPt++;
+        }
+        else if (type === "punt_return_td") {
+            o.pr++;
+        }
+        else if (type === "kick_return_td") {
+            o.kr++;
+        }
+        else if (type === "interception_return_td") {
+            o.int++;
+        }
+        else if (type === "fumble_return_td") {
+            o.fr++;
+        }
+        else if (type === "blocked_punt_return_td") {
+            o.blkPunt++;
+        }
+        else if (type === "blocked_field_goal_return_td") {
+            o.blkFg++;
+        }
+    });
+
+
+    // ========================================================
+    // RENDER OTHER SCORING
+    // ========================================================
+
+    const otherBody =
+        document.querySelector("#otherScoringTable tbody");
+
+    Object.values(otherScoring).forEach(p => {
+
+        const totalTD =
+            p.pr +
+            p.kr +
+            p.int +
+            p.fr +
+            p.blkPunt +
+            p.blkFg;
+
+        const tr = document.createElement("tr");
+
+        tr.dataset.playerid = p.playerId;
+        tr.dataset.season = p.season;
+
+        tr.innerHTML = `
+            <td class="left">
+                <a href="player.html?player_id=${p.playerId}">
+                    ${p.player}
+                </a>
+            </td>
+
+            <td class="center">
+                <a href="season.html?season=${p.season}">
+                    ${p.season}
+                </a>
+            </td>
+
+            <td>${p.onePt}</td>
+            <td>${p.twoPt}</td>
+            <td>${p.pr}</td>
+            <td>${p.kr}</td>
+            <td>${p.int}</td>
+            <td>${p.fr}</td>
+            <td>${p.blkPunt}</td>
+            <td>${p.blkFg}</td>
+            <td>${totalTD}</td>
+        `;
+
+        otherBody.appendChild(tr);
+    });
+
+
+    // ========================================================
+    // BUILD POINTS SCORED
+    // ========================================================
+
+    const pointsScored = {};
+
+
+    // --------------------------------------------------------
+    // FROM INDIVIDUAL STATS
+    // --------------------------------------------------------
+
+    data.forEach(row => {
+
+        const stat =
+            String(row.stat_name || "").trim();
+
+        const scoringStats = [
+            "RushTD",
+            "RecTD",
+            "Extra Points Made",
+            "Field Goals Made"
+        ];
+
+        if (!scoringStats.includes(stat)) return;
+
+        const player =
+            String(row.player || "").trim();
+
+        const playerId =
+            String(row.player_id || "").trim();
+
+        const season =
+            String(row.season || "").trim();
+
+        const key =
+            `${season}_${playerId}`;
+
+        if (!pointsScored[key]) {
+
+            pointsScored[key] = {
+                player,
+                playerId,
+                season,
+                points: 0
+            };
+        }
+
+        const p = pointsScored[key];
+
+        const value =
+            Number(row.stat_value || 0);
+
+        if (stat === "RushTD") {
+            p.points += value * 6;
+        }
+        else if (stat === "RecTD") {
+            p.points += value * 6;
+        }
+        else if (stat === "Extra Points Made") {
+            p.points += value;
+        }
+        else if (stat === "Field Goals Made") {
+            p.points += value * 3;
+        }
+    });
+
+
+    // --------------------------------------------------------
+    // FROM GAME EVENTS
+    // --------------------------------------------------------
+
+    events.forEach(e => {
+
+        const player =
+            String(e.scoring_player || "").trim();
+
+        const playerId =
+            String(e.scoring_player_id || "").trim();
+
+        if (!player) return;
+
+        const season =
+            String(e.season || "").trim();
+
+        const key =
+            `${season}_${playerId}`;
+
+        if (!pointsScored[key]) {
+
+            pointsScored[key] = {
+                player,
+                playerId,
+                season,
+                points: 0
+            };
+        }
+
+        const p = pointsScored[key];
+
+        const type =
+            String(e.event_type || "").trim();
+
+        if (
+            type === "punt_return_td" ||
+            type === "kick_return_td" ||
+            type === "interception_return_td" ||
+            type === "fumble_return_td" ||
+            type === "blocked_punt_return_td" ||
+            type === "blocked_field_goal_return_td"
+        ) {
+            p.points += 6;
+        }
+        else if (
+            type === "one_pt_rush" ||
+            type === "one_pt_pass"
+        ) {
+            p.points += 1;
+        }
+        else if (
+            type === "two_pt_rush" ||
+            type === "two_pt_pass"
+        ) {
+            p.points += 2;
+        }
+    });
+
+
+    // ========================================================
+    // RENDER POINTS SCORED
+    // ========================================================
+
+    const pointsBody =
+        document.querySelector("#pointsTable tbody");
+
+    Object.values(pointsScored).forEach(p => {
+
+        if (p.points === 0) return;
+
+        const tr = document.createElement("tr");
+
+        tr.dataset.playerid = p.playerId;
+        tr.dataset.season = p.season;
+
+        tr.innerHTML = `
+            <td class="left">
+                <a href="player.html?player_id=${p.playerId}">
+                    ${p.player}
+                </a>
+            </td>
+
+            <td class="center">
+                <a href="season.html?season=${p.season}">
+                    ${p.season}
+                </a>
+            </td>
+
+            <td>${p.points}</td>
+        `;
+
+        pointsBody.appendChild(tr);
+    });
+
+
+    // ========================================================
+    // SOURCE TABLE SORTING
+    // ========================================================
+
+    function setupSourceTableSorting(table, statColumnCount) {
+
+        const firstRow =
+            table.querySelector("thead tr:first-child");
+
+        const lastRow =
+            table.querySelector("thead tr:last-child");
+
+        const playerHeader =
+            firstRow.querySelector("th:nth-child(1)");
+
+        const seasonHeader =
+            firstRow.querySelector("th:nth-child(2)");
+
+        let sortState = {
+            player: true,
+            season: true
+        };
+
+
+        // ----------------------------------------------------
+        // PLAYER
+        // ----------------------------------------------------
+
+        playerHeader.classList.add("sortable");
+
+        playerHeader.addEventListener("click", () => {
+
+            sortTable(
+                table,
+                0,
+                sortState.player
+            );
+
+            sortState.player =
+                !sortState.player;
+        });
+
+
+        // ----------------------------------------------------
+        // SEASON
+        // ----------------------------------------------------
+
+        seasonHeader.classList.add("sortable");
+
+        seasonHeader.addEventListener("click", () => {
+
+            sortTable(
+                table,
+                1,
+                sortState.season
+            );
+
+            sortState.season =
+                !sortState.season;
+        });
+
+
+        // ----------------------------------------------------
+        // STAT COLUMNS
+        // ----------------------------------------------------
+
+        const statHeaders =
+            lastRow.querySelectorAll("th");
+
+        statHeaders.forEach((th, i) => {
+
+            th.classList.add("sortable");
+
+            sortState[`stat${i}`] = true;
+
+            th.addEventListener("click", () => {
+
+                const actualColumn =
+                    i + 2;
+
+                sortTable(
+                    table,
+                    actualColumn,
+                    sortState[`stat${i}`]
+                );
+
+                sortState[`stat${i}`] =
+                    !sortState[`stat${i}`];
+            });
+        });
+    }
+
+
+    // ========================================================
+    // DEFAULT SORTS + SOURCE TABLE SORTING
+    // ========================================================
+
+
+    // --------------------------------------------------------
+    // PASSING
+    // Game TD descending
+    // --------------------------------------------------------
+
+    const passingTable =
+        document.getElementById("passingTable");
+
+    sortTable(
+        passingTable,
+        6,
+        false
+    );
+
+    setupSourceTableSorting(
+        passingTable,
+        12
+    );
+
+    applyTop10(passingTable);
+
+    setupExpandButton(
+        "passingExpandBtn",
+        "passingTable"
+    );
+
+
+    // --------------------------------------------------------
+    // RUSHING & RECEIVING
+    // Game Total Yards descending
+    // --------------------------------------------------------
+
+    const rrTable =
+        document.getElementById("rrTable");
+
+    sortTable(
+        rrTable,
+        10,
+        false
+    );
+
+    setupSourceTableSorting(
+        rrTable,
+        18
+    );
+
+    applyTop10(rrTable);
+
+    setupExpandButton(
+        "rrExpandBtn",
+        "rrTable"
+    );
+
+
+    // --------------------------------------------------------
+    // KICKING
+    // Game Points Scored descending
+    // --------------------------------------------------------
+
+    const kickingTable =
+        document.getElementById("kickingTable");
+
+    sortTable(
+        kickingTable,
+        7,
+        false
+    );
+
+    setupSourceTableSorting(
+        kickingTable,
+        12
+    );
+
+    applyTop10(kickingTable);
+
+    setupExpandButton(
+        "kickingExpandBtn",
+        "kickingTable"
+    );
+
+
+    // --------------------------------------------------------
+    // OTHER SCORING
+    // Total TD descending
+    // --------------------------------------------------------
+
+    const otherTable =
+        document.getElementById("otherScoringTable");
+
+    sortTable(
+        otherTable,
+        10,
+        false
+    );
+
+    const otherHeaders =
+        otherTable.querySelectorAll("thead th");
+
+    let otherSortState = {};
+
+    otherHeaders.forEach((th, i) => {
+
+        th.classList.add("sortable");
+
+        otherSortState[i] = true;
+
+        th.addEventListener("click", () => {
+
+            sortTable(
+                otherTable,
+                i,
+                otherSortState[i]
+            );
+
+            otherSortState[i] =
+                !otherSortState[i];
+        });
+    });
+
+    applyTop10(otherTable);
+
+    setupExpandButton(
+        "otherScoringExpandBtn",
+        "otherScoringTable"
+    );
+
+
+    // --------------------------------------------------------
+    // POINTS SCORED
+    // Points descending
+    // --------------------------------------------------------
+
+    const pointsTable =
+        document.getElementById("pointsTable");
+
+    sortTable(
+        pointsTable,
+        2,
+        false
+    );
+
+    const pointsHeaders =
+        pointsTable.querySelectorAll("thead th");
+
+    let pointsSortState = {};
+
+    pointsHeaders.forEach((th, i) => {
+
+        th.classList.add("sortable");
+
+        pointsSortState[i] = true;
+
+        th.addEventListener("click", () => {
+
+            sortTable(
+                pointsTable,
+                i,
+                pointsSortState[i]
+            );
+
+            pointsSortState[i] =
+                !pointsSortState[i];
+        });
+    });
+
+    applyTop10(pointsTable);
+
+    setupExpandButton(
+        "pointsExpandBtn",
+        "pointsTable"
+    );
+
+});
+
+
+// ============================================================
+// BREADCRUMB
+// ============================================================
+
+renderBreadcrumb([
+    {
+        label: "Stafford Indians",
+        link: "index.html"
+    },
+    {
+        label: "Individual Stats - Season"
+    }
+]);
+
+</script>
+
+</body>
+</html>

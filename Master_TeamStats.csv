@@ -1,0 +1,1491 @@
+game_id,season,date,team,opponent,home_away,points_for,points_against,total_yards,passing_yards,rushing_yards,total_yards_allowed,passing_yards_allowed,rushing_yards_allowed
+2026_10_02_ColonialForge,2026,10/2/2026,Stafford,Colonial Forge,Away,7,45,,,,,,
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Stafford,Home,45,7,,,,,,
+2026_08_28_Woodbridge,2026,8/28/2026,Stafford,Woodbridge,Away,16,15,309,207,102,162,,100
+2026_08_28_Woodbridge,2026,8/28/2026,Woodbridge,Stafford,Home,15,16,162,,100,309,207,102
+2026_09_03_UnityReed,2026,9/3/2026,Stafford,Unity Reed,Home,70,0,518,36,482,-5,,
+2026_09_03_UnityReed,2026,9/3/2026,Unity Reed,Stafford,Away,0,70,-5,,,518,36,482
+2026_09_10_OsbournPark,2026,9/10/2026,Stafford,Osbourn Park,Home,53,0,317,78,239,84,81,3
+2026_09_10_OsbournPark,2026,9/10/2026,Osbourn Park,Stafford,Away,0,53,84,81,3,317,78,239
+2026_09_25_MountainView,2026,9/25/2026,Stafford,Mountain View,Home,37,7,452,416,36,175,51,124
+2026_09_25_MountainView,2026,9/25/2026,Mountain View,Stafford,Away,7,37,175,51,124,452,416,36
+2025_08_28_Woodbridge,2025,8/28/2025,Stafford,Woodbridge,Home,40,54,285,158,127,344,210,134
+2025_08_28_Woodbridge,2025,8/28/2025,Woodbridge,Stafford,Away,54,40,344,210,134,285,158,127
+2025_09_05_UnityReed,2025,9/5/2025,Stafford,Unity Reed,Away,56,0,328,201,127,,,
+2025_09_05_UnityReed,2025,9/5/2025,Unity Reed,Stafford,Home,0,56,,,,328,201,127
+2025_09_12_OsbournPark,2025,9/12/2025,Stafford,Osbourn Park,Away,51,0,390,161,229,,,
+2025_09_12_OsbournPark,2025,9/12/2025,Osbourn Park,Stafford,Home,0,51,,,,390,161,229
+2025_09_19_JohnChampe,2025,9/19/2025,Stafford,John Champe,Away,34,41,323,252,71,320,116,204
+2025_09_19_JohnChampe,2025,9/19/2025,John Champe,Stafford,Home,41,34,320,116,204,323,252,71
+2025_09_26_MountainView,2025,9/26/2025,Stafford,Mountain View,Away,21,7,0,0,0,161,82,79
+2025_09_26_MountainView,2025,9/26/2025,Mountain View,Stafford,Home,7,21,161,82,79,0,0,0
+2025_10_03_ColonialForge,2025,10/3/2025,Stafford,Colonial Forge,Home,7,49,76,53,23,386,301,85
+2025_10_03_ColonialForge,2025,10/3/2025,Colonial Forge,Stafford,Away,49,7,386,301,85,76,53,23
+2025_10_17_Massaponax,2025,10/17/2025,Stafford,Massaponax,Home,16,28,155,141,14,281,21,260
+2025_10_17_Massaponax,2025,10/17/2025,Massaponax,Stafford,Away,28,16,281,21,260,155,141,14
+2025_10_24_Riverbend,2025,10/24/2025,Stafford,Riverbend,Home,0,47,178,58,120,355,126,229
+2025_10_24_Riverbend,2025,10/24/2025,Riverbend,Stafford,Away,47,0,355,126,229,178,58,120
+2025_10_31_NorthStafford,2025,10/31/2025,Stafford,North Stafford,Away,0,41,-23,,,313,101,212
+2025_10_31_NorthStafford,2025,10/31/2025,North Stafford,Stafford,Home,41,0,313,101,212,-23,,
+2025_11_07_BrookePoint,2025,11/7/2025,Stafford,Brooke Point,Away,7,21,,,,382,63,319
+2025_11_07_BrookePoint,2025,11/7/2025,Brooke Point,Stafford,Home,21,7,382,63,319,,,
+2024_08_31_JamesMonroe,2024,8/31/2024,Stafford,James Monroe,Home,50,28,354,38,316,190,154,36
+2024_08_31_JamesMonroe,2024,8/31/2024,James Monroe,Stafford,Away,28,50,190,154,36,354,38,316
+2024_09_06_Chancellor,2024,9/6/2024,Stafford,Chancellor,Away,41,6,334,162,172,141,66,75
+2024_09_06_Chancellor,2024,9/6/2024,Chancellor,Stafford,Home,6,41,141,66,75,334,162,172
+2024_09_13_Colgan,2024,9/13/2024,Stafford,Colgan,Home,35,0,224,20,204,184,184,
+2024_09_13_Colgan,2024,9/13/2024,Colgan,Stafford,Away,0,35,184,184,,224,20,204
+2024_09_20_Independence,2024,9/20/2024,Stafford,Independence,Away,45,36,395,54,341,471,154,317
+2024_09_20_Independence,2024,9/20/2024,Independence,Stafford,Home,36,45,471,154,317,395,54,341
+2024_09_27_ColonialForge,2024,9/27/2024,Stafford,Colonial Forge,Home,35,31,504,76,428,315,161,154
+2024_09_27_ColonialForge,2024,9/27/2024,Colonial Forge,Stafford,Away,31,35,315,161,154,504,76,428
+2024_10_04_BrookePoint,2024,10/4/2024,Stafford,Brooke Point,Home,63,56,509,127,382,633,456,177
+2024_10_04_BrookePoint,2024,10/4/2024,Brooke Point,Stafford,Away,56,63,633,456,177,509,127,382
+2024_10_18_NorthStafford,2024,10/18/2024,Stafford,North Stafford,Away,26,22,350,100,250,212,104,108
+2024_10_18_NorthStafford,2024,10/18/2024,North Stafford,Stafford,Home,22,26,212,104,108,350,100,250
+2024_10_25_Riverbend,2024,10/25/2024,Stafford,Riverbend,Away,14,35,231,105,126,330,46,284
+2024_10_25_Riverbend,2024,10/25/2024,Riverbend,Stafford,Home,35,14,330,46,284,231,105,126
+2024_11_01_Massaponax,2024,11/1/2024,Stafford,Massaponax,Away,66,44,504,211,293,573,68,505
+2024_11_01_Massaponax,2024,11/1/2024,Massaponax,Stafford,Home,44,66,573,68,505,504,211,293
+2024_11_08_MountainView,2024,11/8/2024,Stafford,Mountain View,Home,38,0,465,135,330,,,
+2024_11_08_MountainView,2024,11/8/2024,Mountain View,Stafford,Away,0,38,,,,465,135,330
+2024_11_15_ColonialForge,2024,11/15/2024,Stafford,Colonial Forge,Home,24,45,314,96,218,431,205,226
+2024_11_15_ColonialForge,2024,11/15/2024,Colonial Forge,Stafford,Away,45,24,431,205,226,314,96,218
+2023_08_25_JamesMonroe,2023,8/25/2023,Stafford,James Monroe,Away,0,2,,,,,,
+2023_08_25_JamesMonroe,2023,8/25/2023,James Monroe,Stafford,Home,2,0,,,,,,
+2023_08_31_Chancellor,2023,8/31/2023,Stafford,Chancellor,Home,41,0,308,35,273,56,33,23
+2023_08_31_Chancellor,2023,8/31/2023,Chancellor,Stafford,Away,0,41,56,33,23,308,35,273
+2023_09_08_Colgan,2023,9/8/2023,Stafford,Colgan,Away,38,19,369,122,247,,,
+2023_09_08_Colgan,2023,9/8/2023,Colgan,Stafford,Home,19,38,,,,369,122,247
+2023_09_14_Independence,2023,9/14/2023,Stafford,Independence,Home,7,19,111,13,98,331,164,167
+2023_09_14_Independence,2023,9/14/2023,Independence,Stafford,Away,19,7,331,164,167,111,13,98
+2023_09_22_ColonialForge,2023,9/22/2023,Stafford,Colonial Forge,Away,7,41,90,0,90,353,159,194
+2023_09_22_ColonialForge,2023,9/22/2023,Colonial Forge,Stafford,Home,41,7,353,159,194,90,0,90
+2023_09_29_BrookePoint,2023,9/29/2023,Stafford,Brooke Point,Away,34,35,399,57,342,405,309,96
+2023_09_29_BrookePoint,2023,9/29/2023,Brooke Point,Stafford,Home,35,34,405,309,96,399,57,342
+2023_10_13_NorthStafford,2023,10/13/2023,Stafford,North Stafford,Home,27,6,334,94,240,,,
+2023_10_13_NorthStafford,2023,10/13/2023,North Stafford,Stafford,Away,6,27,,,,334,94,240
+2023_10_20_Riverbend,2023,10/20/2023,Stafford,Riverbend,Home,8,34,168,17,151,417,116,301
+2023_10_20_Riverbend,2023,10/20/2023,Riverbend,Stafford,Away,34,8,417,116,301,168,17,151
+2023_10_27_Massaponax,2023,10/27/2023,Stafford,Massaponax,Home,7,28,237,76,161,478,106,372
+2023_10_27_Massaponax,2023,10/27/2023,Massaponax,Stafford,Away,28,7,478,106,372,237,76,161
+2023_11_03_MountainView,2023,11/3/2023,Stafford,Mountain View,Away,21,35,338,96,242,429,173,256
+2023_11_03_MountainView,2023,11/3/2023,Mountain View,Stafford,Home,35,21,429,173,256,338,96,242
+2022_08_26_JamesMonroe,2022,8/26/2022,Stafford,James Monroe,Home,35,14,250,169,81,198,182,16
+2022_08_26_JamesMonroe,2022,8/26/2022,James Monroe,Stafford,Away,14,35,198,182,16,250,169,81
+2022_09_02_Chancellor,2022,9/2/2022,Stafford,Chancellor,Away,7,6,150,62,88,123,36,87
+2022_09_02_Chancellor,2022,9/2/2022,Chancellor,Stafford,Home,6,7,123,36,87,150,62,88
+2022_09_09_EasternView,2022,9/9/2022,Stafford,Eastern View,Home,0,28,89,29,60,373,164,209
+2022_09_09_EasternView,2022,9/9/2022,Eastern View,Stafford,Away,28,0,373,164,209,89,29,60
+2022_09_16_Spotsylvania,2022,9/16/2022,Stafford,Spotsylvania,Away,44,41,411,320,91,339,100,239
+2022_09_16_Spotsylvania,2022,9/16/2022,Spotsylvania,Stafford,Home,41,44,339,100,239,411,320,91
+2022_09_23_ColonialForge,2022,9/23/2022,Stafford,Colonial Forge,Home,25,34,243,100,143,393,219,174
+2022_09_23_ColonialForge,2022,9/23/2022,Colonial Forge,Stafford,Away,34,25,393,219,174,243,100,143
+2022_09_30_MountainView,2022,9/30/2022,Stafford,Mountain View,Away,8,48,159,56,103,459,127,332
+2022_09_30_MountainView,2022,9/30/2022,Mountain View,Stafford,Home,48,8,459,127,332,159,56,103
+2022_10_06_BrookePoint,2022,10/6/2022,Stafford,Brooke Point,Away,7,27,302,141,161,404,145,259
+2022_10_06_BrookePoint,2022,10/6/2022,Brooke Point,Stafford,Home,27,7,404,145,259,302,141,161
+2022_10_14_NorthStafford,2022,10/14/2022,Stafford,North Stafford,Home,14,21,139,58,81,191,126,65
+2022_10_14_NorthStafford,2022,10/14/2022,North Stafford,Stafford,Away,21,14,191,126,65,139,58,81
+2022_10_28_Riverbend,2022,10/28/2022,Stafford,Riverbend,Home,0,37,,,,371,161,210
+2022_10_28_Riverbend,2022,10/28/2022,Riverbend,Stafford,Away,37,0,371,161,210,,,
+2022_11_01_Massaponax,2022,11/1/2022,Stafford,Massaponax,Away,0,56,,,,390,75,315
+2022_11_01_Massaponax,2022,11/1/2022,Massaponax,Stafford,Home,56,0,390,75,315,,,
+2021_08_27_JamesMonroe,2021,8/27/2021,Stafford,James Monroe,Away,14,20,113,109,4,302,111,191
+2021_08_27_JamesMonroe,2021,8/27/2021,James Monroe,Stafford,Home,20,14,302,111,191,113,109,4
+2021_09_10_EasternView,2021,9/10/2021,Stafford,Eastern View,Away,26,30,216,175,41,279,180,99
+2021_09_10_EasternView,2021,9/10/2021,Eastern View,Stafford,Home,30,26,279,180,99,216,175,41
+2021_09_17_Spotsylvania,2021,9/17/2021,Stafford,Spotsylvania,Home,26,44,214,191,23,367,62,305
+2021_09_17_Spotsylvania,2021,9/17/2021,Spotsylvania,Stafford,Away,44,26,367,62,305,214,191,23
+2021_09_24_ColonialForge,2021,9/24/2021,Stafford,Colonial Forge,Away,0,49,157,78,79,402,152,250
+2021_09_24_ColonialForge,2021,9/24/2021,Colonial Forge,Stafford,Home,49,0,402,152,250,157,78,79
+2021_10_01_MountainView,2021,10/1/2021,Stafford,Mountain View,Home,6,41,162,165,-3,398,140,258
+2021_10_01_MountainView,2021,10/1/2021,Mountain View,Stafford,Away,41,6,398,140,258,162,165,-3
+2021_10_08_BrookePoint,2021,10/8/2021,Stafford,Brooke Point,Home,0,56,137,120,17,557,250,307
+2021_10_08_BrookePoint,2021,10/8/2021,Brooke Point,Stafford,Away,56,0,557,250,307,137,120,17
+2021_10_18_NorthStafford,2021,10/18/2021,Stafford,North Stafford,Away,7,42,96,70,26,389,170,219
+2021_10_18_NorthStafford,2021,10/18/2021,North Stafford,Stafford,Home,42,7,389,170,219,96,70,26
+2021_10_22_Massaponax,2021,10/22/2021,Stafford,Massaponax,Home,26,55,271,271,0,383,29,354
+2021_10_22_Massaponax,2021,10/22/2021,Massaponax,Stafford,Away,55,26,383,29,354,271,271,0
+2021_10_28_Riverbend,2021,10/28/2021,Stafford,Riverbend,Away,0,35,43,52,-9,318,188,130
+2021_10_28_Riverbend,2021,10/28/2021,Riverbend,Stafford,Home,35,0,318,188,130,43,52,-9
+2021_02_22_Massaponax,2020,2/22/2021,Stafford,Massaponax,Home,27,62,61,43,18,439,138,301
+2021_02_22_Massaponax,2020,2/22/2021,Massaponax,Stafford,Away,62,27,439,138,301,61,43,18
+2021_03_05_NorthStafford,2020,3/5/2021,Stafford,North Stafford,Home,7,16,99,58,41,60,42,18
+2021_03_05_NorthStafford,2020,3/5/2021,North Stafford,Stafford,Away,16,7,60,42,18,99,58,41
+2021_03_12_BrookePoint,2020,3/12/2021,Stafford,Brooke Point,Away,29,48,275,113,162,567,204,363
+2021_03_12_BrookePoint,2020,3/12/2021,Brooke Point,Stafford,Home,48,29,567,204,363,275,113,162
+2021_03_19_Riverbend,2020,3/19/2021,Stafford,Riverbend,Away,0,48,-24,14,-38,400,81,319
+2021_03_19_Riverbend,2020,3/19/2021,Riverbend,Stafford,Home,48,0,400,81,319,-24,14,-38
+2021_03_26_MountainView,2020,3/26/2021,Stafford,Mountain View,Home,0,26,130,160,-30,350,158,192
+2021_03_26_MountainView,2020,3/26/2021,Mountain View,Stafford,Away,26,0,350,158,192,130,160,-30
+2021_04_01_ColonialForge,2020,4/1/2021,Stafford,Colonial Forge,Away,6,36,129,129,,208,,208
+2021_04_01_ColonialForge,2020,4/1/2021,Colonial Forge,Stafford,Home,36,6,208,,208,129,129,
+2021_04_09_Spotsylvania,2020,4/9/2021,Stafford,Spotsylvania,Away,28,30,300,241,59,276,35,241
+2021_04_09_Spotsylvania,2020,4/9/2021,Spotsylvania,Stafford,Home,30,28,276,35,241,300,241,59
+2019_08_29_JamesMonroe,2019,8/29/2019,Stafford,James Monroe,Away,7,21,162,66,96,302,113,189
+2019_08_29_JamesMonroe,2019,8/29/2019,James Monroe,Stafford,Home,21,7,302,113,189,162,66,96
+2019_09_06_KingGeorge,2019,9/6/2019,Stafford,King George,Home,21,34,289,129,160,439,285,154
+2019_09_06_KingGeorge,2019,9/6/2019,King George,Stafford,Away,34,21,439,285,154,289,129,160
+2019_09_13_Courtland,2019,9/13/2019,Stafford,Courtland,Away,35,14,365,179,186,161,70,91
+2019_09_13_Courtland,2019,9/13/2019,Courtland,Stafford,Home,14,35,161,70,91,365,179,186
+2019_09_27_Massaponax,2019,9/27/2019,Stafford,Massaponax,Away,0,58,79,70,9,489,0,489
+2019_09_27_Massaponax,2019,9/27/2019,Massaponax,Stafford,Home,58,0,489,0,489,79,70,9
+2019_10_04_Tuscarora,2019,10/4/2019,Stafford,Tuscarora,Home,13,31,159,45,114,,,
+2019_10_04_Tuscarora,2019,10/4/2019,Tuscarora,Stafford,Away,31,13,,,,159,45,114
+2019_10_11_NorthStafford,2019,10/11/2019,Stafford,North Stafford,Away,20,28,179,180,-1,390,249,141
+2019_10_11_NorthStafford,2019,10/11/2019,North Stafford,Stafford,Home,28,20,390,249,141,179,180,-1
+2019_10_18_BrookePoint,2019,10/18/2019,Stafford,Brooke Point,Home,13,7,259,62,197,307,175,132
+2019_10_18_BrookePoint,2019,10/18/2019,Brooke Point,Stafford,Away,7,13,307,175,132,259,62,197
+2019_10_25_Riverbend,2019,10/25/2019,Stafford,Riverbend,Away,20,21,153,127,26,194,69,125
+2019_10_25_Riverbend,2019,10/25/2019,Riverbend,Stafford,Home,21,20,194,69,125,153,127,26
+2019_11_01_MountainView,2019,11/1/2019,Stafford,Mountain View,Away,7,21,196,192,4,195,45,150
+2019_11_01_MountainView,2019,11/1/2019,Mountain View,Stafford,Home,21,7,195,45,150,196,192,4
+2019_11_08_ColonialForge,2019,11/8/2019,Stafford,Colonial Forge,Home,14,57,168,124,44,551,165,386
+2019_11_08_ColonialForge,2019,11/8/2019,Colonial Forge,Stafford,Away,57,14,551,165,386,168,124,44
+2019_11_15_MountainView,2019,11/15/2019,Stafford,Mountain View,Away,28,45,353,226,127,469,161,308
+2019_11_15_MountainView,2019,11/15/2019,Mountain View,Stafford,Home,45,28,469,161,308,353,226,127
+2018_08_24_JamesMonroe,2018,8/24/2018,Stafford,James Monroe,Home,30,13,158,85,73,277,148,129
+2018_08_24_JamesMonroe,2018,8/24/2018,James Monroe,Stafford,Away,13,30,277,148,129,158,85,73
+2018_08_30_Potomac,2018,8/30/2018,Stafford,Potomac,Home,41,35,513,273,240,129,25,104
+2018_08_30_Potomac,2018,8/30/2018,Potomac,Stafford,Away,35,41,129,25,104,513,273,240
+2018_09_07_Courtland,2018,9/7/2018,Stafford,Courtland,Away,0,34,152,94,58,364,23,341
+2018_09_07_Courtland,2018,9/7/2018,Courtland,Stafford,Home,34,0,364,23,341,152,94,58
+2018_09_12_KingGeorge,2018,9/12/2018,Stafford,King George,Away,28,7,381,116,265,272,161,111
+2018_09_12_KingGeorge,2018,9/12/2018,King George,Stafford,Home,7,28,272,161,111,381,116,265
+2018_09_21_MountainView,2018,9/21/2018,Stafford,Mountain View,Home,7,30,210,85,125,252,28,224
+2018_09_21_MountainView,2018,9/21/2018,Mountain View,Stafford,Away,30,7,252,28,224,210,85,125
+2018_09_28_NorthStafford,2018,9/28/2018,Stafford,North Stafford,Away,27,52,295,165,130,593,303,290
+2018_09_28_NorthStafford,2018,9/28/2018,North Stafford,Stafford,Home,52,27,593,303,290,295,165,130
+2018_10_05_Riverbend,2018,10/5/2018,Stafford,Riverbend,Away,14,7,367,196,171,38,15,23
+2018_10_05_Riverbend,2018,10/5/2018,Riverbend,Stafford,Home,7,14,38,15,23,367,196,171
+2018_10_12_ColonialForge,2018,10/12/2018,Stafford,Colonial Forge,Home,14,49,207,132,75,399,189,210
+2018_10_12_ColonialForge,2018,10/12/2018,Colonial Forge,Stafford,Away,49,14,399,189,210,207,132,75
+2018_10_19_Massaponax,2018,10/19/2018,Stafford,Massaponax,Away,6,31,184,100,84,376,0,376
+2018_10_19_Massaponax,2018,10/19/2018,Massaponax,Stafford,Home,31,6,376,0,376,184,100,84
+2018_10_27_BrookePoint,2018,10/27/2018,Stafford,Brooke Point,Home,19,21,223,253,-30,361,36,325
+2018_10_27_BrookePoint,2018,10/27/2018,Brooke Point,Stafford,Away,21,19,361,36,325,223,253,-30
+2017_08_25_JamesMonroe,2017,8/25/2017,Stafford,James Monroe,Away,28,14,258,121,137,113,56,57
+2017_08_25_JamesMonroe,2017,8/25/2017,James Monroe,Stafford,Home,14,28,113,56,57,258,121,137
+2017_09_01_Potomac,2017,9/1/2017,Stafford,Potomac,Away,27,0,289,79,210,99,,
+2017_09_01_Potomac,2017,9/1/2017,Potomac,Stafford,Home,0,27,99,,,289,79,210
+2017_09_08_Courtland,2017,9/8/2017,Stafford,Courtland,Home,19,7,288,159,129,79,8,71
+2017_09_08_Courtland,2017,9/8/2017,Courtland,Stafford,Away,7,19,79,8,71,288,159,129
+2017_09_15_KingGeorge,2017,9/15/2017,Stafford,King George,Home,28,6,396,110,286,174,73,101
+2017_09_15_KingGeorge,2017,9/15/2017,King George,Stafford,Away,6,28,174,73,101,396,110,286
+2017_09_22_MountainView,2017,9/22/2017,Stafford,Mountain View,Away,21,17,475,152,323,215,175,40
+2017_09_22_MountainView,2017,9/22/2017,Mountain View,Stafford,Home,17,21,215,175,40,475,152,323
+2017_09_29_NorthStafford,2017,9/29/2017,Stafford,North Stafford,Home,14,55,67,32,35,423,110,313
+2017_09_29_NorthStafford,2017,9/29/2017,North Stafford,Stafford,Away,55,14,423,110,313,67,32,35
+2017_10_06_Riverbend,2017,10/6/2017,Stafford,Riverbend,Home,21,10,216,132,84,251,54,197
+2017_10_06_Riverbend,2017,10/6/2017,Riverbend,Stafford,Away,10,21,251,54,197,216,132,84
+2017_10_13_ColonialForge,2017,10/13/2017,Stafford,Colonial Forge,Away,7,42,235,153,82,435,312,123
+2017_10_13_ColonialForge,2017,10/13/2017,Colonial Forge,Stafford,Home,42,7,435,312,123,235,153,82
+2017_10_20_Massaponax,2017,10/20/2017,Stafford,Massaponax,Home,38,21,368,122,246,249,66,183
+2017_10_20_Massaponax,2017,10/20/2017,Massaponax,Stafford,Away,21,38,249,66,183,368,122,246
+2017_10_27_BrookePoint,2017,10/27/2017,Stafford,Brooke Point,Away,13,23,159,99,60,344,196,148
+2017_10_27_BrookePoint,2017,10/27/2017,Brooke Point,Stafford,Home,23,13,344,196,148,159,99,60
+2017_11_10_PatrickHenry-Roanoke,2017,11/10/2017,Stafford,Patrick Henry-Roanoke,Home,48,0,381,49,332,39,23,16
+2017_11_10_PatrickHenry-Roanoke,2017,11/10/2017,Patrick Henry-Roanoke,Stafford,Away,0,48,39,23,16,381,49,332
+2017_11_17_Harrisonburg,2017,11/17/2017,Stafford,Harrisonburg,Home,48,27,603,95,508,487,177,310
+2017_11_17_Harrisonburg,2017,11/17/2017,Harrisonburg,Stafford,Away,27,48,487,177,310,603,95,508
+2017_11_25_BrookePoint,2017,11/25/2017,Stafford,Brooke Point,Away,59,26,484,251,233,364,272,92
+2017_11_25_BrookePoint,2017,11/25/2017,Brooke Point,Stafford,Home,26,59,364,272,92,484,251,233
+2017_12_02_Tuscarora,2017,12/2/2017,Stafford,Tuscarora,Away,17,20,224,186,38,271,171,100
+2017_12_02_Tuscarora,2017,12/2/2017,Tuscarora,Stafford,Home,20,17,271,171,100,224,186,38
+2016_08_26_Patriot,2016,8/26/2016,Stafford,Patriot,Away,28,29,256,233,23,299,134,165
+2016_08_26_Patriot,2016,8/26/2016,Patriot,Stafford,Home,29,28,299,134,165,256,233,23
+2016_09_02_Woodbridge,2016,9/2/2016,Stafford,Woodbridge,Away,34,25,303,171,132,302,134,168
+2016_09_02_Woodbridge,2016,9/2/2016,Woodbridge,Stafford,Home,25,34,302,134,168,303,171,132
+2016_09_09_ColonialForge,2016,9/9/2016,Stafford,Colonial Forge,Home,7,44,111,128,-17,440,240,200
+2016_09_09_ColonialForge,2016,9/9/2016,Colonial Forge,Stafford,Away,44,7,440,240,200,111,128,-17
+2016_09_23_OsbournPark,2016,9/23/2016,Stafford,Osbourn Park,Away,20,13,,,,142,140,2
+2016_09_23_OsbournPark,2016,9/23/2016,Osbourn Park,Stafford,Home,13,20,142,140,2,,,
+2016_10_01_Osbourn,2016,10/1/2016,Stafford,Osbourn,Away,34,27,,,,298,296,2
+2016_10_01_Osbourn,2016,10/1/2016,Osbourn,Stafford,Home,27,34,298,296,2,,,
+2016_10_07_Massaponax,2016,10/7/2016,Stafford,Massaponax,Home,20,31,109,109,0,319,43,276
+2016_10_07_Massaponax,2016,10/7/2016,Massaponax,Stafford,Away,31,20,319,43,276,109,109,0
+2016_10_14_NorthStafford,2016,10/14/2016,Stafford,North Stafford,Away,7,17,224,29,195,280,208,72
+2016_10_14_NorthStafford,2016,10/14/2016,North Stafford,Stafford,Home,17,7,280,208,72,224,29,195
+2016_10_21_BrookePoint,2016,10/21/2016,Stafford,Brooke Point,Home,0,41,141,66,75,425,175,250
+2016_10_21_BrookePoint,2016,10/21/2016,Brooke Point,Stafford,Away,41,0,425,175,250,141,66,75
+2016_10_28_MountainView,2016,10/28/2016,Stafford,Mountain View,Home,28,35,392,238,154,374,276,98
+2016_10_28_MountainView,2016,10/28/2016,Mountain View,Stafford,Away,35,28,374,276,98,392,238,154
+2016_11_04_Potomac,2016,11/4/2016,Stafford,Potomac,Away,14,34,213,195,18,392,65,327
+2016_11_04_Potomac,2016,11/4/2016,Potomac,Stafford,Home,34,14,392,65,327,213,195,18
+2015_08_28_Patriot,2015,8/28/2015,Stafford,Patriot,Away,17,20,300,126,174,213,124,89
+2015_08_28_Patriot,2015,8/28/2015,Patriot,Stafford,Home,20,17,213,124,89,300,126,174
+2015_09_04_Woodbridge,2015,9/4/2015,Stafford,Woodbridge,Home,6,43,197,46,151,387,136,251
+2015_09_04_Woodbridge,2015,9/4/2015,Woodbridge,Stafford,Away,43,6,387,136,251,197,46,151
+2015_09_11_ColonialForge,2015,9/11/2015,Stafford,Colonial Forge,Away,0,33,42,11,31,332,164,168
+2015_09_11_ColonialForge,2015,9/11/2015,Colonial Forge,Stafford,Home,33,0,332,164,168,42,11,31
+2015_09_25_OsbournPark,2015,9/25/2015,Stafford,Osbourn Park,Home,41,21,305,20,285,349,256,93
+2015_09_25_OsbournPark,2015,9/25/2015,Osbourn Park,Stafford,Away,21,41,349,256,93,305,20,285
+2015_10_03_Osbourn,2015,10/3/2015,Stafford,Osbourn,Home,13,20,261,34,227,350,176,174
+2015_10_03_Osbourn,2015,10/3/2015,Osbourn,Stafford,Away,20,13,350,176,174,261,34,227
+2015_10_10_Massaponax,2015,10/10/2015,Stafford,Massaponax,Away,0,55,136,44,92,469,78,391
+2015_10_10_Massaponax,2015,10/10/2015,Massaponax,Stafford,Home,55,0,469,78,391,136,44,92
+2015_10_16_NorthStafford,2015,10/16/2015,Stafford,North Stafford,Home,13,41,258,87,171,326,77,249
+2015_10_16_NorthStafford,2015,10/16/2015,North Stafford,Stafford,Away,41,13,326,77,249,258,87,171
+2015_10_23_BrookePoint,2015,10/23/2015,Stafford,Brooke Point,Away,7,57,171,135,36,381,215,166
+2015_10_23_BrookePoint,2015,10/23/2015,Brooke Point,Stafford,Home,57,7,381,215,166,171,135,36
+2015_10_30_MountainView,2015,10/30/2015,Stafford,Mountain View,Away,0,27,122,54,68,277,79,198
+2015_10_30_MountainView,2015,10/30/2015,Mountain View,Stafford,Home,27,0,277,79,198,122,54,68
+2015_11_06_Potomac,2015,11/6/2015,Stafford,Potomac,Home,20,16,316,22,294,182,46,136
+2015_11_06_Potomac,2015,11/6/2015,Potomac,Stafford,Away,16,20,182,46,136,316,22,294
+2014_08_29_JamesMonroe,2014,8/29/2014,Stafford,James Monroe,Home,23,24,293,42,251,241,215,26
+2014_08_29_JamesMonroe,2014,8/29/2014,James Monroe,Stafford,Away,24,23,241,215,26,293,42,251
+2014_09_05_KingGeorge,2014,9/5/2014,Stafford,King George,Away,17,35,301,22,279,190,120,70
+2014_09_05_KingGeorge,2014,9/5/2014,King George,Stafford,Home,35,17,190,120,70,301,22,279
+2014_09_12_Albemarle,2014,9/12/2014,Stafford,Albemarle,Away,35,14,341,141,200,,,
+2014_09_12_Albemarle,2014,9/12/2014,Albemarle,Stafford,Home,14,35,,,,341,141,200
+2014_09_19_Courtland,2014,9/19/2014,Stafford,Courtland,Home,0,35,222,84,138,389,114,275
+2014_09_19_Courtland,2014,9/19/2014,Courtland,Stafford,Away,35,0,389,114,275,222,84,138
+2014_10_03_NorthStafford,2014,10/3/2014,Stafford,North Stafford,Away,0,35,191,91,100,375,140,235
+2014_10_03_NorthStafford,2014,10/3/2014,North Stafford,Stafford,Home,35,0,375,140,235,191,91,100
+2014_10_10_BrookePoint,2014,10/10/2014,Stafford,Brooke Point,Home,7,31,141,112,29,184,61,123
+2014_10_10_BrookePoint,2014,10/10/2014,Brooke Point,Stafford,Away,31,7,184,61,123,141,112,29
+2014_10_17_Massaponax,2014,10/17/2014,Stafford,Massaponax,Away,12,35,151,82,69,446,154,292
+2014_10_17_Massaponax,2014,10/17/2014,Massaponax,Stafford,Home,35,12,446,154,292,151,82,69
+2014_10_24_Riverbend,2014,10/24/2014,Stafford,Riverbend,Home,0,42,205,85,120,509,294,215
+2014_10_24_Riverbend,2014,10/24/2014,Riverbend,Stafford,Away,42,0,509,294,215,205,85,120
+2014_10_31_ColonialForge,2014,10/31/2014,Stafford,Colonial Forge,Away,7,45,147,43,104,426,240,186
+2014_10_31_ColonialForge,2014,10/31/2014,Colonial Forge,Stafford,Home,45,7,426,240,186,147,43,104
+2014_11_07_MountainView,2014,11/7/2014,Stafford,Mountain View,Home,17,34,453,302,151,428,141,287
+2014_11_07_MountainView,2014,11/7/2014,Mountain View,Stafford,Away,34,17,428,141,287,453,302,151
+2013_08_30_JamesMonroe,2013,8/30/2013,Stafford,James Monroe,Away,9,38,243,109,134,362,138,224
+2013_08_30_JamesMonroe,2013,8/30/2013,James Monroe,Stafford,Home,38,9,362,138,224,243,109,134
+2013_09_06_KingGeorge,2013,9/6/2013,Stafford,King George,Home,17,20,229,171,58,330,146,184
+2013_09_06_KingGeorge,2013,9/6/2013,King George,Stafford,Away,20,17,330,146,184,229,171,58
+2013_09_13_Albemarle,2013,9/13/2013,Stafford,Albemarle,Home,10,20,187,78,109,345,170,175
+2013_09_13_Albemarle,2013,9/13/2013,Albemarle,Stafford,Away,20,10,345,170,175,187,78,109
+2013_09_20_Courtland,2013,9/20/2013,Stafford,Courtland,Away,14,58,237,132,105,595,173,467
+2013_09_20_Courtland,2013,9/20/2013,Courtland,Stafford,Home,58,14,595,173,467,237,132,105
+2013_10_04_NorthStafford,2013,10/4/2013,Stafford,North Stafford,Away,0,42,80,65,15,444,308,136
+2013_10_04_NorthStafford,2013,10/4/2013,North Stafford,Stafford,Home,42,0,444,308,136,80,65,15
+2013_10_12_BrookePoint,2013,10/12/2013,Stafford,Brooke Point,Away,14,28,185,97,88,147,140,7
+2013_10_12_BrookePoint,2013,10/12/2013,Brooke Point,Stafford,Home,28,14,147,140,7,185,97,88
+2013_10_18_Massaponax,2013,10/18/2013,Stafford,Massaponax,Home,10,41,108,60,48,399,119,280
+2013_10_18_Massaponax,2013,10/18/2013,Massaponax,Stafford,Away,41,10,399,119,280,108,60,48
+2013_10_25_Riverbend,2013,10/25/2013,Stafford,Riverbend,Away,21,14,257,27,230,209,123,86
+2013_10_25_Riverbend,2013,10/25/2013,Riverbend,Stafford,Home,14,21,209,123,86,257,27,230
+2013_11_01_ColonialForge,2013,11/1/2013,Stafford,Colonial Forge,Home,0,32,67,0,67,460,243,217
+2013_11_01_ColonialForge,2013,11/1/2013,Colonial Forge,Stafford,Away,32,0,460,243,217,67,0,67
+2013_11_08_MountainView,2013,11/8/2013,Stafford,Mountain View,Away,14,34,166,83,83,366,126,240
+2013_11_08_MountainView,2013,11/8/2013,Mountain View,Stafford,Home,34,14,366,126,240,166,83,83
+2012_08_24_Potomac,2012,8/24/2012,Stafford,Potomac,Home,10,28,145,142,3,287,108,179
+2012_08_24_Potomac,2012,8/24/2012,Potomac,Stafford,Away,28,10,287,108,179,145,142,3
+2012_08_31_JamesMonroe,2012,8/31/2012,Stafford,James Monroe,Home,12,24,252,188,64,302,43,259
+2012_08_31_JamesMonroe,2012,8/31/2012,James Monroe,Stafford,Away,24,12,302,43,259,252,188,64
+2012_09_07_Massaponax,2012,9/7/2012,Stafford,Massaponax,Away,7,13,121,74,47,267,29,238
+2012_09_07_Massaponax,2012,9/7/2012,Massaponax,Stafford,Home,13,7,267,29,238,121,74,47
+2012_09_14_Orange,2012,9/14/2012,Stafford,Orange,Away,14,13,269,56,213,177,34,143
+2012_09_14_Orange,2012,9/14/2012,Orange,Stafford,Home,13,14,177,34,143,269,56,213
+2012_09_21_ColonialForge,2012,9/21/2012,Stafford,Colonial Forge,Home,16,21,329,312,17,322,91,231
+2012_09_21_ColonialForge,2012,9/21/2012,Colonial Forge,Stafford,Away,21,16,322,91,231,329,312,17
+2012_09_28_Riverbend,2012,9/28/2012,Stafford,Riverbend,Home,33,16,389,54,335,217,36,181
+2012_09_28_Riverbend,2012,9/28/2012,Riverbend,Stafford,Away,16,33,217,36,181,389,54,335
+2012_10_05_Albemarle,2012,10/5/2012,Stafford,Albemarle,Away,28,22,267,154,113,,,
+2012_10_05_Albemarle,2012,10/5/2012,Albemarle,Stafford,Home,22,28,,,,267,154,113
+2012_10_12_MountainView,2012,10/12/2012,Stafford,Mountain View,Home,21,63,274,147,127,395,201,194
+2012_10_12_MountainView,2012,10/12/2012,Mountain View,Stafford,Away,63,21,395,201,194,274,147,127
+2012_10_19_NorthStafford,2012,10/19/2012,Stafford,North Stafford,Home,20,49,339,164,175,384,193,191
+2012_10_19_NorthStafford,2012,10/19/2012,North Stafford,Stafford,Away,49,20,384,193,191,339,164,175
+2012_10_26_BrookePoint,2012,10/26/2012,Stafford,Brooke Point,Away,21,35,322,174,148,362,244,118
+2012_10_26_BrookePoint,2012,10/26/2012,Brooke Point,Stafford,Home,35,21,362,244,118,322,174,148
+2011_08_26_Potomac,2011,8/26/2011,Stafford,Potomac,Home,3,13,254,83,171,189,67,122
+2011_08_26_Potomac,2011,8/26/2011,Potomac,Stafford,Away,13,3,189,67,122,254,83,171
+2011_09_02_JamesMonroe,2011,9/2/2011,Stafford,James Monroe,Away,17,41,250,29,221,355,102,253
+2011_09_02_JamesMonroe,2011,9/2/2011,James Monroe,Stafford,Home,41,17,355,102,253,250,29,221
+2011_09_10_Massaponax,2011,9/10/2011,Stafford,Massaponax,Home,11,14,175,76,99,314,104,210
+2011_09_10_Massaponax,2011,9/10/2011,Massaponax,Stafford,Away,14,11,314,104,210,175,76,99
+2011_09_16_Orange,2011,9/16/2011,Stafford,Orange,Home,46,7,377,88,289,123,123,0
+2011_09_16_Orange,2011,9/16/2011,Orange,Stafford,Away,7,46,123,123,0,377,88,289
+2011_09_26_ColonialForge,2011,9/26/2011,Stafford,Colonial Forge,Away,24,14,227,62,165,128,34,94
+2011_09_26_ColonialForge,2011,9/26/2011,Colonial Forge,Stafford,Home,14,24,128,34,94,227,62,165
+2011_09_30_Riverbend,2011,9/30/2011,Stafford,Riverbend,Away,28,14,155,93,62,205,79,126
+2011_09_30_Riverbend,2011,9/30/2011,Riverbend,Stafford,Home,14,28,205,79,126,155,93,62
+2011_10_07_Albemarle,2011,10/7/2011,Stafford,Albemarle,Home,42,27,318,42,276,310,158,152
+2011_10_07_Albemarle,2011,10/7/2011,Albemarle,Stafford,Away,27,42,310,158,152,318,42,276
+2011_10_14_MountainView,2011,10/14/2011,Stafford,Mountain View,Away,7,24,260,139,121,382,267,115
+2011_10_14_MountainView,2011,10/14/2011,Mountain View,Stafford,Home,24,7,382,267,115,260,139,121
+2011_10_21_NorthStafford,2011,10/21/2011,Stafford,North Stafford,Away,27,40,397,193,204,305,92,213
+2011_10_21_NorthStafford,2011,10/21/2011,North Stafford,Stafford,Home,40,27,305,92,213,397,193,204
+2011_10_28_BrookePoint,2011,10/28/2011,Stafford,Brooke Point,Home,26,6,229,13,216,183,230,-47
+2011_10_28_BrookePoint,2011,10/28/2011,Brooke Point,Stafford,Away,6,26,183,230,-47,229,13,216
+2010_09_03_OsbournPark,2010,9/3/2010,Stafford,Osbourn Park,Home,13,27,40,35,5,72,,72
+2010_09_03_OsbournPark,2010,9/3/2010,Osbourn Park,Stafford,Away,27,13,72,,72,40,35,5
+2010_09_10_Potomac,2010,9/10/2010,Stafford,Potomac,Away,23,24,,,,237,,237
+2010_09_10_Potomac,2010,9/10/2010,Potomac,Stafford,Home,24,23,237,,237,,,
+2010_09_16_Woodbridge,2010,9/16/2010,Stafford,Woodbridge,Away,21,14,231,122,109,231,32,199
+2010_09_16_Woodbridge,2010,9/16/2010,Woodbridge,Stafford,Home,14,21,231,32,199,231,122,109
+2010_09_24_Riverbend,2010,9/24/2010,Stafford,Riverbend,Away,17,14,274,51,223,156,45,111
+2010_09_24_Riverbend,2010,9/24/2010,Riverbend,Stafford,Home,14,17,156,45,111,274,51,223
+2010_10_01_Massaponax,2010,10/1/2010,Stafford,Massaponax,Home,34,20,379,144,235,269,148,121
+2010_10_01_Massaponax,2010,10/1/2010,Massaponax,Stafford,Away,20,34,269,148,121,379,144,235
+2010_10_08_MountainView,2010,10/8/2010,Stafford,Mountain View,Away,7,14,223,206,17,285,90,195
+2010_10_08_MountainView,2010,10/8/2010,Mountain View,Stafford,Home,14,7,285,90,195,223,206,17
+2010_10_15_NorthStafford,2010,10/15/2010,Stafford,North Stafford,Home,17,16,110,6,104,257,57,200
+2010_10_15_NorthStafford,2010,10/15/2010,North Stafford,Stafford,Away,16,17,257,57,200,110,6,104
+2010_10_22_Albemarle,2010,10/22/2010,Stafford,Albemarle,Away,24,14,217,,217,235,174,61
+2010_10_22_Albemarle,2010,10/22/2010,Albemarle,Stafford,Home,14,24,235,174,61,217,,217
+2010_10_29_BrookePoint,2010,10/29/2010,Stafford,Brooke Point,Home,0,17,128,48,80,271,141,130
+2010_10_29_BrookePoint,2010,10/29/2010,Brooke Point,Stafford,Away,17,0,271,141,130,128,48,80
+2010_11_05_ColonialForge,2010,11/5/2010,Stafford,Colonial Forge,Home,14,45,242,59,183,385,243,142
+2010_11_05_ColonialForge,2010,11/5/2010,Colonial Forge,Stafford,Away,45,14,385,243,142,242,59,183
+2010_11_12_LoudounValley,2010,11/12/2010,Stafford,Loudoun Valley,Away,9,27,160,42,118,267,73,194
+2010_11_12_LoudounValley,2010,11/12/2010,Loudoun Valley,Stafford,Home,27,9,267,73,194,160,42,118
+2009_09_04_OsbournPark,2009,9/4/2009,Stafford,Osbourn Park,Away,7,38,18,18,,356,32,324
+2009_09_04_OsbournPark,2009,9/4/2009,Osbourn Park,Stafford,Home,38,7,356,32,324,18,18,
+2009_09_11_Potomac,2009,9/11/2009,Stafford,Potomac,Home,10,7,139,72,67,20,20,
+2009_09_11_Potomac,2009,9/11/2009,Potomac,Stafford,Away,7,10,20,20,,139,72,67
+2009_09_18_Woodbridge,2009,9/18/2009,Stafford,Woodbridge,Home,0,41,181,118,63,340,83,257
+2009_09_18_Woodbridge,2009,9/18/2009,Woodbridge,Stafford,Away,41,0,340,83,257,181,118,63
+2009_09_25_Riverbend,2009,9/25/2009,Stafford,Riverbend,Home,22,41,299,185,114,400,68,332
+2009_09_25_Riverbend,2009,9/25/2009,Riverbend,Stafford,Away,41,22,400,68,332,299,185,114
+2009_10_02_Massaponax,2009,10/2/2009,Stafford,Massaponax,Away,0,48,128,5,123,350,103,247
+2009_10_02_Massaponax,2009,10/2/2009,Massaponax,Stafford,Home,48,0,350,103,247,128,5,123
+2009_10_09_MountainView,2009,10/9/2009,Stafford,Mountain View,Home,14,31,303,93,210,353,126,227
+2009_10_09_MountainView,2009,10/9/2009,Mountain View,Stafford,Away,31,14,353,126,227,303,93,210
+2009_10_16_NorthStafford,2009,10/16/2009,Stafford,North Stafford,Away,7,35,207,113,94,403,113,290
+2009_10_16_NorthStafford,2009,10/16/2009,North Stafford,Stafford,Home,35,7,403,113,290,207,113,94
+2009_10_23_Albemarle,2009,10/23/2009,Stafford,Albemarle,Home,41,6,408,51,357,,,
+2009_10_23_Albemarle,2009,10/23/2009,Albemarle,Stafford,Away,6,41,,,,408,51,357
+2009_10_30_BrookePoint,2009,10/30/2009,Stafford,Brooke Point,Away,0,13,132,43,89,366,245,121
+2009_10_30_BrookePoint,2009,10/30/2009,Brooke Point,Stafford,Home,13,0,366,245,121,132,43,89
+2009_11_06_ColonialForge,2009,11/6/2009,Stafford,Colonial Forge,Away,6,49,160,33,127,427,213,214
+2009_11_06_ColonialForge,2009,11/6/2009,Colonial Forge,Stafford,Home,49,6,427,213,214,160,33,127
+2008_09_04_Potomac,2008,9/4/2008,Stafford,Potomac,Home,7,14,235,123,112,260,36,224
+2008_09_04_Potomac,2008,9/4/2008,Potomac,Stafford,Away,14,7,260,36,224,235,123,112
+2008_09_12_Fauquier,2008,9/12/2008,Stafford,Fauquier,Away,33,35,429,251,178,,,
+2008_09_12_Fauquier,2008,9/12/2008,Fauquier,Stafford,Home,35,33,,,,429,251,178
+2008_09_19_Liberty-Bealeton,2008,9/19/2008,Stafford,Liberty-Bealeton,Home,32,41,382,268,114,368,126,242
+2008_09_19_Liberty-Bealeton,2008,9/19/2008,Liberty-Bealeton,Stafford,Away,41,32,368,126,242,382,268,114
+2008_09_26_BrookePoint,2008,9/26/2008,Stafford,Brooke Point,Home,29,56,250,168,82,517,243,274
+2008_09_26_BrookePoint,2008,9/26/2008,Brooke Point,Stafford,Away,56,29,517,243,274,250,168,82
+2008_10_03_MountainView,2008,10/3/2008,Stafford,Mountain View,Away,21,13,453,182,271,316,97,219
+2008_10_03_MountainView,2008,10/3/2008,Mountain View,Stafford,Home,13,21,316,97,219,453,182,271
+2008_10_10_ColonialForge,2008,10/10/2008,Stafford,Colonial Forge,Home,14,24,322,207,115,336,35,301
+2008_10_10_ColonialForge,2008,10/10/2008,Colonial Forge,Stafford,Away,24,14,336,35,301,322,207,115
+2008_10_17_Riverbend,2008,10/17/2008,Stafford,Riverbend,Away,33,28,383,166,217,273,67,206
+2008_10_17_Riverbend,2008,10/17/2008,Riverbend,Stafford,Home,28,33,273,67,206,383,166,217
+2008_10_24_Massaponax,2008,10/24/2008,Stafford,Massaponax,Home,47,42,422,247,175,574,147,427
+2008_10_24_Massaponax,2008,10/24/2008,Massaponax,Stafford,Away,42,47,574,147,427,422,247,175
+2008_10_31_Albemarle,2008,10/31/2008,Stafford,Albemarle,Away,37,14,364,286,78,331,169,162
+2008_10_31_Albemarle,2008,10/31/2008,Albemarle,Stafford,Home,14,37,331,169,162,364,286,78
+2008_11_07_NorthStafford,2008,11/7/2008,Stafford,North Stafford,Away,41,33,463,290,173,373,2,371
+2008_11_07_NorthStafford,2008,11/7/2008,North Stafford,Stafford,Home,33,41,373,2,371,463,290,173
+2007_09_07_Potomac,2007,9/7/2007,Stafford,Potomac,Away,0,14,212,127,85,252,30,222
+2007_09_07_Potomac,2007,9/7/2007,Potomac,Stafford,Home,14,0,252,30,222,212,127,85
+2007_09_14_Fauquier,2007,9/14/2007,Stafford,Fauquier,Home,21,27,278,112,166,241,167,74
+2007_09_14_Fauquier,2007,9/14/2007,Fauquier,Stafford,Away,27,21,241,167,74,278,112,166
+2007_09_21_Liberty-Bealeton,2007,9/21/2007,Stafford,Liberty-Bealeton,Away,16,31,319,97,222,266,77,189
+2007_09_21_Liberty-Bealeton,2007,9/21/2007,Liberty-Bealeton,Stafford,Home,31,16,266,77,189,319,97,222
+2007_09_28_BrookePoint,2007,9/28/2007,Stafford,Brooke Point,Away,6,13,137,48,89,201,52,149
+2007_09_28_BrookePoint,2007,9/28/2007,Brooke Point,Stafford,Home,13,6,201,52,149,137,48,89
+2007_10_05_MountainView,2007,10/5/2007,Stafford,Mountain View,Home,42,7,395,136,259,168,41,127
+2007_10_05_MountainView,2007,10/5/2007,Mountain View,Stafford,Away,7,42,168,41,127,395,136,259
+2007_10_12_ColonialForge,2007,10/12/2007,Stafford,Colonial Forge,Away,20,17,261,83,178,240,111,129
+2007_10_12_ColonialForge,2007,10/12/2007,Colonial Forge,Stafford,Home,17,20,240,111,129,261,83,178
+2007_10_19_Riverbend,2007,10/19/2007,Stafford,Riverbend,Home,34,40,265,76,189,329,54,275
+2007_10_19_Riverbend,2007,10/19/2007,Riverbend,Stafford,Away,40,34,329,54,275,265,76,189
+2007_10_29_Massaponax,2007,10/29/2007,Stafford,Massaponax,Away,16,33,272,166,106,346,77,269
+2007_10_29_Massaponax,2007,10/29/2007,Massaponax,Stafford,Home,33,16,346,77,269,272,166,106
+2007_11_02_Albemarle,2007,11/2/2007,Stafford,Albemarle,Home,41,28,350,92,258,248,160,88
+2007_11_02_Albemarle,2007,11/2/2007,Albemarle,Stafford,Away,28,41,248,160,88,350,92,258
+2007_11_09_NorthStafford,2007,11/9/2007,Stafford,North Stafford,Home,18,13,252,124,128,125,22,103
+2007_11_09_NorthStafford,2007,11/9/2007,North Stafford,Stafford,Away,13,18,125,22,103,252,124,128
+2006_09_04_JamesMonroe,2006,9/4/2006,Stafford,James Monroe,Away,7,0,209,0,209,51,2,49
+2006_09_04_JamesMonroe,2006,9/4/2006,James Monroe,Stafford,Home,0,7,51,2,49,209,0,209
+2006_09_09_Liberty-Bealeton,2006,9/9/2006,Stafford,Liberty-Bealeton,Home,13,14,304,38,266,232,46,186
+2006_09_09_Liberty-Bealeton,2006,9/9/2006,Liberty-Bealeton,Stafford,Away,14,13,232,46,186,304,38,266
+2006_09_15_Fauquier,2006,9/15/2006,Stafford,Fauquier,Away,24,14,242,28,214,,,
+2006_09_15_Fauquier,2006,9/15/2006,Fauquier,Stafford,Home,14,24,,,,242,28,214
+2006_09_22_Riverbend,2006,9/22/2006,Stafford,Riverbend,Away,42,20,352,27,325,275,108,167
+2006_09_22_Riverbend,2006,9/22/2006,Riverbend,Stafford,Home,20,42,275,108,167,352,27,325
+2006_09_29_BrookePoint,2006,9/29/2006,Stafford,Brooke Point,Home,9,7,229,135,94,206,43,163
+2006_09_29_BrookePoint,2006,9/29/2006,Brooke Point,Stafford,Away,7,9,206,43,163,229,135,94
+2006_10_09_MountainView,2006,10/9/2006,Stafford,Mountain View,Home,16,7,158,0,158,264,146,118
+2006_10_09_MountainView,2006,10/9/2006,Mountain View,Stafford,Away,7,16,264,146,118,158,0,158
+2006_10_13_Massaponax,2006,10/13/2006,Stafford,Massaponax,Away,17,7,242,3,239,201,38,163
+2006_10_13_Massaponax,2006,10/13/2006,Massaponax,Stafford,Home,7,17,201,38,163,242,3,239
+2006_10_20_Albemarle,2006,10/20/2006,Stafford,Albemarle,Home,13,27,245,92,153,326,106,220
+2006_10_20_Albemarle,2006,10/20/2006,Albemarle,Stafford,Away,27,13,326,106,220,245,92,153
+2006_10_30_ColonialForge,2006,10/30/2006,Stafford,Colonial Forge,Home,14,28,164,91,73,213,87,126
+2006_10_30_ColonialForge,2006,10/30/2006,Colonial Forge,Stafford,Away,28,14,213,87,126,164,91,73
+2006_11_10_NorthStafford,2006,11/10/2006,Stafford,North Stafford,Away,16,21,174,64,110,182,63,119
+2006_11_10_NorthStafford,2006,11/10/2006,North Stafford,Stafford,Home,21,16,182,63,119,174,64,110
+2005_09_02_JamesMonroe,2005,9/2/2005,Stafford,James Monroe,Home,29,66,428,48,380,480,179,301
+2005_09_02_JamesMonroe,2005,9/2/2005,James Monroe,Stafford,Away,66,29,480,179,301,428,48,380
+2005_09_09_Liberty-Bealeton,2005,9/9/2005,Stafford,Liberty-Bealeton,Away,15,31,179,26,153,240,9,231
+2005_09_09_Liberty-Bealeton,2005,9/9/2005,Liberty-Bealeton,Stafford,Home,31,15,240,9,231,179,26,153
+2005_09_16_Fauquier,2005,9/16/2005,Stafford,Fauquier,Home,10,27,,,,,,
+2005_09_16_Fauquier,2005,9/16/2005,Fauquier,Stafford,Away,27,10,,,,,,
+2005_09_23_Riverbend,2005,9/23/2005,Stafford,Riverbend,Home,24,21,328,15,313,319,212,107
+2005_09_23_Riverbend,2005,9/23/2005,Riverbend,Stafford,Away,21,24,319,212,107,328,15,313
+2005_09_30_BrookePoint,2005,9/30/2005,Stafford,Brooke Point,Away,10,27,228,33,195,162,52,110
+2005_09_30_BrookePoint,2005,9/30/2005,Brooke Point,Stafford,Home,27,10,162,52,110,228,33,195
+2005_10_10_MountainView,2005,10/10/2005,Stafford,Mountain View,Away,49,21,470,79,391,347,68,279
+2005_10_10_MountainView,2005,10/10/2005,Mountain View,Stafford,Home,21,49,347,68,279,470,79,391
+2005_10_14_Massaponax,2005,10/14/2005,Stafford,Massaponax,Home,0,35,151,35,116,340,71,269
+2005_10_14_Massaponax,2005,10/14/2005,Massaponax,Stafford,Away,35,0,340,71,269,151,35,116
+2005_10_21_Albemarle,2005,10/21/2005,Stafford,Albemarle,Away,21,0,,,,146,52,94
+2005_10_21_Albemarle,2005,10/21/2005,Albemarle,Stafford,Home,0,21,146,52,94,,,
+2005_10_28_ColonialForge,2005,10/28/2005,Stafford,Colonial Forge,Away,14,7,291,48,243,267,125,142
+2005_10_28_ColonialForge,2005,10/28/2005,Colonial Forge,Stafford,Home,7,14,267,125,142,291,48,243
+2005_11_11_NorthStafford,2005,11/11/2005,Stafford,North Stafford,Home,16,35,173,11,162,344,46,298
+2005_11_11_NorthStafford,2005,11/11/2005,North Stafford,Stafford,Away,35,16,344,46,298,173,11,162
+2004_09_10_Chancellor,2004,9/10/2004,Stafford,Chancellor,Away,7,27,288,45,243,185,61,124
+2004_09_10_Chancellor,2004,9/10/2004,Chancellor,Stafford,Home,27,7,185,61,124,288,45,243
+2004_09_17_ColonialForge,2004,9/17/2004,Stafford,Colonial Forge,Away,7,50,124,46,78,283,13,270
+2004_09_17_ColonialForge,2004,9/17/2004,Colonial Forge,Stafford,Home,50,7,283,13,270,124,46,78
+2004_09_24_KingGeorge,2004,9/24/2004,Stafford,King George,Home,54,24,361,7,354,341,76,265
+2004_09_24_KingGeorge,2004,9/24/2004,King George,Stafford,Away,24,54,341,76,265,361,7,354
+2004_10_01_BrookePoint,2004,10/1/2004,Stafford,Brooke Point,Home,6,37,129,10,119,194,171,23
+2004_10_01_BrookePoint,2004,10/1/2004,Brooke Point,Stafford,Away,37,6,194,171,23,129,10,119
+2004_10_08_Culpeper,2004,10/8/2004,Stafford,Culpeper,Home,0,19,92,65,27,169,16,153
+2004_10_08_Culpeper,2004,10/8/2004,Culpeper,Stafford,Away,19,0,169,16,153,92,65,27
+2004_10_15_Massaponax,2004,10/15/2004,Stafford,Massaponax,Away,27,40,433,35,398,407,76,331
+2004_10_15_Massaponax,2004,10/15/2004,Massaponax,Stafford,Home,40,27,407,76,331,433,35,398
+2004_10_22_Albemarle,2004,10/22/2004,Stafford,Albemarle,Home,61,56,580,64,516,623,443,180
+2004_10_22_Albemarle,2004,10/22/2004,Albemarle,Stafford,Away,56,61,623,443,180,580,64,516
+2004_10_29_ColonialForge,2004,10/29/2004,Stafford,Colonial Forge,Home,7,35,13,23,-10,359,73,286
+2004_10_29_ColonialForge,2004,10/29/2004,Colonial Forge,Stafford,Away,35,7,359,73,286,13,23,-10
+2004_11_05_Spotsylvania,2004,11/5/2004,Stafford,Spotsylvania,Away,20,14,175,23,152,218,69,149
+2004_11_05_Spotsylvania,2004,11/5/2004,Spotsylvania,Stafford,Home,14,20,218,69,149,175,23,152
+2004_11_13_NorthStafford,2004,11/13/2004,Stafford,North Stafford,Away,10,19,,,,273,93,180
+2004_11_13_NorthStafford,2004,11/13/2004,North Stafford,Stafford,Home,19,10,273,93,180,,,
+2003_09_05_Chancellor,2003,9/5/2003,Stafford,Chancellor,Home,24,6,321,168,153,207,26,181
+2003_09_05_Chancellor,2003,9/5/2003,Chancellor,Stafford,Away,6,24,207,26,181,321,168,153
+2003_09_15_ColonialForge,2003,9/15/2003,Stafford,Colonial Forge,Home,21,27,252,23,229,273,214,59
+2003_09_15_ColonialForge,2003,9/15/2003,Colonial Forge,Stafford,Away,27,21,273,214,59,252,23,229
+2003_09_26_BrookePoint,2003,9/26/2003,Stafford,Brooke Point,Away,49,28,485,16,469,277,168,109
+2003_09_26_BrookePoint,2003,9/26/2003,Brooke Point,Stafford,Home,28,49,277,168,109,485,16,469
+2003_10_03_Culpeper,2003,10/3/2003,Stafford,Culpeper,Away,34,21,411,87,324,237,143,94
+2003_10_03_Culpeper,2003,10/3/2003,Culpeper,Stafford,Home,21,34,237,143,94,411,87,324
+2003_10_10_Massaponax,2003,10/10/2003,Stafford,Massaponax,Home,17,23,350,87,263,273,23,250
+2003_10_10_Massaponax,2003,10/10/2003,Massaponax,Stafford,Away,23,17,273,23,250,350,87,263
+2003_10_17_Albemarle,2003,10/17/2003,Stafford,Albemarle,Away,42,52,461,25,436,329,135,194
+2003_10_17_Albemarle,2003,10/17/2003,Albemarle,Stafford,Home,52,42,329,135,194,461,25,436
+2003_10_24_ColonialForge,2003,10/24/2003,Stafford,Colonial Forge,Away,7,28,194,0,194,287,159,128
+2003_10_24_ColonialForge,2003,10/24/2003,Colonial Forge,Stafford,Home,28,7,287,159,128,194,0,194
+2003_10_31_Spotsylvania,2003,10/31/2003,Stafford,Spotsylvania,Home,13,36,213,119,94,384,29,355
+2003_10_31_Spotsylvania,2003,10/31/2003,Spotsylvania,Stafford,Away,36,13,384,29,355,213,119,94
+2003_11_08_NorthStafford,2003,11/8/2003,Stafford,North Stafford,Home,12,7,269,25,244,102,59,43
+2003_11_08_NorthStafford,2003,11/8/2003,North Stafford,Stafford,Away,7,12,102,59,43,269,25,244
+2003_11_14_KingGeorge,2003,11/14/2003,Stafford,King George,Away,49,8,252,44,208,,,
+2003_11_14_KingGeorge,2003,11/14/2003,King George,Stafford,Home,8,49,,,,252,44,208
+2002_09_06_ColonialForge,2002,9/6/2002,Stafford,Colonial Forge,Away,14,20,234,12,222,243,145,98
+2002_09_06_ColonialForge,2002,9/6/2002,Colonial Forge,Stafford,Home,20,14,243,145,98,234,12,222
+2002_09_13_BrookePoint,2002,9/13/2002,Stafford,Brooke Point,Home,10,7,241,63,178,202,61,141
+2002_09_13_BrookePoint,2002,9/13/2002,Brooke Point,Stafford,Away,7,10,202,61,141,241,63,178
+2002_09_20_Chancellor,2002,9/20/2002,Stafford,Chancellor,Away,21,14,312,0,312,201,28,173
+2002_09_20_Chancellor,2002,9/20/2002,Chancellor,Stafford,Home,14,21,201,28,173,312,0,312
+2002_09_27_Spotsylvania,2002,9/27/2002,Stafford,Spotsylvania,Away,33,18,394,91,303,297,67,230
+2002_09_27_Spotsylvania,2002,9/27/2002,Spotsylvania,Stafford,Home,18,33,297,67,230,394,91,303
+2002_10_04_Courtland,2002,10/4/2002,Stafford,Courtland,Home,41,13,391,37,354,278,48,230
+2002_10_04_Courtland,2002,10/4/2002,Courtland,Stafford,Away,13,41,278,48,230,391,37,354
+2002_10_14_BrookePoint,2002,10/14/2002,Stafford,Brooke Point,Home,24,6,343,15,328,197,68,129
+2002_10_14_BrookePoint,2002,10/14/2002,Brooke Point,Stafford,Away,6,24,197,68,129,343,15,328
+2002_10_18_Albemarle,2002,10/18/2002,Stafford,Albemarle,Away,41,29,430,93,337,300,156,144
+2002_10_18_Albemarle,2002,10/18/2002,Albemarle,Stafford,Home,29,41,300,156,144,430,93,337
+2002_10_25_Culpeper,2002,10/25/2002,Stafford,Culpeper,Away,24,7,298,4,294,251,113,138
+2002_10_25_Culpeper,2002,10/25/2002,Culpeper,Stafford,Home,7,24,251,113,138,298,4,294
+2002_11_01_ColonialForge,2002,11/1/2002,Stafford,Colonial Forge,Home,27,31,354,14,340,299,205,94
+2002_11_01_ColonialForge,2002,11/1/2002,Colonial Forge,Stafford,Away,31,27,299,205,94,354,14,340
+2002_11_08_NorthStafford,2002,11/8/2002,Stafford,North Stafford,Away,27,7,356,26,330,212,29,183
+2002_11_08_NorthStafford,2002,11/8/2002,North Stafford,Stafford,Home,7,27,212,29,183,356,26,330
+2002_11_22_HalifaxCounty,2002,11/22/2002,Stafford,Halifax County,Home,36,7,374,102,272,215,139,76
+2002_11_22_HalifaxCounty,2002,11/22/2002,Halifax County,Stafford,Away,7,36,215,139,76,374,102,272
+2002_11_29_Culpeper,2002,11/29/2002,Stafford,Culpeper,Home,14,6,325,20,305,325,237,88
+2002_11_29_Culpeper,2002,11/29/2002,Culpeper,Stafford,Away,6,14,325,237,88,325,20,305
+2002_12_08_Hopewell,2002,12/8/2002,Stafford,Hopewell,Away,32,29,438,91,347,515,401,114
+2002_12_08_Hopewell,2002,12/8/2002,Hopewell,Stafford,Home,29,32,515,401,114,438,91,347
+2002_12_14_Phoebus,2002,12/14/2002,Stafford,Phoebus,Home,13,39,274,52,222,370,32,338
+2002_12_14_Phoebus,2002,12/14/2002,Phoebus,Stafford,Away,39,13,370,32,338,274,52,222
+2001_09_07_ColonialForge,2001,9/7/2001,Stafford,Colonial Forge,Home,0,7,246,17,229,162,84,78
+2001_09_07_ColonialForge,2001,9/7/2001,Colonial Forge,Stafford,Away,7,0,162,84,78,246,17,229
+2001_09_21_Chancellor,2001,9/21/2001,Stafford,Chancellor,Home,34,10,398,139,259,258,44,214
+2001_09_21_Chancellor,2001,9/21/2001,Chancellor,Stafford,Away,10,34,258,44,214,398,139,259
+2001_09_28_Spotsylvania,2001,9/28/2001,Stafford,Spotsylvania,Home,23,10,265,59,206,129,131,-2
+2001_09_28_Spotsylvania,2001,9/28/2001,Spotsylvania,Stafford,Away,10,23,129,131,-2,265,59,206
+2001_10_05_Courtland,2001,10/5/2001,Stafford,Courtland,Away,27,21,307,78,229,175,42,133
+2001_10_05_Courtland,2001,10/5/2001,Courtland,Stafford,Home,21,27,175,42,133,307,78,229
+2001_10_12_BrookePoint,2001,10/12/2001,Stafford,Brooke Point,Away,14,17,222,79,143,335,87,248
+2001_10_12_BrookePoint,2001,10/12/2001,Brooke Point,Stafford,Home,17,14,335,87,248,222,79,143
+2001_10_19_Albemarle,2001,10/19/2001,Stafford,Albemarle,Away,42,26,415,104,311,368,124,244
+2001_10_19_Albemarle,2001,10/19/2001,Albemarle,Stafford,Home,26,42,368,124,244,415,104,311
+2001_10_26_Culpeper,2001,10/26/2001,Stafford,Culpeper,Home,0,34,159,38,121,352,127,225
+2001_10_26_Culpeper,2001,10/26/2001,Culpeper,Stafford,Away,34,0,352,127,225,159,38,121
+2001_11_02_ColonialForge,2001,11/2/2001,Stafford,Colonial Forge,Away,34,15,378,87,291,262,107,155
+2001_11_02_ColonialForge,2001,11/2/2001,Colonial Forge,Stafford,Home,15,34,262,107,155,378,87,291
+2001_11_09_NorthStafford,2001,11/9/2001,Stafford,North Stafford,Home,33,55,363,116,247,587,376,211
+2001_11_09_NorthStafford,2001,11/9/2001,North Stafford,Stafford,Away,55,33,587,376,211,363,116,247
+2000_09_05_JamesMonroe,2000,9/5/2000,Stafford,James Monroe,Home,19,12,315,7,308,219,152,67
+2000_09_05_JamesMonroe,2000,9/5/2000,James Monroe,Stafford,Away,12,19,219,152,67,315,7,308
+2000_09_08_OsbournPark,2000,9/8/2000,Stafford,Osbourn Park,Away,19,0,349,59,290,132,82,50
+2000_09_08_OsbournPark,2000,9/8/2000,Osbourn Park,Stafford,Home,0,19,132,82,50,349,59,290
+2000_09_15_Courtland,2000,9/15/2000,Stafford,Courtland,Home,17,24,265,99,166,215,0,215
+2000_09_15_Courtland,2000,9/15/2000,Courtland,Stafford,Away,24,17,215,0,215,265,99,166
+2000_09_22_JamesWood,2000,9/22/2000,Stafford,James Wood,Away,24,47,368,103,265,381,173,208
+2000_09_22_JamesWood,2000,9/22/2000,James Wood,Stafford,Home,47,24,381,173,208,368,103,265
+2000_09_29_Sherando,2000,9/29/2000,Stafford,Sherando,Home,14,21,178,65,113,325,11,314
+2000_09_29_Sherando,2000,9/29/2000,Sherando,Stafford,Away,21,14,325,11,314,178,65,113
+2000_10_06_Culpeper,2000,10/6/2000,Stafford,Culpeper,Away,0,37,175,35,140,411,75,336
+2000_10_06_Culpeper,2000,10/6/2000,Culpeper,Stafford,Home,37,0,411,75,336,175,35,140
+2000_10_13_BrookePoint,2000,10/13/2000,Stafford,Brooke Point,Home,22,28,247,132,115,404,46,358
+2000_10_13_BrookePoint,2000,10/13/2000,Brooke Point,Stafford,Away,28,22,404,46,358,247,132,115
+2000_10_20_Fauquier,2000,10/20/2000,Stafford,Fauquier,Away,7,28,119,,119,186,,186
+2000_10_20_Fauquier,2000,10/20/2000,Fauquier,Stafford,Home,28,7,186,,186,119,,119
+2000_10_27_ColonialForge,2000,10/27/2000,Stafford,Colonial Forge,Home,37,6,337,0,337,133,91,42
+2000_10_27_ColonialForge,2000,10/27/2000,Colonial Forge,Stafford,Away,6,37,133,91,42,337,0,337
+2000_11_03_NorthStafford,2000,11/3/2000,Stafford,North Stafford,Away,9,14,219,106,113,261,38,223
+2000_11_03_NorthStafford,2000,11/3/2000,North Stafford,Stafford,Home,14,9,261,38,223,219,106,113
+1999_09_03_JamesMonroe,1999,9/3/1999,Stafford,James Monroe,Away,10,21,179,1,178,364,111,253
+1999_09_03_JamesMonroe,1999,9/3/1999,James Monroe,Stafford,Home,21,10,364,111,253,179,1,178
+1999_09_09_OsbournPark,1999,9/9/1999,Stafford,Osbourn Park,Home,13,12,123,27,96,327,103,224
+1999_09_09_OsbournPark,1999,9/9/1999,Osbourn Park,Stafford,Away,12,13,327,103,224,123,27,96
+1999_09_17_Courtland,1999,9/17/1999,Stafford,Courtland,Away,0,20,74,37,37,324,53,271
+1999_09_17_Courtland,1999,9/17/1999,Courtland,Stafford,Home,20,0,324,53,271,74,37,37
+1999_09_24_JamesWood,1999,9/24/1999,Stafford,James Wood,Home,42,15,331,64,267,220,111,109
+1999_09_24_JamesWood,1999,9/24/1999,James Wood,Stafford,Away,15,42,220,111,109,331,64,267
+1999_10_01_Sherando,1999,10/1/1999,Stafford,Sherando,Away,26,17,269,25,244,304,109,195
+1999_10_01_Sherando,1999,10/1/1999,Sherando,Stafford,Home,17,26,304,109,195,269,25,244
+1999_10_08_Culpeper,1999,10/8/1999,Stafford,Culpeper,Home,18,28,246,12,234,364,211,153
+1999_10_08_Culpeper,1999,10/8/1999,Culpeper,Stafford,Away,28,18,364,211,153,246,12,234
+1999_10_15_BrookePoint,1999,10/15/1999,Stafford,Brooke Point,Away,7,35,196,127,69,327,109,218
+1999_10_15_BrookePoint,1999,10/15/1999,Brooke Point,Stafford,Home,35,7,327,109,218,196,127,69
+1999_10_25_Fauquier,1999,10/25/1999,Stafford,Fauquier,Home,6,42,135,0,135,365,61,304
+1999_10_25_Fauquier,1999,10/25/1999,Fauquier,Stafford,Away,42,6,365,61,304,135,0,135
+1999_10_29_Potomac,1999,10/29/1999,Stafford,Potomac,Home,13,20,131,0,131,228,51,177
+1999_10_29_Potomac,1999,10/29/1999,Potomac,Stafford,Away,20,13,228,51,177,131,0,131
+1999_11_05_NorthStafford,1999,11/5/1999,Stafford,North Stafford,Home,7,41,153,83,70,363,272,91
+1999_11_05_NorthStafford,1999,11/5/1999,North Stafford,Stafford,Away,41,7,363,272,91,153,83,70
+1998_09_04_OsbournPark,1998,9/4/1998,Stafford,Osbourn Park,Home,14,8,259,33,226,172,91,81
+1998_09_04_OsbournPark,1998,9/4/1998,Osbourn Park,Stafford,Away,8,14,172,91,81,259,33,226
+1998_09_11_Woodbridge,1998,9/11/1998,Stafford,Woodbridge,Away,9,17,220,69,151,282,116,166
+1998_09_11_Woodbridge,1998,9/11/1998,Woodbridge,Stafford,Home,17,9,282,116,166,220,69,151
+1998_09_18_BishopMcNamara-Maryland,1998,9/18/1998,Stafford,Bishop McNamara-Maryland,Home,0,41,42,36,6,291,48,243
+1998_09_18_BishopMcNamara-Maryland,1998,9/18/1998,Bishop McNamara-Maryland,Stafford,Away,41,0,291,48,243,42,36,6
+1998_09_25_JamesMonroe,1998,9/25/1998,Stafford,James Monroe,Home,22,33,221,23,198,281,73,208
+1998_09_25_JamesMonroe,1998,9/25/1998,James Monroe,Stafford,Away,33,22,281,73,208,221,23,198
+1998_10_02_KingGeorge,1998,10/2/1998,Stafford,King George,Home,28,14,356,0,356,270,158,112
+1998_10_02_KingGeorge,1998,10/2/1998,King George,Stafford,Away,14,28,270,158,112,356,0,356
+1998_10_09_BrookePoint,1998,10/9/1998,Stafford,Brooke Point,Home,0,55,137,0,137,501,0,501
+1998_10_09_BrookePoint,1998,10/9/1998,Brooke Point,Stafford,Away,55,0,501,0,501,137,0,137
+1998_10_16_Culpeper,1998,10/16/1998,Stafford,Culpeper,Away,7,43,195,0,195,348,111,237
+1998_10_16_Culpeper,1998,10/16/1998,Culpeper,Stafford,Home,43,7,348,111,237,195,0,195
+1998_10_23_Chancellor,1998,10/23/1998,Stafford,Chancellor,Away,7,41,288,0,288,450,56,394
+1998_10_23_Chancellor,1998,10/23/1998,Chancellor,Stafford,Home,41,7,450,56,394,288,0,288
+1998_10_30_Courtland,1998,10/30/1998,Stafford,Courtland,Home,11,31,194,-13,207,241,36,205
+1998_10_30_Courtland,1998,10/30/1998,Courtland,Stafford,Away,31,11,241,36,205,194,-13,207
+1998_11_06_NorthStafford,1998,11/6/1998,Stafford,North Stafford,Away,0,28,113,0,113,271,180,91
+1998_11_06_NorthStafford,1998,11/6/1998,North Stafford,Stafford,Home,28,0,271,180,91,113,0,113
+1997_09_05_OsbournPark,1997,9/5/1997,Stafford,Osbourn Park,Away,1,0,,,,,,
+1997_09_05_OsbournPark,1997,9/5/1997,Osbourn Park,Stafford,Home,0,1,,,,,,
+1997_09_12_Woodbridge,1997,9/12/1997,Stafford,Woodbridge,Home,17,32,324,232,92,322,251,71
+1997_09_12_Woodbridge,1997,9/12/1997,Woodbridge,Stafford,Away,32,17,322,251,71,324,232,92
+1997_09_19_BishopMcNamara-Maryland,1997,9/19/1997,Stafford,Bishop McNamara-Maryland,Home,6,34,183,79,104,365,136,229
+1997_09_19_BishopMcNamara-Maryland,1997,9/19/1997,Bishop McNamara-Maryland,Stafford,Away,34,6,365,136,229,183,79,104
+1997_09_26_JamesMonroe,1997,9/26/1997,Stafford,James Monroe,Away,20,13,274,73,201,240,91,149
+1997_09_26_JamesMonroe,1997,9/26/1997,James Monroe,Stafford,Home,13,20,240,91,149,274,73,201
+1997_10_03_KingGeorge,1997,10/3/1997,Stafford,King George,Away,21,7,279,115,164,166,73,93
+1997_10_03_KingGeorge,1997,10/3/1997,King George,Stafford,Home,7,21,166,73,93,279,115,164
+1997_10_10_BrookePoint,1997,10/10/1997,Stafford,Brooke Point,Away,0,7,139,33,106,266,81,185
+1997_10_10_BrookePoint,1997,10/10/1997,Brooke Point,Stafford,Home,7,0,266,81,185,139,33,106
+1997_10_17_Culpeper,1997,10/17/1997,Stafford,Culpeper,Home,0,26,79,34,45,315,20,295
+1997_10_17_Culpeper,1997,10/17/1997,Culpeper,Stafford,Away,26,0,315,20,295,79,34,45
+1997_10_27_Chancellor,1997,10/27/1997,Stafford,Chancellor,Home,0,10,92,53,39,264,91,173
+1997_10_27_Chancellor,1997,10/27/1997,Chancellor,Stafford,Away,10,0,264,91,173,92,53,39
+1997_10_31_Courtland,1997,10/31/1997,Stafford,Courtland,Away,21,16,253,104,149,294,77,217
+1997_10_31_Courtland,1997,10/31/1997,Courtland,Stafford,Home,16,21,294,77,217,253,104,149
+1997_11_10_NorthStafford,1997,11/10/1997,Stafford,North Stafford,Home,13,30,273,132,141,273,80,193
+1997_11_10_NorthStafford,1997,11/10/1997,North Stafford,Stafford,Away,30,13,273,80,193,273,132,141
+1996_09_09_OsbournPark,1996,9/9/1996,Stafford,Osbourn Park,Home,7,0,229,75,154,139,59,80
+1996_09_09_OsbournPark,1996,9/9/1996,Osbourn Park,Stafford,Away,0,7,139,59,80,229,75,154
+1996_09_13_Woodbridge,1996,9/13/1996,Stafford,Woodbridge,Away,3,28,63,34,29,225,38,187
+1996_09_13_Woodbridge,1996,9/13/1996,Woodbridge,Stafford,Home,28,3,225,38,187,63,34,29
+1996_09_21_BishopMcNamara-Maryland,1996,9/21/1996,Stafford,Bishop McNamara-Maryland,Away,7,41,35,35,,224,,224
+1996_09_21_BishopMcNamara-Maryland,1996,9/21/1996,Bishop McNamara-Maryland,Stafford,Home,41,7,224,,224,35,35,
+1996_09_27_JamesMonroe,1996,9/27/1996,Stafford,James Monroe,Home,9,44,165,64,101,379,114,265
+1996_09_27_JamesMonroe,1996,9/27/1996,James Monroe,Stafford,Away,44,9,379,114,265,165,64,101
+1996_10_04_KingGeorge,1996,10/4/1996,Stafford,King George,Home,26,54,414,12,402,468,72,396
+1996_10_04_KingGeorge,1996,10/4/1996,King George,Stafford,Away,54,26,468,72,396,414,12,402
+1996_10_11_BrookePoint,1996,10/11/1996,Stafford,Brooke Point,Home,6,36,229,42,187,444,42,402
+1996_10_11_BrookePoint,1996,10/11/1996,Brooke Point,Stafford,Away,36,6,444,42,402,229,42,187
+1996_10_21_Culpeper,1996,10/21/1996,Stafford,Culpeper,Away,8,31,211,75,136,350,125,225
+1996_10_21_Culpeper,1996,10/21/1996,Culpeper,Stafford,Home,31,8,350,125,225,211,75,136
+1996_10_25_Chancellor,1996,10/25/1996,Stafford,Chancellor,Away,6,34,133,26,107,238,12,226
+1996_10_25_Chancellor,1996,10/25/1996,Chancellor,Stafford,Home,34,6,238,12,226,133,26,107
+1996_11_01_Courtland,1996,11/1/1996,Stafford,Courtland,Home,6,17,208,60,148,271,114,157
+1996_11_01_Courtland,1996,11/1/1996,Courtland,Stafford,Away,17,6,271,114,157,208,60,148
+1996_11_09_NorthStafford,1996,11/9/1996,Stafford,North Stafford,Away,20,12,163,19,144,217,97,120
+1996_11_09_NorthStafford,1996,11/9/1996,North Stafford,Stafford,Home,12,20,217,97,120,163,19,144
+1995_09_01_ThomasEdison,1995,9/1/1995,Stafford,Thomas Edison,Home,28,0,266,15,251,149,69,80
+1995_09_01_ThomasEdison,1995,9/1/1995,Thomas Edison,Stafford,Away,0,28,149,69,80,266,15,251
+1995_09_08_JamesMonroe,1995,9/8/1995,Stafford,James Monroe,Away,15,6,201,64,137,190,53,137
+1995_09_08_JamesMonroe,1995,9/8/1995,James Monroe,Stafford,Home,6,15,190,53,137,201,64,137
+1995_09_22_BrookePoint,1995,9/22/1995,Stafford,Brooke Point,Away,0,40,115,34,81,368,33,335
+1995_09_22_BrookePoint,1995,9/22/1995,Brooke Point,Stafford,Home,40,0,368,33,335,115,34,81
+1995_09_29_Wakefield,1995,9/29/1995,Stafford,Wakefield,Away,28,14,313,,313,157,157,
+1995_09_29_Wakefield,1995,9/29/1995,Wakefield,Stafford,Home,14,28,157,157,,313,,313
+1995_10_06_StonewallJackson-Manassas,1995,10/6/1995,Stafford,Stonewall Jackson-Manassas,Home,27,28,450,83,367,249,39,210
+1995_10_06_StonewallJackson-Manassas,1995,10/6/1995,Stonewall Jackson-Manassas,Stafford,Away,28,27,249,39,210,450,83,367
+1995_10_13_MountVernon,1995,10/13/1995,Stafford,Mount Vernon,Home,30,14,298,81,217,216,131,85
+1995_10_13_MountVernon,1995,10/13/1995,Mount Vernon,Stafford,Away,14,30,216,131,85,298,81,217
+1995_10_20_Potomac,1995,10/20/1995,Stafford,Potomac,Away,22,34,198,32,166,204,,204
+1995_10_20_Potomac,1995,10/20/1995,Potomac,Stafford,Home,34,22,204,,204,198,32,166
+1995_10_28_Woodbridge,1995,10/28/1995,Stafford,Woodbridge,Home,14,21,190,22,168,282,164,118
+1995_10_28_Woodbridge,1995,10/28/1995,Woodbridge,Stafford,Away,21,14,282,164,118,190,22,168
+1995_11_03_OsbournPark,1995,11/3/1995,Stafford,Osbourn Park,Away,30,0,458,65,393,68,43,25
+1995_11_03_OsbournPark,1995,11/3/1995,Osbourn Park,Stafford,Home,0,30,68,43,25,458,65,393
+1995_11_10_NorthStafford,1995,11/10/1995,Stafford,North Stafford,Home,14,20,211,66,145,292,86,206
+1995_11_10_NorthStafford,1995,11/10/1995,North Stafford,Stafford,Away,20,14,292,86,206,211,66,145
+1994_09_02_ThomasEdison,1994,9/2/1994,Stafford,Thomas Edison,Away,16,14,247,20,227,303,139,164
+1994_09_02_ThomasEdison,1994,9/2/1994,Thomas Edison,Stafford,Home,14,16,303,139,164,247,20,227
+1994_09_09_JamesMonroe,1994,9/9/1994,Stafford,James Monroe,Home,20,23,185,30,155,225,83,142
+1994_09_09_JamesMonroe,1994,9/9/1994,James Monroe,Stafford,Away,23,20,225,83,142,185,30,155
+1994_09_23_BrookePoint,1994,9/23/1994,Stafford,Brooke Point,Home,6,28,201,42,159,342,74,268
+1994_09_23_BrookePoint,1994,9/23/1994,Brooke Point,Stafford,Away,28,6,342,74,268,201,42,159
+1994_09_30_Wakefield,1994,9/30/1994,Stafford,Wakefield,Home,27,7,283,2,281,255,166,89
+1994_09_30_Wakefield,1994,9/30/1994,Wakefield,Stafford,Away,7,27,255,166,89,283,2,281
+1994_10_06_StonewallJackson-Manassas,1994,10/6/1994,Stafford,Stonewall Jackson-Manassas,Away,20,44,231,98,133,497,1,496
+1994_10_06_StonewallJackson-Manassas,1994,10/6/1994,Stonewall Jackson-Manassas,Stafford,Home,44,20,497,1,496,231,98,133
+1994_10_14_MountVernon,1994,10/14/1994,Stafford,Mount Vernon,Away,27,14,298,34,264,257,79,178
+1994_10_14_MountVernon,1994,10/14/1994,Mount Vernon,Stafford,Home,14,27,257,79,178,298,34,264
+1994_10_21_Potomac,1994,10/21/1994,Stafford,Potomac,Home,14,0,154,16,138,126,75,51
+1994_10_21_Potomac,1994,10/21/1994,Potomac,Stafford,Away,0,14,126,75,51,154,16,138
+1994_10_28_Woodbridge,1994,10/28/1994,Stafford,Woodbridge,Away,21,28,202,,202,216,55,161
+1994_10_28_Woodbridge,1994,10/28/1994,Woodbridge,Stafford,Home,28,21,216,55,161,202,,202
+1994_11_04_OsbournPark,1994,11/4/1994,Stafford,Osbourn Park,Home,18,14,308,50,258,175,30,145
+1994_11_04_OsbournPark,1994,11/4/1994,Osbourn Park,Stafford,Away,14,18,175,30,145,308,50,258
+1994_11_11_NorthStafford,1994,11/11/1994,Stafford,North Stafford,Away,13,6,239,30,209,280,168,112
+1994_11_11_NorthStafford,1994,11/11/1994,North Stafford,Stafford,Home,6,13,280,168,112,239,30,209
+1994_11_18_ECGlass,1994,11/18/1994,Stafford,E.C. Glass,Away,8,44,176,64,112,269,35,234
+1994_11_18_ECGlass,1994,11/18/1994,E.C. Glass,Stafford,Home,44,8,269,35,234,176,64,112
+1993_09_10_JamesMonroe,1993,9/10/1993,Stafford,James Monroe,Away,17,41,150,-3,153,300,113,187
+1993_09_10_JamesMonroe,1993,9/10/1993,James Monroe,Stafford,Home,41,17,300,113,187,150,-3,153
+1993_09_17_McLean,1993,9/17/1993,Stafford,McLean,Home,0,21,50,50,0,79,37,42
+1993_09_17_McLean,1993,9/17/1993,McLean,Stafford,Away,21,0,79,37,42,50,50,0
+1993_09_24_Fauquier,1993,9/24/1993,Stafford,Fauquier,Away,0,40,-27,17,-44,317,62,255
+1993_09_24_Fauquier,1993,9/24/1993,Fauquier,Stafford,Home,40,0,317,62,255,-27,17,-44
+1993_10_01_ThomasEdison,1993,10/1/1993,Stafford,Thomas Edison,Home,13,6,211,0,211,137,99,38
+1993_10_01_ThomasEdison,1993,10/1/1993,Thomas Edison,Stafford,Away,6,13,137,99,38,211,0,211
+1993_10_08_StonewallJackson-Manassas,1993,10/8/1993,Stafford,Stonewall Jackson-Manassas,Away,0,35,67,30,37,305,85,220
+1993_10_08_StonewallJackson-Manassas,1993,10/8/1993,Stonewall Jackson-Manassas,Stafford,Home,35,0,305,85,220,67,30,37
+1993_10_15_Chancellor,1993,10/15/1993,Stafford,Chancellor,Home,14,42,124,92,32,340,146,194
+1993_10_15_Chancellor,1993,10/15/1993,Chancellor,Stafford,Away,42,14,340,146,194,124,92,32
+1993_10_22_Potomac,1993,10/22/1993,Stafford,Potomac,Away,3,7,,,,150,,150
+1993_10_22_Potomac,1993,10/22/1993,Potomac,Stafford,Home,7,3,150,,150,,,
+1993_10_29_Woodbridge,1993,10/29/1993,Stafford,Woodbridge,Home,7,28,133,68,65,348,195,153
+1993_10_29_Woodbridge,1993,10/29/1993,Woodbridge,Stafford,Away,28,7,348,195,153,133,68,65
+1993_11_05_OsbournPark,1993,11/5/1993,Stafford,Osbourn Park,Away,20,42,257,113,144,270,13,257
+1993_11_05_OsbournPark,1993,11/5/1993,Osbourn Park,Stafford,Home,42,20,270,13,257,257,113,144
+1993_11_12_NorthStafford,1993,11/12/1993,Stafford,North Stafford,Home,6,33,288,123,165,422,106,316
+1993_11_12_NorthStafford,1993,11/12/1993,North Stafford,Stafford,Away,33,6,422,106,316,288,123,165
+1992_09_11_JamesMonroe,1992,9/11/1992,Stafford,James Monroe,Home,0,7,96,0,96,201,118,83
+1992_09_11_JamesMonroe,1992,9/11/1992,James Monroe,Stafford,Away,7,0,201,118,83,96,0,96
+1992_09_18_McLean,1992,9/18/1992,Stafford,McLean,Away,0,31,,,,296,,296
+1992_09_18_McLean,1992,9/18/1992,McLean,Stafford,Home,31,0,296,,296,,,
+1992_09_26_Fauquier,1992,9/26/1992,Stafford,Fauquier,Home,7,27,119,32,87,284,84,200
+1992_09_26_Fauquier,1992,9/26/1992,Fauquier,Stafford,Away,27,7,284,84,200,119,32,87
+1992_10_02_ThomasEdison,1992,10/2/1992,Stafford,Thomas Edison,Away,19,6,,,,,,
+1992_10_02_ThomasEdison,1992,10/2/1992,Thomas Edison,Stafford,Home,6,19,,,,,,
+1992_10_09_StonewallJackson-Manassas,1992,10/9/1992,Stafford,Stonewall Jackson-Manassas,Away,0,44,17,28,-11,275,6,269
+1992_10_09_StonewallJackson-Manassas,1992,10/9/1992,Stonewall Jackson-Manassas,Stafford,Home,44,0,275,6,269,17,28,-11
+1992_10_16_Chancellor,1992,10/16/1992,Stafford,Chancellor,Away,6,35,25,20,5,335,112,223
+1992_10_16_Chancellor,1992,10/16/1992,Chancellor,Stafford,Home,35,6,335,112,223,25,20,5
+1992_10_23_Potomac,1992,10/23/1992,Stafford,Potomac,Home,7,15,197,22,175,124,35,89
+1992_10_23_Potomac,1992,10/23/1992,Potomac,Stafford,Away,15,7,124,35,89,197,22,175
+1992_10_30_Woodbridge,1992,10/30/1992,Stafford,Woodbridge,Away,16,58,31,11,20,326,249,77
+1992_10_30_Woodbridge,1992,10/30/1992,Woodbridge,Stafford,Home,58,16,326,249,77,31,11,20
+1992_11_06_OsbournPark,1992,11/6/1992,Stafford,Osbourn Park,Home,6,43,72,21,51,304,64,240
+1992_11_06_OsbournPark,1992,11/6/1992,Osbourn Park,Stafford,Away,43,6,304,64,240,72,21,51
+1992_11_13_NorthStafford,1992,11/13/1992,Stafford,North Stafford,Away,0,30,72,2,70,363,23,340
+1992_11_13_NorthStafford,1992,11/13/1992,North Stafford,Stafford,Home,30,0,363,23,340,72,2,70
+1991_09_06_JamesMonroe,1991,9/6/1991,Stafford,James Monroe,Away,0,25,219,11,208,395,53,342
+1991_09_06_JamesMonroe,1991,9/6/1991,James Monroe,Stafford,Home,25,0,395,53,342,219,11,208
+1991_09_13_JamesWood,1991,9/13/1991,Stafford,James Wood,Home,27,0,362,0,362,123,18,105
+1991_09_13_JamesWood,1991,9/13/1991,James Wood,Stafford,Away,0,27,123,18,105,362,0,362
+1991_09_20_Fauquier,1991,9/20/1991,Stafford,Fauquier,Away,0,28,112,8,104,337,81,256
+1991_09_20_Fauquier,1991,9/20/1991,Fauquier,Stafford,Home,28,0,337,81,256,112,8,104
+1991_09_27_Chantilly,1991,9/27/1991,Stafford,Chantilly,Home,6,21,121,81,40,198,139,59
+1991_09_27_Chantilly,1991,9/27/1991,Chantilly,Stafford,Away,21,6,198,139,59,121,81,40
+1991_10_04_StonewallJackson-Manassas,1991,10/4/1991,Stafford,Stonewall Jackson-Manassas,Home,0,28,52,72,-20,253,58,195
+1991_10_04_StonewallJackson-Manassas,1991,10/4/1991,Stonewall Jackson-Manassas,Stafford,Away,28,0,253,58,195,52,72,-20
+1991_10_11_GarField,1991,10/11/1991,Stafford,Gar-Field,Away,0,28,250,,,145,,145
+1991_10_11_GarField,1991,10/11/1991,Gar-Field,Stafford,Home,28,0,145,,145,250,,
+1991_10_18_Potomac,1991,10/18/1991,Stafford,Potomac,Away,7,14,85,31,54,225,59,166
+1991_10_18_Potomac,1991,10/18/1991,Potomac,Stafford,Home,14,7,225,59,166,85,31,54
+1991_10_25_Woodbridge,1991,10/25/1991,Stafford,Woodbridge,Home,0,35,163,16,147,295,228,67
+1991_10_25_Woodbridge,1991,10/25/1991,Woodbridge,Stafford,Away,35,0,295,228,67,163,16,147
+1991_11_01_OsbournPark,1991,11/1/1991,Stafford,Osbourn Park,Away,0,36,59,22,37,321,29,292
+1991_11_01_OsbournPark,1991,11/1/1991,Osbourn Park,Stafford,Home,36,0,321,29,292,59,22,37
+1991_11_08_NorthStafford,1991,11/8/1991,Stafford,North Stafford,Home,0,31,75,22,53,408,90,318
+1991_11_08_NorthStafford,1991,11/8/1991,North Stafford,Stafford,Away,31,0,408,90,318,75,22,53
+1990_09_07_JamesMonroe,1990,9/7/1990,Stafford,James Monroe,Home,1,0,,,,,,
+1990_09_07_JamesMonroe,1990,9/7/1990,James Monroe,Stafford,Away,0,1,,,,,,
+1990_09_14_JamesWood,1990,9/14/1990,Stafford,James Wood,Away,14,0,311,15,296,96,33,63
+1990_09_14_JamesWood,1990,9/14/1990,James Wood,Stafford,Home,0,14,96,33,63,311,15,296
+1990_09_21_Fauquier,1990,9/21/1990,Stafford,Fauquier,Home,10,30,85,48,37,314,48,266
+1990_09_21_Fauquier,1990,9/21/1990,Fauquier,Stafford,Away,30,10,314,48,266,85,48,37
+1990_09_29_Chantilly,1990,9/29/1990,Stafford,Chantilly,Away,28,0,264,15,249,73,29,44
+1990_09_29_Chantilly,1990,9/29/1990,Chantilly,Stafford,Home,0,28,73,29,44,264,15,249
+1990_10_05_StonewallJackson-Manassas,1990,10/5/1990,Stafford,Stonewall Jackson-Manassas,Away,14,21,97,,97,94,,94
+1990_10_05_StonewallJackson-Manassas,1990,10/5/1990,Stonewall Jackson-Manassas,Stafford,Home,21,14,94,,94,97,,97
+1990_10_12_GarField,1990,10/12/1990,Stafford,Gar-Field,Home,9,27,205,43,162,247,27,220
+1990_10_12_GarField,1990,10/12/1990,Gar-Field,Stafford,Away,27,9,247,27,220,205,43,162
+1990_10_19_Potomac,1990,10/19/1990,Stafford,Potomac,Home,0,30,112,56,56,212,63,149
+1990_10_19_Potomac,1990,10/19/1990,Potomac,Stafford,Away,30,0,212,63,149,112,56,56
+1990_10_26_Woodbridge,1990,10/26/1990,Stafford,Woodbridge,Away,6,26,218,,218,301,,301
+1990_10_26_Woodbridge,1990,10/26/1990,Woodbridge,Stafford,Home,26,6,301,,301,218,,218
+1990_11_02_OsbournPark,1990,11/2/1990,Stafford,Osbourn Park,Home,15,21,228,99,129,248,56,192
+1990_11_02_OsbournPark,1990,11/2/1990,Osbourn Park,Stafford,Away,21,15,248,56,192,228,99,129
+1990_11_09_NorthStafford,1990,11/9/1990,Stafford,North Stafford,Away,6,35,56,7,49,395,0,395
+1990_11_09_NorthStafford,1990,11/9/1990,North Stafford,Stafford,Home,35,6,395,0,395,56,7,49
+1989_09_01_JamesMonroe,1989,9/1/1989,Stafford,James Monroe,Home,0,16,115,24,91,343,119,224
+1989_09_01_JamesMonroe,1989,9/1/1989,James Monroe,Stafford,Away,16,0,343,119,224,115,24,91
+1989_09_08_Spotsylvania,1989,9/8/1989,Stafford,Spotsylvania,Away,20,0,319,85,234,147,38,109
+1989_09_08_Spotsylvania,1989,9/8/1989,Spotsylvania,Stafford,Home,0,20,147,38,109,319,85,234
+1989_09_15_Woodbridge,1989,9/15/1989,Stafford,Woodbridge,Away,0,27,62,,,338,,
+1989_09_15_Woodbridge,1989,9/15/1989,Woodbridge,Stafford,Home,27,0,338,,,62,,
+1989_09_25_GarField,1989,9/25/1989,Stafford,Gar-Field,Home,19,6,259,21,238,225,117,108
+1989_09_25_GarField,1989,9/25/1989,Gar-Field,Stafford,Away,6,19,225,117,108,259,21,238
+1989_09_29_OsbournPark,1989,9/29/1989,Stafford,Osbourn Park,Away,14,44,103,34,69,528,,
+1989_09_29_OsbournPark,1989,9/29/1989,Osbourn Park,Stafford,Home,44,14,528,,,103,34,69
+1989_10_13_JamesWood,1989,10/13/1989,Stafford,James Wood,Home,8,17,241,95,146,321,137,184
+1989_10_13_JamesWood,1989,10/13/1989,James Wood,Stafford,Away,17,8,321,137,184,241,95,146
+1989_10_20_Fauquier,1989,10/20/1989,Stafford,Fauquier,Home,0,42,62,5,57,422,71,351
+1989_10_20_Fauquier,1989,10/20/1989,Fauquier,Stafford,Away,42,0,422,71,351,62,5,57
+1989_10_27_StonewallJackson-Manassas,1989,10/27/1989,Stafford,Stonewall Jackson-Manassas,Away,7,38,2,,2,467,30,437
+1989_10_27_StonewallJackson-Manassas,1989,10/27/1989,Stonewall Jackson-Manassas,Stafford,Home,38,7,467,30,437,2,,2
+1989_11_03_Potomac,1989,11/3/1989,Stafford,Potomac,Away,0,27,60,10,50,339,144,195
+1989_11_03_Potomac,1989,11/3/1989,Potomac,Stafford,Home,27,0,339,144,195,60,10,50
+1989_11_10_NorthStafford,1989,11/10/1989,Stafford,North Stafford,Home,12,26,182,59,123,403,30,373
+1989_11_10_NorthStafford,1989,11/10/1989,North Stafford,Stafford,Away,26,12,403,30,373,182,59,123
+1988_09_02_JamesMonroe,1988,9/2/1988,Stafford,James Monroe,Away,13,10,149,75,74,312,213,99
+1988_09_02_JamesMonroe,1988,9/2/1988,James Monroe,Stafford,Home,10,13,312,213,99,149,75,74
+1988_09_09_Spotsylvania,1988,9/9/1988,Stafford,Spotsylvania,Home,35,6,350,77,273,98,0,98
+1988_09_09_Spotsylvania,1988,9/9/1988,Spotsylvania,Stafford,Away,6,35,98,0,98,350,77,273
+1988_09_16_Woodbridge,1988,9/16/1988,Stafford,Woodbridge,Home,7,28,90,63,27,421,18,403
+1988_09_16_Woodbridge,1988,9/16/1988,Woodbridge,Stafford,Away,28,7,421,18,403,90,63,27
+1988_09_23_GarField,1988,9/23/1988,Stafford,Gar-Field,Away,14,33,229,100,129,338,28,310
+1988_09_23_GarField,1988,9/23/1988,Gar-Field,Stafford,Home,33,14,338,28,310,229,100,129
+1988_09_30_OsbournPark,1988,9/30/1988,Stafford,Osbourn Park,Home,7,28,172,60,112,275,43,232
+1988_09_30_OsbournPark,1988,9/30/1988,Osbourn Park,Stafford,Away,28,7,275,43,232,172,60,112
+1988_10_14_JamesWood,1988,10/14/1988,Stafford,James Wood,Away,21,20,348,105,243,260,110,150
+1988_10_14_JamesWood,1988,10/14/1988,James Wood,Stafford,Home,20,21,260,110,150,348,105,243
+1988_10_22_Fauquier,1988,10/22/1988,Stafford,Fauquier,Away,19,37,231,73,158,393,71,322
+1988_10_22_Fauquier,1988,10/22/1988,Fauquier,Stafford,Home,37,19,393,71,322,231,73,158
+1988_10_28_StonewallJackson-Manassas,1988,10/28/1988,Stafford,Stonewall Jackson-Manassas,Home,13,7,297,42,255,268,87,181
+1988_10_28_StonewallJackson-Manassas,1988,10/28/1988,Stonewall Jackson-Manassas,Stafford,Away,7,13,268,87,181,297,42,255
+1988_11_04_Potomac,1988,11/4/1988,Stafford,Potomac,Home,7,34,132,46,86,260,85,175
+1988_11_04_Potomac,1988,11/4/1988,Potomac,Stafford,Away,34,7,260,85,175,132,46,86
+1988_11_11_NorthStafford,1988,11/11/1988,Stafford,North Stafford,Away,14,31,208,137,71,353,149,204
+1988_11_11_NorthStafford,1988,11/11/1988,North Stafford,Stafford,Home,31,14,353,149,204,208,137,71
+1987_09_04_JamesMonroe,1987,9/4/1987,Stafford,James Monroe,Home,0,26,168,83,85,266,24,242
+1987_09_04_JamesMonroe,1987,9/4/1987,James Monroe,Stafford,Away,26,0,266,24,242,168,83,85
+1987_09_11_Woodbridge,1987,9/11/1987,Stafford,Woodbridge,Away,14,35,244,52,192,386,185,201
+1987_09_11_Woodbridge,1987,9/11/1987,Woodbridge,Stafford,Home,35,14,386,185,201,244,52,192
+1987_09_18_GarField,1987,9/18/1987,Stafford,Gar-Field,Home,13,0,204,15,189,158,61,97
+1987_09_18_GarField,1987,9/18/1987,Gar-Field,Stafford,Away,0,13,158,61,97,204,15,189
+1987_09_25_OsbournPark,1987,9/25/1987,Stafford,Osbourn Park,Away,30,21,328,114,214,354,106,248
+1987_09_25_OsbournPark,1987,9/25/1987,Osbourn Park,Stafford,Home,21,30,354,106,248,328,114,214
+1987_10_02_Courtland,1987,10/2/1987,Stafford,Courtland,Away,14,49,198,130,68,445,99,346
+1987_10_02_Courtland,1987,10/2/1987,Courtland,Stafford,Home,49,14,445,99,346,198,130,68
+1987_10_09_JamesWood,1987,10/9/1987,Stafford,James Wood,Home,14,0,202,30,172,186,53,133
+1987_10_09_JamesWood,1987,10/9/1987,James Wood,Stafford,Away,0,14,186,53,133,202,30,172
+1987_10_16_Fauquier,1987,10/16/1987,Stafford,Fauquier,Home,14,11,99,48,51,221,30,191
+1987_10_16_Fauquier,1987,10/16/1987,Fauquier,Stafford,Away,11,14,221,30,191,99,48,51
+1987_10_23_StonewallJackson-Manassas,1987,10/23/1987,Stafford,Stonewall Jackson-Manassas,Away,20,16,241,80,161,148,60,88
+1987_10_23_StonewallJackson-Manassas,1987,10/23/1987,Stonewall Jackson-Manassas,Stafford,Home,16,20,148,60,88,241,80,161
+1987_10_30_Potomac,1987,10/30/1987,Stafford,Potomac,Away,20,21,206,157,49,274,20,254
+1987_10_30_Potomac,1987,10/30/1987,Potomac,Stafford,Home,21,20,274,20,254,206,157,49
+1987_11_06_NorthStafford,1987,11/6/1987,Stafford,North Stafford,Home,28,12,394,51,343,233,83,150
+1987_11_06_NorthStafford,1987,11/6/1987,North Stafford,Stafford,Away,12,28,233,83,150,394,51,343
+1986_09_05_JamesMonroe,1986,9/5/1986,Stafford,James Monroe,Away,7,20,178,51,127,270,20,250
+1986_09_05_JamesMonroe,1986,9/5/1986,James Monroe,Stafford,Home,20,7,270,20,250,178,51,127
+1986_09_12_Woodbridge,1986,9/12/1986,Stafford,Woodbridge,Home,12,24,114,49,65,253,90,163
+1986_09_12_Woodbridge,1986,9/12/1986,Woodbridge,Stafford,Away,24,12,253,90,163,114,49,65
+1986_09_19_GarField,1986,9/19/1986,Stafford,Gar-Field,Away,0,33,169,74,95,362,176,186
+1986_09_19_GarField,1986,9/19/1986,Gar-Field,Stafford,Home,33,0,362,176,186,169,74,95
+1986_09_26_OsbournPark,1986,9/26/1986,Stafford,Osbourn Park,Home,7,10,126,77,49,277,53,224
+1986_09_26_OsbournPark,1986,9/26/1986,Osbourn Park,Stafford,Away,10,7,277,53,224,126,77,49
+1986_10_03_Courtland,1986,10/3/1986,Stafford,Courtland,Home,7,21,58,33,25,238,10,228
+1986_10_03_Courtland,1986,10/3/1986,Courtland,Stafford,Away,21,7,238,10,228,58,33,25
+1986_10_10_JamesWood,1986,10/10/1986,Stafford,James Wood,Away,32,20,326,30,296,131,113,18
+1986_10_10_JamesWood,1986,10/10/1986,James Wood,Stafford,Home,20,32,131,113,18,326,30,296
+1986_10_17_Fauquier,1986,10/17/1986,Stafford,Fauquier,Away,7,41,195,41,154,505,168,337
+1986_10_17_Fauquier,1986,10/17/1986,Fauquier,Stafford,Home,41,7,505,168,337,195,41,154
+1986_10_24_StonewallJackson-Manassas,1986,10/24/1986,Stafford,Stonewall Jackson-Manassas,Home,14,14,198,11,187,193,56,137
+1986_10_24_StonewallJackson-Manassas,1986,10/24/1986,Stonewall Jackson-Manassas,Stafford,Away,14,14,193,56,137,198,11,187
+1986_10_31_Potomac,1986,10/31/1986,Stafford,Potomac,Home,0,28,129,50,79,205,59,146
+1986_10_31_Potomac,1986,10/31/1986,Potomac,Stafford,Away,28,0,205,59,146,129,50,79
+1986_11_07_NorthStafford,1986,11/7/1986,Stafford,North Stafford,Away,8,6,116,0,116,140,0,140
+1986_11_07_NorthStafford,1986,11/7/1986,North Stafford,Stafford,Home,6,8,140,0,140,116,0,116
+1985_08_30_Spotsylvania,1985,8/30/1985,Stafford,Spotsylvania,Home,14,8,124,67,57,237,107,130
+1985_08_30_Spotsylvania,1985,8/30/1985,Spotsylvania,Stafford,Away,8,14,237,107,130,124,67,57
+1985_09_06_JamesMonroe,1985,9/6/1985,Stafford,James Monroe,Home,9,21,64,95,-31,329,81,248
+1985_09_06_JamesMonroe,1985,9/6/1985,James Monroe,Stafford,Away,21,9,329,81,248,64,95,-31
+1985_09_13_Woodbridge,1985,9/13/1985,Stafford,Woodbridge,Away,0,13,4,8,-4,241,58,183
+1985_09_13_Woodbridge,1985,9/13/1985,Woodbridge,Stafford,Home,13,0,241,58,183,4,8,-4
+1985_09_20_GarField,1985,9/20/1985,Stafford,Gar-Field,Home,0,24,193,136,57,276,137,139
+1985_09_20_GarField,1985,9/20/1985,Gar-Field,Stafford,Away,24,0,276,137,139,193,136,57
+1985_09_30_OsbournPark,1985,9/30/1985,Stafford,Osbourn Park,Away,20,40,209,118,91,361,25,336
+1985_09_30_OsbournPark,1985,9/30/1985,Osbourn Park,Stafford,Home,40,20,361,25,336,209,118,91
+1985_10_11_JamesWood,1985,10/11/1985,Stafford,James Wood,Home,14,13,254,162,92,130,65,65
+1985_10_11_JamesWood,1985,10/11/1985,James Wood,Stafford,Away,13,14,130,65,65,254,162,92
+1985_10_18_Fauquier,1985,10/18/1985,Stafford,Fauquier,Home,15,20,292,234,58,190,49,141
+1985_10_18_Fauquier,1985,10/18/1985,Fauquier,Stafford,Away,20,15,190,49,141,292,234,58
+1985_10_25_StonewallJackson-Manassas,1985,10/25/1985,Stafford,Stonewall Jackson-Manassas,Away,6,21,83,36,47,191,106,85
+1985_10_25_StonewallJackson-Manassas,1985,10/25/1985,Stonewall Jackson-Manassas,Stafford,Home,21,6,191,106,85,83,36,47
+1985_11_01_Potomac,1985,11/1/1985,Stafford,Potomac,Away,7,5,133,117,16,246,15,231
+1985_11_01_Potomac,1985,11/1/1985,Potomac,Stafford,Home,5,7,246,15,231,133,117,16
+1985_11_08_NorthStafford,1985,11/8/1985,Stafford,North Stafford,Home,22,16,211,202,9,209,55,154
+1985_11_08_NorthStafford,1985,11/8/1985,North Stafford,Stafford,Away,16,22,209,55,154,211,202,9
+1984_08_31_Spotsylvania,1984,8/31/1984,Stafford,Spotsylvania,Home,7,0,189,30,159,141,26,115
+1984_08_31_Spotsylvania,1984,8/31/1984,Spotsylvania,Stafford,Away,0,7,141,26,115,189,30,159
+1984_09_07_JamesMonroe,1984,9/7/1984,Stafford,James Monroe,Away,7,6,114,30,84,216,93,123
+1984_09_07_JamesMonroe,1984,9/7/1984,James Monroe,Stafford,Home,6,7,216,93,123,114,30,84
+1984_09_14_Woodbridge,1984,9/14/1984,Stafford,Woodbridge,Home,14,14,95,22,73,168,15,153
+1984_09_14_Woodbridge,1984,9/14/1984,Woodbridge,Stafford,Away,14,14,168,15,153,95,22,73
+1984_09_21_GarField,1984,9/21/1984,Stafford,Gar-Field,Away,0,10,136,39,97,172,64,108
+1984_09_21_GarField,1984,9/21/1984,Gar-Field,Stafford,Home,10,0,172,64,108,136,39,97
+1984_09_28_OsbournPark,1984,9/28/1984,Stafford,Osbourn Park,Home,20,26,165,95,70,203,10,193
+1984_09_28_OsbournPark,1984,9/28/1984,Osbourn Park,Stafford,Away,26,20,203,10,193,165,95,70
+1984_10_12_JamesWood,1984,10/12/1984,Stafford,James Wood,Away,12,12,205,46,159,199,24,175
+1984_10_12_JamesWood,1984,10/12/1984,James Wood,Stafford,Home,12,12,199,24,175,205,46,159
+1984_10_19_Fauquier,1984,10/19/1984,Stafford,Fauquier,Away,3,7,93,53,40,139,52,87
+1984_10_19_Fauquier,1984,10/19/1984,Fauquier,Stafford,Home,7,3,139,52,87,93,53,40
+1984_10_26_StonewallJackson-Manassas,1984,10/26/1984,Stafford,Stonewall Jackson-Manassas,Home,21,35,171,95,76,290,78,212
+1984_10_26_StonewallJackson-Manassas,1984,10/26/1984,Stonewall Jackson-Manassas,Stafford,Away,35,21,290,78,212,171,95,76
+1984_11_02_Potomac,1984,11/2/1984,Stafford,Potomac,Home,7,12,90,89,1,262,46,216
+1984_11_02_Potomac,1984,11/2/1984,Potomac,Stafford,Away,12,7,262,46,216,90,89,1
+1984_11_09_NorthStafford,1984,11/9/1984,Stafford,North Stafford,Away,8,7,177,65,112,153,56,97
+1984_11_09_NorthStafford,1984,11/9/1984,North Stafford,Stafford,Home,7,8,153,56,97,177,65,112
+1983_09_02_JamesMonroe,1983,9/2/1983,Stafford,James Monroe,Home,3,20,147,55,92,350,47,303
+1983_09_02_JamesMonroe,1983,9/2/1983,James Monroe,Stafford,Away,20,3,350,47,303,147,55,92
+1983_09_09_Spotsylvania,1983,9/9/1983,Stafford,Spotsylvania,Away,14,6,218,114,104,138,65,73
+1983_09_09_Spotsylvania,1983,9/9/1983,Spotsylvania,Stafford,Home,6,14,138,65,73,218,114,104
+1983_09_16_Courtland,1983,9/16/1983,Stafford,Courtland,Away,15,25,214,172,42,447,69,378
+1983_09_16_Courtland,1983,9/16/1983,Courtland,Stafford,Home,25,15,447,69,378,214,172,42
+1983_09_23_GarField,1983,9/23/1983,Stafford,Gar-Field,Home,0,21,116,81,35,364,88,276
+1983_09_23_GarField,1983,9/23/1983,Gar-Field,Stafford,Away,21,0,364,88,276,116,81,35
+1983_10_01_Potomac,1983,10/1/1983,Stafford,Potomac,Away,0,28,141,109,32,408,203,205
+1983_10_01_Potomac,1983,10/1/1983,Potomac,Stafford,Home,28,0,408,203,205,141,109,32
+1983_10_07_JamesWood,1983,10/7/1983,Stafford,James Wood,Home,0,7,144,12,132,131,17,114
+1983_10_07_JamesWood,1983,10/7/1983,James Wood,Stafford,Away,7,0,131,17,114,144,12,132
+1983_10_14_Woodbridge,1983,10/14/1983,Stafford,Woodbridge,Away,13,14,215,58,157,275,75,200
+1983_10_14_Woodbridge,1983,10/14/1983,Woodbridge,Stafford,Home,14,13,275,75,200,215,58,157
+1983_10_22_Fauquier,1983,10/22/1983,Stafford,Fauquier,Home,0,41,153,106,47,246,53,193
+1983_10_22_Fauquier,1983,10/22/1983,Fauquier,Stafford,Away,41,0,246,53,193,153,106,47
+1983_10_28_StonewallJackson-Manassas,1983,10/28/1983,Stafford,Stonewall Jackson-Manassas,Away,7,31,144,100,44,378,215,163
+1983_10_28_StonewallJackson-Manassas,1983,10/28/1983,Stonewall Jackson-Manassas,Stafford,Home,31,7,378,215,163,144,100,44
+1983_11_04_NorthStafford,1983,11/4/1983,Stafford,North Stafford,Home,6,7,242,139,103,140,11,129
+1983_11_04_NorthStafford,1983,11/4/1983,North Stafford,Stafford,Away,7,6,140,11,129,242,139,103
+1982_09_03_JamesMonroe,1982,9/3/1982,Stafford,James Monroe,Away,14,26,173,164,9,291,30,261
+1982_09_03_JamesMonroe,1982,9/3/1982,James Monroe,Stafford,Home,26,14,291,30,261,173,164,9
+1982_09_10_Spotsylvania,1982,9/10/1982,Stafford,Spotsylvania,Home,27,21,423,339,84,293,175,118
+1982_09_10_Spotsylvania,1982,9/10/1982,Spotsylvania,Stafford,Away,21,27,293,175,118,423,339,84
+1982_09_17_Courtland,1982,9/17/1982,Stafford,Courtland,Home,7,39,57,57,0,235,43,192
+1982_09_17_Courtland,1982,9/17/1982,Courtland,Stafford,Away,39,7,235,43,192,57,57,0
+1982_09_24_GarField,1982,9/24/1982,Stafford,Gar-Field,Away,6,28,279,213,66,360,47,313
+1982_09_24_GarField,1982,9/24/1982,Gar-Field,Stafford,Home,28,6,360,47,313,279,213,66
+1982_10_01_Potomac,1982,10/1/1982,Stafford,Potomac,Home,0,21,176,159,17,332,132,200
+1982_10_01_Potomac,1982,10/1/1982,Potomac,Stafford,Away,21,0,332,132,200,176,159,17
+1982_10_08_JamesWood,1982,10/8/1982,Stafford,James Wood,Away,7,20,350,258,92,395,56,339
+1982_10_08_JamesWood,1982,10/8/1982,James Wood,Stafford,Home,20,7,395,56,339,350,258,92
+1982_10_15_Woodbridge,1982,10/15/1982,Stafford,Woodbridge,Home,0,17,146,81,65,191,105,86
+1982_10_15_Woodbridge,1982,10/15/1982,Woodbridge,Stafford,Away,17,0,191,105,86,146,81,65
+1982_10_22_Fauquier,1982,10/22/1982,Stafford,Fauquier,Away,8,52,80,62,18,378,75,303
+1982_10_22_Fauquier,1982,10/22/1982,Fauquier,Stafford,Home,52,8,378,75,303,80,62,18
+1982_10_29_StonewallJackson-Manassas,1982,10/29/1982,Stafford,Stonewall Jackson-Manassas,Home,21,6,224,122,102,183,42,141
+1982_10_29_StonewallJackson-Manassas,1982,10/29/1982,Stonewall Jackson-Manassas,Stafford,Away,6,21,183,42,141,224,122,102
+1982_11_05_NorthStafford,1982,11/5/1982,Stafford,North Stafford,Away,18,42,290,134,156,374,298,76
+1982_11_05_NorthStafford,1982,11/5/1982,North Stafford,Stafford,Home,42,18,374,298,76,290,134,156
+1981_09_04_JamesMonroe,1981,9/4/1981,Stafford,James Monroe,Home,19,0,232,47,185,126,5,121
+1981_09_04_JamesMonroe,1981,9/4/1981,James Monroe,Stafford,Away,0,19,126,5,121,232,47,185
+1981_09_11_Groveton,1981,9/11/1981,Stafford,Groveton,Home,25,18,221,102,119,285,174,111
+1981_09_11_Groveton,1981,9/11/1981,Groveton,Stafford,Away,18,25,285,174,111,221,102,119
+1981_09_18_Fauquier,1981,9/18/1981,Stafford,Fauquier,Away,13,6,225,61,164,119,77,42
+1981_09_18_Fauquier,1981,9/18/1981,Fauquier,Stafford,Home,6,13,119,77,42,225,61,164
+1981_09_25_GarField,1981,9/25/1981,Stafford,Gar-Field,Home,7,27,81,35,46,378,70,308
+1981_09_25_GarField,1981,9/25/1981,Gar-Field,Stafford,Away,27,7,378,70,308,81,35,46
+1981_10_02_Potomac,1981,10/2/1981,Stafford,Potomac,Away,34,0,373,118,255,113,54,59
+1981_10_02_Potomac,1981,10/2/1981,Potomac,Stafford,Home,0,34,113,54,59,373,118,255
+1981_10_09_JamesWood,1981,10/9/1981,Stafford,James Wood,Home,20,20,159,112,47,185,60,125
+1981_10_09_JamesWood,1981,10/9/1981,James Wood,Stafford,Away,20,20,185,60,125,159,112,47
+1981_10_16_Woodbridge,1981,10/16/1981,Stafford,Woodbridge,Away,0,6,71,22,49,231,30,201
+1981_10_16_Woodbridge,1981,10/16/1981,Woodbridge,Stafford,Home,6,0,231,30,201,71,22,49
+1981_10_24_Courtland,1981,10/24/1981,Stafford,Courtland,Away,14,13,254,16,238,252,154,98
+1981_10_24_Courtland,1981,10/24/1981,Courtland,Stafford,Home,13,14,252,154,98,254,16,238
+1981_10_30_StonewallJackson-Manassas,1981,10/30/1981,Stafford,Stonewall Jackson-Manassas,Away,7,10,181,80,101,297,175,122
+1981_10_30_StonewallJackson-Manassas,1981,10/30/1981,Stonewall Jackson-Manassas,Stafford,Home,10,7,297,175,122,181,80,101
+1981_11_06_CaveSpring,1981,11/6/1981,Stafford,Cave Spring,Home,14,6,211,53,158,147,52,95
+1981_11_06_CaveSpring,1981,11/6/1981,Cave Spring,Stafford,Away,6,14,147,52,95,211,53,158
+1980_09_05_JamesMonroe,1980,9/5/1980,Stafford,James Monroe,Away,7,13,213,90,123,155,64,91
+1980_09_05_JamesMonroe,1980,9/5/1980,James Monroe,Stafford,Home,13,7,155,64,91,213,90,123
+1980_09_12_Groveton,1980,9/12/1980,Stafford,Groveton,Away,18,13,154,60,94,292,85,207
+1980_09_12_Groveton,1980,9/12/1980,Groveton,Stafford,Home,13,18,292,85,207,154,60,94
+1980_09_19_Fauquier,1980,9/19/1980,Stafford,Fauquier,Home,17,0,235,74,161,30,37,-7
+1980_09_19_Fauquier,1980,9/19/1980,Fauquier,Stafford,Away,0,17,30,37,-7,235,74,161
+1980_09_26_GarField,1980,9/26/1980,Stafford,Gar-Field,Away,11,34,211,96,115,227,26,201
+1980_09_26_GarField,1980,9/26/1980,Gar-Field,Stafford,Home,34,11,227,26,201,211,96,115
+1980_10_04_BishopIreton,1980,10/4/1980,Stafford,Bishop Ireton,Home,61,0,310,25,285,18,6,12
+1980_10_04_BishopIreton,1980,10/4/1980,Bishop Ireton,Stafford,Away,0,61,18,6,12,310,25,285
+1980_10_10_JamesWood,1980,10/10/1980,Stafford,James Wood,Away,8,28,145,75,70,274,39,235
+1980_10_10_JamesWood,1980,10/10/1980,James Wood,Stafford,Home,28,8,274,39,235,145,75,70
+1980_10_17_Woodbridge,1980,10/17/1980,Stafford,Woodbridge,Home,27,41,233,95,138,428,64,364
+1980_10_17_Woodbridge,1980,10/17/1980,Woodbridge,Stafford,Away,41,27,428,64,364,233,95,138
+1980_10_24_Courtland,1980,10/24/1980,Stafford,Courtland,Home,19,6,298,33,265,199,67,132
+1980_10_24_Courtland,1980,10/24/1980,Courtland,Stafford,Away,6,19,199,67,132,298,33,265
+1980_10_31_StonewallJackson-Manassas,1980,10/31/1980,Stafford,Stonewall Jackson-Manassas,Home,14,28,195,105,90,390,66,324
+1980_10_31_StonewallJackson-Manassas,1980,10/31/1980,Stonewall Jackson-Manassas,Stafford,Away,28,14,390,66,324,195,105,90
+1980_11_07_CaveSpring,1980,11/7/1980,Stafford,Cave Spring,Away,28,14,350,133,217,348,252,96
+1980_11_07_CaveSpring,1980,11/7/1980,Cave Spring,Stafford,Home,14,28,348,252,96,350,133,217
+1979_09_07_JamesMonroe,1979,9/7/1979,Stafford,James Monroe,Home,14,7,192,17,175,180,18,162
+1979_09_07_JamesMonroe,1979,9/7/1979,James Monroe,Stafford,Away,7,14,180,18,162,192,17,175
+1979_09_14_OurLadyofGoodCounsel-Maryland,1979,9/14/1979,Stafford,Our Lady of Good Counsel-Maryland,Home,0,7,144,42,102,132,8,124
+1979_09_14_OurLadyofGoodCounsel-Maryland,1979,9/14/1979,Our Lady of Good Counsel-Maryland,Stafford,Away,7,0,132,8,124,144,42,102
+1979_09_22_Fauquier,1979,9/22/1979,Stafford,Fauquier,Away,12,6,166,18,148,102,28,74
+1979_09_22_Fauquier,1979,9/22/1979,Fauquier,Stafford,Home,6,12,102,28,74,166,18,148
+1979_09_29_GarField,1979,9/29/1979,Stafford,Gar-Field,Home,0,20,178,18,160,289,87,202
+1979_09_29_GarField,1979,9/29/1979,Gar-Field,Stafford,Away,20,0,289,87,202,178,18,160
+1979_10_06_DeMatha-Maryland,1979,10/6/1979,Stafford,DeMatha-Maryland,Home,0,24,82,9,73,361,177,184
+1979_10_06_DeMatha-Maryland,1979,10/6/1979,DeMatha-Maryland,Stafford,Away,24,0,361,177,184,82,9,73
+1979_10_12_JamesWood,1979,10/12/1979,Stafford,James Wood,Home,7,26,133,52,81,216,59,157
+1979_10_12_JamesWood,1979,10/12/1979,James Wood,Stafford,Away,26,7,216,59,157,133,52,81
+1979_10_19_Woodbridge,1979,10/19/1979,Stafford,Woodbridge,Away,8,33,59,19,40,369,126,243
+1979_10_19_Woodbridge,1979,10/19/1979,Woodbridge,Stafford,Home,33,8,369,126,243,59,19,40
+1979_10_26_Denbigh,1979,10/26/1979,Stafford,Denbigh,Home,6,21,85,24,61,274,110,164
+1979_10_26_Denbigh,1979,10/26/1979,Denbigh,Stafford,Away,21,6,274,110,164,85,24,61
+1979_11_03_StonewallJackson-Manassas,1979,11/3/1979,Stafford,Stonewall Jackson-Manassas,Away,0,15,76,45,31,230,28,202
+1979_11_03_StonewallJackson-Manassas,1979,11/3/1979,Stonewall Jackson-Manassas,Stafford,Home,15,0,230,28,202,76,45,31
+1979_11_09_Spotsylvania,1979,11/9/1979,Stafford,Spotsylvania,Home,7,14,219,90,129,288,91,197
+1979_11_09_Spotsylvania,1979,11/9/1979,Spotsylvania,Stafford,Away,14,7,288,91,197,219,90,129
+1978_09_01_JamesMonroe,1978,9/1/1978,Stafford,James Monroe,Away,27,12,287,38,249,180,92,88
+1978_09_01_JamesMonroe,1978,9/1/1978,James Monroe,Stafford,Home,12,27,180,92,88,287,38,249
+1978_09_08_OurLadyofGoodCounsel-Maryland,1978,9/8/1978,Stafford,Our Lady of Good Counsel-Maryland,Home,20,22,284,79,205,295,163,132
+1978_09_08_OurLadyofGoodCounsel-Maryland,1978,9/8/1978,Our Lady of Good Counsel-Maryland,Stafford,Away,22,20,295,163,132,284,79,205
+1978_09_15_Fauquier,1978,9/15/1978,Stafford,Fauquier,Home,12,7,199,68,131,160,108,52
+1978_09_15_Fauquier,1978,9/15/1978,Fauquier,Stafford,Away,7,12,160,108,52,199,68,131
+1978_09_22_GarField,1978,9/22/1978,Stafford,Gar-Field,Away,14,31,98,37,61,252,87,165
+1978_09_22_GarField,1978,9/22/1978,Gar-Field,Stafford,Home,31,14,252,87,165,98,37,61
+1978_09_29_DeMatha-Maryland,1978,9/29/1978,Stafford,DeMatha-Maryland,Home,6,14,124,11,113,313,72,241
+1978_09_29_DeMatha-Maryland,1978,9/29/1978,DeMatha-Maryland,Stafford,Away,14,6,313,72,241,124,11,113
+1978_10_06_JamesWood,1978,10/6/1978,Stafford,James Wood,Away,21,20,141,24,117,219,39,180
+1978_10_06_JamesWood,1978,10/6/1978,James Wood,Stafford,Home,20,21,219,39,180,141,24,117
+1978_10_13_Woodbridge,1978,10/13/1978,Stafford,Woodbridge,Home,0,23,37,30,7,266,26,240
+1978_10_13_Woodbridge,1978,10/13/1978,Woodbridge,Stafford,Away,23,0,266,26,240,37,30,7
+1978_10_20_GeorgetownPrep-Maryland,1978,10/20/1978,Stafford,Georgetown Prep-Maryland,Home,12,8,248,116,132,261,269,-8
+1978_10_20_GeorgetownPrep-Maryland,1978,10/20/1978,Georgetown Prep-Maryland,Stafford,Away,8,12,261,269,-8,248,116,132
+1978_10_27_StonewallJackson-Manassas,1978,10/27/1978,Stafford,Stonewall Jackson-Manassas,Home,7,0,137,32,105,185,102,83
+1978_10_27_StonewallJackson-Manassas,1978,10/27/1978,Stonewall Jackson-Manassas,Stafford,Away,0,7,185,102,83,137,32,105
+1978_11_03_Spotsylvania,1978,11/3/1978,Stafford,Spotsylvania,Home,12,39,199,144,55,317,32,285
+1978_11_03_Spotsylvania,1978,11/3/1978,Spotsylvania,Stafford,Away,39,12,317,32,285,199,144,55
+1977_09_02_Spotsylvania,1977,9/2/1977,Stafford,Spotsylvania,Home,0,21,74,0,74,134,42,92
+1977_09_02_Spotsylvania,1977,9/2/1977,Spotsylvania,Stafford,Away,21,0,134,42,92,74,0,74
+1977_09_09_Albemarle,1977,9/9/1977,Stafford,Albemarle,Away,34,7,299,65,234,92,24,68
+1977_09_09_Albemarle,1977,9/9/1977,Albemarle,Stafford,Home,7,34,92,24,68,299,65,234
+1977_09_16_StonewallJackson-Manassas,1977,9/16/1977,Stafford,Stonewall Jackson-Manassas,Away,3,7,145,51,94,206,0,206
+1977_09_16_StonewallJackson-Manassas,1977,9/16/1977,Stonewall Jackson-Manassas,Stafford,Home,7,3,206,0,206,145,51,94
+1977_09_23_GarField,1977,9/23/1977,Stafford,Gar-Field,Home,0,6,163,58,105,69,58,11
+1977_09_23_GarField,1977,9/23/1977,Gar-Field,Stafford,Away,6,0,69,58,11,163,58,105
+1977_09_30_Fauquier,1977,9/30/1977,Stafford,Fauquier,Away,13,0,263,70,193,168,88,80
+1977_09_30_Fauquier,1977,9/30/1977,Fauquier,Stafford,Home,0,13,168,88,80,263,70,193
+1977_10_07_JamesWood,1977,10/7/1977,Stafford,James Wood,Home,8,17,203,130,73,232,25,207
+1977_10_07_JamesWood,1977,10/7/1977,James Wood,Stafford,Away,17,8,232,25,207,203,130,73
+1977_10_15_Woodbridge,1977,10/15/1977,Stafford,Woodbridge,Away,8,27,155,66,89,289,18,271
+1977_10_15_Woodbridge,1977,10/15/1977,Woodbridge,Stafford,Home,27,8,289,18,271,155,66,89
+1977_10_21_DeMatha-Maryland,1977,10/21/1977,Stafford,DeMatha-Maryland,Home,20,8,219,34,185,312,145,167
+1977_10_21_DeMatha-Maryland,1977,10/21/1977,DeMatha-Maryland,Stafford,Away,8,20,312,145,167,219,34,185
+1977_10_28_OsbournPark,1977,10/28/1977,Stafford,Osbourn Park,Home,3,2,214,142,72,104,26,78
+1977_10_28_OsbournPark,1977,10/28/1977,Osbourn Park,Stafford,Away,2,3,104,26,78,214,142,72
+1977_11_04_JamesMonroe,1977,11/4/1977,Stafford,James Monroe,Away,22,7,229,27,202,98,30,68
+1977_11_04_JamesMonroe,1977,11/4/1977,James Monroe,Stafford,Home,7,22,98,30,68,229,27,202
+1976_09_03_Spotsylvania,1976,9/3/1976,Stafford,Spotsylvania,Home,6,6,112,24,88,218,34,184
+1976_09_03_Spotsylvania,1976,9/3/1976,Spotsylvania,Stafford,Away,6,6,218,34,184,112,24,88
+1976_09_10_Albemarle,1976,9/10/1976,Stafford,Albemarle,Home,0,7,63,53,10,267,58,209
+1976_09_10_Albemarle,1976,9/10/1976,Albemarle,Stafford,Away,7,0,267,58,209,63,53,10
+1976_09_17_StonewallJackson-Manassas,1976,9/17/1976,Stafford,Stonewall Jackson-Manassas,Home,7,12,240,144,96,152,13,139
+1976_09_17_StonewallJackson-Manassas,1976,9/17/1976,Stonewall Jackson-Manassas,Stafford,Away,12,7,152,13,139,240,144,96
+1976_09_24_GarField,1976,9/24/1976,Stafford,Gar-Field,Away,0,38,110,43,67,460,133,327
+1976_09_24_GarField,1976,9/24/1976,Gar-Field,Stafford,Home,38,0,460,133,327,110,43,67
+1976_10_04_Fauquier,1976,10/4/1976,Stafford,Fauquier,Home,0,21,53,40,13,212,109,103
+1976_10_04_Fauquier,1976,10/4/1976,Fauquier,Stafford,Away,21,0,212,109,103,53,40,13
+1976_10_08_JamesWood,1976,10/8/1976,Stafford,James Wood,Away,7,13,167,33,134,234,62,172
+1976_10_08_JamesWood,1976,10/8/1976,James Wood,Stafford,Home,13,7,234,62,172,167,33,134
+1976_10_15_Woodbridge,1976,10/15/1976,Stafford,Woodbridge,Home,13,21,179,113,66,341,34,307
+1976_10_15_Woodbridge,1976,10/15/1976,Woodbridge,Stafford,Away,21,13,341,34,307,179,113,66
+1976_10_22_DeMatha-Maryland,1976,10/22/1976,Stafford,DeMatha-Maryland,Home,13,14,229,205,24,170,39,131
+1976_10_22_DeMatha-Maryland,1976,10/22/1976,DeMatha-Maryland,Stafford,Away,14,13,170,39,131,229,205,24
+1976_10_29_OsbournPark,1976,10/29/1976,Stafford,Osbourn Park,Away,29,23,286,73,213,292,29,263
+1976_10_29_OsbournPark,1976,10/29/1976,Osbourn Park,Stafford,Home,23,29,292,29,263,286,73,213
+1976_11_05_JamesMonroe,1976,11/5/1976,Stafford,James Monroe,Home,14,12,226,143,83,229,35,194
+1976_11_05_JamesMonroe,1976,11/5/1976,James Monroe,Stafford,Away,12,14,229,35,194,226,143,83
+1975_09_05_Spotsylvania,1975,9/5/1975,Stafford,Spotsylvania,Home,6,38,112,41,71,363,133,230
+1975_09_05_Spotsylvania,1975,9/5/1975,Spotsylvania,Stafford,Away,38,6,363,133,230,112,41,71
+1975_09_12_StonewallJackson-Manassas,1975,9/12/1975,Stafford,Stonewall Jackson-Manassas,Away,20,23,309,44,265,316,39,277
+1975_09_12_StonewallJackson-Manassas,1975,9/12/1975,Stonewall Jackson-Manassas,Stafford,Home,23,20,316,39,277,309,44,265
+1975_09_19_Albemarle,1975,9/19/1975,Stafford,Albemarle,Away,6,27,137,70,67,254,27,227
+1975_09_19_Albemarle,1975,9/19/1975,Albemarle,Stafford,Home,27,6,254,27,227,137,70,67
+1975_10_03_Fauquier,1975,10/3/1975,Stafford,Fauquier,Home,12,13,287,201,86,272,16,256
+1975_10_03_Fauquier,1975,10/3/1975,Fauquier,Stafford,Away,13,12,272,16,256,287,201,86
+1975_10_10_JamesWood,1975,10/10/1975,Stafford,James Wood,Home,0,19,98,121,-23,378,76,302
+1975_10_10_JamesWood,1975,10/10/1975,James Wood,Stafford,Away,19,0,378,76,302,98,121,-23
+1975_10_20_Woodbridge,1975,10/20/1975,Stafford,Woodbridge,Away,7,12,188,8,180,355,0,355
+1975_10_20_Woodbridge,1975,10/20/1975,Woodbridge,Stafford,Home,12,7,355,0,355,188,8,180
+1975_10_24_Charlottesville,1975,10/24/1975,Stafford,Charlottesville,Away,12,26,217,57,160,305,55,250
+1975_10_24_Charlottesville,1975,10/24/1975,Charlottesville,Stafford,Home,26,12,305,55,250,217,57,160
+1975_10_31_OsbournPark,1975,10/31/1975,Stafford,Osbourn Park,Home,20,12,372,70,302,342,41,301
+1975_10_31_OsbournPark,1975,10/31/1975,Osbourn Park,Stafford,Away,12,20,342,41,301,372,70,302
+1975_11_07_JamesMonroe,1975,11/7/1975,Stafford,James Monroe,Away,28,7,388,9,379,229,106,123
+1975_11_07_JamesMonroe,1975,11/7/1975,James Monroe,Stafford,Home,7,28,229,106,123,388,9,379
+1975_11_14_GarField,1975,11/14/1975,Stafford,Gar-Field,Home,0,20,206,19,187,287,127,160
+1975_11_14_GarField,1975,11/14/1975,Gar-Field,Stafford,Away,20,0,287,127,160,206,19,187
+1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stafford,Stonewall Jackson-Manassas,Home,23,22,260,73,187,260,77,183
+1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Stafford,Away,22,23,260,77,183,260,73,187
+1974_09_20_Albemarle,1974,9/20/1974,Stafford,Albemarle,Home,21,8,359,26,333,160,20,140
+1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Stafford,Away,8,21,160,20,140,359,26,333
+1974_09_27_GarField,1974,9/27/1974,Stafford,Gar-Field,Away,0,27,48,8,40,343,112,231
+1974_09_27_GarField,1974,9/27/1974,Gar-Field,Stafford,Home,27,0,343,112,231,48,8,40
+1974_10_04_Fauquier,1974,10/4/1974,Stafford,Fauquier,Away,14,13,273,8,265,135,10,125
+1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Stafford,Home,13,14,135,10,125,273,8,265
+1974_10_11_JamesWood,1974,10/11/1974,Stafford,James Wood,Away,21,22,257,4,253,288,57,231
+1974_10_11_JamesWood,1974,10/11/1974,James Wood,Stafford,Home,22,21,288,57,231,257,4,253
+1974_10_18_Woodbridge,1974,10/18/1974,Stafford,Woodbridge,Home,7,21,300,112,188,221,43,178
+1974_10_18_Woodbridge,1974,10/18/1974,Woodbridge,Stafford,Away,21,7,221,43,178,300,112,188
+1974_10_25_Charlottesville,1974,10/25/1974,Stafford,Charlottesville,Home,34,8,532,119,413,243,52,191
+1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Stafford,Away,8,34,243,52,191,532,119,413
+1974_11_01_Osbourn,1974,11/1/1974,Stafford,Osbourn,Away,58,6,373,49,324,164,92,72
+1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Stafford,Home,6,58,164,92,72,373,49,324
+1974_11_08_JamesMonroe,1974,11/8/1974,Stafford,James Monroe,Home,23,19,263,178,85,230,42,188
+1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Stafford,Away,19,23,230,42,188,263,178,85
+1974_11_15_Spotsylvania,1974,11/15/1974,Stafford,Spotsylvania,Away,14,37,248,67,181,302,126,176
+1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Stafford,Home,37,14,302,126,176,248,67,181
+1973_09_07_Handley,1973,9/7/1973,Stafford,Handley,Home,46,9,387,90,297,202,5,197
+1973_09_07_Handley,1973,9/7/1973,Handley,Stafford,Away,9,46,202,5,197,387,90,297
+1973_09_15_Lane,1973,9/15/1973,Stafford,Lane,Away,7,24,134,54,80,249,83,166
+1973_09_15_Lane,1973,9/15/1973,Lane,Stafford,Home,24,7,249,83,166,134,54,80
+1973_09_21_Woodbridge,1973,9/21/1973,Stafford,Woodbridge,Away,0,26,124,38,86,248,29,219
+1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Stafford,Home,26,0,248,29,219,124,38,86
+1973_09_28_Fauquier,1973,9/28/1973,Stafford,Fauquier,Home,0,7,91,88,3,208,39,169
+1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Stafford,Away,7,0,208,39,169,91,88,3
+1973_10_05_GarField,1973,10/5/1973,Stafford,Gar-Field,Home,49,0,424,20,404,136,35,101
+1973_10_05_GarField,1973,10/5/1973,Gar-Field,Stafford,Away,0,49,136,35,101,424,20,404
+1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stafford,Stonewall Jackson-Manassas,Away,14,14,148,29,119,157,91,66
+1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Stafford,Home,14,14,157,91,66,148,29,119
+1973_10_26_Osbourn,1973,10/26/1973,Stafford,Osbourn,Home,27,7,199,84,115,65,19,46
+1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Stafford,Away,7,27,65,19,46,199,84,115
+1973_11_02_JamesWood,1973,11/2/1973,Stafford,James Wood,Home,7,13,174,30,144,214,13,201
+1973_11_02_JamesWood,1973,11/2/1973,James Wood,Stafford,Away,13,7,214,13,201,174,30,144
+1973_11_09_Albemarle,1973,11/9/1973,Stafford,Albemarle,Away,31,15,554,106,448,142,83,59
+1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Stafford,Home,15,31,142,83,59,554,106,448
+1973_11_16_JamesMonroe,1973,11/16/1973,Stafford,James Monroe,Away,42,0,457,53,404,175,116,59
+1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Stafford,Home,0,42,175,116,59,457,53,404
+1972_09_02_StonewallJackson-Manassas,1972,9/2/1972,Stafford,Stonewall Jackson-Manassas,Home,0,7,27,20,7,243,91,152
+1972_09_02_StonewallJackson-Manassas,1972,9/2/1972,Stonewall Jackson-Manassas,Stafford,Away,7,0,243,91,152,27,20,7
+1972_09_08_Osbourn,1972,9/8/1972,Stafford,Osbourn,Away,13,0,230,63,167,137,17,120
+1972_09_08_Osbourn,1972,9/8/1972,Osbourn,Stafford,Home,0,13,137,17,120,230,63,167
+1972_09_15_Spotsylvania,1972,9/15/1972,Stafford,Spotsylvania,Away,21,14,232,0,232,132,82,50
+1972_09_15_Spotsylvania,1972,9/15/1972,Spotsylvania,Stafford,Home,14,21,132,82,50,232,0,232
+1972_09_29_JamesWood,1972,9/29/1972,Stafford,James Wood,Away,7,48,136,27,109,276,126,150
+1972_09_29_JamesWood,1972,9/29/1972,James Wood,Stafford,Home,48,7,276,126,150,136,27,109
+1972_10_09_Albemarle,1972,10/9/1972,Stafford,Albemarle,Home,7,7,169,12,157,296,150,146
+1972_10_09_Albemarle,1972,10/9/1972,Albemarle,Stafford,Away,7,7,296,150,146,169,12,157
+1972_10_14_Handley,1972,10/14/1972,Stafford,Handley,Away,7,27,118,103,15,256,60,196
+1972_10_14_Handley,1972,10/14/1972,Handley,Stafford,Home,27,7,256,60,196,118,103,15
+1972_10_20_Fauquier,1972,10/20/1972,Stafford,Fauquier,Home,6,19,157,38,119,271,11,260
+1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Stafford,Away,19,6,271,11,260,157,38,119
+1972_10_27_GarField,1972,10/27/1972,Stafford,Gar-Field,Away,14,7,118,26,92,205,101,104
+1972_10_27_GarField,1972,10/27/1972,Gar-Field,Stafford,Home,7,14,205,101,104,118,26,92
+1972_11_03_Lane,1972,11/3/1972,Stafford,Lane,Home,12,49,260,233,27,296,24,272
+1972_11_03_Lane,1972,11/3/1972,Lane,Stafford,Away,49,12,296,24,272,260,233,27
+1972_11_10_JamesMonroe,1972,11/10/1972,Stafford,James Monroe,Home,13,6,140,134,6,153,42,111
+1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Stafford,Away,6,13,153,42,111,140,134,6
+1971_09_03_Lane,1971,9/3/1971,Stafford,Lane,Home,6,14,224,121,103,341,66,275
+1971_09_03_Lane,1971,9/3/1971,Lane,Stafford,Away,14,6,341,66,275,224,121,103
+1971_09_10_Woodbridge,1971,9/10/1971,Stafford,Woodbridge,Away,6,40,167,46,121,318,120,198
+1971_09_10_Woodbridge,1971,9/10/1971,Woodbridge,Stafford,Home,40,6,318,120,198,167,46,121
+1971_09_17_JamesWood,1971,9/17/1971,Stafford,James Wood,Home,0,30,19,9,10,390,0,390
+1971_09_17_JamesWood,1971,9/17/1971,James Wood,Stafford,Away,30,0,390,0,390,19,9,10
+1971_09_24_GarField,1971,9/24/1971,Stafford,Gar-Field,Away,0,27,43,28,15,412,130,282
+1971_09_24_GarField,1971,9/24/1971,Gar-Field,Stafford,Home,27,0,412,130,282,43,28,15
+1971_10_02_Handley,1971,10/2/1971,Stafford,Handley,Away,0,46,62,49,13,439,80,359
+1971_10_02_Handley,1971,10/2/1971,Handley,Stafford,Home,46,0,439,80,359,62,49,13
+1971_10_08_Spotsylvania,1971,10/8/1971,Stafford,Spotsylvania,Home,14,40,246,36,210,188,8,180
+1971_10_08_Spotsylvania,1971,10/8/1971,Spotsylvania,Stafford,Away,40,14,188,8,180,246,36,210
+1971_10_15_Osbourn,1971,10/15/1971,Stafford,Osbourn,Home,14,12,105,-8,113,316,30,286
+1971_10_15_Osbourn,1971,10/15/1971,Osbourn,Stafford,Away,12,14,316,30,286,105,-8,113
+1971_10_22_StonewallJackson-Manassas,1971,10/22/1971,Stafford,Stonewall Jackson-Manassas,Home,0,13,148,52,96,288,29,259
+1971_10_22_StonewallJackson-Manassas,1971,10/22/1971,Stonewall Jackson-Manassas,Stafford,Away,13,0,288,29,259,148,52,96
+1971_10_29_Albemarle,1971,10/29/1971,Stafford,Albemarle,Away,6,14,110,0,110,215,61,154
+1971_10_29_Albemarle,1971,10/29/1971,Albemarle,Stafford,Home,14,6,215,61,154,110,0,110
+1971_11_05_JamesMonroe,1971,11/5/1971,Stafford,James Monroe,Away,14,21,160,0,160,317,44,273
+1971_11_05_JamesMonroe,1971,11/5/1971,James Monroe,Stafford,Home,21,14,317,44,273,160,0,160
+1970_09_04_Lane,1970,9/4/1970,Stafford,Lane,Away,0,37,61,0,61,438,138,300
+1970_09_04_Lane,1970,9/4/1970,Lane,Stafford,Home,37,0,438,138,300,61,0,61
+1970_09_11_Woodbridge,1970,9/11/1970,Stafford,Woodbridge,Home,0,31,116,98,18,259,4,255
+1970_09_11_Woodbridge,1970,9/11/1970,Woodbridge,Stafford,Away,31,0,259,4,255,116,98,18
+1970_09_18_JamesWood,1970,9/18/1970,Stafford,James Wood,Away,0,30,145,10,135,342,83,259
+1970_09_18_JamesWood,1970,9/18/1970,James Wood,Stafford,Home,30,0,342,83,259,145,10,135
+1970_09_25_GarField,1970,9/25/1970,Stafford,Gar-Field,Home,0,8,80,30,50,266,35,231
+1970_09_25_GarField,1970,9/25/1970,Gar-Field,Stafford,Away,8,0,266,35,231,80,30,50
+1970_10_02_Handley,1970,10/2/1970,Stafford,Handley,Home,12,47,212,41,171,394,144,250
+1970_10_02_Handley,1970,10/2/1970,Handley,Stafford,Away,47,12,394,144,250,212,41,171
+1970_10_09_Spotsylvania,1970,10/9/1970,Stafford,Spotsylvania,Away,0,14,105,68,37,369,168,201
+1970_10_09_Spotsylvania,1970,10/9/1970,Spotsylvania,Stafford,Home,14,0,369,168,201,105,68,37
+1970_10_16_Osbourn,1970,10/16/1970,Stafford,Osbourn,Away,19,0,260,42,218,106,88,18
+1970_10_16_Osbourn,1970,10/16/1970,Osbourn,Stafford,Home,0,19,106,88,18,260,42,218
+1970_10_23_StonewallJackson-Manassas,1970,10/23/1970,Stafford,Stonewall Jackson-Manassas,Away,14,7,226,13,213,135,74,61
+1970_10_23_StonewallJackson-Manassas,1970,10/23/1970,Stonewall Jackson-Manassas,Stafford,Home,7,14,135,74,61,226,13,213
+1970_11_06_JamesMonroe,1970,11/6/1970,Stafford,James Monroe,Home,6,14,142,68,74,183,37,146
+1970_11_06_JamesMonroe,1970,11/6/1970,James Monroe,Stafford,Away,14,6,183,37,146,142,68,74
+1970_11_14_Albemarle,1970,11/14/1970,Stafford,Albemarle,Home,9,27,162,17,145,318,115,203
+1970_11_14_Albemarle,1970,11/14/1970,Albemarle,Stafford,Away,27,9,318,115,203,162,17,145
+1969_09_05_Varina,1969,9/5/1969,Stafford,Varina,Home,22,0,258,86,172,114,34,80
+1969_09_05_Varina,1969,9/5/1969,Varina,Stafford,Away,0,22,114,34,80,258,86,172
+1969_09_12_StonewallJackson-Manassas,1969,9/12/1969,Stafford,Stonewall Jackson-Manassas,Home,24,0,236,31,205,117,27,90
+1969_09_12_StonewallJackson-Manassas,1969,9/12/1969,Stonewall Jackson-Manassas,Stafford,Away,0,24,117,27,90,236,31,205
+1969_09_20_Handley,1969,9/20/1969,Stafford,Handley,Away,22,19,171,82,89,307,113,194
+1969_09_20_Handley,1969,9/20/1969,Handley,Stafford,Home,19,22,307,113,194,171,82,89
+1969_09_26_GarField,1969,9/26/1969,Stafford,Gar-Field,Home,8,6,282,102,180,126,8,118
+1969_09_26_GarField,1969,9/26/1969,Gar-Field,Stafford,Away,6,8,126,8,118,282,102,180
+1969_10_03_JamesMonroe,1969,10/3/1969,Stafford,James Monroe,Away,0,0,111,1,110,309,113,196
+1969_10_03_JamesMonroe,1969,10/3/1969,James Monroe,Stafford,Home,0,0,309,113,196,111,1,110
+1969_10_10_Spotsylvania,1969,10/10/1969,Stafford,Spotsylvania,Home,24,0,173,38,135,99,20,79
+1969_10_10_Spotsylvania,1969,10/10/1969,Spotsylvania,Stafford,Away,0,24,99,20,79,173,38,135
+1969_10_17_Osbourn,1969,10/17/1969,Stafford,Osbourn,Away,24,6,337,84,253,287,109,178
+1969_10_17_Osbourn,1969,10/17/1969,Osbourn,Stafford,Home,6,24,287,109,178,337,84,253
+1969_10_24_Orange,1969,10/24/1969,Stafford,Orange,Home,6,0,123,3,120,103,65,38
+1969_10_24_Orange,1969,10/24/1969,Orange,Stafford,Away,0,6,103,65,38,123,3,120
+1969_10_31_Culpeper,1969,10/31/1969,Stafford,Culpeper,Away,14,8,155,5,150,130,60,70
+1969_10_31_Culpeper,1969,10/31/1969,Culpeper,Stafford,Home,8,14,130,60,70,155,5,150
+1969_11_07_Woodbridge,1969,11/7/1969,Stafford,Woodbridge,Away,8,24,167,0,167,256,26,230
+1969_11_07_Woodbridge,1969,11/7/1969,Woodbridge,Stafford,Home,24,8,256,26,230,167,0,167
+1968_09_06_Woodbridge,1968,9/6/1968,Stafford,Woodbridge,Home,20,0,189,15,174,46,39,7
+1968_09_06_Woodbridge,1968,9/6/1968,Woodbridge,Stafford,Away,0,20,46,39,7,189,15,174
+1968_09_13_StonewallJackson-Manassas,1968,9/13/1968,Stafford,Stonewall Jackson-Manassas,Away,19,7,275,57,218,125,32,93
+1968_09_13_StonewallJackson-Manassas,1968,9/13/1968,Stonewall Jackson-Manassas,Stafford,Home,7,19,125,32,93,275,57,218
+1968_09_20_Handley,1968,9/20/1968,Stafford,Handley,Home,0,27,86,25,61,304,0,304
+1968_09_20_Handley,1968,9/20/1968,Handley,Stafford,Away,27,0,304,0,304,86,25,61
+1968_09_27_GarField,1968,9/27/1968,Stafford,Gar-Field,Away,28,14,229,0,229,148,81,67
+1968_09_27_GarField,1968,9/27/1968,Gar-Field,Stafford,Home,14,28,148,81,67,229,0,229
+1968_10_04_JamesMonroe,1968,10/4/1968,Stafford,James Monroe,Home,7,0,277,100,177,128,4,124
+1968_10_04_JamesMonroe,1968,10/4/1968,James Monroe,Stafford,Away,0,7,128,4,124,277,100,177
+1968_10_11_Spotsylvania,1968,10/11/1968,Stafford,Spotsylvania,Away,28,19,218,26,192,157,94,63
+1968_10_11_Spotsylvania,1968,10/11/1968,Spotsylvania,Stafford,Home,19,28,157,94,63,218,26,192
+1968_10_18_Osbourn,1968,10/18/1968,Stafford,Osbourn,Home,0,7,214,96,118,159,32,127
+1968_10_18_Osbourn,1968,10/18/1968,Osbourn,Stafford,Away,7,0,159,32,127,214,96,118
+1968_10_25_Orange,1968,10/25/1968,Stafford,Orange,Away,21,0,224,54,170,34,20,14
+1968_10_25_Orange,1968,10/25/1968,Orange,Stafford,Home,0,21,34,20,14,224,54,170
+1968_11_01_Culpeper,1968,11/1/1968,Stafford,Culpeper,Home,21,0,318,76,242,115,101,14
+1968_11_01_Culpeper,1968,11/1/1968,Culpeper,Stafford,Away,0,21,115,101,14,318,76,242
+1968_11_15_Varina,1968,11/15/1968,Stafford,Varina,Home,34,0,305,5,300,147,40,107
+1968_11_15_Varina,1968,11/15/1968,Varina,Stafford,Away,0,34,147,40,107,305,5,300
+1967_09_01_Herndon,1967,9/1/1967,Stafford,Herndon,Home,13,7,313,18,295,152,74,78
+1967_09_01_Herndon,1967,9/1/1967,Herndon,Stafford,Away,7,13,152,74,78,313,18,295
+1967_09_08_StonewallJackson-Manassas,1967,9/8/1967,Stafford,Stonewall Jackson-Manassas,Home,45,6,420,81,339,146,13,133
+1967_09_08_StonewallJackson-Manassas,1967,9/8/1967,Stonewall Jackson-Manassas,Stafford,Away,6,45,146,13,133,420,81,339
+1967_09_15_Woodbridge,1967,9/15/1967,Stafford,Woodbridge,Away,6,0,183,0,183,150,24,126
+1967_09_15_Woodbridge,1967,9/15/1967,Woodbridge,Stafford,Home,0,6,150,24,126,183,0,183
+1967_09_22_GarField,1967,9/22/1967,Stafford,Gar-Field,Home,0,28,115,61,54,361,20,341
+1967_09_22_GarField,1967,9/22/1967,Gar-Field,Stafford,Away,28,0,361,20,341,115,61,54
+1967_09_29_JamesMonroe,1967,9/29/1967,Stafford,James Monroe,Away,14,0,230,7,223,145,61,84
+1967_09_29_JamesMonroe,1967,9/29/1967,James Monroe,Stafford,Home,0,14,145,61,84,230,7,223
+1967_10_06_Spotsylvania,1967,10/6/1967,Stafford,Spotsylvania,Home,14,6,165,51,114,124,32,92
+1967_10_06_Spotsylvania,1967,10/6/1967,Spotsylvania,Stafford,Away,6,14,124,32,92,165,51,114
+1967_10_13_Osbourn,1967,10/13/1967,Stafford,Osbourn,Away,28,18,305,0,305,170,111,59
+1967_10_13_Osbourn,1967,10/13/1967,Osbourn,Stafford,Home,18,28,170,111,59,305,0,305
+1967_10_20_Orange,1967,10/20/1967,Stafford,Orange,Home,6,19,117,55,62,264,57,207
+1967_10_20_Orange,1967,10/20/1967,Orange,Stafford,Away,19,6,264,57,207,117,55,62
+1967_10_27_Culpeper,1967,10/27/1967,Stafford,Culpeper,Away,7,6,225,12,213,187,68,119
+1967_10_27_Culpeper,1967,10/27/1967,Culpeper,Stafford,Home,6,7,187,68,119,225,12,213
+1967_11_03_Brentsville,1967,11/3/1967,Stafford,Brentsville,Away,28,0,437,246,191,39,18,21
+1967_11_03_Brentsville,1967,11/3/1967,Brentsville,Stafford,Home,0,28,39,18,21,437,246,191
+1966_09_02_Herndon,1966,9/2/1966,Stafford,Herndon,Away,19,13,246,63,183,213,82,131
+1966_09_02_Herndon,1966,9/2/1966,Herndon,Stafford,Home,13,19,213,82,131,246,63,183
+1966_09_09_StonewallJackson-Manassas,1966,9/9/1966,Stafford,Stonewall Jackson-Manassas,Away,41,6,431,78,353,87,37,50
+1966_09_09_StonewallJackson-Manassas,1966,9/9/1966,Stonewall Jackson-Manassas,Stafford,Home,6,41,87,37,50,431,78,353
+1966_09_16_Woodbridge,1966,9/16/1966,Stafford,Woodbridge,Home,6,12,202,7,195,176,23,153
+1966_09_16_Woodbridge,1966,9/16/1966,Woodbridge,Stafford,Away,12,6,176,23,153,202,7,195
+1966_09_23_GarField,1966,9/23/1966,Stafford,Gar-Field,Away,42,7,381,78,303,125,79,46
+1966_09_23_GarField,1966,9/23/1966,Gar-Field,Stafford,Home,7,42,125,79,46,381,78,303
+1966_09_30_JamesMonroe,1966,9/30/1966,Stafford,James Monroe,Home,0,13,197,92,105,158,18,140
+1966_09_30_JamesMonroe,1966,9/30/1966,James Monroe,Stafford,Away,13,0,158,18,140,197,92,105
+1966_10_07_Spotsylvania,1966,10/7/1966,Stafford,Spotsylvania,Away,40,0,400,143,257,154,70,84
+1966_10_07_Spotsylvania,1966,10/7/1966,Spotsylvania,Stafford,Home,0,40,154,70,84,400,143,257
+1966_10_14_Osbourn,1966,10/14/1966,Stafford,Osbourn,Home,7,13,141,62,79,198,120,78
+1966_10_14_Osbourn,1966,10/14/1966,Osbourn,Stafford,Away,13,7,198,120,78,141,62,79
+1966_10_21_Orange,1966,10/21/1966,Stafford,Orange,Away,7,26,159,17,142,292,109,183
+1966_10_21_Orange,1966,10/21/1966,Orange,Stafford,Home,26,7,292,109,183,159,17,142
+1966_10_28_Culpeper,1966,10/28/1966,Stafford,Culpeper,Home,35,6,206,63,143,61,51,10
+1966_10_28_Culpeper,1966,10/28/1966,Culpeper,Stafford,Away,6,35,61,51,10,206,63,143
+1966_11_04_Brentsville,1966,11/4/1966,Stafford,Brentsville,Home,39,12,301,73,228,159,94,65
+1966_11_04_Brentsville,1966,11/4/1966,Brentsville,Stafford,Away,12,39,159,94,65,301,73,228
+1965_09_03_Herndon,1965,9/3/1965,Stafford,Herndon,Home,12,26,297,65,232,294,149,145
+1965_09_03_Herndon,1965,9/3/1965,Herndon,Stafford,Away,26,12,294,149,145,297,65,232
+1965_09_10_PatrickHenry-Ashland,1965,9/10/1965,Stafford,Patrick Henry-Ashland,Away,7,0,337,66,271,35,24,11
+1965_09_10_PatrickHenry-Ashland,1965,9/10/1965,Patrick Henry-Ashland,Stafford,Home,0,7,35,24,11,337,66,271
+1965_09_17_LeeDavis,1965,9/17/1965,Stafford,Lee-Davis,Home,7,31,165,56,109,303,69,234
+1965_09_17_LeeDavis,1965,9/17/1965,Lee-Davis,Stafford,Away,31,7,303,69,234,165,56,109
+1965_09_24_GarField,1965,9/24/1965,Stafford,Gar-Field,Away,33,12,283,82,201,89,68,21
+1965_09_24_GarField,1965,9/24/1965,Gar-Field,Stafford,Home,12,33,89,68,21,283,82,201
+1965_10_01_JamesMonroe,1965,10/1/1965,Stafford,James Monroe,Away,27,32,300,76,224,361,79,282
+1965_10_01_JamesMonroe,1965,10/1/1965,James Monroe,Stafford,Home,32,27,361,79,282,300,76,224
+1965_10_08_Spotsylvania,1965,10/8/1965,Stafford,Spotsylvania,Away,21,6,246,0,246,150,23,127
+1965_10_08_Spotsylvania,1965,10/8/1965,Spotsylvania,Stafford,Home,6,21,150,23,127,246,0,246
+1965_10_15_Osbourn,1965,10/15/1965,Stafford,Osbourn,Away,6,12,162,14,148,177,79,98
+1965_10_15_Osbourn,1965,10/15/1965,Osbourn,Stafford,Home,12,6,177,79,98,162,14,148
+1965_10_22_Orange,1965,10/22/1965,Stafford,Orange,Home,12,13,251,0,251,214,38,176
+1965_10_22_Orange,1965,10/22/1965,Orange,Stafford,Away,13,12,214,38,176,251,0,251
+1965_10_29_Culpeper,1965,10/29/1965,Stafford,Culpeper,Away,20,7,274,42,232,130,60,70
+1965_10_29_Culpeper,1965,10/29/1965,Culpeper,Stafford,Home,7,20,130,60,70,274,42,232
+1965_11_05_Brentsville,1965,11/5/1965,Stafford,Brentsville,Away,46,12,452,130,322,153,59,94
+1965_11_05_Brentsville,1965,11/5/1965,Brentsville,Stafford,Home,12,46,153,59,94,452,130,322
+1964_09_04_Herndon,1964,9/4/1964,Stafford,Herndon,Away,7,34,220,158,62,323,58,265
+1964_09_04_Herndon,1964,9/4/1964,Herndon,Stafford,Home,34,7,323,58,265,220,158,62
+1964_09_11_Quantico,1964,9/11/1964,Stafford,Quantico,Home,7,6,313,14,299,102,82,20
+1964_09_11_Quantico,1964,9/11/1964,Quantico,Stafford,Away,6,7,102,82,20,313,14,299
+1964_09_18_LeeDavis,1964,9/18/1964,Stafford,Lee-Davis,Away,7,27,269,89,180,370,0,370
+1964_09_18_LeeDavis,1964,9/18/1964,Lee-Davis,Stafford,Home,27,7,370,0,370,269,89,180
+1964_09_25_GarField,1964,9/25/1964,Stafford,Gar-Field,Away,13,26,284,121,163,236,97,139
+1964_09_25_GarField,1964,9/25/1964,Gar-Field,Stafford,Home,26,13,236,97,139,284,121,163
+1964_10_02_JamesMonroe,1964,10/2/1964,Stafford,James Monroe,Away,7,25,136,48,88,353,135,218
+1964_10_02_JamesMonroe,1964,10/2/1964,James Monroe,Stafford,Home,25,7,353,135,218,136,48,88
+1964_10_08_Spotsylvania,1964,10/8/1964,Stafford,Spotsylvania,Home,6,19,67,28,39,146,36,110
+1964_10_08_Spotsylvania,1964,10/8/1964,Spotsylvania,Stafford,Away,19,6,146,36,110,67,28,39
+1964_10_19_Osbourn,1964,10/19/1964,Stafford,Osbourn,Home,0,9,19,10,9,291,65,226
+1964_10_19_Osbourn,1964,10/19/1964,Osbourn,Stafford,Away,9,0,291,65,226,19,10,9
+1964_10_23_Orange,1964,10/23/1964,Stafford,Orange,Away,0,48,102,6,96,341,55,286
+1964_10_23_Orange,1964,10/23/1964,Orange,Stafford,Home,48,0,341,55,286,102,6,96
+1964_10_29_Culpeper,1964,10/29/1964,Stafford,Culpeper,Home,0,26,162,24,138,326,83,243
+1964_10_29_Culpeper,1964,10/29/1964,Culpeper,Stafford,Away,26,0,326,83,243,162,24,138
+1964_11_13_Lane,1964,11/13/1964,Stafford,Lane,Away,6,38,47,29,18,221,80,141
+1964_11_13_Lane,1964,11/13/1964,Lane,Stafford,Home,38,6,221,80,141,47,29,18
+1963_09_06_Herndon,1963,9/6/1963,Stafford,Herndon,Home,6,14,131,45,86,205,11,194
+1963_09_06_Herndon,1963,9/6/1963,Herndon,Stafford,Away,14,6,205,11,194,131,45,86
+1963_09_13_Quantico,1963,9/13/1963,Stafford,Quantico,Home,13,0,273,163,110,167,61,106
+1963_09_13_Quantico,1963,9/13/1963,Quantico,Stafford,Away,0,13,167,61,106,273,163,110
+1963_09_20_Lane,1963,9/20/1963,Stafford,Lane,Away,0,25,111,69,42,334,48,286
+1963_09_20_Lane,1963,9/20/1963,Lane,Stafford,Home,25,0,334,48,286,111,69,42
+1963_09_27_GarField,1963,9/27/1963,Stafford,Gar-Field,Home,6,26,169,78,91,287,65,222
+1963_09_27_GarField,1963,9/27/1963,Gar-Field,Stafford,Away,26,6,287,65,222,169,78,91
+1963_10_04_JamesMonroe,1963,10/4/1963,Stafford,James Monroe,Away,7,39,196,145,51,340,133,207
+1963_10_04_JamesMonroe,1963,10/4/1963,James Monroe,Stafford,Home,39,7,340,133,207,196,145,51
+1963_10_10_Spotsylvania,1963,10/10/1963,Stafford,Spotsylvania,Away,21,6,265,118,147,151,15,136
+1963_10_10_Spotsylvania,1963,10/10/1963,Spotsylvania,Stafford,Home,6,21,151,15,136,265,118,147
+1963_10_18_Osbourn,1963,10/18/1963,Stafford,Osbourn,Away,6,6,127,72,55,255,122,133
+1963_10_18_Osbourn,1963,10/18/1963,Osbourn,Stafford,Home,6,6,255,122,133,127,72,55
+1963_10_25_Orange,1963,10/25/1963,Stafford,Orange,Home,6,7,178,57,121,191,0,191
+1963_10_25_Orange,1963,10/25/1963,Orange,Stafford,Away,7,6,191,0,191,178,57,121
+1963_11_02_LaPlata-Maryland,1963,11/2/1963,Stafford,La Plata-Maryland,Away,13,12,254,58,196,197,132,65
+1963_11_02_LaPlata-Maryland,1963,11/2/1963,La Plata-Maryland,Stafford,Home,12,13,197,132,65,254,58,196
+1963_11_08_LeeDavis,1963,11/8/1963,Stafford,Lee-Davis,Home,7,13,128,13,115,147,88,59
+1963_11_08_LeeDavis,1963,11/8/1963,Lee-Davis,Stafford,Away,13,7,147,88,59,128,13,115
+1962_09_07_Marshall,1962,9/7/1962,Stafford,Marshall,Home,27,7,216,15,201,176,95,81
+1962_09_07_Marshall,1962,9/7/1962,Marshall,Stafford,Away,7,27,176,95,81,216,15,201
+1962_09_15_Varina,1962,9/15/1962,Stafford,Varina,Home,0,34,55,42,13,316,43,273
+1962_09_15_Varina,1962,9/15/1962,Varina,Stafford,Away,34,0,316,43,273,55,42,13
+1962_09_21_Lane,1962,9/21/1962,Stafford,Lane,Home,0,45,111,73,38,364,198,166
+1962_09_21_Lane,1962,9/21/1962,Lane,Stafford,Away,45,0,364,198,166,111,73,38
+1962_09_28_GarField,1962,9/28/1962,Stafford,Gar-Field,Away,7,33,141,65,76,361,22,339
+1962_09_28_GarField,1962,9/28/1962,Gar-Field,Stafford,Home,33,7,361,22,339,141,65,76
+1962_10_05_JamesMonroe,1962,10/5/1962,Stafford,James Monroe,Away,1,0,,,,,,
+1962_10_05_JamesMonroe,1962,10/5/1962,James Monroe,Stafford,Home,0,1,,,,,,
+1962_10_11_Spotsylvania,1962,10/11/1962,Stafford,Spotsylvania,Home,7,7,254,7,247,305,141,164
+1962_10_11_Spotsylvania,1962,10/11/1962,Spotsylvania,Stafford,Away,7,7,305,141,164,254,7,247
+1962_10_20_JRTucker,1962,10/20/1962,Stafford,J.R. Tucker,Home,33,6,277,32,245,133,89,44
+1962_10_20_JRTucker,1962,10/20/1962,J.R. Tucker,Stafford,Away,6,33,133,89,44,277,32,245
+1962_10_26_Orange,1962,10/26/1962,Stafford,Orange,Away,18,26,126,67,59,265,13,252
+1962_10_26_Orange,1962,10/26/1962,Orange,Stafford,Home,26,18,265,13,252,126,67,59
+1962_11_02_Culpeper,1962,11/2/1962,Stafford,Culpeper,Away,28,13,227,103,124,131,8,123
+1962_11_02_Culpeper,1962,11/2/1962,Culpeper,Stafford,Home,13,28,131,8,123,227,103,124
+1962_11_10_Herndon,1962,11/10/1962,Stafford,Herndon,Away,0,6,108,37,71,142,16,126
+1962_11_10_Herndon,1962,11/10/1962,Herndon,Stafford,Home,6,0,142,16,126,108,37,71
+1961_09_15_Varina,1961,9/15/1961,Stafford,Varina,Away,0,20,136,9,127,145,71,74
+1961_09_15_Varina,1961,9/15/1961,Varina,Stafford,Home,20,0,145,71,74,136,9,127
+1961_09_22_ColonialHeights,1961,9/22/1961,Stafford,Colonial Heights,Away,6,16,,,,,,
+1961_09_22_ColonialHeights,1961,9/22/1961,Colonial Heights,Stafford,Home,16,6,,,,,,
+1961_09_30_GarField,1961,9/30/1961,Stafford,Gar-Field,Home,0,32,105,38,67,309,29,280
+1961_09_30_GarField,1961,9/30/1961,Gar-Field,Stafford,Away,32,0,309,29,280,105,38,67
+1961_10_06_JamesMonroe,1961,10/6/1961,Stafford,James Monroe,Away,0,12,55,6,49,290,52,238
+1961_10_06_JamesMonroe,1961,10/6/1961,James Monroe,Stafford,Home,12,0,290,52,238,55,6,49
+1961_10_13_Spotsylvania,1961,10/13/1961,Stafford,Spotsylvania,Away,7,28,255,82,173,329,0,329
+1961_10_13_Spotsylvania,1961,10/13/1961,Spotsylvania,Stafford,Home,28,7,329,0,329,255,82,173
+1961_10_20_Warren,1961,10/20/1961,Stafford,Warren,Away,0,0,,,,,,
+1961_10_20_Warren,1961,10/20/1961,Warren,Stafford,Home,0,0,,,,,,
+1961_10_27_Orange,1961,10/27/1961,Stafford,Orange,Home,13,39,184,110,74,340,64,276
+1961_10_27_Orange,1961,10/27/1961,Orange,Stafford,Away,39,13,340,64,276,184,110,74
+1961_11_03_Culpeper,1961,11/3/1961,Stafford,Culpeper,Home,13,0,250,55,195,147,45,102
+1961_11_03_Culpeper,1961,11/3/1961,Culpeper,Stafford,Away,0,13,147,45,102,250,55,195
+1961_11_10_Herndon,1961,11/10/1961,Stafford,Herndon,Home,0,13,149,68,81,290,65,225
+1961_11_10_Herndon,1961,11/10/1961,Herndon,Stafford,Away,13,0,290,65,225,149,68,81
+1960_09_16_GeorgeMason,1960,9/16/1960,Stafford,George Mason,Home,21,26,268,115,153,332,54,278
+1960_09_16_GeorgeMason,1960,9/16/1960,George Mason,Stafford,Away,26,21,332,54,278,268,115,153
+1960_09_23_ColonialHeights,1960,9/23/1960,Stafford,Colonial Heights,Home,0,12,109,28,81,233,71,162
+1960_09_23_ColonialHeights,1960,9/23/1960,Colonial Heights,Stafford,Away,12,0,233,71,162,109,28,81
+1960_10_01_GarField,1960,10/1/1960,Stafford,Gar-Field,Away,12,6,162,42,120,162,51,111
+1960_10_01_GarField,1960,10/1/1960,Gar-Field,Stafford,Home,6,12,162,51,111,162,42,120
+1960_10_07_JamesMonroe,1960,10/7/1960,Stafford,James Monroe,Away,13,7,276,19,257,150,52,98
+1960_10_07_JamesMonroe,1960,10/7/1960,James Monroe,Stafford,Home,7,13,150,52,98,276,19,257
+1960_10_13_Spotsylvania,1960,10/13/1960,Stafford,Spotsylvania,Home,20,7,282,19,263,231,104,127
+1960_10_13_Spotsylvania,1960,10/13/1960,Spotsylvania,Stafford,Away,7,20,231,104,127,282,19,263
+1960_10_22_Herndon,1960,10/22/1960,Stafford,Herndon,Away,6,31,148,91,57,293,139,154
+1960_10_22_Herndon,1960,10/22/1960,Herndon,Stafford,Home,31,6,293,139,154,148,91,57
+1960_10_28_Orange,1960,10/28/1960,Stafford,Orange,Away,13,34,212,127,85,390,157,233
+1960_10_28_Orange,1960,10/28/1960,Orange,Stafford,Home,34,13,390,157,233,212,127,85
+1960_11_04_Culpeper,1960,11/4/1960,Stafford,Culpeper,Away,19,6,295,33,262,115,0,115
+1960_11_04_Culpeper,1960,11/4/1960,Culpeper,Stafford,Home,6,19,115,0,115,295,33,262
+1960_11_12_Albemarle,1960,11/12/1960,Stafford,Albemarle,Home,21,20,351,115,236,190,41,149
+1960_11_12_Albemarle,1960,11/12/1960,Albemarle,Stafford,Away,20,21,190,41,149,351,115,236
+1960_11_18_Warren,1960,11/18/1960,Stafford,Warren,Home,51,6,574,139,435,153,32,121
+1960_11_18_Warren,1960,11/18/1960,Warren,Stafford,Away,6,51,153,32,121,574,139,435
+1959_09_11_JamesMonroe,1959,9/11/1959,Stafford,James Monroe,Away,0,25,122,45,77,337,131,206
+1959_09_11_JamesMonroe,1959,9/11/1959,James Monroe,Stafford,Home,25,0,337,131,206,122,45,77
+1959_09_18_Orange,1959,9/18/1959,Stafford,Orange,Home,7,27,119,1,118,222,113,109
+1959_09_18_Orange,1959,9/18/1959,Orange,Stafford,Away,27,7,222,113,109,119,1,118
+1959_09_25_Culpeper,1959,9/25/1959,Stafford,Culpeper,Home,0,12,118,58,60,53,0,53
+1959_09_25_Culpeper,1959,9/25/1959,Culpeper,Stafford,Away,12,0,53,0,53,118,58,60
+1959_10_03_GeorgeMason,1959,10/3/1959,Stafford,George Mason,Away,27,14,386,21,365,187,41,146
+1959_10_03_GeorgeMason,1959,10/3/1959,George Mason,Stafford,Home,14,27,187,41,146,386,21,365
+1959_10_09_Spotsylvania,1959,10/9/1959,Stafford,Spotsylvania,Home,39,7,123,0,123,125,54,71
+1959_10_09_Spotsylvania,1959,10/9/1959,Spotsylvania,Stafford,Away,7,39,125,54,71,123,0,123
+1959_10_23_LeeDavis,1959,10/23/1959,Stafford,Lee-Davis,Home,25,0,255,30,225,140,45,95
+1959_10_23_LeeDavis,1959,10/23/1959,Lee-Davis,Stafford,Away,0,25,140,45,95,255,30,225
+1959_10_30_GarField,1959,10/30/1959,Stafford,Gar-Field,Home,25,0,382,41,341,185,106,79
+1959_10_30_GarField,1959,10/30/1959,Gar-Field,Stafford,Away,0,25,185,106,79,382,41,341
+1959_11_06_Albemarle,1959,11/6/1959,Stafford,Albemarle,Away,6,7,227,51,176,266,35,231
+1959_11_06_Albemarle,1959,11/6/1959,Albemarle,Stafford,Home,7,6,266,35,231,227,51,176
+1959_11_13_KingGeorge,1959,11/13/1959,Stafford,King George,Home,26,13,409,64,345,173,8,165
+1959_11_13_KingGeorge,1959,11/13/1959,King George,Stafford,Away,13,26,173,8,165,409,64,345
+1958_09_12_JamesMonroe,1958,9/12/1958,Stafford,James Monroe,Away,0,32,122,46,76,233,26,207
+1958_09_12_JamesMonroe,1958,9/12/1958,James Monroe,Stafford,Home,32,0,233,26,207,122,46,76
+1958_09_19_Orange,1958,9/19/1958,Stafford,Orange,Away,0,26,119,19,100,243,16,227
+1958_09_19_Orange,1958,9/19/1958,Orange,Stafford,Home,26,0,243,16,227,119,19,100
+1958_09_26_Culpeper,1958,9/26/1958,Stafford,Culpeper,Away,6,14,207,110,97,216,77,139
+1958_09_26_Culpeper,1958,9/26/1958,Culpeper,Stafford,Home,14,6,216,77,139,207,110,97
+1958_10_03_Varina,1958,10/3/1958,Stafford,Varina,Home,6,12,183,0,183,247,55,192
+1958_10_03_Varina,1958,10/3/1958,Varina,Stafford,Away,12,6,247,55,192,183,0,183
+1958_10_10_Spotsylvania,1958,10/10/1958,Stafford,Spotsylvania,Home,18,0,321,28,293,149,50,99
+1958_10_10_Spotsylvania,1958,10/10/1958,Spotsylvania,Stafford,Away,0,18,149,50,99,321,28,293
+1958_10_17_LeeDavis,1958,10/17/1958,Stafford,Lee-Davis,Away,26,6,,,,,,
+1958_10_17_LeeDavis,1958,10/17/1958,Lee-Davis,Stafford,Home,6,26,,,,,,
+1958_10_24_KingGeorge,1958,10/24/1958,Stafford,King George,Away,6,6,,,,,,
+1958_10_24_KingGeorge,1958,10/24/1958,King George,Stafford,Home,6,6,,,,,,
+1958_10_31_GarField,1958,10/31/1958,Stafford,Gar-Field,Away,12,0,210,34,176,171,67,104
+1958_10_31_GarField,1958,10/31/1958,Gar-Field,Stafford,Home,0,12,171,67,104,210,34,176
+1958_11_07_Midlothian,1958,11/7/1958,Stafford,Midlothian,Home,19,24,381,113,268,280,106,174
+1958_11_07_Midlothian,1958,11/7/1958,Midlothian,Stafford,Away,24,19,280,106,174,381,113,268
+1958_11_14_Madison,1958,11/14/1958,Stafford,Madison,Home,13,19,113,11,102,177,77,100
+1958_11_14_Madison,1958,11/14/1958,Madison,Stafford,Away,19,13,177,77,100,113,11,102
+1957_09_13_Benedictine,1957,9/13/1957,Stafford,Benedictine,Away,0,39,-1,23,-24,358,29,329
+1957_09_13_Benedictine,1957,9/13/1957,Benedictine,Stafford,Home,39,0,358,29,329,-1,23,-24
+1957_09_19_Orange,1957,9/19/1957,Stafford,Orange,Home,13,54,195,64,131,366,260,106
+1957_09_19_Orange,1957,9/19/1957,Orange,Stafford,Away,54,13,366,260,106,195,64,131
+1957_09_27_JamesMonroe,1957,9/27/1957,Stafford,James Monroe,Away,7,31,62,17,45,363,100,263
+1957_09_27_JamesMonroe,1957,9/27/1957,James Monroe,Stafford,Home,31,7,363,100,263,62,17,45
+1957_10_04_Varina,1957,10/4/1957,Stafford,Varina,Away,0,21,,,,,,
+1957_10_04_Varina,1957,10/4/1957,Varina,Stafford,Home,21,0,,,,,,
+1957_10_10_Spotsylvania,1957,10/10/1957,Stafford,Spotsylvania,Home,20,6,189,56,133,155,15,140
+1957_10_10_Spotsylvania,1957,10/10/1957,Spotsylvania,Stafford,Away,6,20,155,15,140,189,56,133
+1957_10_17_ThomasDale,1957,10/17/1957,Stafford,Thomas Dale,Home,7,47,36,-2,38,336,11,325
+1957_10_17_ThomasDale,1957,10/17/1957,Thomas Dale,Stafford,Away,47,7,336,11,325,36,-2,38
+1957_11_02_GarField,1957,11/2/1957,Stafford,Gar-Field,Home,12,25,90,18,72,174,28,146
+1957_11_02_GarField,1957,11/2/1957,Gar-Field,Stafford,Away,25,12,174,28,146,90,18,72
+1957_11_08_Midlothian,1957,11/8/1957,Stafford,Midlothian,Away,2,7,,,,,,
+1957_11_08_Midlothian,1957,11/8/1957,Midlothian,Stafford,Home,7,2,,,,,,
+1957_11_16_Madison,1957,11/16/1957,Stafford,Madison,Away,0,21,67,24,43,228,39,189
+1957_11_16_Madison,1957,11/16/1957,Madison,Stafford,Home,21,0,228,39,189,67,24,43
+1957_11_21_WashingtonHenry,1957,11/21/1957,Stafford,Washington-Henry,Home,0,25,23,0,23,330,131,199
+1957_11_21_WashingtonHenry,1957,11/21/1957,Washington-Henry,Stafford,Away,25,0,330,131,199,23,0,23
+1956_09_15_Benedictine,1956,9/15/1956,Stafford,Benedictine,Home,0,13,69,8,61,185,91,94
+1956_09_15_Benedictine,1956,9/15/1956,Benedictine,Stafford,Away,13,0,185,91,94,69,8,61
+1956_09_21_Orange,1956,9/21/1956,Stafford,Orange,Away,6,20,88,16,72,257,119,138
+1956_09_21_Orange,1956,9/21/1956,Orange,Stafford,Home,20,6,257,119,138,88,16,72
+1956_09_28_JamesMonroe,1956,9/28/1956,Stafford,James Monroe,Away,6,6,131,44,87,86,12,74
+1956_09_28_JamesMonroe,1956,9/28/1956,James Monroe,Stafford,Home,6,6,86,12,74,131,44,87
+1956_10_04_Varina,1956,10/4/1956,Stafford,Varina,Home,18,6,286,0,286,147,83,64
+1956_10_04_Varina,1956,10/4/1956,Varina,Stafford,Away,6,18,147,83,64,286,0,286
+1956_10_12_Spotsylvania,1956,10/12/1956,Stafford,Spotsylvania,Home,33,0,374,101,273,109,10,99
+1956_10_12_Spotsylvania,1956,10/12/1956,Spotsylvania,Stafford,Away,0,33,109,10,99,374,101,273
+1956_10_19_ThomasDale,1956,10/19/1956,Stafford,Thomas Dale,Away,6,21,126,58,68,142,,142
+1956_10_19_ThomasDale,1956,10/19/1956,Thomas Dale,Stafford,Home,21,6,142,,142,126,58,68
+1956_10_26_WashingtonHenry,1956,10/26/1956,Stafford,Washington-Henry,Away,20,6,63,20,43,,,
+1956_10_26_WashingtonHenry,1956,10/26/1956,Washington-Henry,Stafford,Home,6,20,,,,63,20,43
+1956_11_09_Midlothian,1956,11/9/1956,Stafford,Midlothian,Home,45,0,389,51,338,97,16,81
+1956_11_09_Midlothian,1956,11/9/1956,Midlothian,Stafford,Away,0,45,97,16,81,389,51,338
+1956_11_20_GarField,1956,11/20/1956,Stafford,Gar-Field,Away,33,6,222,8,214,105,57,48
+1956_11_20_GarField,1956,11/20/1956,Gar-Field,Stafford,Home,6,33,105,57,48,222,8,214
+1955_09_24_Orange,1955,9/24/1955,Stafford,Orange,Home,6,15,171,24,147,232,48,184
+1955_09_24_Orange,1955,9/24/1955,Orange,Stafford,Away,15,6,232,48,184,171,24,147
+1955_10_01_ThomasDale,1955,10/1/1955,Stafford,Thomas Dale,Home,0,19,,,,,,
+1955_10_01_ThomasDale,1955,10/1/1955,Thomas Dale,Stafford,Away,19,0,,,,,,
+1955_10_07_Varina,1955,10/7/1955,Stafford,Varina,Away,12,13,100,14,86,,,
+1955_10_07_Varina,1955,10/7/1955,Varina,Stafford,Home,13,12,,,,100,14,86
+1955_10_13_Spotsylvania,1955,10/13/1955,Stafford,Spotsylvania,Home,19,0,213,0,213,47,1,46
+1955_10_13_Spotsylvania,1955,10/13/1955,Spotsylvania,Stafford,Away,0,19,47,1,46,213,0,213
+1955_10_22_Warrenton,1955,10/22/1955,Stafford,Warrenton,Home,21,0,282,20,262,48,19,29
+1955_10_22_Warrenton,1955,10/22/1955,Warrenton,Stafford,Away,0,21,48,19,29,282,20,262
+1955_11_04_Madison,1955,11/4/1955,Stafford,Madison,Home,21,7,326,0,326,115,42,73
+1955_11_04_Madison,1955,11/4/1955,Madison,Stafford,Away,7,21,115,42,73,326,0,326
+1955_11_11_Louisa,1955,11/11/1955,Stafford,Louisa,Away,0,7,27,0,27,171,34,137
+1955_11_11_Louisa,1955,11/11/1955,Louisa,Stafford,Home,7,0,171,34,137,27,0,27
+1955_11_17_GarField,1955,11/17/1955,Stafford,Gar-Field,Home,6,21,102,76,26,185,49,136
+1955_11_17_GarField,1955,11/17/1955,Gar-Field,Stafford,Away,21,6,185,49,136,102,76,26
+1955_11_24_JamesMonroe,1955,11/24/1955,Stafford,James Monroe,Away,6,13,41,9,32,129,60,69
+1955_11_24_JamesMonroe,1955,11/24/1955,James Monroe,Stafford,Home,13,6,129,60,69,41,9,32
+1954_09_24_Orange,1954,9/24/1954,Stafford,Orange,Away,0,12,,,,,,
+1954_09_24_Orange,1954,9/24/1954,Orange,Stafford,Home,12,0,,,,,,
+1954_10_02_Osbourn,1954,10/2/1954,Stafford,Osbourn,Home,0,20,79,15,64,300,14,286
+1954_10_02_Osbourn,1954,10/2/1954,Osbourn,Stafford,Away,20,0,300,14,286,79,15,64
+1954_10_09_Varina,1954,10/9/1954,Stafford,Varina,Home,0,19,133,83,50,246,106,140
+1954_10_09_Varina,1954,10/9/1954,Varina,Stafford,Away,19,0,246,106,140,133,83,50
+1954_10_16_Spotsylvania,1954,10/16/1954,Stafford,Spotsylvania,Home,18,12,243,38,205,128,46,82
+1954_10_16_Spotsylvania,1954,10/16/1954,Spotsylvania,Stafford,Away,12,18,128,46,82,243,38,205
+1954_10_22_Warrenton,1954,10/22/1954,Stafford,Warrenton,Away,0,18,71,71,,250,,250
+1954_10_22_Warrenton,1954,10/22/1954,Warrenton,Stafford,Home,18,0,250,,250,71,71,
+1954_11_05_Madison,1954,11/5/1954,Stafford,Madison,Away,0,7,145,24,121,193,17,176
+1954_11_05_Madison,1954,11/5/1954,Madison,Stafford,Home,7,0,193,17,176,145,24,121
+1954_11_11_Louisa,1954,11/11/1954,Stafford,Louisa,Home,7,19,137,37,100,165,1,164
+1954_11_11_Louisa,1954,11/11/1954,Louisa,Stafford,Away,19,7,165,1,164,137,37,100
+1954_11_19_ThomasDale,1954,11/19/1954,Stafford,Thomas Dale,Away,0,57,,,,117,31,86
+1954_11_19_ThomasDale,1954,11/19/1954,Thomas Dale,Stafford,Home,57,0,117,31,86,,,
+1954_11_25_JamesMonroe,1954,11/25/1954,Stafford,James Monroe,Away,12,18,126,37,89,205,100,105
+1954_11_25_JamesMonroe,1954,11/25/1954,James Monroe,Stafford,Home,18,12,205,100,105,126,37,89
+1953_09_18_Varina,1953,9/18/1953,Stafford,Varina,Away,25,7,30,,30,,,
+1953_09_18_Varina,1953,9/18/1953,Varina,Stafford,Home,7,25,,,,30,,30
+1953_09_24_Orange,1953,9/24/1953,Stafford,Orange,Home,13,0,203,43,160,92,66,26
+1953_09_24_Orange,1953,9/24/1953,Orange,Stafford,Away,0,13,92,66,26,203,43,160
+1953_10_03_Osbourn,1953,10/3/1953,Stafford,Osbourn,Away,14,6,237,74,163,103,44,59
+1953_10_03_Osbourn,1953,10/3/1953,Osbourn,Stafford,Home,6,14,103,44,59,237,74,163
+1953_10_10_Manchester,1953,10/10/1953,Stafford,Manchester,Away,0,33,168,82,86,408,132,276
+1953_10_10_Manchester,1953,10/10/1953,Manchester,Stafford,Home,33,0,408,132,276,168,82,86
+1953_10_15_Spotsylvania,1953,10/15/1953,Stafford,Spotsylvania,Home,12,14,253,120,133,199,21,178
+1953_10_15_Spotsylvania,1953,10/15/1953,Spotsylvania,Stafford,Away,14,12,199,21,178,253,120,133
+1953_10_24_FallsChurch,1953,10/24/1953,Stafford,Falls Church,Away,0,19,127,33,94,289,78,211
+1953_10_24_FallsChurch,1953,10/24/1953,Falls Church,Stafford,Home,19,0,289,78,211,127,33,94
+1953_11_07_Madison,1953,11/7/1953,Stafford,Madison,Home,6,20,141,26,115,149,46,103
+1953_11_07_Madison,1953,11/7/1953,Madison,Stafford,Away,20,6,149,46,103,141,26,115
+1953_11_14_ThomasDale,1953,11/14/1953,Stafford,Thomas Dale,Home,0,31,74,4,70,391,7,384
+1953_11_14_ThomasDale,1953,11/14/1953,Thomas Dale,Stafford,Away,31,0,391,7,384,74,4,70
+1953_11_26_JamesMonroe,1953,11/26/1953,Stafford,James Monroe,Away,0,19,42,27,15,222,53,169
+1953_11_26_JamesMonroe,1953,11/26/1953,James Monroe,Stafford,Home,19,0,222,53,169,42,27,15
+1952_09_18_Varina,1952,9/18/1952,Stafford,Varina,Home,14,0,164,45,119,98,26,72
+1952_09_18_Varina,1952,9/18/1952,Varina,Stafford,Away,0,14,98,26,72,164,45,119
+1952_09_27_HenryClay,1952,9/27/1952,Stafford,Henry Clay,Home,32,0,329,12,317,10,43,-33
+1952_09_27_HenryClay,1952,9/27/1952,Henry Clay,Stafford,Away,0,32,10,43,-33,329,12,317
+1952_10_03_Culpeper,1952,10/3/1952,Stafford,Culpeper,Away,0,20,,,,,,
+1952_10_03_Culpeper,1952,10/3/1952,Culpeper,Stafford,Home,20,0,,,,,,
+1952_10_09_Manchester,1952,10/9/1952,Stafford,Manchester,Home,0,40,74,17,57,375,0,375
+1952_10_09_Manchester,1952,10/9/1952,Manchester,Stafford,Away,40,0,375,0,375,74,17,57
+1952_10_18_Spotsylvania,1952,10/18/1952,Stafford,Spotsylvania,Home,6,13,134,62,72,201,150,51
+1952_10_18_Spotsylvania,1952,10/18/1952,Spotsylvania,Stafford,Away,13,6,201,150,51,134,62,72
+1952_10_25_FallsChurch,1952,10/25/1952,Stafford,Falls Church,Home,6,14,122,72,50,60,2,58
+1952_10_25_FallsChurch,1952,10/25/1952,Falls Church,Stafford,Away,14,6,60,2,58,122,72,50
+1952_11_07_Madison,1952,11/7/1952,Stafford,Madison,Away,6,14,,,,,,
+1952_11_07_Madison,1952,11/7/1952,Madison,Stafford,Home,14,6,,,,,,
+1952_11_14_ThomasDale,1952,11/14/1952,Stafford,Thomas Dale,Away,6,38,,,,,,
+1952_11_14_ThomasDale,1952,11/14/1952,Thomas Dale,Stafford,Home,38,6,,,,,,
+1952_11_27_JamesMonroe,1952,11/27/1952,Stafford,James Monroe,Away,0,33,87,39,48,261,126,135
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Stafford,Home,33,0,261,126,135,87,39,48

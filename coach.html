@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coach</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: auto;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td {
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        /* Career totals row */
+        .totals {
+            background-color: #d0d0d0;
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="nav.js"></script>
+</head>
+
+<body>
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+<h1 id="coachTitle"></h1>
+
+<table id="coachTable">
+    <thead>
+        <tr>
+            <th>Season</th>
+            <th>G</th>
+            <th>W</th>
+            <th>L</th>
+            <th>T</th>
+            <th>W%</th>
+            <th class="left">Notes</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const coachId = params.get("coach");
+
+fetch("Master_Seasons.csv")
+    .then(r => r.text())
+    .then(csv => {
+
+        const data = Papa.parse(csv, {
+            header: true,
+            skipEmptyLines: true,
+            transformHeader: h => h.trim().toLowerCase()
+        }).data;
+
+        const seasons = data.filter(s =>
+            String(s.coach_id).trim().toLowerCase() === coachId
+        );
+
+        if (seasons.length === 0) return;
+
+        // Sort by season
+        seasons.sort((a, b) => Number(a.season) - Number(b.season));
+
+const name = seasons[0].coach;
+
+document.getElementById("coachTitle").innerText = name;
+
+renderBreadcrumb([
+    { label: "Stafford Indians", link: "index.html" },
+    { label: "Coaches", link: "coaches.html" },
+    { label: name }
+]);
+        const tbody = document.querySelector("#coachTable tbody");
+
+        let totalG = 0, totalW = 0, totalL = 0, totalT = 0;
+
+const seasonNotesMap = {
+    1967: ["Battlefield District Champion"],
+    1968: ["Battlefield District Champion"],
+    1969: ["Battlefield District Champion"],
+    1994: ["1st Round"],
+    2002: ["State Final"],
+    2010: ["1st Round"],
+    2017: ["State Semifinal"],
+    2024: ["Commonwealth District Champion", "1st Round"]
+};
+        
+        seasons.forEach(s => {
+
+            const year = s.season;
+            const w = Number(s.w || 0);
+            const l = Number(s.l || 0);
+            const t = Number(s.t || 0);
+            const g = w + l + t;
+
+            const wpct = g ? ((w + 0.5 * t) / g).toFixed(3) : "0.000";
+
+            totalG += g;
+            totalW += w;
+            totalL += l;
+            totalT += t;
+
+            // NOTES (reuse your logic later if you want)
+           let notes = seasonNotesMap[year] || [];
+
+            const tr = document.createElement("tr");
+
+            tr.innerHTML = `
+                <td>
+    <a href="season.html?season=${year}">
+        ${year}
+    </a>
+</td>
+                <td>${g}</td>
+                <td>${w}</td>
+                <td>${l}</td>
+                <td>${t}</td>
+                <td>${wpct}</td>
+                <td class="left">${notes.join("; ")}</td>
+            `;
+
+            tbody.appendChild(tr);
+        });
+
+        // ===== TOTAL ROW =====
+        const totalPct = totalG
+            ? ((totalW + 0.5 * totalT) / totalG).toFixed(3)
+            : "0.000";
+
+        const totalRow = document.createElement("tr");
+        totalRow.classList.add("totals");
+
+        totalRow.innerHTML = `
+            <td>${seasons.length} yrs</td>
+            <td>${totalG}</td>
+            <td>${totalW}</td>
+            <td>${totalL}</td>
+            <td>${totalT}</td>
+            <td>${totalPct}</td>
+            <td></td>
+        `;
+
+        tbody.appendChild(totalRow);
+    });
+</script>
+
+</body>
+</html>

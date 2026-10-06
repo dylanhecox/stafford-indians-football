@@ -1,0 +1,8478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Stafford Indians Record Book</title>
+    
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 35px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .record-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .record-card {
+            border: 1px solid #ccc;
+            padding: 12px;
+            background-color: #fff;
+            min-width: 0;
+        }
+
+        .record-card h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 8px;
+        }
+
+        .record-entry {
+            display: grid;
+            grid-template-columns: 55px 1fr;
+            column-gap: 8px;
+            row-gap: 2px;
+            padding: 7px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+
+        .record-entry:last-child {
+            border-bottom: none;
+        }
+
+        .record-value {
+            grid-row: span 2;
+            font-weight: bold;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .record-player {
+            text-align: left;
+        }
+
+        .record-details {
+            grid-column: 2;
+            color: #555;
+            font-size: 13px;
+            line-height: 1.3;
+        }
+
+        .record-holder .record-player,
+.record-holder .record-value {
+    font-weight: bold;
+}
+
+.record-holder .record-season {
+    font-weight: normal;
+}
+
+        .record-collapse {
+            color: #555;
+            font-size: 13px;
+            padding-top: 6px;
+        }
+
+        .loading {
+            margin: 15px 0;
+            color: #555;
+        }
+
+        .error {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #cc0000;
+            background-color: #fff0f0;
+            color: #990000;
+        }
+
+        /* Season records keep the season underneath the player. */
+        .season-record-xp-attempts {
+            font-size: 12px;
+            color: #555;
+            margin-top: 2px;
+            font-weight: normal;
+        }
+
+        @media (max-width: 1000px) {
+
+            .record-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .record-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="nav.js"></script>
+
+</head>
+
+<body>
+
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1>Stafford Indians Record Book</h1>
+
+<div class="record-nav">
+    <a href="#individual-game-records">Individual Game Records</a> –
+    <a href="#individual-season-records">Individual Season Records</a> –
+    <a href="#individual-career-records">Individual Career Records</a> –
+    <a href="#team-game-records">Team Game Records</a> –
+    <a href="#team-season-records">Team Season Records</a> –
+    <a href="#team-streaks">Team Streaks</a>
+</div>
+
+<!-- ========================================================= -->
+<!-- INDIVIDUAL GAME RECORDS                                   -->
+<!-- ========================================================= -->
+
+<h2 id="individual-game-records">Individual Game Records</h2>
+
+<div id="individualGameRecordsLoading" class="loading">
+    Loading records...
+</div>
+
+<div id="individualGameRecordsError" class="error" style="display: none;"></div>
+
+<div id="individualGameRecordsGrid" class="record-grid"></div>
+
+<!-- ========================================================= -->
+<!-- INDIVIDUAL SEASON RECORDS                                 -->
+<!-- ========================================================= -->
+
+<h2 id="individual-season-records">Individual Season Records</h2>
+
+<div id="individual-season-records-loading" class="loading">
+    Loading individual season records...
+</div>
+
+<div id="individual-season-records-error" class="error" style="display: none;"></div>
+
+<div id="individual-season-records-grid" class="record-grid"></div>
+
+<!-- ========================================================= -->
+<!-- INDIVIDUAL CAREER RECORDS                                 -->
+<!-- ========================================================= -->
+
+<h2 id="individual-career-records">Individual Career Records</h2>
+
+<div id="individual-career-records-loading" class="loading">
+    Loading individual career records...
+</div>
+
+<div id="individual-career-records-error" class="error" style="display: none;"></div>
+
+<div id="individual-career-records-grid" class="record-grid"></div>
+
+<!-- ========================================================= -->
+<!-- TEAM GAME RECORDS                                         -->
+<!-- ========================================================= -->
+
+<h2 id="team-game-records">Team Game Records</h2>
+
+<div id="team-game-records-loading" class="loading">
+    Loading team game records...
+</div>
+
+<div id="team-game-records-error" class="error" style="display: none;"></div>
+
+<div id="team-game-records-grid" class="record-grid"></div>
+
+<!-- ========================================================= -->
+<!-- TEAM SEASON RECORDS                                       -->
+<!-- ========================================================= -->
+
+<h2 id="team-season-records">Team Season Records</h2>
+
+<div id="team-season-records-loading" class="loading">
+    Loading team season records...
+</div>
+
+<div id="team-season-records-error" class="error" style="display: none;"></div>
+
+<div id="team-season-records-grid" class="record-grid"></div>
+
+<!-- ========================================================= -->
+<!-- TEAM STREAKS                                              -->
+<!-- ========================================================= -->
+
+<section id="team-streaks">
+
+<h2 id="team-streaks-records">Team Streaks</h2>
+
+<div id="team-streaks-loading">
+    Loading team streaks...
+</div>
+
+<div
+    id="team-streaks-error"
+    style="display:none;"
+></div>
+
+<div
+    id="team-streaks-grid"
+    class="record-grid"
+></div>
+</section>
+
+<script>
+
+
+// ============================================================
+// RECORD CATEGORIES
+// ============================================================
+
+const recordCategories = [
+
+    // Row 1
+
+    {
+        name: "Total Touchdowns",
+        type: "individual"
+    },
+
+    {
+        name: "Passing Touchdowns",
+        type: "individual"
+    },
+
+    {
+        name: "Rushing Touchdowns",
+        type: "individual"
+    },
+
+    {
+        name: "Receiving Touchdowns",
+        type: "individual"
+    },
+
+
+    // Row 2
+
+    {
+        name: "Total Yards",
+        type: "individual"
+    },
+
+    {
+        name: "Passing Yards",
+        type: "individual"
+    },
+
+    {
+        name: "Rushing Yards",
+        type: "individual"
+    },
+
+    {
+        name: "Receiving Yards",
+        type: "individual"
+    },
+
+
+    // Row 3
+
+    {
+        name: "Points Scored",
+        type: "individual"
+    },
+
+    {
+        name: "Interceptions Thrown",
+        type: "individual"
+    },
+
+    {
+        name: "Longest Run",
+        type: "recordbook"
+    },
+
+    {
+        name: "Longest Pass",
+        type: "recordbook"
+    },
+
+
+    // Row 4
+
+    {
+        name: "Field Goals Made",
+        type: "individual"
+    },
+
+    {
+        name: "Extra Points Made",
+        type: "individual"
+    },
+
+    {
+        name: "Longest Field Goal",
+        type: "individual"
+    },
+
+    {
+        name: "Longest Punt",
+        type: "recordbook"
+    },
+
+
+    // Row 5
+
+    {
+        name: "Longest Kick Return",
+        type: "recordbook"
+    },
+
+    {
+        name: "Longest Punt Return",
+        type: "recordbook"
+    },
+
+    {
+        name: "Longest Interception Return",
+        type: "recordbook"
+    }
+
+];
+
+
+// ============================================================
+// HELPER FUNCTIONS
+// ============================================================
+
+function clean(value) {
+
+    return String(value ?? "").trim();
+
+}
+
+
+function numberValue(value) {
+
+    const match =
+        String(value ?? "").match(/-?\d+(?:\.\d+)?/);
+
+    return match ? Number(match[0]) : 0;
+
+}
+
+
+function escapeHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+function normalizeDate(value) {
+
+    const date = new Date(value);
+
+    if (isNaN(date.getTime())) {
+        return "";
+    }
+
+    return date.toLocaleDateString("en-US", {
+        month: "numeric",
+        day: "numeric",
+        year: "numeric"
+    });
+
+}
+
+
+function getGameInfo(gameInfo, gameId) {
+
+    return gameInfo.find(game =>
+        clean(game.game_id) === clean(gameId)
+    ) || null;
+
+}
+
+
+function getOpponent(game) {
+
+    if (!game) {
+        return "";
+    }
+
+    return clean(game.opponent);
+
+}
+
+
+function playerLink(player, playerId) {
+
+    const name = escapeHTML(player);
+    const id = encodeURIComponent(clean(playerId));
+
+    if (!clean(playerId)) {
+        return name;
+    }
+
+    return `
+        <a href="player.html?player_id=${id}">
+            ${name}
+        </a>
+    `;
+
+}
+
+
+function gameLink(date, gameId) {
+
+    const displayDate = escapeHTML(
+        normalizeDate(date) || date
+    );
+
+    const id = encodeURIComponent(clean(gameId));
+
+    if (!clean(gameId)) {
+        return displayDate;
+    }
+
+    return `
+        <a href="game.html?game_id=${id}">
+            ${displayDate}
+        </a>
+    `;
+
+}
+
+
+function formatRecordValue(value) {
+
+    return escapeHTML(value);
+
+}
+
+
+// ============================================================
+// CSV LOADER
+// ============================================================
+
+async function loadCSV(filename) {
+
+    const response = await fetch(filename);
+
+    if (!response.ok) {
+
+        throw new Error(
+            `${filename} could not be loaded (HTTP ${response.status})`
+        );
+
+    }
+
+    const text = await response.text();
+
+    const result = Papa.parse(text, {
+
+        header: true,
+
+        skipEmptyLines: true,
+
+        transformHeader: function(header) {
+            return header.trim();
+        }
+
+    });
+
+    if (result.errors && result.errors.length > 0) {
+
+        console.warn(
+            `CSV parsing warnings for ${filename}:`,
+            result.errors
+        );
+
+    }
+
+    return result.data;
+
+}
+
+
+// ============================================================
+// STAT HELPERS
+// ============================================================
+
+function getStatRows(individual, statName) {
+
+    return individual.filter(row =>
+        clean(row.stat_name) === statName
+    );
+
+}
+
+
+function buildGamePlayerStats(rows, gameInfo) {
+
+    const grouped = {};
+
+    rows.forEach(row => {
+
+        const gameId = clean(row.game_id);
+        const playerId = clean(row.player_id);
+        const player = clean(row.player);
+
+        if (!gameId || !playerId) {
+            return;
+        }
+
+        const key = `${gameId}_${playerId}`;
+
+        if (!grouped[key]) {
+
+            const game = getGameInfo(
+                gameInfo,
+                gameId
+            );
+
+            grouped[key] = {
+
+                gameId: gameId,
+
+                playerId: playerId,
+
+                player: player,
+
+                date: game?.date || "",
+
+                opponent: getOpponent(game),
+
+                value: 0
+
+            };
+
+        }
+
+        grouped[key].value +=
+            numberValue(row.stat_value);
+
+    });
+
+    return Object.values(grouped);
+
+}
+
+
+// ============================================================
+// BUILD DATABASE RECORDS
+// ============================================================
+
+function buildIndividualRecords(individual, gameInfo) {
+
+    const records = {};
+
+    recordCategories.forEach(category => {
+
+        if (category.type === "individual") {
+
+            records[category.name] = [];
+
+        }
+
+    });
+
+
+    // --------------------------------------------------------
+    // Passing Touchdowns
+    // --------------------------------------------------------
+
+    getStatRows(
+        individual,
+        "PassTD"
+    ).forEach(row => {
+
+        const game = getGameInfo(
+            gameInfo,
+            row.game_id
+        );
+
+        records["Passing Touchdowns"].push({
+
+            gameId: clean(row.game_id),
+
+            playerId: clean(row.player_id),
+
+            player: clean(row.player),
+
+            date: game?.date || "",
+
+            opponent: getOpponent(game),
+
+            value: numberValue(row.stat_value)
+
+        });
+
+    });
+
+
+    // --------------------------------------------------------
+    // Rushing Touchdowns
+    // --------------------------------------------------------
+
+    getStatRows(
+        individual,
+        "RushTD"
+    ).forEach(row => {
+
+        const game = getGameInfo(
+            gameInfo,
+            row.game_id
+        );
+
+        records["Rushing Touchdowns"].push({
+
+            gameId: clean(row.game_id),
+
+            playerId: clean(row.player_id),
+
+            player: clean(row.player),
+
+            date: game?.date || "",
+
+            opponent: getOpponent(game),
+
+            value: numberValue(row.stat_value)
+
+        });
+
+    });
+
+
+    // --------------------------------------------------------
+    // Receiving Touchdowns
+    // --------------------------------------------------------
+
+    getStatRows(
+        individual,
+        "RecTD"
+    ).forEach(row => {
+
+        const game = getGameInfo(
+            gameInfo,
+            row.game_id
+        );
+
+        records["Receiving Touchdowns"].push({
+
+            gameId: clean(row.game_id),
+
+            playerId: clean(row.player_id),
+
+            player: clean(row.player),
+
+            date: game?.date || "",
+
+            opponent: getOpponent(game),
+
+            value: numberValue(row.stat_value)
+
+        });
+
+    });
+
+
+    // --------------------------------------------------------
+    // Passing Yards
+    // --------------------------------------------------------
+
+    buildGamePlayerStats(
+        getStatRows(individual, "PassYards"),
+        gameInfo
+    ).forEach(record => {
+
+        records["Passing Yards"].push(record);
+
+    });
+
+
+    // --------------------------------------------------------
+    // Rushing Yards
+    // --------------------------------------------------------
+
+    buildGamePlayerStats(
+        getStatRows(individual, "RushYds"),
+        gameInfo
+    ).forEach(record => {
+
+        records["Rushing Yards"].push(record);
+
+    });
+
+
+    // --------------------------------------------------------
+    // Receiving Yards
+    // --------------------------------------------------------
+
+    buildGamePlayerStats(
+        getStatRows(individual, "RecYards"),
+        gameInfo
+    ).forEach(record => {
+
+        records["Receiving Yards"].push(record);
+
+    });
+
+
+    // --------------------------------------------------------
+    // Interceptions Thrown
+    // --------------------------------------------------------
+
+    buildGamePlayerStats(
+        getStatRows(individual, "Interceptions"),
+        gameInfo
+    ).forEach(record => {
+
+        records["Interceptions Thrown"].push(record);
+
+    });
+
+
+    // --------------------------------------------------------
+    // Field Goals Made
+    // --------------------------------------------------------
+
+    buildGamePlayerStats(
+        getStatRows(individual, "Field Goals Made"),
+        gameInfo
+    ).forEach(record => {
+
+        records["Field Goals Made"].push(record);
+
+    });
+
+
+    // --------------------------------------------------------
+    // Extra Points Made
+    // --------------------------------------------------------
+
+    buildGamePlayerStats(
+        getStatRows(individual, "Extra Points Made"),
+        gameInfo
+    ).forEach(record => {
+
+        records["Extra Points Made"].push(record);
+
+    });
+
+
+    // --------------------------------------------------------
+    // Longest Field Goal
+    // --------------------------------------------------------
+
+    const fieldGoalRows =
+        getStatRows(
+            individual,
+            "Field Goal Distances"
+        );
+
+    const fieldGoalGrouped = {};
+
+    fieldGoalRows.forEach(row => {
+
+        const gameId = clean(row.game_id);
+        const playerId = clean(row.player_id);
+
+        if (!gameId || !playerId) {
+            return;
+        }
+
+        const key =
+            `${gameId}_${playerId}`;
+
+        const game = getGameInfo(
+            gameInfo,
+            gameId
+        );
+
+        const distances =
+            clean(row.stat_value)
+                .split(",")
+                .map(value =>
+                    numberValue(value)
+                )
+                .filter(value =>
+                    value > 0
+                );
+
+        if (!distances.length) {
+            return;
+        }
+
+        const longest =
+            Math.max(...distances);
+
+        if (
+            !fieldGoalGrouped[key] ||
+            longest > fieldGoalGrouped[key].value
+        ) {
+
+            fieldGoalGrouped[key] = {
+
+                gameId: gameId,
+
+                playerId: playerId,
+
+                player: clean(row.player),
+
+                date: game?.date || "",
+
+                opponent: getOpponent(game),
+
+                value: longest
+
+            };
+
+        }
+
+    });
+
+    records["Longest Field Goal"] =
+        Object.values(fieldGoalGrouped);
+
+
+    // --------------------------------------------------------
+    // Total Touchdowns
+    //
+    // Includes touchdowns actually scored by the player:
+    // rushing TDs, receiving TDs, and return/other TDs.
+    //
+    // Passing TDs thrown are NOT included.
+    // --------------------------------------------------------
+
+    const touchdownGroups = {};
+
+    function addTouchdown(row) {
+
+        const gameId = clean(row.game_id);
+        const playerId = clean(row.player_id);
+
+        if (!gameId || !playerId) {
+            return;
+        }
+
+        const key =
+            `${gameId}_${playerId}`;
+
+        const game =
+            getGameInfo(
+                gameInfo,
+                gameId
+            );
+
+        if (!touchdownGroups[key]) {
+
+            touchdownGroups[key] = {
+
+                gameId: gameId,
+
+                playerId: playerId,
+
+                player: clean(row.player),
+
+                date: game?.date || "",
+
+                opponent: getOpponent(game),
+
+                value: 0
+
+            };
+
+        }
+
+        touchdownGroups[key].value +=
+            numberValue(row.stat_value);
+
+    }
+
+
+    getStatRows(
+        individual,
+        "RushTD"
+    ).forEach(row =>
+        addTouchdown(row)
+    );
+
+
+    getStatRows(
+        individual,
+        "RecTD"
+    ).forEach(row =>
+        addTouchdown(row)
+    );
+
+
+    Object.values(touchdownGroups).forEach(record => {
+
+        if (record.value > 0) {
+
+            records["Total Touchdowns"].push({
+
+                gameId: record.gameId,
+
+                playerId: record.playerId,
+
+                player: record.player,
+
+                date: record.date,
+
+                opponent: record.opponent,
+
+                value: record.value
+
+            });
+
+        }
+
+    });
+
+
+    // --------------------------------------------------------
+    // Total Yards
+    //
+    // Rushing yards + receiving yards
+    // --------------------------------------------------------
+
+    const yardGroups = {};
+
+    function addYards(
+        row,
+        type
+    ) {
+
+        const gameId =
+            clean(row.game_id);
+
+        const playerId =
+            clean(row.player_id);
+
+        if (!gameId || !playerId) {
+            return;
+        }
+
+        const key =
+            `${gameId}_${playerId}`;
+
+        const game =
+            getGameInfo(
+                gameInfo,
+                gameId
+            );
+
+        if (!yardGroups[key]) {
+
+            yardGroups[key] = {
+
+                gameId: gameId,
+
+                playerId: playerId,
+
+                player: clean(row.player),
+
+                date: game?.date || "",
+
+                opponent: getOpponent(game),
+
+                rushing: 0,
+
+                receiving: 0
+
+            };
+
+        }
+
+        const value =
+            numberValue(row.stat_value);
+
+        if (type === "rushing") {
+
+            yardGroups[key].rushing += value;
+
+        }
+
+        else if (type === "receiving") {
+
+            yardGroups[key].receiving += value;
+
+        }
+
+    }
+
+
+    getStatRows(
+        individual,
+        "RushYds"
+    ).forEach(row =>
+        addYards(row, "rushing")
+    );
+
+
+    getStatRows(
+        individual,
+        "RecYards"
+    ).forEach(row =>
+        addYards(row, "receiving")
+    );
+
+
+    Object.values(yardGroups).forEach(record => {
+
+        const total =
+            record.rushing +
+            record.receiving;
+
+        if (total > 0) {
+
+            records["Total Yards"].push({
+
+                gameId: record.gameId,
+
+                playerId: record.playerId,
+
+                player: record.player,
+
+                date: record.date,
+
+                opponent: record.opponent,
+
+                value: total
+
+            });
+
+        }
+
+    });
+
+
+    // --------------------------------------------------------
+    // Points Scored
+    // --------------------------------------------------------
+
+    const pointsGroups = {};
+
+    function addPoints(
+        player,
+        playerId,
+        gameId,
+        date,
+        opponent,
+        points
+    ) {
+
+        const key =
+            `${gameId}_${playerId}`;
+
+        if (!pointsGroups[key]) {
+
+            pointsGroups[key] = {
+
+                gameId: gameId,
+
+                playerId: playerId,
+
+                player: player,
+
+                date: date,
+
+                opponent: opponent,
+
+                value: 0
+
+            };
+
+        }
+
+        pointsGroups[key].value += points;
+
+    }
+
+
+    const rushTD =
+        getStatRows(
+            individual,
+            "RushTD"
+        );
+
+    rushTD.forEach(row => {
+
+        const game =
+            getGameInfo(
+                gameInfo,
+                row.game_id
+            );
+
+        const td =
+            numberValue(row.stat_value);
+
+        if (td > 0) {
+
+            addPoints(
+
+                clean(row.player),
+
+                clean(row.player_id),
+
+                clean(row.game_id),
+
+                game?.date || "",
+
+                getOpponent(game),
+
+                td * 6
+
+            );
+
+        }
+
+    });
+
+
+    const recTD =
+        getStatRows(
+            individual,
+            "RecTD"
+        );
+
+    recTD.forEach(row => {
+
+        const game =
+            getGameInfo(
+                gameInfo,
+                row.game_id
+            );
+
+        const td =
+            numberValue(row.stat_value);
+
+        if (td > 0) {
+
+            addPoints(
+
+                clean(row.player),
+
+                clean(row.player_id),
+
+                clean(row.game_id),
+
+                game?.date || "",
+
+                getOpponent(game),
+
+                td * 6
+
+            );
+
+        }
+
+    });
+
+
+    return {
+
+        records: records,
+
+        pointsGroups: pointsGroups
+
+    };
+
+}
+
+
+// ============================================================
+// ADD GAME EVENTS TO POINTS
+// ============================================================
+
+function addEventPoints(
+    pointsGroups,
+    events,
+    gameInfo
+) {
+
+    events.forEach(event => {
+
+        const type =
+            clean(event.event_type);
+
+        const player =
+            clean(event.scoring_player);
+
+        const playerId =
+            clean(event.scoring_player_id);
+
+        const gameId =
+            clean(event.game_id);
+
+        if (!player || !gameId) {
+            return;
+        }
+
+        const game =
+            getGameInfo(
+                gameInfo,
+                gameId
+            );
+
+        let points = 0;
+
+
+        // Return touchdowns
+
+        if (
+
+            type === "punt_return_td" ||
+
+            type === "kick_return_td" ||
+
+            type === "interception_return_td" ||
+
+            type === "fumble_return_td" ||
+
+            type === "blocked_punt_return_td" ||
+
+            type === "blocked_field_goal_return_td"
+
+        ) {
+
+            points = 6;
+
+        }
+
+
+        // One-point conversions
+
+        else if (
+
+            type === "one_pt_rush" ||
+
+            type === "one_pt_pass"
+
+        ) {
+
+            points = 1;
+
+        }
+
+
+        // Two-point conversions
+
+        else if (
+
+            type === "two_pt_rush" ||
+
+            type === "two_pt_pass"
+
+        ) {
+
+            points = 2;
+
+        }
+
+
+        if (points === 0) {
+            return;
+        }
+
+
+        const key =
+            `${gameId}_${playerId}`;
+
+
+        if (!pointsGroups[key]) {
+
+            pointsGroups[key] = {
+
+                gameId: gameId,
+
+                playerId: playerId,
+
+                player: player,
+
+                date: game?.date || "",
+
+                opponent: getOpponent(game),
+
+                value: 0
+
+            };
+
+        }
+
+
+        pointsGroups[key].value += points;
+
+    });
+
+}
+
+
+// ============================================================
+// ADD RETURN / OTHER TOUCHDOWNS TO TOTAL TOUCHDOWNS
+// ============================================================
+
+function addEventTouchdowns(
+    records,
+    events,
+    gameInfo
+) {
+
+    const touchdownTypes = new Set([
+
+        "punt_return_td",
+
+        "kick_return_td",
+
+        "interception_return_td",
+
+        "fumble_return_td",
+
+        "blocked_punt_return_td",
+
+        "blocked_field_goal_return_td"
+
+    ]);
+
+
+    const groups = {};
+
+
+    events.forEach(event => {
+
+        const type =
+            clean(event.event_type);
+
+        if (!touchdownTypes.has(type)) {
+            return;
+        }
+
+        const player =
+            clean(event.scoring_player);
+
+        const playerId =
+            clean(event.scoring_player_id);
+
+        const gameId =
+            clean(event.game_id);
+
+        if (!player || !playerId || !gameId) {
+            return;
+        }
+
+        const key =
+            `${gameId}_${playerId}`;
+
+        const game =
+            getGameInfo(
+                gameInfo,
+                gameId
+            );
+
+        if (!groups[key]) {
+
+            groups[key] = {
+
+                gameId: gameId,
+
+                playerId: playerId,
+
+                player: player,
+
+                date: game?.date || "",
+
+                opponent: getOpponent(game),
+
+                value: 0
+
+            };
+
+        }
+
+        groups[key].value += 1;
+
+    });
+
+
+    Object.values(groups).forEach(eventRecord => {
+
+        const existing =
+            records["Total Touchdowns"].find(record =>
+
+                clean(record.gameId) ===
+                    clean(eventRecord.gameId) &&
+
+                clean(record.playerId) ===
+                    clean(eventRecord.playerId)
+
+            );
+
+
+        if (existing) {
+
+            existing.value += eventRecord.value;
+
+        }
+
+        else {
+
+            records["Total Touchdowns"].push(
+                eventRecord
+            );
+
+        }
+
+    });
+
+}
+
+
+// ============================================================
+// EXTERNAL RECORD BOOK
+// ============================================================
+
+function buildExternalRecords(
+    recordBook,
+    gameInfo
+) {
+
+    const records = {};
+
+    recordCategories.forEach(category => {
+
+        if (category.type === "recordbook") {
+
+            records[category.name] = [];
+
+        }
+
+    });
+
+
+    recordBook.forEach(row => {
+
+        const category =
+            clean(row.record_category);
+
+        if (!records.hasOwnProperty(category)) {
+            return;
+        }
+
+
+        const gameId =
+            clean(row.game_id);
+
+        const game =
+            getGameInfo(
+                gameInfo,
+                gameId
+            );
+
+
+        records[category].push({
+
+            gameId: gameId,
+
+            playerId: clean(row.player_id),
+
+            player: clean(row.player),
+
+            passerId: clean(row.passer_id),
+
+            passer: clean(row.passer),
+
+            date: game?.date || "",
+
+            opponent: getOpponent(game),
+
+            value: clean(row.value)
+
+        });
+
+    });
+
+
+    return records;
+
+}
+
+
+// ============================================================
+// SORT RECORDS
+// ============================================================
+
+function sortRecords(records) {
+
+    return records.sort((a, b) => {
+
+        const valueA =
+            numberValue(a.value);
+
+        const valueB =
+            numberValue(b.value);
+
+
+        if (valueA !== valueB) {
+
+            return valueB - valueA;
+
+        }
+
+
+        // Newest occurrence first
+
+        const dateA =
+            new Date(a.date);
+
+        const dateB =
+            new Date(b.date);
+
+
+        if (
+
+            !isNaN(dateA) &&
+
+            !isNaN(dateB) &&
+
+            dateA.getTime() !== dateB.getTime()
+
+        ) {
+
+            return dateB - dateA;
+
+        }
+
+
+        return clean(a.gameId)
+            .localeCompare(
+                clean(b.gameId)
+            );
+
+    });
+
+}
+
+
+// ============================================================
+// GET TOP FIVE OCCURRENCES
+// ============================================================
+
+function getTopRecords(records) {
+
+    if (!records.length) {
+        return [];
+    }
+
+
+    const sorted =
+        sortRecords(
+            records.filter(record =>
+                numberValue(record.value) > 0
+            )
+        );
+
+
+    const result = [];
+
+    const groups = {};
+
+    sorted.forEach(record => {
+
+        const value =
+            numberValue(record.value);
+
+        if (!groups[value]) {
+            groups[value] = [];
+        }
+
+        groups[value].push(record);
+
+    });
+
+
+    const values =
+        Object.keys(groups)
+            .map(Number)
+            .sort((a, b) => b - a);
+
+
+    let displayed = 0;
+
+
+    for (const value of values) {
+
+        const group =
+            groups[value];
+
+        const remainingSlots =
+            5 - displayed;
+
+
+        if (remainingSlots <= 0) {
+            break;
+        }
+
+
+        const displayCount =
+            Math.min(
+                group.length,
+                remainingSlots
+            );
+
+
+        for (let i = 0; i < displayCount; i++) {
+
+            result.push({
+
+                record: group[i],
+
+                value: value,
+
+                groupSize: group.length,
+
+                groupIndex: i,
+
+                displayCount: displayCount
+
+            });
+
+        }
+
+
+        displayed += displayCount;
+
+
+        if (group.length > displayCount) {
+
+            result.push({
+
+                collapse: true,
+
+                value: value,
+
+                remaining:
+                    group.length - displayCount
+
+            });
+
+            break;
+
+        }
+
+    }
+
+
+    return result;
+
+}
+
+
+
+
+// ============================================================
+// RENDER ONE RECORD CARD
+// ============================================================
+
+function renderRecordCard(
+    category,
+    records
+) {
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "record-card";
+
+
+    const heading =
+        document.createElement("h3");
+
+    heading.textContent =
+        category.name;
+
+    card.appendChild(heading);
+
+
+    if (!records.length) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.textContent =
+            "No records available.";
+
+        empty.style.color =
+            "#777";
+
+        card.appendChild(empty);
+
+        return card;
+
+    }
+
+
+    const topRecords =
+        getTopRecords(records);
+
+
+    let lastValue = null;
+
+
+    topRecords.forEach(item => {
+
+
+        // ----------------------------------------------------
+        // COLLAPSED TIE LINE
+        // ----------------------------------------------------
+
+        if (item.collapse) {
+
+            const collapse =
+                document.createElement("div");
+
+            collapse.className =
+                "record-collapse";
+
+            collapse.textContent =
+                `${item.remaining} other ${
+                    item.remaining === 1
+                        ? "player"
+                        : "players"
+                } tied at ${item.value}.`;
+
+            card.appendChild(collapse);
+
+            return;
+
+        }
+
+
+        const record =
+            item.record;
+
+        const currentValue =
+            numberValue(record.value);
+
+
+        const entry =
+            document.createElement("div");
+
+        entry.className =
+            "record-entry";
+
+
+        // ----------------------------------------------------
+        // BOLD THE ACTUAL RECORD HOLDER GROUP
+        // ----------------------------------------------------
+
+        if (currentValue ===
+            numberValue(
+                topRecords[0].record?.value
+            )) {
+
+            entry.classList.add(
+                "record-holder"
+            );
+
+        }
+
+
+        const value =
+            document.createElement("div");
+
+        value.className =
+            "record-value";
+
+
+        // Only show the value on the first occurrence
+        // of a tied value.
+
+        if (
+            lastValue === null ||
+            currentValue !== lastValue
+        ) {
+
+            value.innerHTML =
+                formatRecordValue(
+                    record.value
+                );
+
+        }
+
+
+        entry.appendChild(value);
+
+
+        const player =
+            document.createElement("div");
+
+        player.className =
+            "record-player";
+
+
+        // Longest Pass displays:
+        //
+        // Passer to Receiver
+
+        if (
+            category.name === "Longest Pass" &&
+            record.passer
+        ) {
+
+            const passerHTML =
+                record.passerId
+                    ? playerLink(
+                        record.passer,
+                        record.passerId
+                    )
+                    : escapeHTML(
+                        record.passer
+                    );
+
+
+            const receiverHTML =
+                playerLink(
+                    record.player,
+                    record.playerId
+                );
+
+
+            player.innerHTML =
+                `${passerHTML} to ${receiverHTML}`;
+
+        }
+
+        else {
+
+            player.innerHTML =
+                playerLink(
+                    record.player,
+                    record.playerId
+                );
+
+        }
+
+
+        entry.appendChild(player);
+
+
+        const details =
+            document.createElement("div");
+
+        details.className =
+            "record-details";
+
+
+        let detailHTML = "";
+
+
+        if (record.date) {
+
+            detailHTML +=
+                gameLink(
+                    record.date,
+                    record.gameId
+                );
+
+        }
+
+
+        if (record.opponent) {
+
+            if (detailHTML) {
+                detailHTML += " ";
+            }
+
+            detailHTML +=
+                escapeHTML(
+                    record.opponent
+                );
+
+        }
+
+
+        details.innerHTML =
+            detailHTML;
+
+
+        entry.appendChild(details);
+
+
+        card.appendChild(entry);
+
+
+        lastValue =
+            currentValue;
+
+    });
+
+
+    return card;
+
+}
+
+
+// ============================================================
+// RENDER ALL INDIVIDUAL GAME RECORDS
+// ============================================================
+
+function renderIndividualGameRecords(
+    individual,
+    recordBook,
+    gameInfo,
+    events
+) {
+
+    const grid =
+        document.getElementById(
+            "individualGameRecordsGrid"
+        );
+
+
+    const result =
+        buildIndividualRecords(
+            individual,
+            gameInfo
+        );
+
+
+    const records =
+        result.records;
+
+
+    // Add return/other scoring touchdowns to Total TDs.
+
+    addEventTouchdowns(
+        records,
+        events,
+        gameInfo
+    );
+
+
+    // Add scoring events to Points Scored.
+
+    addEventPoints(
+        result.pointsGroups,
+        events,
+        gameInfo
+    );
+
+
+    records["Points Scored"] =
+        Object.values(
+            result.pointsGroups
+        );
+
+
+    const externalRecords =
+        buildExternalRecords(
+            recordBook,
+            gameInfo
+        );
+
+
+    recordCategories.forEach(
+        category => {
+
+            let categoryRecords = [];
+
+
+            if (
+                category.type ===
+                "individual"
+            ) {
+
+                categoryRecords =
+                    records[
+                        category.name
+                    ] || [];
+
+            }
+
+            else {
+
+                categoryRecords =
+                    externalRecords[
+                        category.name
+                    ] || [];
+
+            }
+
+
+            const card =
+                renderRecordCard(
+                    category,
+                    categoryRecords
+                );
+
+
+            grid.appendChild(card);
+
+        }
+    );
+
+
+    document.getElementById(
+        "individualGameRecordsLoading"
+    ).style.display = "none";
+
+}
+
+
+// ============================================================
+// LOAD EVERYTHING
+// ============================================================
+
+async function loadIndividualGameRecords() {
+
+    try {
+
+        const [
+
+            individual,
+
+            recordBook,
+
+            gameInfo,
+
+            events
+
+        ] = await Promise.all([
+
+            loadCSV(
+                "Master_IndividualStats.csv"
+            ),
+
+            loadCSV(
+                "Master_RecordBook.csv"
+            ),
+
+            loadCSV(
+                "Master_GameInfo.csv"
+            ),
+
+            loadCSV(
+                "Master_GameEvents.csv"
+            )
+
+        ]);
+
+
+        renderIndividualGameRecords(
+
+            individual,
+
+            recordBook,
+
+            gameInfo,
+
+            events
+
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error loading record book data:",
+            error
+        );
+
+
+        document.getElementById(
+            "individualGameRecordsLoading"
+        ).style.display = "none";
+
+
+        const errorBox =
+            document.getElementById(
+                "individualGameRecordsError"
+            );
+
+
+        errorBox.style.display =
+            "block";
+
+
+        errorBox.textContent =
+            `Unable to load the individual game records: ${error.message}`;
+
+    }
+
+}
+
+
+// ============================================================
+// BREADCRUMB
+// ============================================================
+
+renderBreadcrumb([
+
+    {
+
+        label: "Stafford Indians",
+
+        link: "index.html"
+
+    },
+
+    {
+
+        label: "Record Book"
+
+    }
+
+]);
+
+
+// ============================================================
+// START
+// ============================================================
+
+loadIndividualGameRecords();
+
+
+</script>
+
+<script>
+/* =========================================================
+   INDIVIDUAL SEASON RECORDS
+   ========================================================= */
+
+/*
+    Season record categories:
+
+    Row 1:
+    Total Touchdowns
+    Passing Touchdowns
+    Rushing Touchdowns
+    Receiving Touchdowns
+
+    Row 2:
+    Total Yards
+    Passing Yards
+    Rushing Yards
+    Receiving Yards
+
+    Row 3:
+    Points Scored
+    Interceptions Thrown
+    Receptions
+    Field Goals Made
+
+    Row 4:
+    Extra Points Made
+    Extra Point %
+*/
+
+
+const INDIVIDUAL_SEASON_RECORD_CATEGORIES = [
+
+    {
+        name: "Total Touchdowns",
+        type: "total_td"
+    },
+
+    {
+        name: "Passing Touchdowns",
+        type: "pass_td"
+    },
+
+    {
+        name: "Rushing Touchdowns",
+        type: "rush_td"
+    },
+
+    {
+        name: "Receiving Touchdowns",
+        type: "rec_td"
+    },
+
+    {
+        name: "Total Yards",
+        type: "total_yards"
+    },
+
+    {
+        name: "Passing Yards",
+        type: "pass_yards"
+    },
+
+    {
+        name: "Rushing Yards",
+        type: "rush_yards"
+    },
+
+    {
+        name: "Receiving Yards",
+        type: "rec_yards"
+    },
+
+    {
+        name: "Points Scored",
+        type: "points"
+    },
+
+    {
+        name: "Interceptions Thrown",
+        type: "interceptions"
+    },
+
+    {
+        name: "Receptions",
+        type: "receptions"
+    },
+
+    {
+        name: "Field Goals Made",
+        type: "fg_made"
+    },
+
+    {
+        name: "Extra Points Made",
+        type: "xp_made"
+    },
+
+    {
+        name: "Extra Point %",
+        type: "xp_percentage",
+        qualification: "Min. 20 Attempts"
+    }
+
+];
+
+
+/*
+    Convert a stat name from either source into a common
+    internal component name.
+*/
+
+function seasonComponentName(statName) {
+
+    const map = {
+
+        "RushYds": "rushYds",
+
+        "RushTD": "rushTD",
+
+        "PassYards": "passYards",
+
+        "PassTD": "passTD",
+
+        "Interceptions": "interceptions",
+
+        "RecYards": "recYards",
+
+        "RecTD": "recTD",
+
+        "Receptions": "receptions",
+
+        "Field Goals Made": "fgMade",
+
+        "Extra Points Made": "xpMade",
+
+        "Extra Points Attempted": "xpAttempted",
+
+        "Points Scored": "points"
+
+    };
+
+    return map[clean(statName)] || null;
+
+}
+
+
+/*
+    Create the base game-derived season totals.
+
+    Key:
+        season|player_id
+
+    IndividualStats supplies the normal offensive/kicking
+    statistics.
+
+    GameEvents supplies return/other touchdowns and
+    conversion points that may not be represented in
+    IndividualStats.
+*/
+
+function buildGameDerivedSeasonStats(
+    individualRows,
+    eventRows
+) {
+
+    const players = new Map();
+
+
+    function getPlayer(
+        season,
+        playerId,
+        playerName
+    ) {
+
+        const key =
+            `${season}|${playerId}`;
+
+
+        if (!players.has(key)) {
+
+            players.set(key, {
+
+                season: season,
+
+                playerId: playerId,
+
+                player: playerName || "",
+
+                rushYds: 0,
+
+                rushTD: 0,
+
+                passYards: 0,
+
+                passTD: 0,
+
+                interceptions: 0,
+
+                recYards: 0,
+
+                recTD: 0,
+
+                receptions: 0,
+
+                fgMade: 0,
+
+                xpMade: 0,
+
+                xpAttempted: 0,
+
+                points: 0,
+
+                returnTD: 0,
+
+                returnPoints: 0
+
+            });
+
+        }
+
+
+        const result =
+            players.get(key);
+
+
+        if (!result.player && playerName) {
+
+            result.player =
+                playerName;
+
+        }
+
+
+        return result;
+
+    }
+
+
+    /*
+        Individual statistics
+    */
+
+    individualRows.forEach(row => {
+
+        const season =
+            clean(row.season);
+
+        const playerId =
+            clean(row.player_id);
+
+
+        if (!season || !playerId) {
+            return;
+        }
+
+
+        const player =
+            getPlayer(
+                season,
+                playerId,
+                clean(row.player)
+            );
+
+
+        const statName =
+            clean(row.stat_name);
+
+        const value =
+            numberValue(row.stat_value);
+
+
+        switch (statName) {
+
+            case "RushYds":
+
+                player.rushYds += value;
+
+                break;
+
+
+            case "RushTD":
+
+                player.rushTD += value;
+
+                break;
+
+
+            case "PassYards":
+
+                player.passYards += value;
+
+                break;
+
+
+            case "PassTD":
+
+                player.passTD += value;
+
+                break;
+
+
+            case "Interceptions":
+
+                player.interceptions += value;
+
+                break;
+
+
+            case "RecYards":
+
+                player.recYards += value;
+
+                break;
+
+
+            case "RecTD":
+
+                player.recTD += value;
+
+                break;
+
+
+            case "Receptions":
+
+                player.receptions += value;
+
+                break;
+
+
+            case "Field Goals Made":
+
+                player.fgMade += value;
+
+                break;
+
+
+            case "Extra Points Made":
+
+                player.xpMade += value;
+
+                break;
+
+
+            case "Extra Points Attempted":
+
+                player.xpAttempted += value;
+
+                break;
+
+        }
+
+    });
+
+
+    /*
+        Game events
+
+        Return TDs count as touchdowns.
+
+        One-point and two-point conversion events
+        contribute their actual point values.
+
+        Passing TDs are intentionally NOT included in
+        Total Touchdowns.
+    */
+
+    eventRows.forEach(row => {
+
+        const season =
+            clean(row.season);
+
+        const playerId =
+            clean(row.scoring_player_id);
+
+        const playerName =
+            clean(row.scoring_player);
+
+
+        if (!season || !playerId) {
+            return;
+        }
+
+
+        const player =
+            getPlayer(
+                season,
+                playerId,
+                playerName
+            );
+
+
+        const eventType =
+            clean(row.event_type).toLowerCase();
+
+
+        const returnTDTypes = [
+
+            "punt_return_td",
+
+            "kick_return_td",
+
+            "interception_return_td",
+
+            "fumble_return_td",
+
+            "blocked_punt_return_td",
+
+            "blocked_field_goal_return_td"
+
+        ];
+
+
+        if (returnTDTypes.includes(eventType)) {
+
+            /*
+                Count the touchdown here.
+
+                The six points are added later from
+                returnTD * 6.
+
+                Do NOT also add six to returnPoints,
+                because that would double-count return TDs.
+            */
+
+            player.returnTD += 1;
+
+            return;
+
+        }
+
+
+        /*
+            These are actual offensive conversion plays.
+            They are separate from kicking extra points.
+        */
+
+        if (
+
+            eventType === "one_pt_rush" ||
+
+            eventType === "one_pt_pass"
+
+        ) {
+
+            player.returnPoints += 1;
+
+            return;
+
+        }
+
+
+        if (
+
+            eventType === "two_pt_rush" ||
+
+            eventType === "two_pt_pass"
+
+        ) {
+
+            player.returnPoints += 2;
+
+            return;
+
+        }
+
+    });
+
+
+    /*
+        Finish derived point totals.
+
+        Points Scored is intentionally calculated entirely
+        from game-derived data. FLS Points Scored is NOT
+        used to override this total.
+    */
+
+    players.forEach(player => {
+
+        player.points =
+
+            (player.rushTD * 6) +
+
+            (player.recTD * 6) +
+
+            (player.returnTD * 6) +
+
+            (player.fgMade * 3) +
+
+            player.xpMade +
+
+            player.returnPoints;
+
+    });
+
+
+    return players;
+
+}
+
+
+/*
+    Build the FLS season-stat lookup.
+
+    Key:
+        season|player_id|component
+*/
+
+function buildFLSSeasonStats(flsRows) {
+
+    const fls = new Map();
+
+
+    flsRows.forEach(row => {
+
+        const season =
+            clean(row.season);
+
+        const playerId =
+            clean(row.player_id);
+
+        const statName =
+            clean(row.stat_name);
+
+
+        if (!season || !playerId || !statName) {
+            return;
+        }
+
+
+        const component =
+            seasonComponentName(statName);
+
+
+        if (!component) {
+            return;
+        }
+
+
+        const numericValue =
+            numberValue(row.stat_value);
+
+
+        /*
+            If the source contains no usable number,
+            treat it as unavailable so game-derived data
+            can fill the component.
+        */
+
+        if (
+
+            row.stat_value === undefined ||
+
+            row.stat_value === null ||
+
+            String(row.stat_value).trim() === ""
+
+        ) {
+
+            return;
+
+        }
+
+
+        const key =
+            `${season}|${playerId}|${component}`;
+
+
+        fls.set(key, {
+
+            value: numericValue,
+
+            player: clean(row.player)
+
+        });
+
+    });
+
+
+    return fls;
+
+}
+
+
+/*
+    Resolve one component using the required priority:
+
+        1. FLS if available
+        2. Otherwise game-derived
+
+    A discrepancy only exists when FLS was actually
+    available AND differs from the game-derived value.
+*/
+
+function resolveSeasonComponent(
+    derivedPlayer,
+    flsLookup,
+    component
+) {
+
+    const key =
+        `${derivedPlayer.season}|${derivedPlayer.playerId}|${component}`;
+
+
+    const flsValue =
+        flsLookup.get(key);
+
+
+    const derivedValue =
+        Number(
+            derivedPlayer[component] || 0
+        );
+
+
+    /*
+        Use !== undefined rather than a truthiness check.
+
+        This means a legitimate FLS value of 0 still
+        counts as an available FLS component.
+    */
+
+    if (flsValue !== undefined) {
+
+        return {
+
+            value: flsValue.value,
+
+            source: "FLS",
+
+            flsValue: flsValue.value,
+
+            derivedValue: derivedValue,
+
+            discrepancy:
+                flsValue.value !== derivedValue
+
+        };
+
+    }
+
+
+    return {
+
+        value: derivedValue,
+
+        source: "Game-derived",
+
+        flsValue: null,
+
+        derivedValue: derivedValue,
+
+        discrepancy: false
+
+    };
+
+}
+
+
+/*
+    Build a human-readable discrepancy description
+    for a component.
+*/
+
+function seasonDiscrepancyText(
+    label,
+    resolved
+) {
+
+    if (!resolved.discrepancy) {
+        return "";
+    }
+
+
+    return `${label} — FLS: ${formatNumber(resolved.flsValue)}; Game-derived: ${formatNumber(resolved.derivedValue)}`;
+
+}
+
+
+/*
+    Format season record numbers.
+*/
+
+function formatNumber(value) {
+
+    return Number(value)
+        .toLocaleString("en-US");
+
+}
+
+
+/*
+    Build one resolved season/player object containing
+    every component needed by the record book.
+*/
+
+function buildResolvedSeasonPlayers(
+    derivedPlayers,
+    flsLookup
+) {
+
+    const resolvedPlayers = [];
+
+
+    derivedPlayers.forEach(derived => {
+
+        const rushYds =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "rushYds"
+            );
+
+
+        const passYards =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "passYards"
+            );
+
+
+        const recYards =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "recYards"
+            );
+
+
+        const rushTD =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "rushTD"
+            );
+
+
+        const passTD =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "passTD"
+            );
+
+
+        const recTD =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "recTD"
+            );
+
+
+        const interceptions =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "interceptions"
+            );
+
+
+        const receptions =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "receptions"
+            );
+
+
+        const fgMade =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "fgMade"
+            );
+
+
+        const xpMade =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "xpMade"
+            );
+
+
+        const xpAttempted =
+            resolveSeasonComponent(
+                derived,
+                flsLookup,
+                "xpAttempted"
+            );
+
+
+        /*
+            Points Scored is intentionally game-derived only.
+
+            FLS Points Scored is ignored because the record
+            book's points calculation is based on the actual
+            scoring events and individual game statistics.
+        */
+
+        const points = {
+
+            value: derived.points,
+
+            source: "Game-derived",
+
+            flsValue: null,
+
+            derivedValue: derived.points,
+
+            discrepancy: false,
+
+            tooltip: ""
+
+        };
+
+
+        /*
+            Composite statistics use the resolved components.
+
+            This is important: if FLS has rushing yards but
+            not receiving yards, we use FLS rushing + derived
+            receiving rather than choosing an entire source.
+        */
+
+        const totalYards =
+            rushYds.value +
+            recYards.value;
+
+
+        const totalTD =
+            rushTD.value +
+            recTD.value +
+            derived.returnTD;
+
+
+        /*
+            Total TD discrepancy details only concern
+            components for which FLS actually supplied a value.
+        */
+
+        const totalTDDifferences = [];
+
+
+        const rushTDDifference =
+            seasonDiscrepancyText(
+                "Rushing touchdowns",
+                rushTD
+            );
+
+
+        const recTDDifference =
+            seasonDiscrepancyText(
+                "Receiving touchdowns",
+                recTD
+            );
+
+
+        if (rushTDDifference) {
+
+            totalTDDifferences.push(
+                rushTDDifference
+            );
+
+        }
+
+
+        if (recTDDifference) {
+
+            totalTDDifferences.push(
+                recTDDifference
+            );
+
+        }
+
+
+        /*
+            Total Yards discrepancy details.
+        */
+
+        const totalYardDifferences = [];
+
+
+        const rushYardDifference =
+            seasonDiscrepancyText(
+                "Rushing yards",
+                rushYds
+            );
+
+
+        const recYardDifference =
+            seasonDiscrepancyText(
+                "Receiving yards",
+                recYards
+            );
+
+
+        if (rushYardDifference) {
+
+            totalYardDifferences.push(
+                rushYardDifference
+            );
+
+        }
+
+
+        if (recYardDifference) {
+
+            totalYardDifferences.push(
+                recYardDifference
+            );
+
+        }
+
+
+        /*
+            Extra Point percentage uses the resolved Made
+            and Attempted components.
+        */
+
+        let xpPercentage = 0;
+
+
+        if (xpAttempted.value > 0) {
+
+            xpPercentage =
+                (xpMade.value / xpAttempted.value) * 100;
+
+        }
+
+
+        resolvedPlayers.push({
+
+            season: derived.season,
+
+            player: derived.player,
+
+            playerId: derived.playerId,
+
+
+            totalTD: {
+
+                value: totalTD,
+
+                discrepancy:
+                    totalTDDifferences.length > 0,
+
+                tooltip:
+                    totalTDDifferences.join("\n")
+
+            },
+
+
+            /*
+                Direct components retain their own discrepancy
+                information. makeSeasonRecordEntry() supplies
+                the appropriate tooltip label below.
+            */
+
+            passTD: passTD,
+
+            rushTD: rushTD,
+
+            recTD: recTD,
+
+
+            totalYards: {
+
+                value: totalYards,
+
+                discrepancy:
+                    totalYardDifferences.length > 0,
+
+                tooltip:
+                    totalYardDifferences.join("\n")
+
+            },
+
+
+            passYards: passYards,
+
+            rushYds: rushYds,
+
+            recYards: recYards,
+
+
+            points: points,
+
+            interceptions: interceptions,
+
+            receptions: receptions,
+
+            fgMade: fgMade,
+
+            xpMade: xpMade,
+
+            xpAttempted: xpAttempted,
+
+
+            xpPercentage: {
+
+                value: xpPercentage,
+
+                discrepancy:
+                    xpMade.discrepancy ||
+                    xpAttempted.discrepancy,
+
+                tooltip: [
+
+                    seasonDiscrepancyText(
+                        "Extra points made",
+                        xpMade
+                    ),
+
+                    seasonDiscrepancyText(
+                        "Extra point attempts",
+                        xpAttempted
+                    )
+
+                ]
+                .filter(Boolean)
+                .join("\n")
+
+            }
+
+        });
+
+    });
+
+
+    return resolvedPlayers;
+
+}
+
+
+/*
+    Turn a resolved player into a record-book entry.
+*/
+
+function makeSeasonRecordEntry(
+    player,
+    categoryType
+) {
+
+    let stat;
+
+
+    switch (categoryType) {
+
+        case "total_td":
+
+            stat = player.totalTD;
+
+            break;
+
+
+        case "pass_td":
+
+            stat = player.passTD;
+
+            break;
+
+
+        case "rush_td":
+
+            stat = player.rushTD;
+
+            break;
+
+
+        case "rec_td":
+
+            stat = player.recTD;
+
+            break;
+
+
+        case "total_yards":
+
+            stat = player.totalYards;
+
+            break;
+
+
+        case "pass_yards":
+
+            stat = player.passYards;
+
+            break;
+
+
+        case "rush_yards":
+
+            stat = player.rushYds;
+
+            break;
+
+
+        case "rec_yards":
+
+            stat = player.recYards;
+
+            break;
+
+
+        case "points":
+
+            stat = player.points;
+
+            break;
+
+
+        case "interceptions":
+
+            stat = player.interceptions;
+
+            break;
+
+
+        case "receptions":
+
+            stat = player.receptions;
+
+            break;
+
+
+        case "fg_made":
+
+            stat = player.fgMade;
+
+            break;
+
+
+        case "xp_made":
+
+            stat = player.xpMade;
+
+            break;
+
+
+        case "xp_percentage":
+
+            stat = player.xpPercentage;
+
+            break;
+
+
+        default:
+
+            return null;
+
+    }
+
+
+    if (!stat) {
+        return null;
+    }
+
+
+    /*
+        Direct season components need a label for their
+        discrepancy tooltip.
+
+        Composite statistics already have their own tooltip.
+    */
+
+    const discrepancyLabels = {
+
+        total_td: "Total touchdowns",
+
+        pass_td: "Passing touchdowns",
+
+        rush_td: "Rushing touchdowns",
+
+        rec_td: "Receiving touchdowns",
+
+        total_yards: "Total yards",
+
+        pass_yards: "Passing yards",
+
+        rush_yards: "Rushing yards",
+
+        rec_yards: "Receiving yards",
+
+        interceptions: "Interceptions thrown",
+
+        receptions: "Receptions",
+
+        fg_made: "Field goals made",
+
+        xp_made: "Extra points made"
+
+    };
+
+
+    let tooltip =
+        stat.tooltip || "";
+
+
+    if (
+        !tooltip &&
+        stat.discrepancy &&
+        discrepancyLabels[categoryType]
+    ) {
+
+        tooltip =
+            seasonDiscrepancyText(
+                discrepancyLabels[categoryType],
+                stat
+            );
+
+    }
+
+
+    return {
+
+        value: Number(stat.value || 0),
+
+        player: player.player,
+
+        playerId: player.playerId,
+
+        season: player.season,
+
+        discrepancy:
+            Boolean(stat.discrepancy),
+
+        tooltip: tooltip,
+
+        /*
+            Preserve the resolved XPM/XPA values so the
+            percentage card can display them underneath
+            the percentage itself.
+        */
+
+        made:
+            categoryType === "xp_percentage"
+                ? player.xpMade.value
+                : undefined,
+
+        attempted:
+            categoryType === "xp_percentage"
+                ? player.xpAttempted.value
+                : undefined
+
+    };
+
+}
+
+
+/*
+    Sort season records.
+
+    Highest value first.
+
+    For ties:
+        newest season first
+        then player name
+*/
+
+function sortSeasonRecords(records) {
+
+    return records.sort((a, b) => {
+
+        if (b.value !== a.value) {
+
+            return b.value - a.value;
+
+        }
+
+
+        const seasonA =
+            Number(a.season);
+
+        const seasonB =
+            Number(b.season);
+
+
+        if (seasonB !== seasonA) {
+
+            return seasonB - seasonA;
+
+        }
+
+
+        return a.player.localeCompare(
+
+            b.player,
+
+            undefined,
+
+            {
+                sensitivity: "base"
+            }
+
+        );
+
+    });
+
+}
+
+
+/*
+    Get the five actual season/player occurrences.
+
+    This follows the same general record-book logic used
+    for the Individual Game Records:
+        - five actual occurrences
+        - ties remain tied
+        - if the cutoff value has more occurrences than
+          available slots, collapse the remainder
+*/
+
+function getTopSeasonRecords(records) {
+
+    const sorted =
+        sortSeasonRecords(records);
+
+
+    const result = [];
+
+    let index = 0;
+
+
+    while (
+
+        index < sorted.length &&
+
+        result.length < 5
+
+    ) {
+
+        const value =
+            sorted[index].value;
+
+
+        let end = index;
+
+
+        while (
+
+            end < sorted.length &&
+
+            sorted[end].value === value
+
+        ) {
+
+            end++;
+
+        }
+
+
+        const group =
+            sorted.slice(index, end);
+
+
+        const remainingSlots =
+            5 - result.length;
+
+
+        if (group.length <= remainingSlots) {
+
+            result.push(...group);
+
+        }
+
+        else {
+
+            result.push(
+
+                ...group.slice(
+                    0,
+                    remainingSlots
+                )
+
+            );
+
+
+            const remaining =
+                group.length -
+                remainingSlots;
+
+
+            result.push({
+
+                collapse: true,
+
+                text:
+                    `${remaining} other ${
+                        remaining === 1
+                            ? "player"
+                            : "players"
+                    } tied at ${formatNumber(value)}.`
+
+            });
+
+
+            break;
+
+        }
+
+
+        index = end;
+
+    }
+
+
+    return result;
+
+}
+
+
+/*
+    Format a season record value.
+
+    Extra Point % gets one decimal place.
+*/
+
+function formatSeasonRecordValue(
+    entry,
+    categoryType
+) {
+
+    if (
+        categoryType ===
+        "xp_percentage"
+    ) {
+
+        return `${entry.value.toFixed(1)}%`;
+
+    }
+
+
+    return formatNumber(
+        entry.value
+    );
+
+}
+
+
+/*
+    Render the value, including the discrepancy asterisk.
+*/
+
+function renderSeasonValue(
+    entry,
+    categoryType
+) {
+
+    const value =
+        escapeHTML(
+            formatSeasonRecordValue(
+                entry,
+                categoryType
+            )
+        );
+
+
+    if (
+
+        entry.discrepancy &&
+
+        entry.tooltip
+
+    ) {
+
+        const tooltip =
+            escapeHTML(
+                entry.tooltip
+            );
+
+
+        return `${value}<span title="${tooltip}" style="cursor: help;">*</span>`;
+
+    }
+
+
+    return value;
+
+}
+
+
+/*
+    Render one season record card.
+
+    Season remains underneath the player.
+
+    Extra Point XPM/XPA appears underneath the record value.
+*/
+
+function renderSeasonRecordCard(
+    category,
+    records
+) {
+
+    let html = `
+
+        <div class="record-card">
+
+            <h3>
+                ${escapeHTML(category.name)}
+            </h3>
+
+    `;
+
+
+    /*
+        Qualification line for Extra Point %.
+    */
+
+    if (category.qualification) {
+
+        html += `
+
+            <div class="record-collapse">
+
+                ${escapeHTML(
+                    category.qualification
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (!records.length) {
+
+        html += `
+
+            <div class="record-collapse">
+
+                No qualifying records.
+
+            </div>
+
+        `;
+
+
+        html += `</div>`;
+
+
+        return html;
+
+    }
+
+
+    records.forEach(
+        (entry, index) => {
+
+
+        if (entry.collapse) {
+
+            html += `
+
+                <div class="record-collapse">
+
+                    ${escapeHTML(
+                        entry.text
+                    )}
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        const holderClass =
+
+            index === 0
+
+                ? "record-entry record-holder"
+
+                : "record-entry";
+
+
+        const playerHTML =
+            playerLink(
+                entry.player,
+                entry.playerId
+            );
+
+
+        const seasonHTML =
+
+            `<a href="season.html?season=${encodeURIComponent(entry.season)}">${escapeHTML(entry.season)}</a>`;
+
+
+        /*
+            Render the record value.
+
+            For Extra Point %, the XPM/XPA ratio is placed
+            directly underneath the percentage.
+        */
+
+        let valueHTML =
+            renderSeasonValue(
+                entry,
+                category.type
+            );
+
+
+        if (
+
+            category.type ===
+                "xp_percentage" &&
+
+            entry.made !== undefined &&
+
+            entry.attempted !== undefined
+
+        ) {
+
+            valueHTML += `
+
+                <div class="season-record-xp-attempts">
+
+                    (${formatNumber(
+                        entry.made
+                    )}/${formatNumber(
+                        entry.attempted
+                    )})
+
+                </div>
+
+            `;
+
+        }
+
+
+        /*
+            Season intentionally remains underneath the player.
+        */
+
+        html += `
+
+            <div class="${holderClass}">
+
+                <div class="record-value">
+
+                    ${valueHTML}
+
+                </div>
+
+
+                <div class="record-player">
+
+                    ${playerHTML}
+
+                    <div class="record-season">
+
+                        ${seasonHTML}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    html += `</div>`;
+
+
+    return html;
+
+}
+
+
+/*
+    Render all Individual Season Records.
+*/
+
+function renderIndividualSeasonRecords(
+    resolvedPlayers
+) {
+
+    const grid =
+        document.getElementById(
+            "individual-season-records-grid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    INDIVIDUAL_SEASON_RECORD_CATEGORIES.forEach(
+        category => {
+
+
+            let records =
+
+                resolvedPlayers
+
+                    .map(player =>
+
+                        makeSeasonRecordEntry(
+
+                            player,
+
+                            category.type
+
+                        )
+
+                    )
+
+                    .filter(Boolean);
+
+
+            /*
+                Extra Point % requires at least
+                20 attempts.
+            */
+
+            if (
+
+                category.type ===
+                "xp_percentage"
+
+            ) {
+
+                records =
+
+                    resolvedPlayers
+
+                        .filter(
+
+                            player =>
+
+                                player
+                                    .xpAttempted
+                                    .value >= 20
+
+                        )
+
+                        .map(
+
+                            player =>
+
+                                makeSeasonRecordEntry(
+
+                                    player,
+
+                                    category.type
+
+                                )
+
+                        )
+
+                        .filter(Boolean);
+
+            }
+
+
+            /*
+                Only positive/statistically meaningful
+                records are shown.
+            */
+
+            records =
+
+                records.filter(
+
+                    entry =>
+
+                        entry.value > 0
+
+                );
+
+
+            const topRecords =
+
+                getTopSeasonRecords(
+                    records
+                );
+
+
+            grid.innerHTML +=
+
+                renderSeasonRecordCard(
+
+                    category,
+
+                    topRecords
+
+                );
+
+        }
+    );
+
+}
+
+
+/*
+    Main loader.
+
+    FLS is NOT treated as a replacement for the other
+    databases. It is used component-by-component with
+    game-derived data filling any missing component.
+
+    Points Scored is the exception: it is intentionally
+    calculated entirely from game-derived data.
+*/
+
+async function loadIndividualSeasonRecords() {
+
+    const loading =
+        document.getElementById(
+            "individual-season-records-loading"
+        );
+
+
+    const error =
+        document.getElementById(
+            "individual-season-records-error"
+        );
+
+
+    try {
+
+        loading.style.display =
+            "block";
+
+
+        error.style.display =
+            "none";
+
+
+        const [
+
+            individualRows,
+
+            eventRows,
+
+            flsRows
+
+        ] = await Promise.all([
+
+            loadCSV(
+                "Master_IndividualStats.csv"
+            ),
+
+            loadCSV(
+                "Master_GameEvents.csv"
+            ),
+
+            loadCSV(
+                "Master_FLSSeasonStats.csv"
+            )
+
+        ]);
+
+
+        const derivedPlayers =
+
+            buildGameDerivedSeasonStats(
+
+                individualRows,
+
+                eventRows
+
+            );
+
+
+        const flsLookup =
+
+            buildFLSSeasonStats(
+
+                flsRows
+
+            );
+
+
+        const resolvedPlayers =
+
+            buildResolvedSeasonPlayers(
+
+                derivedPlayers,
+
+                flsLookup
+
+            );
+
+
+        renderIndividualSeasonRecords(
+
+            resolvedPlayers
+
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+    }
+
+    catch (err) {
+
+        console.error(
+
+            "Error loading Individual Season Records:",
+
+            err
+
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+        error.style.display =
+            "block";
+
+
+        error.textContent =
+
+            "Error loading Individual Season Records: " +
+
+            (
+                err &&
+                err.message
+
+                    ? err.message
+
+                    : String(err)
+
+            );
+
+    }
+
+}
+
+
+/*
+    Load the section.
+*/
+
+loadIndividualSeasonRecords();
+
+</script>
+
+<script>
+/* =========================================================
+   INDIVIDUAL CAREER RECORDS
+   ========================================================= */
+
+/*
+    Career record categories:
+
+    Row 1:
+    Total Touchdowns
+    Passing Touchdowns
+    Rushing Touchdowns
+    Receiving Touchdowns
+
+    Row 2:
+    Total Yards
+    Passing Yards
+    Rushing Yards
+    Receiving Yards
+
+    Row 3:
+    Points Scored
+    Interceptions Thrown
+    Receptions
+    Field Goals Made
+
+    Row 4:
+    Extra Points Made
+    Extra Point %
+*/
+
+
+const INDIVIDUAL_CAREER_RECORD_CATEGORIES = [
+
+    {
+        name: "Total Touchdowns",
+        type: "total_td"
+    },
+
+    {
+        name: "Passing Touchdowns",
+        type: "pass_td"
+    },
+
+    {
+        name: "Rushing Touchdowns",
+        type: "rush_td"
+    },
+
+    {
+        name: "Receiving Touchdowns",
+        type: "rec_td"
+    },
+
+    {
+        name: "Total Yards",
+        type: "total_yards"
+    },
+
+    {
+        name: "Passing Yards",
+        type: "pass_yards"
+    },
+
+    {
+        name: "Rushing Yards",
+        type: "rush_yards"
+    },
+
+    {
+        name: "Receiving Yards",
+        type: "rec_yards"
+    },
+
+    {
+        name: "Points Scored",
+        type: "points"
+    },
+
+    {
+        name: "Interceptions Thrown",
+        type: "interceptions"
+    },
+
+    {
+        name: "Receptions",
+        type: "receptions"
+    },
+
+    {
+        name: "Field Goals Made",
+        type: "fg_made"
+    },
+
+    {
+        name: "Extra Points Made",
+        type: "xp_made"
+    },
+
+    {
+        name: "Extra Point %",
+        type: "xp_percentage",
+        qualification: "Min. 30 Attempts"
+    }
+
+];
+
+
+/*
+    Build career totals from the already-resolved
+    season/player objects.
+
+    Each player is grouped by player_id.
+
+    Component values come from the resolved season
+    values, which means FLS is used where available
+    and game-derived data fills missing components.
+
+    Points Scored remains entirely game-derived.
+*/
+
+function buildCareerPlayers(resolvedSeasonPlayers) {
+    const careers = new Map();
+
+    resolvedSeasonPlayers.forEach(
+        seasonPlayer => {
+            const playerId = seasonPlayer.playerId;
+
+            if (!playerId) {
+                return;
+            }
+
+            const key = playerId;
+
+            if (!careers.has(key)) {
+                careers.set(
+                    key,
+                    {
+                        playerId: playerId,
+                        player: seasonPlayer.player,
+                        firstSeason: seasonPlayer.season,
+                        lastSeason: seasonPlayer.season,
+
+                        passTD: 0,
+                        rushTD: 0,
+                        recTD: 0,
+
+                        passYards: 0,
+                        rushYds: 0,
+                        recYards: 0,
+
+                        interceptions: 0,
+                        receptions: 0,
+
+                        fgMade: 0,
+                        xpMade: 0,
+                        xpAttempted: 0,
+
+                        returnTD: 0,
+
+                        points: 0,
+
+                        discrepancies: {
+                            passTD: [],
+                            rushTD: [],
+                            recTD: [],
+                            passYards: [],
+                            rushYds: [],
+                            recYards: [],
+                            interceptions: [],
+                            receptions: [],
+                            fgMade: [],
+                            xpMade: [],
+                            xpAttempted: []
+                        },
+
+                        gameDerived: {
+                            passTD: 0,
+                            rushTD: 0,
+                            recTD: 0,
+                            passYards: 0,
+                            rushYds: 0,
+                            recYards: 0,
+                            interceptions: 0,
+                            receptions: 0,
+                            fgMade: 0,
+                            xpMade: 0,
+                            xpAttempted: 0,
+                            returnTD: 0
+                        }
+                    }
+                );
+            }
+
+            const career = careers.get(key);
+
+            career.firstSeason = Math.min(
+                career.firstSeason,
+                seasonPlayer.season
+            );
+
+            career.lastSeason = Math.max(
+                career.lastSeason,
+                seasonPlayer.season
+            );
+
+            career.passTD += Number(
+                seasonPlayer.passTD.value || 0
+            );
+
+            career.rushTD += Number(
+                seasonPlayer.rushTD.value || 0
+            );
+
+            career.recTD += Number(
+                seasonPlayer.recTD.value || 0
+            );
+
+            career.passYards += Number(
+                seasonPlayer.passYards.value || 0
+            );
+
+            career.rushYds += Number(
+                seasonPlayer.rushYds.value || 0
+            );
+
+            career.recYards += Number(
+                seasonPlayer.recYards.value || 0
+            );
+
+            career.interceptions += Number(
+                seasonPlayer.interceptions.value || 0
+            );
+
+            career.receptions += Number(
+                seasonPlayer.receptions.value || 0
+            );
+
+            career.fgMade += Number(
+                seasonPlayer.fgMade.value || 0
+            );
+
+            career.xpMade += Number(
+                seasonPlayer.xpMade.value || 0
+            );
+
+            career.xpAttempted += Number(
+                seasonPlayer.xpAttempted.value || 0
+            );
+
+            career.points += Number(
+                seasonPlayer.points.value || 0
+            );
+
+            /*
+             * Return / other touchdowns are the portion of
+             * Total TDs that is not rushing or receiving TDs.
+             */
+            const seasonReturnTD =
+                Number(seasonPlayer.totalTD.value || 0) -
+                Number(seasonPlayer.rushTD.value || 0) -
+                Number(seasonPlayer.recTD.value || 0);
+
+            career.returnTD += Math.max(
+                0,
+                seasonReturnTD
+            );
+
+            /*
+             * Preserve game-derived values for discrepancy
+             * tooltips.
+             */
+            career.gameDerived.passTD += Number(
+                seasonPlayer.passTD.derivedValue || 0
+            );
+
+            career.gameDerived.rushTD += Number(
+                seasonPlayer.rushTD.derivedValue || 0
+            );
+
+            career.gameDerived.recTD += Number(
+                seasonPlayer.recTD.derivedValue || 0
+            );
+
+            career.gameDerived.passYards += Number(
+                seasonPlayer.passYards.derivedValue || 0
+            );
+
+            career.gameDerived.rushYds += Number(
+                seasonPlayer.rushYds.derivedValue || 0
+            );
+
+            career.gameDerived.recYards += Number(
+                seasonPlayer.recYards.derivedValue || 0
+            );
+
+            career.gameDerived.interceptions += Number(
+                seasonPlayer.interceptions.derivedValue || 0
+            );
+
+            career.gameDerived.receptions += Number(
+                seasonPlayer.receptions.derivedValue || 0
+            );
+
+            career.gameDerived.fgMade += Number(
+                seasonPlayer.fgMade.derivedValue || 0
+            );
+
+            career.gameDerived.xpMade += Number(
+                seasonPlayer.xpMade.derivedValue || 0
+            );
+
+            career.gameDerived.xpAttempted += Number(
+                seasonPlayer.xpAttempted.derivedValue || 0
+            );
+
+            /*
+             * Keep track of discrepancies by category so that
+             * an asterisk only appears on the affected career
+             * record.
+             */
+            const discrepancyComponents = [
+                "passTD",
+                "rushTD",
+                "recTD",
+                "passYards",
+                "rushYds",
+                "recYards",
+                "interceptions",
+                "receptions",
+                "fgMade",
+                "xpMade",
+                "xpAttempted"
+            ];
+
+            discrepancyComponents.forEach(
+                component => {
+                    const stat = seasonPlayer[component];
+
+                    if (stat && stat.discrepancy) {
+                        career.discrepancies[
+                            component
+                        ].push(
+                            {
+                                season: seasonPlayer.season,
+                                text:
+                                    seasonDiscrepancyText(
+                                        careerDiscrepancyLabel(
+                                            component
+                                        ),
+                                        stat
+                                    )
+                            }
+                        );
+                    }
+                }
+            );
+        }
+    );
+
+    const careerList = Array.from(
+        careers.values()
+    );
+
+    /*
+     * Horace Green published career rushing total.
+     *
+     * This is keyed to the stable player ID rather than
+     * the player's name.
+     */
+    careerList.forEach(
+        career => {
+            if (career.playerId === "greenhorace") {
+                career.rushYds = 2781;
+            }
+        }
+    );
+
+    careerList.forEach(
+        career => {
+            career.totalTD =
+                career.rushTD +
+                career.recTD +
+                career.returnTD;
+
+            career.totalYards =
+                career.rushYds +
+                career.recYards;
+
+            career.xpPercentage =
+                career.xpAttempted > 0
+                    ? (
+                        career.xpMade /
+                        career.xpAttempted
+                    ) * 100
+                    : 0;
+        }
+    );
+
+    return careerList;
+}
+/*
+    Create a readable discrepancy label.
+
+    The component names stored internally do not always
+    match the wording we want displayed to the user.
+*/
+
+function careerDiscrepancyLabel(
+    component
+) {
+
+    const labels = {
+
+        passTD:
+            "Passing touchdowns",
+
+        rushTD:
+            "Rushing touchdowns",
+
+        recTD:
+            "Receiving touchdowns",
+
+        passYards:
+            "Passing yards",
+
+        rushYds:
+            "Rushing yards",
+
+        recYards:
+            "Receiving yards",
+
+        interceptions:
+            "Interceptions thrown",
+
+        receptions:
+            "Receptions",
+
+        fgMade:
+            "Field goals made",
+
+        xpMade:
+            "Extra points made",
+
+        xpAttempted:
+            "Extra point attempts"
+
+    };
+
+
+    return labels[component] ||
+        component;
+
+}
+
+
+/*
+    Make one career record entry.
+*/
+
+function makeCareerRecordEntry(
+    player,
+    categoryType
+) {
+
+    let value = 0;
+
+    let gameDerivedValue = null;
+
+    let discrepancyParts = [];
+
+
+    switch (categoryType) {
+
+        case "total_td":
+
+            value =
+                player.totalTD;
+
+
+            gameDerivedValue =
+
+                player.rushTD +
+                player.recTD +
+                player.gameDerived.returnTD;
+
+
+            discrepancyParts = [
+
+                ...player.discrepancies.rushTD,
+
+                ...player.discrepancies.recTD
+
+            ];
+
+            break;
+
+
+        case "pass_td":
+
+            value =
+                player.passTD;
+
+
+            gameDerivedValue =
+                player.gameDerived.passTD;
+
+
+            discrepancyParts =
+                player.discrepancies.passTD;
+
+            break;
+
+
+        case "rush_td":
+
+            value =
+                player.rushTD;
+
+
+            gameDerivedValue =
+                player.gameDerived.rushTD;
+
+
+            discrepancyParts =
+                player.discrepancies.rushTD;
+
+            break;
+
+
+        case "rec_td":
+
+            value =
+                player.recTD;
+
+
+            gameDerivedValue =
+                player.gameDerived.recTD;
+
+
+            discrepancyParts =
+                player.discrepancies.recTD;
+
+            break;
+
+
+        case "total_yards":
+
+            value =
+                player.totalYards;
+
+
+            gameDerivedValue =
+
+                player.gameDerived.rushYds +
+
+                player.gameDerived.recYards;
+
+
+            discrepancyParts = [
+
+                ...player.discrepancies.rushYds,
+
+                ...player.discrepancies.recYards
+
+            ];
+
+            break;
+
+
+        case "pass_yards":
+
+            value =
+                player.passYards;
+
+
+            gameDerivedValue =
+                player.gameDerived.passYards;
+
+
+            discrepancyParts =
+                player.discrepancies.passYards;
+
+            break;
+
+
+        case "rush_yards":
+
+            value =
+                player.rushYds;
+
+
+            gameDerivedValue =
+                player.gameDerived.rushYds;
+
+
+            discrepancyParts =
+                player.discrepancies.rushYds;
+
+            break;
+
+
+        case "rec_yards":
+
+            value =
+                player.recYards;
+
+
+            gameDerivedValue =
+                player.gameDerived.recYards;
+
+
+            discrepancyParts =
+                player.discrepancies.recYards;
+
+            break;
+
+
+        case "points":
+
+            value =
+                player.points;
+
+            /*
+                Points are always game-derived.
+            */
+
+            gameDerivedValue =
+                null;
+
+            discrepancyParts = [];
+
+            break;
+
+
+        case "interceptions":
+
+            value =
+                player.interceptions;
+
+
+            gameDerivedValue =
+                player.gameDerived.interceptions;
+
+
+            discrepancyParts =
+                player.discrepancies.interceptions;
+
+            break;
+
+
+        case "receptions":
+
+            value =
+                player.receptions;
+
+
+            gameDerivedValue =
+                player.gameDerived.receptions;
+
+
+            discrepancyParts =
+                player.discrepancies.receptions;
+
+            break;
+
+
+        case "fg_made":
+
+            value =
+                player.fgMade;
+
+
+            gameDerivedValue =
+                player.gameDerived.fgMade;
+
+
+            discrepancyParts =
+                player.discrepancies.fgMade;
+
+            break;
+
+
+        case "xp_made":
+
+            value =
+                player.xpMade;
+
+
+            gameDerivedValue =
+                player.gameDerived.xpMade;
+
+
+            discrepancyParts =
+                player.discrepancies.xpMade;
+
+            break;
+
+
+        case "xp_percentage":
+
+            value =
+                player.xpPercentage;
+
+
+            if (player.xpAttempted > 0) {
+
+                gameDerivedValue =
+
+                    (
+                        player.gameDerived.xpMade /
+                        player.gameDerived.xpAttempted
+                    ) * 100;
+
+            }
+
+
+            discrepancyParts = [
+
+                ...player.discrepancies.xpMade,
+
+                ...player.discrepancies.xpAttempted
+
+            ];
+
+            break;
+
+
+        default:
+
+            return null;
+
+    }
+
+
+    /*
+        No discrepancy for a category means no
+        asterisk and no tooltip.
+    */
+
+    const hasDiscrepancy =
+        discrepancyParts.length > 0;
+
+
+    let tooltip =
+        discrepancyParts
+
+            .map(item => {
+
+                if (item.text) {
+                    return `${item.season}: ${item.text}`;
+                }
+
+                return "";
+
+            })
+
+            .filter(Boolean)
+
+            .join("\n");
+
+
+    /*
+        Give the reader the complete game-derived
+        career result so they do not have to calculate it.
+    */
+
+    if (
+        hasDiscrepancy &&
+        gameDerivedValue !== null
+    ) {
+
+        tooltip +=
+
+            `\nFrom game-derived values: ` +
+
+            (
+                categoryType ===
+                "xp_percentage"
+
+                    ? gameDerivedValue.toFixed(1) + "%"
+
+                    : formatNumber(
+                        gameDerivedValue
+                    )
+            );
+
+    }
+
+
+    return {
+
+        value:
+            Number(value || 0),
+
+        player:
+            player.player,
+
+        playerId:
+            player.playerId,
+
+        firstSeason:
+            player.firstSeason,
+
+        lastSeason:
+            player.lastSeason,
+
+        discrepancy:
+            hasDiscrepancy,
+
+        tooltip:
+            tooltip,
+
+        made:
+
+            categoryType ===
+            "xp_percentage"
+
+                ? player.xpMade
+
+                : undefined,
+
+        attempted:
+
+            categoryType ===
+            "xp_percentage"
+
+                ? player.xpAttempted
+
+                : undefined
+
+    };
+
+}
+
+
+/*
+    Sort career records.
+
+    Highest value first.
+
+    Ties:
+        newest career-ending season first
+        then player name
+*/
+
+function sortCareerRecords(
+    records
+) {
+
+    return records.sort(
+        (a, b) => {
+
+            if (b.value !== a.value) {
+
+                return b.value -
+                    a.value;
+
+            }
+
+
+            if (
+                b.lastSeason !==
+                a.lastSeason
+            ) {
+
+                return b.lastSeason -
+                    a.lastSeason;
+
+            }
+
+
+            return a.player.localeCompare(
+
+                b.player,
+
+                undefined,
+
+                {
+                    sensitivity: "base"
+                }
+
+            );
+
+        }
+    );
+
+}
+
+
+/*
+    Get the five actual career/player occurrences.
+*/
+
+function getTopCareerRecords(
+    records
+) {
+
+    const sorted =
+        sortCareerRecords(
+            records
+        );
+
+
+    const result = [];
+
+    let index = 0;
+
+
+    while (
+
+        index < sorted.length &&
+
+        result.length < 5
+
+    ) {
+
+        const value =
+            sorted[index].value;
+
+
+        let end =
+            index;
+
+
+        while (
+
+            end < sorted.length &&
+
+            sorted[end].value === value
+
+        ) {
+
+            end++;
+
+        }
+
+
+        const group =
+            sorted.slice(
+                index,
+                end
+            );
+
+
+        const remainingSlots =
+            5 - result.length;
+
+
+        if (
+            group.length <=
+            remainingSlots
+        ) {
+
+            result.push(
+                ...group
+            );
+
+        }
+
+        else {
+
+            result.push(
+
+                ...group.slice(
+                    0,
+                    remainingSlots
+                )
+
+            );
+
+
+            const remaining =
+                group.length -
+                remainingSlots;
+
+
+            result.push({
+
+                collapse: true,
+
+                text:
+                    `${remaining} other ${
+                        remaining === 1
+                            ? "player"
+                            : "players"
+                    } tied at ${formatNumber(value)}.`
+
+            });
+
+
+            break;
+
+        }
+
+
+        index =
+            end;
+
+    }
+
+
+    return result;
+
+}
+
+
+/*
+    Format a career value.
+*/
+
+function formatCareerRecordValue(
+    entry,
+    categoryType
+) {
+
+    if (
+        categoryType ===
+        "xp_percentage"
+    ) {
+
+        return `${entry.value.toFixed(1)}%`;
+
+    }
+
+
+    return formatNumber(
+        entry.value
+    );
+
+}
+
+
+/*
+    Render the value and discrepancy asterisk.
+*/
+
+function renderCareerValue(
+    entry,
+    categoryType
+) {
+
+    const value =
+        escapeHTML(
+
+            formatCareerRecordValue(
+                entry,
+                categoryType
+            )
+
+        );
+
+
+    if (
+        entry.discrepancy &&
+        entry.tooltip
+    ) {
+
+        const tooltip =
+            escapeHTML(
+                entry.tooltip
+            );
+
+
+        return `${value}<span title="${tooltip}" style="cursor: help;">*</span>`;
+
+    }
+
+
+    return value;
+
+}
+
+
+/*
+    Render one career record card.
+*/
+
+function renderCareerRecordCard(
+    category,
+    records
+) {
+
+    let html = `
+
+        <div class="record-card">
+
+            <h3>
+                ${escapeHTML(category.name)}
+            </h3>
+
+    `;
+
+
+    if (category.qualification) {
+
+        html += `
+
+            <div class="record-collapse">
+
+                ${escapeHTML(
+                    category.qualification
+                )}
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (!records.length) {
+
+        html += `
+
+            <div class="record-collapse">
+
+                No qualifying records.
+
+            </div>
+
+        `;
+
+
+        html += `</div>`;
+
+
+        return html;
+
+    }
+
+
+    records.forEach(
+        (entry, index) => {
+
+            if (entry.collapse) {
+
+                html += `
+
+                    <div class="record-collapse">
+
+                        ${escapeHTML(
+                            entry.text
+                        )}
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            const holderClass =
+
+                index === 0
+
+                    ? "record-entry record-holder"
+
+                    : "record-entry";
+
+
+            const playerHTML =
+                playerLink(
+                    entry.player,
+                    entry.playerId
+                );
+
+
+            const careerSpan =
+
+                entry.firstSeason ===
+                entry.lastSeason
+
+                    ? String(
+                        entry.firstSeason
+                    )
+
+                    : `${entry.firstSeason}-${String(
+                        entry.lastSeason
+                    ).slice(-2)}`;
+
+
+            let valueHTML =
+
+                renderCareerValue(
+                    entry,
+                    category.type
+                );
+
+
+            if (
+
+                category.type ===
+                "xp_percentage" &&
+
+                entry.made !== undefined &&
+
+                entry.attempted !== undefined
+
+            ) {
+
+                valueHTML += `
+
+                    <div class="season-record-xp-attempts">
+
+                        (${formatNumber(
+                            entry.made
+                        )}/${formatNumber(
+                            entry.attempted
+                        )})
+
+                    </div>
+
+                `;
+
+            }
+
+
+            html += `
+
+                <div class="${holderClass}">
+
+                    <div class="record-value">
+
+                        ${valueHTML}
+
+                    </div>
+
+
+                    <div class="record-player">
+
+                        ${playerHTML}
+
+                        <div class="record-season">
+
+                            ${careerSpan}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    html += `</div>`;
+
+
+    return html;
+
+}
+
+
+/*
+    Render all Individual Career Records.
+*/
+
+function renderIndividualCareerRecords(
+    resolvedSeasonPlayers
+) {
+
+    const grid =
+        document.getElementById(
+            "individual-career-records-grid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    const careerPlayers =
+        buildCareerPlayers(
+            resolvedSeasonPlayers
+        );
+
+
+    INDIVIDUAL_CAREER_RECORD_CATEGORIES.forEach(
+        category => {
+
+            let records =
+
+                careerPlayers
+
+                    .map(
+                        player =>
+
+                            makeCareerRecordEntry(
+
+                                player,
+
+                                category.type
+
+                            )
+                    )
+
+                    .filter(Boolean);
+
+
+            /*
+                Extra Point % requires at least
+                30 career attempts.
+            */
+
+            if (
+                category.type ===
+                "xp_percentage"
+            ) {
+
+                records =
+
+                    careerPlayers
+
+                        .filter(
+
+                            player =>
+
+                                player.xpAttempted >= 30
+
+                        )
+
+                        .map(
+
+                            player =>
+
+                                makeCareerRecordEntry(
+
+                                    player,
+
+                                    category.type
+
+                                )
+
+                        )
+
+                        .filter(Boolean);
+
+            }
+
+
+            records =
+
+                records.filter(
+
+                    entry =>
+
+                        entry.value > 0
+
+                );
+
+
+            const topRecords =
+
+                getTopCareerRecords(
+                    records
+                );
+
+
+            grid.innerHTML +=
+
+                renderCareerRecordCard(
+
+                    category,
+
+                    topRecords
+
+                );
+
+        }
+    );
+
+}
+
+
+/*
+    Main loader.
+*/
+
+async function loadIndividualCareerRecords() {
+
+    const loading =
+        document.getElementById(
+            "individual-career-records-loading"
+        );
+
+
+    const error =
+        document.getElementById(
+            "individual-career-records-error"
+        );
+
+
+    try {
+
+        loading.style.display =
+            "block";
+
+
+        error.style.display =
+            "none";
+
+
+        const [
+
+            individualRows,
+
+            eventRows,
+
+            flsRows
+
+        ] = await Promise.all([
+
+            loadCSV(
+                "Master_IndividualStats.csv"
+            ),
+
+            loadCSV(
+                "Master_GameEvents.csv"
+            ),
+
+            loadCSV(
+                "Master_FLSSeasonStats.csv"
+            )
+
+        ]);
+
+
+        const gameDerived =
+
+            buildGameDerivedSeasonStats(
+
+                individualRows,
+
+                eventRows
+
+            );
+
+
+        const flsStats =
+
+            buildFLSSeasonStats(
+
+                flsRows
+
+            );
+
+
+        const resolvedSeasonPlayers =
+
+            buildResolvedSeasonPlayers(
+
+                gameDerived,
+
+                flsStats
+
+            );
+
+
+        renderIndividualCareerRecords(
+
+            resolvedSeasonPlayers
+
+        );
+
+
+        loading.style.display =
+            "none";
+
+    }
+
+    catch (err) {
+
+        console.error(
+
+            "Error loading Individual Career Records:",
+
+            err
+
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+        error.style.display =
+            "block";
+
+
+        error.textContent =
+
+            "Error loading Individual Career Records: " +
+
+            (
+
+                err &&
+                err.message
+
+                    ? err.message
+
+                    : String(err)
+
+            );
+
+    }
+
+}
+
+
+/*
+    Load the section.
+*/
+
+loadIndividualCareerRecords();
+
+</script>
+
+<script>
+// ============================================================
+// TEAM GAME RECORDS
+// ============================================================
+
+const teamGameRecordCategories = [
+
+    "Most Points Scored",
+
+    "Most Points Scored, Combined",
+
+    "Most Points Allowed",
+
+    "Largest Margin of Victory",
+
+    "Largest Margin of Defeat",
+
+    "Most Total Yards",
+
+    "Most Passing Yards",
+
+    "Most Rushing Yards",
+
+    "Largest Comeback"
+
+];
+
+
+// ------------------------------------------------------------
+// FORMAT TEAM GAME DATE
+// ------------------------------------------------------------
+
+function formatTeamGameDate(dateValue) {
+
+    const date =
+        new Date(dateValue);
+
+
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            month: "numeric",
+            day: "numeric",
+            year: "numeric",
+            timeZone: "UTC"
+        }
+    );
+
+}
+
+
+// ------------------------------------------------------------
+// BUILD TEAM GAME RECORDS
+// ------------------------------------------------------------
+
+function buildTeamGameRecords(
+    teamStats,
+    gameInfo,
+    recordBook
+) {
+
+    const gameInfoMap =
+        new Map();
+
+
+    gameInfo.forEach(game => {
+
+        gameInfoMap.set(
+            String(game.game_id).trim(),
+            game
+        );
+
+    });
+
+
+    const records = {};
+
+
+    teamGameRecordCategories.forEach(
+        category => {
+
+            records[category] = [];
+
+        }
+    );
+
+
+    // --------------------------------------------------------
+    // TEAM STATS RECORDS
+    // --------------------------------------------------------
+
+    teamStats.forEach(stat => {
+
+        if (
+            String(stat.team || "")
+                .trim()
+                .toLowerCase() !== "stafford"
+        ) {
+
+            return;
+
+        }
+
+
+        const gameId =
+            String(stat.game_id || "").trim();
+
+
+        if (!gameId) {
+            return;
+        }
+
+
+        const game =
+            gameInfoMap.get(gameId);
+
+
+        const pointsFor =
+            Number(stat.points_for || 0);
+
+
+        const pointsAgainst =
+            Number(stat.points_against || 0);
+
+
+        const totalYards =
+            Number(stat.total_yards || 0);
+
+
+        const passingYards =
+            Number(stat.passing_yards || 0);
+
+
+        const rushingYards =
+            Number(stat.rushing_yards || 0);
+
+
+        const opponent =
+            game?.opponent ||
+            stat.opponent ||
+            "";
+
+
+        const date =
+            game?.date ||
+            stat.date ||
+            "";
+
+
+        const baseRecord = {
+
+            gameId: gameId,
+
+            opponent: opponent,
+
+            date: date,
+
+            pointsFor: pointsFor,
+
+            pointsAgainst: pointsAgainst
+
+        };
+
+
+        // Most Points Scored
+
+        records[
+            "Most Points Scored"
+        ].push({
+
+            ...baseRecord,
+
+            value: pointsFor
+
+        });
+
+
+        // Most Points Scored, Combined
+
+        records[
+            "Most Points Scored, Combined"
+        ].push({
+
+            ...baseRecord,
+
+            value:
+                pointsFor +
+                pointsAgainst
+
+        });
+
+
+        // Most Points Allowed
+
+        records[
+            "Most Points Allowed"
+        ].push({
+
+            ...baseRecord,
+
+            value: pointsAgainst
+
+        });
+
+
+        // Largest Margin of Victory
+
+        if (pointsFor > pointsAgainst) {
+
+            records[
+                "Largest Margin of Victory"
+            ].push({
+
+                ...baseRecord,
+
+                value:
+                    pointsFor -
+                    pointsAgainst
+
+            });
+
+        }
+
+
+        // Largest Margin of Defeat
+
+        if (pointsAgainst > pointsFor) {
+
+            records[
+                "Largest Margin of Defeat"
+            ].push({
+
+                ...baseRecord,
+
+                value:
+                    pointsAgainst -
+                    pointsFor
+
+            });
+
+        }
+
+
+        // Most Total Yards
+
+        records[
+            "Most Total Yards"
+        ].push({
+
+            ...baseRecord,
+
+            value: totalYards
+
+        });
+
+
+        // Most Passing Yards
+
+        records[
+            "Most Passing Yards"
+        ].push({
+
+            ...baseRecord,
+
+            value: passingYards
+
+        });
+
+
+        // Most Rushing Yards
+
+        records[
+            "Most Rushing Yards"
+        ].push({
+
+            ...baseRecord,
+
+            value: rushingYards
+
+        });
+
+    });
+
+
+    // --------------------------------------------------------
+    // LARGEST COMEBACK
+    // --------------------------------------------------------
+
+    recordBook.forEach(record => {
+
+    if (
+        String(record.record_category || "")
+            .trim()
+            .toLowerCase() !==
+        "largest comeback"
+            .toLowerCase()
+    ) {
+
+        return;
+
+    }
+
+
+    const gameId =
+        String(record.game_id || "").trim();
+
+
+    if (!gameId) {
+
+        return;
+
+    }
+
+
+    const game =
+        gameInfoMap.get(gameId);
+
+
+    const stat =
+        teamStats.find(stat =>
+            String(stat.game_id || "").trim() === gameId &&
+            String(stat.team || "").trim().toLowerCase() === "stafford"
+        );
+
+
+    records[
+        "Largest Comeback"
+    ].push({
+
+        value:
+            record.value,
+
+        gameId:
+            gameId,
+
+        opponent:
+            game?.opponent ||
+            stat?.opponent ||
+            "",
+
+        date:
+            game?.date ||
+            stat?.date ||
+            "",
+
+        pointsFor:
+            Number(
+                stat?.points_for || 0
+            ),
+
+        pointsAgainst:
+            Number(
+                stat?.points_against || 0
+            )
+
+    });
+
+});
+
+
+    return records;
+
+}
+
+
+// ------------------------------------------------------------
+// RENDER A TEAM GAME RECORD CARD
+// ------------------------------------------------------------
+
+function renderTeamGameRecordCard(
+    categoryName,
+    records
+) {
+
+    const card =
+        document.createElement("div");
+
+
+    card.className =
+        "record-card";
+
+
+    const heading =
+        document.createElement("h3");
+
+
+    heading.textContent =
+        categoryName;
+
+
+    card.appendChild(heading);
+
+
+    if (!records.length) {
+
+        const empty =
+            document.createElement("div");
+
+
+        empty.textContent =
+            "No records available.";
+
+
+        empty.style.color =
+            "#777";
+
+
+        card.appendChild(empty);
+
+
+        return card;
+
+    }
+
+
+    const topRecords =
+        getTopRecords(records);
+
+
+    let lastValue = null;
+
+
+    topRecords.forEach(item => {
+
+
+        // ----------------------------------------------------
+        // COLLAPSED TIE LINE
+        // ----------------------------------------------------
+
+        if (item.collapse) {
+
+            const collapse =
+                document.createElement("div");
+
+
+            collapse.className =
+                "record-collapse";
+
+
+            collapse.textContent =
+                `${item.remaining} other ${
+                    item.remaining === 1
+                        ? "game"
+                        : "games"
+                } tied at ${item.value}.`;
+
+
+            card.appendChild(collapse);
+
+
+            return;
+
+        }
+
+
+        const record =
+            item.record;
+
+
+        const currentValue =
+            numberValue(
+                record.value
+            );
+
+
+        const entry =
+            document.createElement("div");
+
+
+        entry.className =
+            "record-entry";
+
+
+        // ----------------------------------------------------
+        // BOLD THE ACTUAL RECORD HOLDER GROUP
+        // ----------------------------------------------------
+
+        if (
+            currentValue ===
+            numberValue(
+                topRecords[0].record?.value
+            )
+        ) {
+
+            entry.classList.add(
+                "record-holder"
+            );
+
+        }
+
+
+        // ----------------------------------------------------
+        // RECORD VALUE
+        // ----------------------------------------------------
+
+        const value =
+            document.createElement("div");
+
+
+        value.className =
+            "record-value";
+
+
+        if (
+            lastValue === null ||
+            currentValue !== lastValue
+        ) {
+
+            value.innerHTML =
+                formatRecordValue(
+                    record.value
+                );
+
+        }
+
+
+        entry.appendChild(value);
+
+
+        // ----------------------------------------------------
+        // GAME INFORMATION
+        // ----------------------------------------------------
+
+        const player =
+            document.createElement("div");
+
+
+        player.className =
+            "record-player";
+
+
+        const details =
+            document.createElement("div");
+
+
+        details.className =
+            "record-details";
+
+
+        const gameLink =
+            document.createElement("a");
+
+
+        gameLink.href =
+            `game.html?game_id=${encodeURIComponent(
+                record.gameId
+            )}`;
+
+
+        gameLink.target =
+            "_self";
+
+
+        const opponent =
+            escapeHTML(
+                record.opponent ||
+                "Unknown Opponent"
+            );
+
+
+        const score =
+            `${record.pointsFor ?? 0}–${
+                record.pointsAgainst ?? 0
+            }`;
+
+
+        gameLink.innerHTML =
+            `${opponent} ${score}<br>${
+                formatTeamGameDate(
+                    record.date
+                )
+            }`;
+
+
+        player.appendChild(
+            gameLink
+        );
+
+
+        entry.appendChild(
+            player
+        );
+
+
+        card.appendChild(
+            entry
+        );
+
+
+        lastValue =
+            currentValue;
+
+    });
+
+
+    return card;
+
+}
+
+
+// ------------------------------------------------------------
+// RENDER ALL TEAM GAME RECORDS
+// ------------------------------------------------------------
+
+function renderTeamGameRecords(
+    teamStats,
+    gameInfo,
+    recordBook
+) {
+
+    const grid =
+        document.getElementById(
+            "team-game-records-grid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    const records =
+        buildTeamGameRecords(
+            teamStats,
+            gameInfo,
+            recordBook
+        );
+
+
+    teamGameRecordCategories.forEach(
+        category => {
+
+            const card =
+                renderTeamGameRecordCard(
+                    category,
+                    records[category] || []
+                );
+
+
+            grid.appendChild(card);
+
+        }
+    );
+
+
+    document.getElementById(
+        "team-game-records-loading"
+    ).style.display = "none";
+
+}
+
+
+// ------------------------------------------------------------
+// LOAD TEAM GAME RECORDS
+// ------------------------------------------------------------
+
+async function loadTeamGameRecords() {
+
+    try {
+
+        const [
+
+            teamStats,
+
+            gameInfo,
+
+            recordBook
+
+        ] = await Promise.all([
+
+            loadCSV(
+                "Master_TeamStats.csv"
+            ),
+
+            loadCSV(
+                "Master_GameInfo.csv"
+            ),
+
+            loadCSV(
+                "Master_RecordBook.csv"
+            )
+
+        ]);
+
+
+        renderTeamGameRecords(
+
+            teamStats,
+
+            gameInfo,
+
+            recordBook
+
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error loading team game records:",
+            error
+        );
+
+
+        document.getElementById(
+            "team-game-records-loading"
+        ).style.display = "none";
+
+
+        const errorBox =
+            document.getElementById(
+                "team-game-records-error"
+            );
+
+
+        errorBox.style.display =
+            "block";
+
+
+        errorBox.textContent =
+            `Unable to load the team game records: ${error.message}`;
+
+    }
+
+}
+
+loadTeamGameRecords();
+
+</script>
+
+<script>
+// ============================================================
+// TEAM SEASON RECORDS
+// ============================================================
+
+const teamSeasonRecordCategories = [
+
+    // Row 1 — Record
+
+    "Most Wins",
+    "Most Losses",
+    "Best Winning Percentage",
+    "Largest Point Differential",
+
+    // Row 2 — Scoring
+
+    "Most Points Scored",
+    "Fewest Points Scored",
+    "Most Points Allowed",
+    "Fewest Points Allowed",
+
+    // Row 3 — Offense / shutouts
+
+    "Most Total Yards",
+    "Most Passing Yards",
+    "Most Rushing Yards",
+    "Most Shutouts",
+
+    // Row 4 — Defense / shutouts
+
+    "Most Total Yards Allowed",
+    "Most Passing Yards Allowed",
+    "Most Rushing Yards Allowed",
+    "Most Times Shut Out"
+
+];
+
+
+// ------------------------------------------------------------
+// TEAM SEASON RECORD HELPERS
+//
+// These functions intentionally have "teamSeason" in their
+// names so they cannot collide with the Individual Season
+// Records functions.
+// ------------------------------------------------------------
+
+function teamSeasonField(row, ...names) {
+
+    for (const name of names) {
+
+        if (
+            Object.prototype.hasOwnProperty.call(
+                row,
+                name
+            )
+        ) {
+
+            return clean(row[name]);
+
+        }
+
+    }
+
+    return "";
+
+}
+
+
+function teamSeasonNumber(row, ...names) {
+
+    const value =
+        teamSeasonField(
+            row,
+            ...names
+        );
+
+    if (value === "") {
+        return null;
+    }
+
+    const number =
+        Number(value);
+
+    return Number.isFinite(number)
+        ? number
+        : null;
+
+}
+
+
+function formatTeamSeasonRecordValue(
+    category,
+    value,
+    incomplete = false
+) {
+
+    if (
+        category === "Best Winning Percentage"
+    ) {
+
+        return Number(value).toFixed(3);
+
+    }
+
+    const formatted =
+        Number(value).toLocaleString("en-US");
+
+    return incomplete
+        ? `${formatted}*`
+        : formatted;
+
+}
+
+
+function formatTeamSeasonNumber(value) {
+
+    return Number(value)
+        .toLocaleString("en-US");
+
+}
+
+
+function teamSeasonRecordSort(
+    records,
+    direction = "desc"
+) {
+
+    return records.slice().sort((a, b) => {
+
+        const valueDifference =
+            direction === "asc"
+                ? a.value - b.value
+                : b.value - a.value;
+
+        if (valueDifference !== 0) {
+            return valueDifference;
+        }
+
+        return Number(b.season) -
+               Number(a.season);
+
+    });
+
+}
+
+
+function getTopTeamSeasonRecords(
+    records,
+    direction = "desc"
+) {
+
+    if (!records.length) {
+        return [];
+    }
+
+    const sorted =
+        teamSeasonRecordSort(
+            records,
+            direction
+        );
+
+    const result = [];
+    const groups = new Map();
+
+    sorted.forEach(record => {
+
+        const value =
+            Number(record.value);
+
+        if (!groups.has(value)) {
+            groups.set(value, []);
+        }
+
+        groups.get(value).push(record);
+
+    });
+
+    const values =
+        Array.from(groups.keys()).sort(
+            direction === "asc"
+                ? (a, b) => a - b
+                : (a, b) => b - a
+        );
+
+    let displayed = 0;
+
+    for (const value of values) {
+
+        const group =
+            groups.get(value);
+
+        const remainingSlots =
+            5 - displayed;
+
+        if (remainingSlots <= 0) {
+            break;
+        }
+
+        const displayCount =
+            Math.min(
+                group.length,
+                remainingSlots
+            );
+
+        for (let i = 0; i < displayCount; i++) {
+
+            result.push({
+
+                record: group[i],
+
+                value: value,
+
+                groupSize: group.length,
+
+                groupIndex: i,
+
+                displayCount: displayCount
+
+            });
+
+        }
+
+        displayed += displayCount;
+
+        if (group.length > displayCount) {
+
+            result.push({
+
+                collapse: true,
+
+                value: value,
+
+                remaining:
+                    group.length -
+                    displayCount
+
+            });
+
+            break;
+
+        }
+
+    }
+
+    return result;
+
+}
+
+
+// ------------------------------------------------------------
+// BUILD TEAM SEASON RECORDS
+// ------------------------------------------------------------
+
+function buildTeamSeasonRecords(
+    seasons,
+    teamStats
+) {
+
+    const seasonMap = new Map();
+
+
+    // --------------------------------------------------------
+    // Start with the official season totals from Master_Seasons
+    // --------------------------------------------------------
+
+    seasons.forEach(row => {
+
+        const season =
+            teamSeasonField(
+                row,
+                "year",
+                "Year",
+                "season",
+                "Season"
+            );
+
+        if (!season) {
+            return;
+        }
+
+        const wins =
+            teamSeasonNumber(
+                row,
+                "w",
+                "W",
+                "wins",
+                "Wins"
+            );
+
+        const losses =
+            teamSeasonNumber(
+                row,
+                "l",
+                "L",
+                "losses",
+                "Losses"
+            );
+
+        const ties =
+            teamSeasonNumber(
+                row,
+                "t",
+                "T",
+                "ties",
+                "Ties"
+            ) ?? 0;
+
+        const pointsFor =
+            teamSeasonNumber(
+                row,
+                "points_for",
+                "Points For",
+                "points for",
+                "PF"
+            );
+
+        const pointsAgainst =
+            teamSeasonNumber(
+                row,
+                "points_against",
+                "Points Against",
+                "points against",
+                "PA"
+            );
+
+        const pointDifferential =
+            teamSeasonNumber(
+                row,
+                "point_differential",
+                "Point Differential",
+                "point differential",
+                "PD"
+            );
+
+        if (
+            wins === null &&
+            losses === null &&
+            pointsFor === null &&
+            pointsAgainst === null
+        ) {
+            return;
+        }
+
+        const totalGames =
+            (wins ?? 0) +
+            (losses ?? 0) +
+            ties;
+
+        const winningPercentage =
+            totalGames > 0
+                ? (
+                    (wins ?? 0) +
+                    (0.5 * ties)
+                ) / totalGames
+                : null;
+
+        seasonMap.set(season, {
+
+            season: season,
+
+            wins:
+                wins ?? 0,
+
+            losses:
+                losses ?? 0,
+
+            ties:
+                ties,
+
+            totalGames:
+                totalGames,
+
+            pointsFor:
+                pointsFor,
+
+            pointsAgainst:
+                pointsAgainst,
+
+            pointDifferential:
+                pointDifferential !== null
+                    ? pointDifferential
+                    : (
+                        pointsFor !== null &&
+                        pointsAgainst !== null
+                            ? pointsFor -
+                              pointsAgainst
+                            : null
+                    ),
+
+            winningPercentage:
+                winningPercentage
+
+        });
+
+    });
+
+
+    // --------------------------------------------------------
+    // Add game-level information from Master_TeamStats
+    // --------------------------------------------------------
+
+    const gameStatsBySeason =
+        new Map();
+
+    teamStats.forEach(row => {
+
+        if (
+            clean(row.team).toLowerCase() !==
+            "stafford"
+        ) {
+            return;
+        }
+
+        const season =
+            clean(row.season);
+
+        if (!season) {
+            return;
+        }
+
+        if (
+            !gameStatsBySeason.has(season)
+        ) {
+
+            gameStatsBySeason.set(
+                season,
+                []
+            );
+
+        }
+
+        gameStatsBySeason
+            .get(season)
+            .push(row);
+
+    });
+
+
+    const yardageFields = {
+
+        "Most Total Yards":
+            "total_yards",
+
+        "Most Passing Yards":
+            "passing_yards",
+
+        "Most Rushing Yards":
+            "rushing_yards",
+
+        "Most Total Yards Allowed":
+            "total_yards_allowed",
+
+        "Most Passing Yards Allowed":
+            "passing_yards_allowed",
+
+        "Most Rushing Yards Allowed":
+            "rushing_yards_allowed"
+
+    };
+
+
+    const records = {};
+
+    teamSeasonRecordCategories.forEach(
+        category => {
+
+            records[category] = [];
+
+        }
+    );
+
+
+    seasonMap.forEach(
+        seasonRecord => {
+
+        const games =
+            gameStatsBySeason.get(
+                seasonRecord.season
+            ) || [];
+
+
+        // ----------------------------------------------------
+        // Shutouts
+        // ----------------------------------------------------
+
+        let shutouts = 0;
+        let timesShutOut = 0;
+
+        games.forEach(game => {
+
+            const pointsFor =
+                teamSeasonNumber(
+                    game,
+                    "points_for"
+                );
+
+            const pointsAgainst =
+                teamSeasonNumber(
+                    game,
+                    "points_against"
+                );
+
+            // Blank scores are not treated as zero.
+            if (pointsAgainst === 0) {
+                shutouts++;
+            }
+
+            if (pointsFor === 0) {
+                timesShutOut++;
+            }
+
+        });
+
+
+        records["Most Shutouts"].push({
+
+            season:
+                seasonRecord.season,
+
+            value:
+                shutouts
+
+        });
+
+
+        records["Most Times Shut Out"].push({
+
+            season:
+                seasonRecord.season,
+
+            value:
+                timesShutOut
+
+        });
+
+
+        // ----------------------------------------------------
+        // Official season scoring totals
+        // ----------------------------------------------------
+
+        if (
+            seasonRecord.pointsFor !== null
+        ) {
+
+            records["Most Points Scored"].push({
+
+                season:
+                    seasonRecord.season,
+
+                value:
+                    seasonRecord.pointsFor,
+
+                totalGames:
+                    seasonRecord.totalGames
+
+            });
+
+
+            records["Fewest Points Scored"].push({
+
+                season:
+                    seasonRecord.season,
+
+                value:
+                    seasonRecord.pointsFor,
+
+                totalGames:
+                    seasonRecord.totalGames
+
+            });
+
+        }
+
+
+        if (
+            seasonRecord.pointsAgainst !== null
+        ) {
+
+            records["Most Points Allowed"].push({
+
+                season:
+                    seasonRecord.season,
+
+                value:
+                    seasonRecord.pointsAgainst
+
+            });
+
+
+            records["Fewest Points Allowed"].push({
+
+                season:
+                    seasonRecord.season,
+
+                value:
+                    seasonRecord.pointsAgainst
+
+            });
+
+        }
+
+
+        if (
+            seasonRecord.pointDifferential !== null
+        ) {
+
+            records["Largest Point Differential"].push({
+
+                season:
+                    seasonRecord.season,
+
+                value:
+                    seasonRecord.pointDifferential
+
+            });
+
+        }
+
+
+        records["Most Wins"].push({
+
+            season:
+                seasonRecord.season,
+
+            value:
+                seasonRecord.wins
+
+        });
+
+
+        records["Most Losses"].push({
+
+            season:
+                seasonRecord.season,
+
+            value:
+                seasonRecord.losses
+
+        });
+
+
+        if (
+            seasonRecord.winningPercentage !== null
+        ) {
+
+            records["Best Winning Percentage"].push({
+
+                season:
+                    seasonRecord.season,
+
+                value:
+                    seasonRecord.winningPercentage
+
+            });
+
+        }
+
+
+        // ----------------------------------------------------
+        // Yardage totals
+        // ----------------------------------------------------
+
+        Object.entries(
+            yardageFields
+        ).forEach(
+            ([category, field]) => {
+
+                let total = 0;
+
+                let incomplete = false;
+
+                let hasGameData = false;
+
+                let gamesWithData = 0;
+
+
+                games.forEach(game => {
+
+                    const raw =
+                        clean(game[field]);
+
+
+                    if (raw === "") {
+
+                        incomplete = true;
+
+                        return;
+
+                    }
+
+
+                    const value =
+                        Number(raw);
+
+
+                    if (
+                        !Number.isFinite(value)
+                    ) {
+
+                        incomplete = true;
+
+                        return;
+
+                    }
+
+
+                    hasGameData = true;
+
+                    gamesWithData++;
+
+                    total += value;
+
+                });
+
+
+                if (
+                    !hasGameData &&
+                    games.length === 0
+                ) {
+
+                    return;
+
+                }
+
+
+                const expectedGames =
+    seasonRecord.totalGames;
+
+const missingGames =
+    Math.max(
+        0,
+        expectedGames -
+        gamesWithData
+    );
+
+
+records[category].push({
+
+    season:
+        seasonRecord.season,
+
+    value:
+        total,
+
+    incomplete:
+        missingGames > 0,
+
+    missingGames:
+        missingGames
+
+});
+
+            }
+        );
+
+    });
+
+
+    return records;
+
+}
+
+
+// ------------------------------------------------------------
+// RENDER TEAM SEASON RECORD CARD
+// ------------------------------------------------------------
+
+function renderTeamSeasonRecordCard(
+    category,
+    records
+) {
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "record-card";
+
+
+    const heading =
+        document.createElement("h3");
+
+    heading.textContent =
+        category;
+
+    card.appendChild(heading);
+
+
+    if (!records.length) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.textContent =
+            "No records available.";
+
+        empty.style.color =
+            "#777";
+
+        card.appendChild(empty);
+
+        return card;
+
+    }
+
+
+    const ascendingCategories =
+        new Set([
+
+            "Fewest Points Scored",
+
+            "Fewest Points Allowed"
+
+        ]);
+
+
+    const direction =
+        ascendingCategories.has(category)
+            ? "asc"
+            : "desc";
+
+
+    const topRecords =
+        getTopTeamSeasonRecords(
+            records,
+            direction
+        );
+
+
+    let lastValue = null;
+
+
+    topRecords.forEach(item => {
+
+        if (item.collapse) {
+
+            const collapse =
+                document.createElement("div");
+
+            collapse.className =
+                "record-collapse";
+
+            collapse.textContent =
+                `${item.remaining} other ${
+                    item.remaining === 1
+                        ? "season"
+                        : "seasons"
+                } tied at ${
+                    category ===
+                    "Best Winning Percentage"
+                        ? Number(item.value)
+                            .toFixed(3)
+                        : formatTeamSeasonNumber(
+                            item.value
+                        )
+                }.`;
+
+            card.appendChild(
+                collapse
+            );
+
+            return;
+
+        }
+
+
+        const record =
+            item.record;
+
+        const currentValue =
+            Number(record.value);
+
+
+        const entry =
+            document.createElement("div");
+
+        entry.className =
+            "record-entry";
+
+
+        if (
+            currentValue ===
+            Number(
+                topRecords[0]
+                    .record
+                    ?.value
+            )
+        ) {
+
+            entry.classList.add(
+                "record-holder"
+            );
+
+        }
+
+
+        const value =
+    document.createElement("div");
+
+value.className =
+    "record-value";
+
+
+if (
+    lastValue === null ||
+    currentValue !== lastValue
+) {
+
+    const formattedValue =
+        formatTeamSeasonRecordValue(
+            category,
+            currentValue,
+            false
+        );
+
+    if (record.incomplete === true) {
+
+        const valueText =
+            document.createTextNode(
+                formattedValue
+            );
+
+        value.appendChild(
+            valueText
+        );
+
+        const asterisk =
+            document.createElement("span");
+
+        asterisk.textContent =
+            "*";
+
+        const missing =
+    Number(record.missingGames) || 0;
+
+asterisk.title =
+    `${missing} ${
+        missing === 1
+            ? "game"
+            : "games"
+    } missing for this category.`;
+
+        asterisk.style.cursor =
+            "help";
+
+        asterisk.style.marginLeft =
+            "2px";
+
+        value.appendChild(
+            asterisk
+        );
+
+    } else {
+
+        value.textContent =
+            formattedValue;
+
+    }
+
+}
+
+
+        entry.appendChild(value);
+
+
+        const season =
+            document.createElement("div");
+
+        season.className =
+            "record-player";
+
+
+        const seasonLink =
+            document.createElement("a");
+
+        seasonLink.href =
+            `season.html?season=${encodeURIComponent(
+                record.season
+            )}`;
+
+
+        seasonLink.textContent =
+            record.season;
+
+
+        season.appendChild(
+            seasonLink
+        );
+
+
+        entry.appendChild(
+            season
+        );
+
+
+        // Most Points Scored: show the number of games only
+        // when the season exceeded the normal 10-game schedule.
+
+        if (
+            category ===
+                "Most Points Scored" &&
+            Number(record.totalGames) > 10
+        ) {
+
+            const details =
+                document.createElement("div");
+
+            details.className =
+                "record-details";
+
+            details.textContent =
+                `${record.totalGames} games`;
+
+            entry.appendChild(
+                details
+            );
+
+        }
+
+
+        card.appendChild(
+            entry
+        );
+
+
+        lastValue =
+            currentValue;
+
+    });
+
+
+    return card;
+
+}
+
+
+// ------------------------------------------------------------
+// RENDER ALL TEAM SEASON RECORDS
+// ------------------------------------------------------------
+
+function renderTeamSeasonRecords(
+    seasons,
+    teamStats
+) {
+
+    const grid =
+        document.getElementById(
+            "team-season-records-grid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    const records =
+        buildTeamSeasonRecords(
+            seasons,
+            teamStats
+        );
+
+
+    teamSeasonRecordCategories.forEach(
+        category => {
+
+            const card =
+                renderTeamSeasonRecordCard(
+                    category,
+                    records[category] || []
+                );
+
+            grid.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    document.getElementById(
+        "team-season-records-loading"
+    ).style.display =
+        "none";
+
+}
+
+
+// ------------------------------------------------------------
+// LOAD TEAM SEASON RECORDS
+// ------------------------------------------------------------
+
+async function loadTeamSeasonRecords() {
+
+    try {
+
+        const [
+            seasons,
+            teamStats
+        ] = await Promise.all([
+
+            loadCSV(
+                "Master_Seasons.csv"
+            ),
+
+            loadCSV(
+                "Master_TeamStats.csv"
+            )
+
+        ]);
+
+
+        renderTeamSeasonRecords(
+            seasons,
+            teamStats
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error loading team season records:",
+            error
+        );
+
+
+        document.getElementById(
+            "team-season-records-loading"
+        ).style.display =
+            "none";
+
+
+        const errorBox =
+            document.getElementById(
+                "team-season-records-error"
+            );
+
+
+        errorBox.style.display =
+            "block";
+
+
+        errorBox.textContent =
+            `Unable to load the team season records: ${error.message}`;
+
+    }
+
+}
+
+
+loadTeamSeasonRecords();
+
+</script>
+
+<script>
+// ============================================================
+// TEAM STREAKS
+// ============================================================
+
+const teamStreakCategories = [
+
+    "Longest Winning Streak",
+    "Longest Losing Streak",
+    "Longest Undefeated Streak",
+    "Longest Shutout Streak",
+    "Longest Streak Being Shut Out"
+
+];
+
+
+// ------------------------------------------------------------
+// TEAM STREAK HELPERS
+// ------------------------------------------------------------
+
+function teamStreakField(row, ...names) {
+
+    for (const name of names) {
+
+        if (
+            Object.prototype.hasOwnProperty.call(
+                row,
+                name
+            )
+        ) {
+
+            return clean(row[name]);
+
+        }
+
+    }
+
+    return "";
+
+}
+
+
+function teamStreakNumber(row, ...names) {
+
+    const value =
+        teamStreakField(
+            row,
+            ...names
+        );
+
+    if (value === "") {
+        return null;
+    }
+
+    const number =
+        Number(value);
+
+    return Number.isFinite(number)
+        ? number
+        : null;
+
+}
+
+
+// ------------------------------------------------------------
+// SORT GAMES IN CHRONOLOGICAL ORDER
+// ------------------------------------------------------------
+
+function sortTeamStreakGames(games) {
+
+    return games
+        .slice()
+        .sort((a, b) => {
+
+            const dateA =
+                new Date(
+                    teamStreakField(
+                        a,
+                        "date",
+                        "Date"
+                    )
+                );
+
+            const dateB =
+                new Date(
+                    teamStreakField(
+                        b,
+                        "date",
+                        "Date"
+                    )
+                );
+
+            return dateA - dateB;
+
+        });
+
+}
+
+
+// ------------------------------------------------------------
+// BUILD TEAM STREAKS
+// ------------------------------------------------------------
+
+function buildTeamStreaks(teamStats) {
+
+    const games =
+        teamStats
+            .filter(row => {
+
+                return (
+                    clean(row.team)
+                        .toLowerCase() ===
+                    "stafford"
+                );
+
+            })
+            .filter(row => {
+
+                const pointsFor =
+                    teamStreakNumber(
+                        row,
+                        "points_for"
+                    );
+
+                const pointsAgainst =
+                    teamStreakNumber(
+                        row,
+                        "points_against"
+                    );
+
+                // A game must have both scores
+                // in order to participate in a streak.
+
+                return (
+                    pointsFor !== null &&
+                    pointsAgainst !== null
+                );
+
+            });
+
+
+    const sortedGames =
+        sortTeamStreakGames(
+            games
+        );
+
+
+    const streaks = {
+
+        "Longest Winning Streak":
+            [],
+
+        "Longest Losing Streak":
+            [],
+
+        "Longest Undefeated Streak":
+            [],
+
+        "Longest Shutout Streak":
+            [],
+
+        "Longest Streak Being Shut Out":
+            []
+
+    };
+
+
+    // --------------------------------------------------------
+    // Generic streak calculator
+    // --------------------------------------------------------
+
+    function calculateStreak(
+        condition
+    ) {
+
+        let current = [];
+
+
+        const completed = [];
+
+
+        sortedGames.forEach(game => {
+
+            const pointsFor =
+                teamStreakNumber(
+                    game,
+                    "points_for"
+                );
+
+            const pointsAgainst =
+                teamStreakNumber(
+                    game,
+                    "points_against"
+                );
+
+
+            if (
+                condition(
+                    pointsFor,
+                    pointsAgainst
+                )
+            ) {
+
+                current.push(game);
+
+            }
+
+            else {
+
+                if (current.length > 0) {
+
+                    completed.push(
+                        current
+                    );
+
+                }
+
+                current = [];
+
+            }
+
+        });
+
+
+        // Save a streak that reaches
+        // the end of the dataset.
+
+        if (current.length > 0) {
+
+            completed.push(
+                current
+            );
+
+        }
+
+
+        return completed;
+
+    }
+
+
+    // --------------------------------------------------------
+    // Winning streaks
+    // --------------------------------------------------------
+
+    const winningStreaks =
+        calculateStreak(
+            (pointsFor, pointsAgainst) =>
+                pointsFor > pointsAgainst
+        );
+
+
+    winningStreaks.forEach(streak => {
+
+        streaks[
+            "Longest Winning Streak"
+        ].push(
+            createTeamStreakRecord(
+                streak
+            )
+        );
+
+    });
+
+
+    // --------------------------------------------------------
+    // Losing streaks
+    // --------------------------------------------------------
+
+    const losingStreaks =
+        calculateStreak(
+            (pointsFor, pointsAgainst) =>
+                pointsFor < pointsAgainst
+        );
+
+
+    losingStreaks.forEach(streak => {
+
+        streaks[
+            "Longest Losing Streak"
+        ].push(
+            createTeamStreakRecord(
+                streak
+            )
+        );
+
+    });
+
+
+    // --------------------------------------------------------
+    // Undefeated streaks
+    //
+    // Wins AND ties count.
+    // A loss breaks the streak.
+    // --------------------------------------------------------
+
+    const undefeatedStreaks =
+        calculateStreak(
+            (pointsFor, pointsAgainst) =>
+                pointsFor >= pointsAgainst
+        );
+
+
+    undefeatedStreaks.forEach(streak => {
+
+        streaks[
+            "Longest Undefeated Streak"
+        ].push(
+            createTeamStreakRecord(
+                streak
+            )
+        );
+
+    });
+
+
+    // --------------------------------------------------------
+    // Shutout streaks
+    //
+    // Stafford allows zero points.
+    // --------------------------------------------------------
+
+    const shutoutStreaks =
+        calculateStreak(
+            (pointsFor, pointsAgainst) =>
+                pointsAgainst === 0
+        );
+
+
+    shutoutStreaks.forEach(streak => {
+
+        streaks[
+            "Longest Shutout Streak"
+        ].push(
+            createTeamStreakRecord(
+                streak
+            )
+        );
+
+    });
+
+
+    // --------------------------------------------------------
+    // Times shut out
+    //
+    // Stafford scores zero points.
+    // --------------------------------------------------------
+
+    const timesShutOutStreaks =
+        calculateStreak(
+            (pointsFor, pointsAgainst) =>
+                pointsFor === 0
+        );
+
+
+    timesShutOutStreaks.forEach(streak => {
+
+        streaks[
+            "Longest Streak Being Shut Out"
+        ].push(
+            createTeamStreakRecord(
+                streak
+            )
+        );
+
+    });
+
+
+    return streaks;
+
+}
+
+
+// ------------------------------------------------------------
+// CREATE STREAK RECORD
+// ------------------------------------------------------------
+
+function createTeamStreakRecord(
+    games
+) {
+
+    const firstGame =
+        games[0];
+
+    const lastGame =
+        games[games.length - 1];
+
+
+    return {
+
+        length:
+            games.length,
+
+        startSeason:
+            teamStreakField(
+                firstGame,
+                "season",
+                "Season"
+            ),
+
+        endSeason:
+            teamStreakField(
+                lastGame,
+                "season",
+                "Season"
+            )
+
+    };
+
+}
+
+
+// ------------------------------------------------------------
+// SORT STREAK RECORDS
+// ------------------------------------------------------------
+
+function sortTeamStreakRecords(
+    records
+) {
+
+    return records
+        .slice()
+        .sort((a, b) => {
+
+            if (
+                b.length !==
+                a.length
+            ) {
+
+                return (
+                    b.length -
+                    a.length
+                );
+
+            }
+
+            // For ties, most recent streak
+            // comes first.
+
+            return Number(b.endSeason) -
+                   Number(a.endSeason);
+
+        });
+
+}
+
+
+// ------------------------------------------------------------
+// RENDER SEASON RANGE
+// ------------------------------------------------------------
+
+function renderTeamStreakSeasons(
+    container,
+    record
+) {
+
+    const start =
+        Number(
+            record.startSeason
+        );
+
+    const end =
+        Number(
+            record.endSeason
+        );
+
+
+    function createSeasonLink(
+        season
+    ) {
+
+        const link =
+            document.createElement("a");
+
+        link.href =
+            `season.html?season=${encodeURIComponent(
+                season
+            )}`;
+
+        link.textContent =
+            season;
+
+        return link;
+
+    }
+
+
+    if (
+        start === end
+    ) {
+
+        container.appendChild(
+            createSeasonLink(
+                start
+            )
+        );
+
+        return;
+
+    }
+
+
+    container.appendChild(
+        createSeasonLink(
+            start
+        )
+    );
+
+
+    container.appendChild(
+        document.createTextNode(
+            "–"
+        )
+    );
+
+
+    container.appendChild(
+        createSeasonLink(
+            end
+        )
+    );
+
+}
+
+
+// ------------------------------------------------------------
+// RENDER TEAM STREAK CARD
+// ------------------------------------------------------------
+
+function renderTeamStreakCard(category, records) {
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "record-card";
+
+
+    const heading =
+        document.createElement("h3");
+
+    heading.textContent =
+        category;
+
+    card.appendChild(
+        heading
+    );
+
+
+    if (!records.length) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.textContent =
+            "No records available.";
+
+        empty.style.color =
+            "#777";
+
+        card.appendChild(
+            empty
+        );
+
+        return card;
+
+    }
+
+
+    // --------------------------------------------------------
+    // Sort all individual streak occurrences
+    // --------------------------------------------------------
+
+    const sortedRecords =
+        sortTeamStreakRecords(records);
+
+
+    // --------------------------------------------------------
+    // Group occurrences by streak length
+    // --------------------------------------------------------
+
+    const groups = [];
+
+    sortedRecords.forEach(record => {
+
+        let group =
+            groups.find(
+                item =>
+                    item.length ===
+                    record.length
+            );
+
+
+        if (!group) {
+
+            group = {
+
+                length:
+                    record.length,
+
+                records: []
+
+            };
+
+            groups.push(
+                group
+            );
+
+        }
+
+
+        group.records.push(
+            record
+        );
+
+    });
+
+
+    // --------------------------------------------------------
+    // Display the top five occurrences.
+    //
+    // If the fifth occurrence is tied with additional
+    // occurrences, show the additional ones as a collapse
+    // line rather than displaying a sixth occurrence.
+    // --------------------------------------------------------
+
+    let displayed =
+        0;
+
+
+    for (
+        let groupIndex = 0;
+        groupIndex < groups.length;
+        groupIndex++
+    ) {
+
+        const group =
+            groups[groupIndex];
+
+
+        const remainingSlots =
+            5 - displayed;
+
+
+        if (
+            remainingSlots <= 0
+        ) {
+            break;
+        }
+
+
+        const displayCount =
+            Math.min(
+                group.records.length,
+                remainingSlots
+            );
+
+
+        // ----------------------------------------------------
+        // Display the actual occurrences
+        // ----------------------------------------------------
+
+        for (
+            let i = 0;
+            i < displayCount;
+            i++
+        ) {
+
+            const record =
+                group.records[i];
+
+
+            const entry =
+                document.createElement("div");
+
+            entry.className =
+    "record-entry";
+
+entry.style.display = "grid";
+entry.style.gridTemplateColumns = "90px 1fr";
+entry.style.columnGap = "12px";
+entry.style.alignItems = "baseline";
+
+
+            // The longest streak group is the record holder.
+            if (
+                groupIndex === 0
+            ) {
+
+                entry.classList.add(
+                    "record-holder"
+                );
+
+            }
+
+
+            const value =
+                document.createElement("div");
+
+            value.className =
+                "record-value";
+
+
+            // Only show the streak value on the first
+            // occurrence of that streak length.
+
+            if (i === 0) {
+
+                value.textContent =
+                    `${group.length} ${
+                        group.length === 1
+                            ? "game"
+                            : "games"
+                    }`;
+
+            }
+
+
+            entry.appendChild(
+                value
+            );
+
+
+            const season =
+                document.createElement("div");
+
+            season.className =
+                "record-player";
+
+
+            renderTeamStreakSeasons(
+                season,
+                record
+            );
+
+
+            entry.appendChild(
+                season
+            );
+
+
+            card.appendChild(
+                entry
+            );
+
+        }
+
+
+        displayed +=
+            displayCount;
+
+
+        // ----------------------------------------------------
+        // If this tied group extends beyond the fifth
+        // displayed occurrence, use the same collapse
+        // treatment as the other record-book sections.
+        // ----------------------------------------------------
+
+        if (
+            group.records.length >
+            displayCount
+        ) {
+
+            const remaining =
+                group.records.length -
+                displayCount;
+
+
+            const collapse =
+                document.createElement("div");
+
+            collapse.className =
+                "record-collapse";
+
+
+            collapse.textContent =
+                `${remaining} ${
+                    remaining === 1
+                        ? "other streak"
+                        : "other streaks"
+                } tied at ${
+                    group.length
+                } ${
+                    group.length === 1
+                        ? "game"
+                        : "games"
+                }.`;
+
+            card.appendChild(
+                collapse
+            );
+
+
+            break;
+
+        }
+
+    }
+
+
+    return card;
+
+}
+
+
+// ------------------------------------------------------------
+// RENDER ALL TEAM STREAKS
+// ------------------------------------------------------------
+
+function renderTeamStreaks(
+    teamStats
+) {
+
+    const grid =
+        document.getElementById(
+            "team-streaks-grid"
+        );
+
+
+    if (!grid) {
+        return;
+    }
+
+
+    grid.innerHTML =
+        "";
+
+
+    const streaks =
+        buildTeamStreaks(
+            teamStats
+        );
+
+
+    teamStreakCategories.forEach(
+        category => {
+
+            const card =
+                renderTeamStreakCard(
+                    category,
+                    streaks[category] || []
+                );
+
+            grid.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    const loading =
+        document.getElementById(
+            "team-streaks-loading"
+        );
+
+
+    if (loading) {
+
+        loading.style.display =
+            "none";
+
+    }
+
+}
+
+
+// ------------------------------------------------------------
+// LOAD TEAM STREAKS
+// ------------------------------------------------------------
+
+async function loadTeamStreaks() {
+
+    try {
+
+        const teamStats =
+            await loadCSV(
+                "Master_TeamStats.csv"
+            );
+
+
+        renderTeamStreaks(
+            teamStats
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error loading team streaks:",
+            error
+        );
+
+
+        const loading =
+            document.getElementById(
+                "team-streaks-loading"
+            );
+
+
+        if (loading) {
+
+            loading.style.display =
+                "none";
+
+        }
+
+
+        const errorBox =
+            document.getElementById(
+                "team-streaks-error"
+            );
+
+
+        if (errorBox) {
+
+            errorBox.style.display =
+                "block";
+
+            errorBox.textContent =
+                `Unable to load team streaks: ${
+                    error.message
+                }`;
+
+        }
+
+    }
+
+}
+
+
+loadTeamStreaks();
+
+</script>
+
+</body>
+
+</html>

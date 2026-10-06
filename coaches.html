@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stafford Indians Head Coaches</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td {
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        #coachesTable {
+    width: auto;              /* don’t stretch */
+    table-layout: auto;
+    display: inline-table;    /* shrink to fit content */
+}
+
+#coachesTable th,
+#coachesTable td {
+    white-space: nowrap;      /* prevent wrapping */
+    padding: 4px 8px;         /* tighter spacing */
+}
+
+#coachesTable td:first-child,
+#coachesTable th:first-child,
+#coachesTable td:nth-child(2),
+#coachesTable th:nth-child(2),
+#coachesTable td:last-child,
+#coachesTable th:last-child {
+    text-align: left;
+}
+
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+}
+
+th.sortable:hover {
+    background-color: #dcdcdc;
+}
+
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="nav.js"></script>
+</head>
+
+<body>
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1>Stafford Indians Head Coaches</h1>
+
+<table id="coachesTable">
+    <thead>
+        <tr>
+            <th class="left">Coach</th>
+            <th class="left">Seasons</th>
+            <th># of Yrs</th>
+            <th>G</th>
+            <th>W</th>
+            <th>L</th>
+            <th>T</th>
+            <th>W%</th>
+            <th class="left">Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will go here -->
+    </tbody>
+</table>
+
+<script>
+
+fetch("Master_Seasons.csv")
+    .then(r => r.text())
+    .then(csv => {
+
+        const seasons = Papa.parse(csv, {
+            header: true,
+            skipEmptyLines: true,
+            transformHeader: h => h.trim().toLowerCase()
+        }).data;
+
+        const coaches = {};
+
+        seasons.forEach(s => {
+
+            const name = (s.coach || "").trim();
+            if (!name) return;
+
+            const year = Number(s.season);
+            const w = Number(s.w || 0);
+            const l = Number(s.l || 0);
+            const t = Number(s.t || 0);
+
+           if (!coaches[name]) {
+    coaches[name] = {
+        coachId: "",
+        years: [],
+        w: 0,
+        l: 0,
+        t: 0
+    };
+}
+
+// ALWAYS update coachId if present
+if (s.coach_id && !coaches[name].coachId) {
+    coaches[name].coachId = s.coach_id.trim().toLowerCase();
+}
+
+            coaches[name].years.push(year);
+            coaches[name].w += w;
+            coaches[name].l += l;
+            coaches[name].t += t;
+        });
+
+        const tbody = document.querySelector("#coachesTable tbody");
+        tbody.innerHTML = "";
+
+        Object.entries(coaches).forEach(([name, c]) => {
+
+           const years = [...new Set(c.years)]
+    .map(Number)
+    .sort((a, b) => a - b);
+
+let ranges = [];
+let start = years[0];
+let prev = years[0];
+
+for (let i = 1; i < years.length; i++) {
+    if (years[i] === prev + 1) {
+        prev = years[i];
+    } else {
+        ranges.push(start === prev ? `${start}` : `${start}-${prev}`);
+        start = years[i];
+        prev = years[i];
+    }
+}
+
+// push final range
+ranges.push(start === prev ? `${start}` : `${start}-${prev}`);
+
+const seasonsStr = ranges.join(", ");
+            const numYears = years.length;
+
+            const g = c.w + c.l + c.t;
+            const wpct = g ? ((c.w + 0.5 * c.t) / g).toFixed(3) : "0.000";
+
+            const tr = document.createElement("tr");
+            tr.dataset.coach = name.toLowerCase();
+            tr.dataset.lastyear = Math.max(...years);
+
+let notes = [];
+if (name === "Joe Michael") {
+    notes.push("3x Battlefield District Champion");
+}
+
+if (name === "Jeff Drugatz") {
+    notes.push("Commonwealth District Champion");
+    notes.push("1st Round");
+}
+
+if (name === "Chad Lewis") {
+    notes.push("1st Round");
+}
+
+if (name === "John Kraus") {
+    notes.push("1st Round");
+}
+
+if (name === "Roger Pierce") {
+    notes.push("State Final");
+}
+
+if (name === "Mo Hampton") {
+    notes.push("State Semifinal");
+}
+
+            tr.innerHTML = `
+                <td class="left">
+    <a href="coach.html?coach=${c.coachId}">
+        ${name}
+                <td class="left">${seasonsStr}</td>
+                <td>${numYears}</td>
+                <td>${g}</td>
+                <td>${c.w}</td>
+                <td>${c.l}</td>
+                <td>${c.t}</td>
+                <td>${wpct}</td>
+                <td class="left">${notes.join("; ")}</td>
+            `;
+
+            tbody.appendChild(tr);
+
+            const table = document.getElementById("coachesTable");
+const headers = table.querySelectorAll("thead th");
+
+let sortState = {};
+
+function sortCoachesTable(colIndex, asc) {
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+
+        // Coach → last name sort
+        if (colIndex === 0) {
+            const aLast = a.dataset.coach.split(" ").pop();
+            const bLast = b.dataset.coach.split(" ").pop();
+            return aLast.localeCompare(bLast) * dir;
+        }
+
+        // Seasons → most recent year
+        if (colIndex === 1) {
+            const aYear = Number(a.dataset.lastyear);
+            const bYear = Number(b.dataset.lastyear);
+            return (aYear - bYear) * dir;
+        }
+
+        // numeric columns
+        const A = parseFloat(a.cells[colIndex].innerText) || 0;
+        const B = parseFloat(b.cells[colIndex].innerText) || 0;
+
+        return (A - B) * dir;
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+}
+
+headers.forEach((th, i) => {
+    th.classList.add("sortable");
+    sortState[i] = true;
+
+    th.addEventListener("click", () => {
+        sortCoachesTable(i, sortState[i]);
+        sortState[i] = !sortState[i];
+    });
+});
+        });
+
+    });
+
+    const coachHeaders = document.querySelectorAll("#coachesTable thead th");
+
+let coachSortState = {};
+
+coachHeaders.forEach((th, i) => {
+    th.classList.add("sortable");
+    coachSortState[i] = true;
+
+    th.addEventListener("click", () => {
+        sortCoachesTable(i, coachSortState[i]);
+        coachSortState[i] = !coachSortState[i];
+    });
+});
+
+renderBreadcrumb([
+    { label: "Stafford Indians", link: "index.html" },
+    { label: "Coaches" }
+]);
+</script>
+
+</body>
+</html>

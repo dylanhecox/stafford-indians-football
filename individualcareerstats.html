@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Individual Stats - Career</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .nav-links {
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: blue;
+            margin: 0 5px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: auto;
+            display: inline-table;
+            margin-bottom: 25px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td {
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        th.sortable {
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s ease;
+        }
+
+        th.sortable:hover {
+            background-color: #dcdcdc;
+        }
+
+        .expand-button {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 6px 12px;
+            cursor: pointer;
+            border: 1px solid #999;
+            background-color: #f2f2f2;
+        }
+
+        .expand-button:hover {
+            background-color: #ddd;
+        }
+
+        .extra-row {
+            display: none;
+        }
+
+        /* ================= SOURCE STYLING ================= */
+
+        .combined-header {
+            background-color: #e8e8e8;
+        }
+
+        .combined-cell {
+            background-color: #fafafa;
+        }
+
+        .combined-start {
+            border-left: 3px solid #888 !important;
+        }
+
+        .source-note {
+            cursor: help;
+            font-size: 0.7em;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 1px;
+        }
+
+        .career-override-note {
+            cursor: help;
+            font-size: 0.7em;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 1px;
+        }
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="nav.js"></script>
+
+</head>
+
+<body>
+
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1>Individual Stats - Career</h1>
+
+<div class="nav-links">
+
+    <a href="#passing">Passing</a> -
+
+    <a href="#rr">Rushing & Receiving</a> -
+
+    <a href="#kicking">Kicking</a> -
+
+    <a href="#otherscoring">Other Scoring</a> -
+
+    <a href="#points">Points Scored</a>
+
+</div>
+
+
+<!-- ================= PASSING ================= -->
+
+<h2 id="passing">Passing</h2>
+
+<table id="passingTable">
+
+    <thead>
+
+        <tr>
+
+            <th class="left" rowspan="2">Player</th>
+
+            <th rowspan="2">Seasons</th>
+
+            <th colspan="6">
+
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+
+            </th>
+
+            <th
+                colspan="6"
+                class="combined-header combined-start"
+            >
+
+                Combined Statistics<span
+                    class="source-note"
+                    title="Combined statistics use Free Lance-Star season totals where available and derived game statistics for seasons without published Free Lance-Star statistics."
+                >3</span>
+
+            </th>
+
+        </tr>
+
+        <tr>
+
+            <th>Cmp</th>
+            <th>Att</th>
+            <th>Cmp%</th>
+            <th>Yds</th>
+            <th>TD</th>
+            <th>Int</th>
+
+            <th class="combined-header combined-start">Cmp</th>
+            <th class="combined-header">Att</th>
+            <th class="combined-header">Cmp%</th>
+            <th class="combined-header">Yds</th>
+            <th class="combined-header">TD</th>
+            <th class="combined-header">Int</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+<br>
+
+<button id="passingExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<!-- ================= RUSHING & RECEIVING ================= -->
+
+<h2 id="rr">Rushing & Receiving</h2>
+
+<table id="rrTable">
+
+    <thead>
+
+        <tr>
+
+            <th class="left" rowspan="3">Player</th>
+
+            <th rowspan="3">Seasons</th>
+
+            <th colspan="9">
+
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+
+            </th>
+
+            <th
+                colspan="9"
+                class="combined-header combined-start"
+            >
+
+                Combined Statistics<span
+                    class="source-note"
+                    title="Combined statistics use Free Lance-Star season totals where available and derived game statistics for seasons without published Free Lance-Star statistics."
+                >3</span>
+
+            </th>
+
+        </tr>
+
+        <tr>
+
+            <th colspan="3">Rushing</th>
+            <th colspan="3">Receiving</th>
+            <th colspan="3">Total</th>
+
+            <th colspan="3" class="combined-header combined-start">Rushing</th>
+            <th colspan="3" class="combined-header">Receiving</th>
+            <th colspan="3" class="combined-header">Total</th>
+
+        </tr>
+
+        <tr>
+
+            <th>Att</th>
+            <th>Yds</th>
+            <th>TD</th>
+
+            <th>Rec</th>
+            <th>Yds</th>
+            <th>TD</th>
+
+            <th>Tou</th>
+            <th>Yds</th>
+            <th>TD</th>
+
+            <th class="combined-header combined-start">Att</th>
+            <th class="combined-header">Yds</th>
+            <th class="combined-header">TD</th>
+
+            <th class="combined-header">Rec</th>
+            <th class="combined-header">Yds</th>
+            <th class="combined-header">TD</th>
+
+            <th class="combined-header">Tou</th>
+            <th class="combined-header">Yds</th>
+            <th class="combined-header">TD</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+<br>
+
+<button id="rrExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<!-- ================= KICKING ================= -->
+
+<h2 id="kicking">Kicking</h2>
+
+<table id="kickingTable">
+
+    <thead>
+
+        <tr>
+
+            <th class="left" rowspan="2">Player</th>
+
+            <th rowspan="2">Seasons</th>
+
+            <th colspan="6">
+
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+
+            </th>
+
+            <th
+                colspan="6"
+                class="combined-header combined-start"
+            >
+
+                Combined Statistics<span
+                    class="source-note"
+                    title="Combined statistics use Free Lance-Star season totals where available and derived game statistics for seasons without published Free Lance-Star statistics."
+                >3</span>
+
+            </th>
+
+        </tr>
+
+        <tr>
+
+            <th>XPM</th>
+            <th>XPA</th>
+            <th>XP%</th>
+            <th>FGM</th>
+            <th>Long</th>
+            <th>Points Scored</th>
+
+            <th class="combined-header combined-start">XPM</th>
+            <th class="combined-header">XPA</th>
+            <th class="combined-header">XP%</th>
+            <th class="combined-header">FGM</th>
+            <th class="combined-header">Long</th>
+            <th class="combined-header">Points Scored</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+<br>
+
+<button id="kickingExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<!-- ================= OTHER SCORING STATS ================= -->
+
+<h2 id="otherscoring">Other Scoring Stats</h2>
+
+<table id="otherScoringTable">
+
+    <thead>
+
+        <tr>
+
+            <th class="left">Player</th>
+            <th>Seasons</th>
+            <th>1PT PAT</th>
+            <th>2PT PAT</th>
+            <th>PR TD</th>
+            <th>KR TD</th>
+            <th>Int TD</th>
+            <th>FR TD</th>
+            <th>Blocked Punt TD</th>
+            <th>Blocked FG TD</th>
+            <th>Total TD</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+<br>
+
+<button id="otherScoringExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<!-- ================= POINTS SCORED ================= -->
+
+<h2 id="points">Points Scored</h2>
+
+<table id="pointsTable">
+
+    <thead>
+
+        <tr>
+
+            <th class="left">Player</th>
+            <th>Seasons</th>
+            <th>Points</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+<br>
+
+<button id="pointsExpandBtn" class="expand-button">
+    Show Full Table
+</button>
+
+
+<script>
+
+
+// ============================================================
+// SORTING
+// ============================================================
+
+function sortTable(table, colIndex, asc) {
+
+    const tbody = table.querySelector("tbody");
+
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+
+        // ================= PLAYER SORT =================
+
+        if (colIndex === 0) {
+
+            const aId = a.dataset.playerid || "";
+            const bId = b.dataset.playerid || "";
+
+            return aId.localeCompare(bId) * dir;
+
+        }
+
+
+        // ================= SEASON SORT =================
+
+        if (colIndex === 1) {
+
+            const aStart =
+                Number((a.dataset.seasons || "").split("-")[0]);
+
+            const bStart =
+                Number((b.dataset.seasons || "").split("-")[0]);
+
+            return (aStart - bStart) * dir;
+
+        }
+
+
+        // ================= NORMAL SORT =================
+
+        let A = a.cells[colIndex]
+            .innerText
+            .trim()
+            .replace(/,/g, "");
+
+        let B = b.cells[colIndex]
+            .innerText
+            .trim()
+            .replace(/,/g, "");
+
+        const numA = parseFloat(A);
+        const numB = parseFloat(B);
+
+
+        // ================= NUMERIC SORT =================
+
+        if (!isNaN(numA) && !isNaN(numB)) {
+
+            if (numA !== numB) {
+
+                return (numA - numB) * dir;
+
+            }
+
+            const aSeason =
+                Number((a.dataset.seasons || "").split("-")[0]);
+
+            const bSeason =
+                Number((b.dataset.seasons || "").split("-")[0]);
+
+            return bSeason - aSeason;
+
+        }
+
+
+        // ================= TEXT SORT =================
+
+        const textCompare = A.localeCompare(B);
+
+        if (textCompare !== 0) {
+
+            return textCompare * dir;
+
+        }
+
+        const aSeason =
+            Number((a.dataset.seasons || "").split("-")[0]);
+
+        const bSeason =
+            Number((b.dataset.seasons || "").split("-")[0]);
+
+        return bSeason - aSeason;
+
+    });
+
+
+    rows.forEach(r => tbody.appendChild(r));
+
+    applyTop10(table);
+
+}
+
+
+// ============================================================
+// TOP 10
+// ============================================================
+
+function applyTop10(table) {
+
+    const rows =
+        table.querySelectorAll("tbody tr");
+
+    rows.forEach((row, index) => {
+
+        if (index >= 10) {
+
+            row.classList.add("extra-row");
+
+        } else {
+
+            row.classList.remove("extra-row");
+
+            row.style.display = "";
+
+        }
+
+    });
+
+}
+
+
+// ============================================================
+// EXPAND BUTTON
+// ============================================================
+
+function setupExpandButton(buttonId, tableId) {
+
+    const button =
+        document.getElementById(buttonId);
+
+    const table =
+        document.getElementById(tableId);
+
+    let expanded = false;
+
+    button.addEventListener("click", () => {
+
+        expanded = !expanded;
+
+        const rows =
+            table.querySelectorAll("tbody tr");
+
+        rows.forEach((row, index) => {
+
+            if (index >= 10) {
+
+                row.style.display =
+                    expanded
+                    ? "table-row"
+                    : "none";
+
+            }
+
+        });
+
+        button.innerText =
+            expanded
+            ? "Show Top 10 Only"
+            : "Show Full Table";
+
+    });
+
+}
+
+
+// ============================================================
+// FORMAT SEASON RANGE
+// ============================================================
+
+function formatSeasonRange(seasonSet) {
+
+    const seasons =
+        Array.from(seasonSet)
+            .map(Number)
+            .sort((a, b) => a - b);
+
+    if (seasons.length === 0) return "";
+
+    const first = seasons[0];
+    const last = seasons[seasons.length - 1];
+
+    return first === last
+        ? String(first)
+        : `${first}-${last}`;
+
+}
+
+
+// ============================================================
+// LOAD DATA
+// ============================================================
+
+Promise.all([
+
+    fetch("Master_IndividualStats.csv")
+        .then(r => r.text()),
+
+    fetch("Master_GameEvents.csv")
+        .then(r => r.text()),
+
+    fetch("Master_FLSSeasonStats.csv")
+        .then(r => r.text())
+
+])
+
+.then(([individualCSV, eventsCSV, flsCSV]) => {
+
+
+    // ========================================================
+    // PARSE GAME INDIVIDUAL STATS
+    // ========================================================
+
+    const data =
+        Papa.parse(individualCSV, {
+            header: true,
+            skipEmptyLines: true,
+            transformHeader: h => h.trim()
+        }).data;
+
+
+    // ========================================================
+    // PARSE GAME EVENTS
+    // ========================================================
+
+    const events =
+        Papa.parse(eventsCSV, {
+            header: true,
+            skipEmptyLines: true,
+            transformHeader: h => h.trim()
+        }).data;
+
+
+    // ========================================================
+    // PARSE FLS SEASON STATS
+    // ========================================================
+
+    const fls =
+        Papa.parse(flsCSV, {
+            header: true,
+            skipEmptyLines: true,
+            transformHeader: h => h.trim()
+        }).data;
+
+
+    // ========================================================
+    // HELPER
+    // ========================================================
+
+    function numericValue(value) {
+
+        if (
+            value === undefined ||
+            value === null ||
+            String(value).trim() === ""
+        ) {
+
+            return null;
+
+        }
+
+        const n = Number(
+            String(value)
+                .replace(/,/g, "")
+                .trim()
+        );
+
+        return isNaN(n) ? null : n;
+
+    }
+
+
+    // ========================================================
+    // GAME STATISTICS BY PLAYER / SEASON
+    // ========================================================
+
+    const gamePassing = {};
+    const gameRR = {};
+    const gameKicking = {};
+
+
+    // ========================================================
+    // GAME PASSING
+    // ========================================================
+
+    data.forEach(row => {
+
+        const stat =
+            String(row.stat_name || "").trim();
+
+        const passingStats = [
+            "Completions",
+            "Attempts",
+            "PassYards",
+            "PassTD",
+            "Interceptions"
+        ];
+
+        if (!passingStats.includes(stat)) return;
+
+        const player =
+            String(row.player || "").trim();
+
+        const playerId =
+            String(row.player_id || "").trim();
+
+        const season =
+            String(row.season || "").trim();
+
+        if (!playerId || !season) return;
+
+        const key =
+            `${playerId}|${season}`;
+
+        if (!gamePassing[key]) {
+
+            gamePassing[key] = {
+                player,
+                playerId,
+                season,
+                cmp: 0,
+                att: 0,
+                yds: 0,
+                td: 0,
+                int: 0
+            };
+
+        }
+
+        const value =
+            numericValue(row.stat_value);
+
+        if (value === null) return;
+
+        const p =
+            gamePassing[key];
+
+        if (stat === "Completions")
+            p.cmp += value;
+
+        else if (stat === "Attempts")
+            p.att += value;
+
+        else if (stat === "PassYards")
+            p.yds += value;
+
+        else if (stat === "PassTD")
+            p.td += value;
+
+        else if (stat === "Interceptions")
+            p.int += value;
+
+    });
+
+
+    // ========================================================
+    // GAME RUSHING / RECEIVING
+    // ========================================================
+
+    data.forEach(row => {
+
+        const stat =
+            String(row.stat_name || "").trim();
+
+        const rrStats = [
+            "RushAtt",
+            "RushYds",
+            "RushTD",
+            "Receptions",
+            "RecYards",
+            "RecTD"
+        ];
+
+        if (!rrStats.includes(stat)) return;
+
+        const player =
+            String(row.player || "").trim();
+
+        const playerId =
+            String(row.player_id || "").trim();
+
+        const season =
+            String(row.season || "").trim();
+
+        if (!playerId || !season) return;
+
+        const key =
+            `${playerId}|${season}`;
+
+        if (!gameRR[key]) {
+
+            gameRR[key] = {
+                player,
+                playerId,
+                season,
+                rushAtt: 0,
+                rushYds: 0,
+                rushTD: 0,
+                rec: 0,
+                recYds: 0,
+                recTD: 0
+            };
+
+        }
+
+        const value =
+            numericValue(row.stat_value);
+
+        if (value === null) return;
+
+        const p =
+            gameRR[key];
+
+        if (stat === "RushAtt")
+            p.rushAtt += value;
+
+        else if (stat === "RushYds")
+            p.rushYds += value;
+
+        else if (stat === "RushTD")
+            p.rushTD += value;
+
+        else if (stat === "Receptions")
+            p.rec += value;
+
+        else if (stat === "RecYards")
+            p.recYds += value;
+
+        else if (stat === "RecTD")
+            p.recTD += value;
+
+    });
+
+
+    // ========================================================
+    // GAME KICKING
+    // ========================================================
+
+    data.forEach(row => {
+
+        const stat =
+            String(row.stat_name || "").trim();
+
+        const kickingStats = [
+            "Extra Points Made",
+            "Extra Points Attempted",
+            "Field Goals Made",
+            "Field Goal Distances"
+        ];
+
+        if (!kickingStats.includes(stat)) return;
+
+        const player =
+            String(row.player || "").trim();
+
+        const playerId =
+            String(row.player_id || "").trim();
+
+        const season =
+            String(row.season || "").trim();
+
+        if (!playerId || !season) return;
+
+        const key =
+            `${playerId}|${season}`;
+
+        if (!gameKicking[key]) {
+
+            gameKicking[key] = {
+                player,
+                playerId,
+                season,
+                xpm: 0,
+                xpa: 0,
+                fgm: 0,
+                long: null
+            };
+
+        }
+
+        const value =
+            numericValue(row.stat_value);
+
+        const p =
+            gameKicking[key];
+
+
+        if (stat === "Extra Points Made") {
+
+            if (value !== null)
+                p.xpm += value;
+
+        }
+
+        else if (stat === "Extra Points Attempted") {
+
+            if (value !== null)
+                p.xpa += value;
+
+        }
+
+        else if (stat === "Field Goals Made") {
+
+            if (value !== null)
+                p.fgm += value;
+
+        }
+
+        else if (stat === "Field Goal Distances") {
+
+            const distances =
+                String(row.stat_value || "")
+                    .split(",")
+                    .map(x => parseInt(x.trim()))
+                    .filter(x => !isNaN(x));
+
+            if (distances.length > 0) {
+
+                const maxDistance =
+                    Math.max(...distances);
+
+                if (
+                    p.long === null ||
+                    maxDistance > p.long
+                ) {
+
+                    p.long = maxDistance;
+
+                }
+
+            }
+
+        }
+
+    });
+
+
+    // ========================================================
+    // FLS STATS BY PLAYER / SEASON
+    // ========================================================
+
+    const flsPassing = {};
+    const flsRR = {};
+    const flsKicking = {};
+
+
+    // ========================================================
+    // FLS PASSING
+    // ========================================================
+
+    fls.forEach(row => {
+
+        const category =
+            String(row.stat_category || "").trim();
+
+        if (category !== "Passing") return;
+
+        const player =
+            String(row.player || "").trim();
+
+        const playerId =
+            String(row.player_id || "").trim();
+
+        const season =
+            String(row.season || "").trim();
+
+        const stat =
+            String(row.stat_name || "").trim();
+
+        if (!playerId || !season || !stat) return;
+
+        const key =
+            `${playerId}|${season}`;
+
+        if (!flsPassing[key]) {
+
+            flsPassing[key] = {
+                player,
+                playerId,
+                season,
+                cmp: null,
+                att: null,
+                yds: null,
+                td: null,
+                int: null,
+                available: new Set()
+            };
+
+        }
+
+        const p =
+            flsPassing[key];
+
+        const value =
+            numericValue(row.stat_value);
+
+        if (value === null) return;
+
+        if (stat === "Completions") {
+
+            p.cmp = value;
+            p.available.add("cmp");
+
+        }
+
+        else if (stat === "Attempts") {
+
+            p.att = value;
+            p.available.add("att");
+
+        }
+
+        else if (stat === "PassYards") {
+
+            p.yds = value;
+            p.available.add("yds");
+
+        }
+
+        else if (stat === "PassTD") {
+
+            p.td = value;
+            p.available.add("td");
+
+        }
+
+        else if (stat === "Interceptions") {
+
+            p.int = value;
+            p.available.add("int");
+
+        }
+
+    });
+
+
+    // ========================================================
+    // FLS RUSHING / RECEIVING
+    // ========================================================
+
+    fls.forEach(row => {
+
+        const category =
+            String(row.stat_category || "").trim();
+
+        if (
+            category !== "Rushing" &&
+            category !== "Receiving"
+        ) {
+
+            return;
+
+        }
+
+        const player =
+            String(row.player || "").trim();
+
+        const playerId =
+            String(row.player_id || "").trim();
+
+        const season =
+            String(row.season || "").trim();
+
+        const stat =
+            String(row.stat_name || "").trim();
+
+        if (!playerId || !season || !stat) return;
+
+        const key =
+            `${playerId}|${season}`;
+
+        if (!flsRR[key]) {
+
+            flsRR[key] = {
+                player,
+                playerId,
+                season,
+                rushAtt: null,
+                rushYds: null,
+                rushTD: null,
+                rec: null,
+                recYds: null,
+                recTD: null,
+                available: new Set()
+            };
+
+        }
+
+        const p =
+            flsRR[key];
+
+        const value =
+            numericValue(row.stat_value);
+
+        if (value === null) return;
+
+        if (stat === "RushAtt") {
+
+            p.rushAtt = value;
+            p.available.add("rushAtt");
+
+        }
+
+        else if (stat === "RushYds") {
+
+            p.rushYds = value;
+            p.available.add("rushYds");
+
+        }
+
+        else if (stat === "RushTD") {
+
+            p.rushTD = value;
+            p.available.add("rushTD");
+
+        }
+
+        else if (stat === "Receptions") {
+
+            p.rec = value;
+            p.available.add("rec");
+
+        }
+
+        else if (stat === "RecYards") {
+
+            p.recYds = value;
+            p.available.add("recYds");
+
+        }
+
+        else if (stat === "RecTD") {
+
+            p.recTD = value;
+            p.available.add("recTD");
+
+        }
+
+    });
+
+
+    // ========================================================
+    // FLS KICKING
+    // ========================================================
+
+    fls.forEach(row => {
+
+        const category =
+            String(row.stat_category || "").trim();
+
+        if (category !== "Kicking") return;
+
+        const player =
+            String(row.player || "").trim();
+
+        const playerId =
+            String(row.player_id || "").trim();
+
+        const season =
+            String(row.season || "").trim();
+
+        const stat =
+            String(row.stat_name || "").trim();
+
+        if (!playerId || !season || !stat) return;
+
+        const key =
+            `${playerId}|${season}`;
+
+        if (!flsKicking[key]) {
+
+            flsKicking[key] = {
+                player,
+                playerId,
+                season,
+                xpm: null,
+                xpa: null,
+                fgm: null,
+                points: null,
+                long: null,
+                available: new Set()
+            };
+
+        }
+
+        const p =
+            flsKicking[key];
+
+        const value =
+            numericValue(row.stat_value);
+
+        if (value === null) return;
+
+        if (stat === "Extra Points Made") {
+
+            p.xpm = value;
+            p.available.add("xpm");
+
+        }
+
+        else if (stat === "Extra Points Attempted") {
+
+            p.xpa = value;
+            p.available.add("xpa");
+
+        }
+
+        else if (stat === "Field Goals Made") {
+
+            p.fgm = value;
+            p.available.add("fgm");
+
+        }
+
+        else if (stat === "Points Scored") {
+
+            p.points = value;
+            p.available.add("points");
+
+        }
+
+        else if (stat === "Longest Field Goal") {
+
+            p.long = value;
+            p.available.add("long");
+
+        }
+
+    });
+
+
+    // ========================================================
+    // HELPER:
+    // FLS VALUE IF PRESENT, OTHERWISE GAME VALUE
+    // ========================================================
+
+    function chooseValue(flsObject, field, gameObject) {
+
+        if (
+            flsObject &&
+            flsObject[field] !== null &&
+            flsObject[field] !== undefined
+        ) {
+
+            return flsObject[field];
+
+        }
+
+        if (
+            gameObject &&
+            gameObject[field] !== null &&
+            gameObject[field] !== undefined
+        ) {
+
+            return gameObject[field];
+
+        }
+
+        return 0;
+
+    }
+
+
+    // ========================================================
+    // BUILD COMBINED PASSING CAREER TOTALS
+    // ========================================================
+
+    const combinedPassing = {};
+
+    const passingKeys =
+        new Set([
+            ...Object.keys(gamePassing),
+            ...Object.keys(flsPassing)
+        ]);
+
+    passingKeys.forEach(key => {
+
+        const g =
+            gamePassing[key];
+
+        const f =
+            flsPassing[key];
+
+        const source =
+            f || g;
+
+        if (!source) return;
+
+        const playerId =
+            source.playerId;
+
+        const player =
+            source.player;
+
+        if (!combinedPassing[playerId]) {
+
+            combinedPassing[playerId] = {
+                player,
+                playerId,
+                seasons: new Set(),
+                cmp: 0,
+                att: 0,
+                yds: 0,
+                td: 0,
+                int: 0
+            };
+
+        }
+
+        const c =
+            combinedPassing[playerId];
+
+        c.seasons.add(source.season);
+
+        c.cmp += chooseValue(f, "cmp", g);
+        c.att += chooseValue(f, "att", g);
+        c.yds += chooseValue(f, "yds", g);
+        c.td += chooseValue(f, "td", g);
+        c.int += chooseValue(f, "int", g);
+
+    });
+
+
+    // ========================================================
+    // BUILD PURE GAME PASSING CAREER
+    // ========================================================
+
+    const gamePassingCareer = {};
+
+    Object.values(gamePassing).forEach(p => {
+
+        if (!gamePassingCareer[p.playerId]) {
+
+            gamePassingCareer[p.playerId] = {
+                player: p.player,
+                playerId: p.playerId,
+                seasons: new Set(),
+                cmp: 0,
+                att: 0,
+                yds: 0,
+                td: 0,
+                int: 0
+            };
+
+        }
+
+        const c =
+            gamePassingCareer[p.playerId];
+
+        c.seasons.add(p.season);
+
+        c.cmp += p.cmp;
+        c.att += p.att;
+        c.yds += p.yds;
+        c.td += p.td;
+        c.int += p.int;
+
+    });
+
+
+    // ========================================================
+    // RENDER PASSING
+    // ========================================================
+
+    const passingBody =
+        document.querySelector("#passingTable tbody");
+
+    const passingPlayers =
+        new Set([
+            ...Object.keys(gamePassingCareer),
+            ...Object.keys(combinedPassing)
+        ]);
+
+    passingPlayers.forEach(playerId => {
+
+        const g =
+            gamePassingCareer[playerId];
+
+        const c =
+            combinedPassing[playerId];
+
+        const source =
+            g || c;
+
+        if (!source) return;
+
+        if (
+            (!g || g.att === 0) &&
+            (!c || c.att === 0)
+        ) {
+
+            return;
+
+        }
+
+        const gameCmpPct =
+            g && g.att
+                ? (g.cmp / g.att * 100).toFixed(1)
+                : "";
+
+        const combinedCmpPct =
+            c && c.att
+                ? (c.cmp / c.att * 100).toFixed(1)
+                : "";
+
+        const seasons =
+            new Set([
+                ...(g ? g.seasons : []),
+                ...(c ? c.seasons : [])
+            ]);
+
+        const tr =
+            document.createElement("tr");
+
+        tr.dataset.playerid =
+            playerId;
+
+        tr.dataset.seasons =
+            formatSeasonRange(seasons);
+
+        tr.innerHTML = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${playerId}">
+                    ${source.player}
+                </a>
+
+            </td>
+
+            <td class="center">
+                ${formatSeasonRange(seasons)}
+            </td>
+
+            <td>${g ? g.cmp : ""}</td>
+            <td>${g ? g.att : ""}</td>
+            <td>${gameCmpPct}</td>
+            <td>${g ? Number(g.yds).toLocaleString() : ""}</td>
+            <td>${g ? g.td : ""}</td>
+            <td>${g ? g.int : ""}</td>
+
+            <td class="combined-cell combined-start">
+                ${c ? c.cmp : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? c.att : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${combinedCmpPct}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? Number(c.yds).toLocaleString() : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? c.td : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? c.int : ""}
+            </td>
+
+        `;
+
+        passingBody.appendChild(tr);
+
+    });
+
+
+// ========================================================
+// PUBLISHED CAREER TOTAL OVERRIDES
+// ========================================================
+//
+// Used only when documented career totals cannot be
+// reconstructed from the surviving season/game records.
+// Individual season statistics remain unchanged.
+//
+// Horace Green: published Stafford career rushing total.
+// Complete game statistics are unavailable for portions
+// of the 1963 and 1964 seasons.
+//
+
+const careerRROverrides = {
+
+    "greenhorace": {
+        rushAtt: 371,
+        rushYds: 2781
+    }
+
+};
+
+
+    // ========================================================
+    // BUILD COMBINED RR CAREER
+    // ========================================================
+
+    const combinedRR = {};
+
+    const rrKeys =
+        new Set([
+            ...Object.keys(gameRR),
+            ...Object.keys(flsRR)
+        ]);
+
+    rrKeys.forEach(key => {
+
+        const g =
+            gameRR[key];
+
+        const f =
+            flsRR[key];
+
+        const source =
+            f || g;
+
+        if (!source) return;
+
+        const playerId =
+            source.playerId;
+
+        if (!combinedRR[playerId]) {
+
+            combinedRR[playerId] = {
+                player: source.player,
+                playerId,
+                seasons: new Set(),
+                rushAtt: 0,
+                rushYds: 0,
+                rushTD: 0,
+                rec: 0,
+                recYds: 0,
+                recTD: 0
+            };
+
+        }
+
+        const c =
+            combinedRR[playerId];
+
+        c.seasons.add(source.season);
+
+        c.rushAtt +=
+            chooseValue(f, "rushAtt", g);
+
+        c.rushYds +=
+            chooseValue(f, "rushYds", g);
+
+        c.rushTD +=
+            chooseValue(f, "rushTD", g);
+
+        c.rec +=
+            chooseValue(f, "rec", g);
+
+        c.recYds +=
+            chooseValue(f, "recYds", g);
+
+        c.recTD +=
+            chooseValue(f, "recTD", g);
+
+    });
+
+
+    // ========================================================
+    // APPLY PUBLISHED CAREER TOTAL OVERRIDES
+    // ========================================================
+
+    Object.entries(careerRROverrides).forEach(([playerId, override]) => {
+
+        if (!combinedRR[playerId]) return;
+
+        if (override.rushAtt !== undefined) {
+
+            combinedRR[playerId].rushAtt =
+                override.rushAtt;
+
+        }
+
+        if (override.rushYds !== undefined) {
+
+            combinedRR[playerId].rushYds =
+                override.rushYds;
+
+        }
+
+    });
+
+
+    // ========================================================
+    // BUILD PURE GAME RR CAREER
+    // ========================================================
+
+    const gameRRCareer = {};
+
+    Object.values(gameRR).forEach(p => {
+
+        if (!gameRRCareer[p.playerId]) {
+
+            gameRRCareer[p.playerId] = {
+                player: p.player,
+                playerId: p.playerId,
+                seasons: new Set(),
+                rushAtt: 0,
+                rushYds: 0,
+                rushTD: 0,
+                rec: 0,
+                recYds: 0,
+                recTD: 0
+            };
+
+        }
+
+        const c =
+            gameRRCareer[p.playerId];
+
+        c.seasons.add(p.season);
+
+        c.rushAtt += p.rushAtt;
+        c.rushYds += p.rushYds;
+        c.rushTD += p.rushTD;
+        c.rec += p.rec;
+        c.recYds += p.recYds;
+        c.recTD += p.recTD;
+
+    });
+
+
+    // ========================================================
+    // RENDER RR
+    // ========================================================
+
+    const rrBody =
+        document.querySelector("#rrTable tbody");
+
+    const rrPlayers =
+        new Set([
+            ...Object.keys(gameRRCareer),
+            ...Object.keys(combinedRR)
+        ]);
+
+    rrPlayers.forEach(playerId => {
+
+        const g =
+            gameRRCareer[playerId];
+
+        const c =
+            combinedRR[playerId];
+
+        const source =
+            g || c;
+
+        if (!source) return;
+
+        const gameTouches =
+            g
+                ? g.rushAtt + g.rec
+                : 0;
+
+        const gameYards =
+            g
+                ? g.rushYds + g.recYds
+                : 0;
+
+        const gameTD =
+            g
+                ? g.rushTD + g.recTD
+                : 0;
+
+
+        const combinedTouches =
+            c
+                ? c.rushAtt + c.rec
+                : 0;
+
+        const combinedYards =
+            c
+                ? c.rushYds + c.recYds
+                : 0;
+
+        const combinedTD =
+            c
+                ? c.rushTD + c.recTD
+                : 0;
+
+
+        if (
+            gameTouches === 0 &&
+            gameYards === 0 &&
+            gameTD === 0 &&
+            combinedTouches === 0 &&
+            combinedYards === 0 &&
+            combinedTD === 0
+        ) {
+
+            return;
+
+        }
+
+
+        const seasons =
+            new Set([
+                ...(g ? g.seasons : []),
+                ...(c ? c.seasons : [])
+            ]);
+
+
+        const tr =
+            document.createElement("tr");
+
+        tr.dataset.playerid =
+            playerId;
+
+        tr.dataset.seasons =
+            formatSeasonRange(seasons);
+
+
+        tr.innerHTML = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${playerId}">
+                    ${source.player}
+                </a>
+
+            </td>
+
+            <td class="center">
+                ${formatSeasonRange(seasons)}
+            </td>
+
+
+            <!-- GAME -->
+
+            <td>${g ? g.rushAtt : ""}</td>
+
+            <td>
+                ${g ? Number(g.rushYds).toLocaleString() : ""}
+            </td>
+
+            <td>${g ? g.rushTD : ""}</td>
+
+            <td>${g ? g.rec : ""}</td>
+
+            <td>
+                ${g ? Number(g.recYds).toLocaleString() : ""}
+            </td>
+
+            <td>${g ? g.recTD : ""}</td>
+
+            <td>${g ? gameTouches : ""}</td>
+
+            <td>
+                ${g ? Number(gameYards).toLocaleString() : ""}
+            </td>
+
+            <td>${g ? gameTD : ""}</td>
+
+
+            <!-- COMBINED -->
+
+            <td class="combined-cell combined-start">
+
+                ${c
+                    ? `${c.rushAtt}${playerId === "greenhorace"
+                        ? '<span class="career-override-note" title="Published career total. Used because complete game records are unavailable for portions of the 1963 and 1964 seasons.">†</span>'
+                        : ""}`
+                    : ""}
+
+            </td>
+
+            <td class="combined-cell">
+
+                ${c
+                    ? `${Number(c.rushYds).toLocaleString()}${playerId === "greenhorace"
+                        ? '<span class="career-override-note" title="Published career total. Used because complete game records are unavailable for portions of the 1963 and 1964 seasons.">†</span>'
+                        : ""}`
+                    : ""}
+
+            </td>
+
+            <td class="combined-cell">
+                ${c ? c.rushTD : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? c.rec : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? Number(c.recYds).toLocaleString() : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? c.recTD : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? combinedTouches : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? Number(combinedYards).toLocaleString() : ""}
+            </td>
+
+            <td class="combined-cell">
+                ${c ? combinedTD : ""}
+            </td>
+
+        `;
+
+        rrBody.appendChild(tr);
+
+    });
+
+
+    // ========================================================
+    // BUILD COMBINED KICKING CAREER
+    // ========================================================
+
+    const combinedKicking = {};
+
+    const kickingKeys =
+        new Set([
+            ...Object.keys(gameKicking),
+            ...Object.keys(flsKicking)
+        ]);
+
+    kickingKeys.forEach(key => {
+
+        const g =
+            gameKicking[key];
+
+        const f =
+            flsKicking[key];
+
+        const source =
+            f || g;
+
+        if (!source) return;
+
+        const playerId =
+            source.playerId;
+
+        if (!combinedKicking[playerId]) {
+
+            combinedKicking[playerId] = {
+                player: source.player,
+                playerId,
+                seasons: new Set(),
+                xpm: 0,
+                xpa: 0,
+                fgm: 0,
+                long: null,
+                points: 0
+            };
+
+        }
+
+        const c =
+            combinedKicking[playerId];
+
+        c.seasons.add(source.season);
+
+        c.xpm +=
+            chooseValue(f, "xpm", g);
+
+        c.xpa +=
+            chooseValue(f, "xpa", g);
+
+        c.fgm +=
+            chooseValue(f, "fgm", g);
+
+        c.points +=
+            chooseValue(f, "points", g);
+
+
+        const seasonLong =
+            chooseValue(f, "long", g);
+
+        if (
+            seasonLong !== null &&
+            seasonLong !== undefined &&
+            seasonLong > 0
+        ) {
+
+            if (
+                c.long === null ||
+                seasonLong > c.long
+            ) {
+
+                c.long = seasonLong;
+
+            }
+
+        }
+
+    });
+
+
+    // ========================================================
+    // BUILD PURE GAME KICKING CAREER
+    // ========================================================
+
+    const gameKickingCareer = {};
+
+    Object.values(gameKicking).forEach(p => {
+
+        if (!gameKickingCareer[p.playerId]) {
+
+            gameKickingCareer[p.playerId] = {
+                player: p.player,
+                playerId: p.playerId,
+                seasons: new Set(),
+                xpm: 0,
+                xpa: 0,
+                fgm: 0,
+                long: null,
+                points: 0
+            };
+
+        }
+
+        const c =
+            gameKickingCareer[p.playerId];
+
+        c.seasons.add(p.season);
+
+        c.xpm += p.xpm;
+        c.xpa += p.xpa;
+        c.fgm += p.fgm;
+
+        if (
+            p.long !== null &&
+            (
+                c.long === null ||
+                p.long > c.long
+            )
+        ) {
+
+            c.long = p.long;
+
+        }
+
+    });
+
+
+    Object.values(gameKickingCareer).forEach(p => {
+
+        p.points =
+            p.xpm +
+            (p.fgm * 3);
+
+    });
+
+
+    // ========================================================
+    // RENDER KICKING
+    // ========================================================
+
+    const kickingBody =
+        document.querySelector("#kickingTable tbody");
+
+    const kickingPlayers =
+        new Set([
+            ...Object.keys(gameKickingCareer),
+            ...Object.keys(combinedKicking)
+        ]);
+
+    kickingPlayers.forEach(playerId => {
+
+        const g =
+            gameKickingCareer[playerId];
+
+        const c =
+            combinedKicking[playerId];
+
+        const source =
+            g || c;
+
+        if (!source) return;
+
+
+        if (
+            (!g || (g.xpa === 0 && g.fgm === 0)) &&
+            (!c || (c.xpa === 0 && c.fgm === 0))
+        ) {
+
+            return;
+
+        }
+
+
+        const gameXpPct =
+            g && g.xpa
+                ? (g.xpm / g.xpa * 100).toFixed(1)
+                : g
+                    ? "0.0"
+                    : "";
+
+
+        const combinedXpPct =
+            c && c.xpa
+                ? (c.xpm / c.xpa * 100).toFixed(1)
+                : c
+                    ? "0.0"
+                    : "";
+
+
+        const seasons =
+            new Set([
+                ...(g ? g.seasons : []),
+                ...(c ? c.seasons : [])
+            ]);
+
+
+        const tr =
+            document.createElement("tr");
+
+        tr.dataset.playerid =
+            playerId;
+
+        tr.dataset.seasons =
+            formatSeasonRange(seasons);
+
+
+        tr.innerHTML = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${playerId}">
+                    ${source.player}
+                </a>
+
+            </td>
+
+            <td class="center">
+                ${formatSeasonRange(seasons)}
+            </td>
+
+
+            <!-- GAME -->
+
+            <td>${g ? g.xpm : ""}</td>
+
+            <td>${g ? g.xpa : ""}</td>
+
+            <td>${gameXpPct}</td>
+
+            <td>${g ? g.fgm : ""}</td>
+
+            <td>
+
+                ${g && g.long !== null
+                    ? Number(g.long).toLocaleString()
+                    : ""}
+
+            </td>
+
+            <td>${g ? g.points : ""}</td>
+
+
+            <!-- COMBINED -->
+
+            <td class="combined-cell combined-start">
+
+                ${c ? c.xpm : ""}
+
+            </td>
+
+            <td class="combined-cell">
+
+                ${c ? c.xpa : ""}
+
+            </td>
+
+            <td class="combined-cell">
+
+                ${combinedXpPct}
+
+            </td>
+
+            <td class="combined-cell">
+
+                ${c ? c.fgm : ""}
+
+            </td>
+
+            <td class="combined-cell">
+
+                ${c && c.long !== null
+                    ? Number(c.long).toLocaleString()
+                    : ""}
+
+            </td>
+
+            <td class="combined-cell">
+
+                ${c ? c.points : ""}
+
+            </td>
+
+        `;
+
+        kickingBody.appendChild(tr);
+
+    });
+
+
+    // ========================================================
+    // BUILD OTHER SCORING STATS
+    // ========================================================
+
+    const otherScoring = {};
+
+
+    events.forEach(e => {
+
+        const player =
+            String(e.scoring_player || "").trim();
+
+        const playerId =
+            String(e.scoring_player_id || "").trim();
+
+        if (!player || !playerId) return;
+
+        const season =
+            String(e.season || "").trim();
+
+        const key =
+            playerId;
+
+
+        if (!otherScoring[key]) {
+
+            otherScoring[key] = {
+                player,
+                playerId,
+                seasons: new Set(),
+                onePt: 0,
+                twoPt: 0,
+                pr: 0,
+                kr: 0,
+                int: 0,
+                fr: 0,
+                blkPunt: 0,
+                blkFg: 0
+            };
+
+        }
+
+
+        const o =
+            otherScoring[key];
+
+        o.seasons.add(season);
+
+
+        const type =
+            String(e.event_type || "").trim();
+
+
+        if (
+            type === "one_pt_rush" ||
+            type === "one_pt_pass"
+        ) {
+
+            o.onePt++;
+
+        }
+
+        else if (
+            type === "two_pt_rush" ||
+            type === "two_pt_pass"
+        ) {
+
+            o.twoPt++;
+
+        }
+
+        else if (type === "punt_return_td") {
+
+            o.pr++;
+
+        }
+
+        else if (type === "kick_return_td") {
+
+            o.kr++;
+
+        }
+
+        else if (type === "interception_return_td") {
+
+            o.int++;
+
+        }
+
+        else if (type === "fumble_return_td") {
+
+            o.fr++;
+
+        }
+
+        else if (type === "blocked_punt_return_td") {
+
+            o.blkPunt++;
+
+        }
+
+        else if (
+            type === "blocked_field_goal_return_td"
+        ) {
+
+            o.blkFg++;
+
+        }
+
+    });
+
+
+    // ========================================================
+    // RENDER OTHER SCORING
+    // ========================================================
+
+    const otherBody =
+        document.querySelector("#otherScoringTable tbody");
+
+
+    Object.values(otherScoring).forEach(p => {
+
+        const totalTD =
+            p.pr +
+            p.kr +
+            p.int +
+            p.fr +
+            p.blkPunt +
+            p.blkFg;
+
+
+        const tr =
+            document.createElement("tr");
+
+
+        tr.dataset.playerid =
+            p.playerId;
+
+        tr.dataset.seasons =
+            formatSeasonRange(p.seasons);
+
+
+        tr.innerHTML = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${p.playerId}">
+                    ${p.player}
+                </a>
+
+            </td>
+
+            <td class="center">
+
+                ${formatSeasonRange(p.seasons)}
+
+            </td>
+
+            <td>${p.onePt}</td>
+            <td>${p.twoPt}</td>
+            <td>${p.pr}</td>
+            <td>${p.kr}</td>
+            <td>${p.int}</td>
+            <td>${p.fr}</td>
+            <td>${p.blkPunt}</td>
+            <td>${p.blkFg}</td>
+            <td>${totalTD}</td>
+
+        `;
+
+        otherBody.appendChild(tr);
+
+    });
+
+
+    // ========================================================
+    // BUILD POINTS SCORED
+    // ========================================================
+
+    const pointsScored = {};
+
+
+    // --------------------------------------------------------
+    // FROM INDIVIDUAL STATS
+    // --------------------------------------------------------
+
+    data.forEach(row => {
+
+        const stat =
+            String(row.stat_name || "").trim();
+
+
+        const scoringStats = [
+            "RushTD",
+            "RecTD",
+            "Extra Points Made",
+            "Field Goals Made"
+        ];
+
+
+        if (!scoringStats.includes(stat))
+            return;
+
+
+        const player =
+            String(row.player || "").trim();
+
+        const playerId =
+            String(row.player_id || "").trim();
+
+        const season =
+            String(row.season || "").trim();
+
+
+        if (!player || !playerId)
+            return;
+
+
+        if (!pointsScored[playerId]) {
+
+            pointsScored[playerId] = {
+                player,
+                playerId,
+                seasons: new Set(),
+                points: 0
+            };
+
+        }
+
+
+        const p =
+            pointsScored[playerId];
+
+        p.seasons.add(season);
+
+
+        const value =
+            numericValue(row.stat_value);
+
+
+        if (value === null)
+            return;
+
+
+        if (stat === "RushTD") {
+
+            p.points += value * 6;
+
+        }
+
+        else if (stat === "RecTD") {
+
+            p.points += value * 6;
+
+        }
+
+        else if (stat === "Extra Points Made") {
+
+            p.points += value;
+
+        }
+
+        else if (stat === "Field Goals Made") {
+
+            p.points += value * 3;
+
+        }
+
+    });
+
+
+    // --------------------------------------------------------
+    // FROM GAME EVENTS
+    // --------------------------------------------------------
+
+    events.forEach(e => {
+
+        const player =
+            String(e.scoring_player || "").trim();
+
+        const playerId =
+            String(e.scoring_player_id || "").trim();
+
+        if (!player || !playerId)
+            return;
+
+
+        const season =
+            String(e.season || "").trim();
+
+
+        if (!pointsScored[playerId]) {
+
+            pointsScored[playerId] = {
+                player,
+                playerId,
+                seasons: new Set(),
+                points: 0
+            };
+
+        }
+
+
+        const p =
+            pointsScored[playerId];
+
+        p.seasons.add(season);
+
+
+        const type =
+            String(e.event_type || "").trim();
+
+
+        if (
+            type === "punt_return_td" ||
+            type === "kick_return_td" ||
+            type === "interception_return_td" ||
+            type === "fumble_return_td" ||
+            type === "blocked_punt_return_td" ||
+            type === "blocked_field_goal_return_td"
+        ) {
+
+            p.points += 6;
+
+        }
+
+        else if (
+            type === "one_pt_rush" ||
+            type === "one_pt_pass"
+        ) {
+
+            p.points += 1;
+
+        }
+
+        else if (
+            type === "two_pt_rush" ||
+            type === "two_pt_pass"
+        ) {
+
+            p.points += 2;
+
+        }
+
+    });
+
+
+    // ========================================================
+    // RENDER POINTS SCORED
+    // ========================================================
+
+    const pointsBody =
+        document.querySelector("#pointsTable tbody");
+
+
+    Object.values(pointsScored).forEach(p => {
+
+        if (p.points === 0)
+            return;
+
+
+        const tr =
+            document.createElement("tr");
+
+
+        tr.dataset.playerid =
+            p.playerId;
+
+        tr.dataset.seasons =
+            formatSeasonRange(p.seasons);
+
+
+        tr.innerHTML = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${p.playerId}">
+                    ${p.player}
+                </a>
+
+            </td>
+
+            <td class="center">
+
+                ${formatSeasonRange(p.seasons)}
+
+            </td>
+
+            <td>${p.points}</td>
+
+        `;
+
+        pointsBody.appendChild(tr);
+
+    });
+
+
+    // ========================================================
+    // DEFAULT SORT — PASSING
+    // ========================================================
+
+    const passingTable =
+        document.getElementById("passingTable");
+
+
+    // Combined TD descending
+
+    sortTable(
+        passingTable,
+        12,
+        false
+    );
+
+
+    const passingHeaders =
+        passingTable.querySelectorAll("thead tr:last-child th");
+
+
+    let passingSortState = {};
+
+
+    passingHeaders.forEach((th, i) => {
+
+        /*
+         * Because Player and Seasons occupy the first
+         * two columns, the actual table column is i + 2.
+         */
+
+        const actualColumn =
+            i + 2;
+
+
+        th.classList.add("sortable");
+
+        passingSortState[actualColumn] =
+            true;
+
+
+        th.addEventListener("click", () => {
+
+            sortTable(
+                passingTable,
+                actualColumn,
+                passingSortState[actualColumn]
+            );
+
+            passingSortState[actualColumn] =
+                !passingSortState[actualColumn];
+
+        });
+
+    });
+
+
+    applyTop10(passingTable);
+
+    setupExpandButton(
+        "passingExpandBtn",
+        "passingTable"
+    );
+
+
+    // ========================================================
+    // DEFAULT SORT — RR
+    // ========================================================
+
+    const rrTable =
+        document.getElementById("rrTable");
+
+
+    // Combined Total Yards descending
+
+    sortTable(
+        rrTable,
+        19,
+        false
+    );
+
+
+    const rrHeaders =
+        rrTable.querySelectorAll("thead tr:last-child th");
+
+
+    let rrSortState = {};
+
+
+    rrHeaders.forEach((th, i) => {
+
+        const actualColumn =
+            i + 2;
+
+
+        th.classList.add("sortable");
+
+        rrSortState[actualColumn] =
+            true;
+
+
+        th.addEventListener("click", () => {
+
+            sortTable(
+                rrTable,
+                actualColumn,
+                rrSortState[actualColumn]
+            );
+
+            rrSortState[actualColumn] =
+                !rrSortState[actualColumn];
+
+        });
+
+    });
+
+
+    applyTop10(rrTable);
+
+    setupExpandButton(
+        "rrExpandBtn",
+        "rrTable"
+    );
+
+
+    // ========================================================
+    // DEFAULT SORT — KICKING
+    // ========================================================
+
+    const kickingTable =
+        document.getElementById("kickingTable");
+
+
+    // Combined Points Scored descending
+
+    sortTable(
+        kickingTable,
+        13,
+        false
+    );
+
+
+    const kickingHeaders =
+        kickingTable.querySelectorAll("thead tr:last-child th");
+
+
+    let kickingSortState = {};
+
+
+    kickingHeaders.forEach((th, i) => {
+
+        const actualColumn =
+            i + 2;
+
+
+        th.classList.add("sortable");
+
+        kickingSortState[actualColumn] =
+            true;
+
+
+        th.addEventListener("click", () => {
+
+            sortTable(
+                kickingTable,
+                actualColumn,
+                kickingSortState[actualColumn]
+            );
+
+            kickingSortState[actualColumn] =
+                !kickingSortState[actualColumn];
+
+        });
+
+    });
+
+
+    applyTop10(kickingTable);
+
+    setupExpandButton(
+        "kickingExpandBtn",
+        "kickingTable"
+    );
+
+
+    // ========================================================
+    // OTHER SCORING DEFAULT
+    // ========================================================
+
+    const otherTable =
+        document.getElementById("otherScoringTable");
+
+
+    sortTable(
+        otherTable,
+        10,
+        false
+    );
+
+
+    const otherHeaders =
+        otherTable.querySelectorAll("thead th");
+
+
+    let otherSortState = {};
+
+
+    otherHeaders.forEach((th, i) => {
+
+        th.classList.add("sortable");
+
+        otherSortState[i] =
+            true;
+
+
+        th.addEventListener("click", () => {
+
+            sortTable(
+                otherTable,
+                i,
+                otherSortState[i]
+            );
+
+            otherSortState[i] =
+                !otherSortState[i];
+
+        });
+
+    });
+
+
+    applyTop10(otherTable);
+
+    setupExpandButton(
+        "otherScoringExpandBtn",
+        "otherScoringTable"
+    );
+
+
+    // ========================================================
+    // POINTS DEFAULT
+    // ========================================================
+
+    const pointsTable =
+        document.getElementById("pointsTable");
+
+
+    sortTable(
+        pointsTable,
+        2,
+        false
+    );
+
+
+    const pointsHeaders =
+        pointsTable.querySelectorAll("thead th");
+
+
+    let pointsSortState = {};
+
+
+    pointsHeaders.forEach((th, i) => {
+
+        th.classList.add("sortable");
+
+        pointsSortState[i] =
+            true;
+
+
+        th.addEventListener("click", () => {
+
+            sortTable(
+                pointsTable,
+                i,
+                pointsSortState[i]
+            );
+
+            pointsSortState[i] =
+                !pointsSortState[i];
+
+        });
+
+    });
+
+
+    applyTop10(pointsTable);
+
+    setupExpandButton(
+        "pointsExpandBtn",
+        "pointsTable"
+    );
+
+});
+
+
+// ============================================================
+// BREADCRUMB
+// ============================================================
+
+renderBreadcrumb([
+
+    {
+        label: "Stafford Indians",
+        link: "index.html"
+    },
+
+    {
+        label: "Individual Stats - Career"
+    }
+
+]);
+
+</script>
+
+</body>
+
+</html>

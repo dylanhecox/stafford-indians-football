@@ -1,0 +1,3901 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Season</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            margin-bottom: 5px;
+        }
+
+        #record, #coach {
+            margin: 2px 0;
+        }
+
+        .season-nav {
+            margin-bottom: 10px;
+        }
+
+        .season-nav a {
+            margin-right: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .full-width {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td {
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        .record {
+            text-align: center !important;
+        }
+
+        /* ================= SORT UI ================= */
+
+        th.sortable {
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s ease;
+        }
+
+        th.sortable:hover {
+            background-color: #dcdcdc;
+        }
+
+        /* ================= FLS SOURCE STYLING ================= */
+
+        .fls-header {
+            background-color: #e8e8e8;
+        }
+
+        .fls-cell {
+            background-color: #fafafa;
+        }
+
+        .fls-start {
+            border-left: 3px solid #888 !important;
+        }
+
+        .source-note {
+            cursor: help;
+            font-size: 0.7em;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 1px;
+        }
+
+        .career-row .fls-cell {
+            background-color: #e8e8e8;
+        }
+
+        /* ================= POINTS TABLE ================= */
+
+        #pointsTable {
+            width: auto !important;
+            table-layout: auto;
+            display: inline-table;
+        }
+
+        #pointsTable th,
+        #pointsTable td {
+            white-space: nowrap;
+        }
+
+        #pointsTable th:first-child,
+        #pointsTable td:first-child {
+            text-align: left;
+        }
+
+        #pointsTable th:last-child,
+        #pointsTable td:last-child {
+            text-align: right;
+        }
+
+        /* ================= ROSTER TABLE ================= */
+
+        #rosterTable {
+            width: auto;
+            table-layout: auto;
+        }
+
+        #rosterTable th,
+        #rosterTable td {
+            white-space: nowrap;
+        }
+
+        #rosterTable th:first-child,
+        #rosterTable td:first-child {
+            text-align: center;
+        }
+
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+    <script src="nav.js"></script>
+
+</head>
+
+<body>
+
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1 id="seasonTitle"></h1>
+
+<div class="season-nav" id="seasonNav"></div>
+
+<p id="record"></p>
+
+<p id="coach"></p>
+
+
+<!-- ===================== TEAM STATS ===================== -->
+
+<h2>Team Stats</h2>
+
+<table id="teamStatsTable">
+
+    <thead>
+
+        <tr>
+
+            <th class="team-sort">Category</th>
+
+            <th class="team-sort">Points For</th>
+
+            <th class="team-sort">Total Yards</th>
+
+            <th class="team-sort">Passing Yards</th>
+
+            <th class="team-sort">Rushing Yards</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <tr>
+
+            <td class="left">Team Stats</td>
+
+            <td></td>
+
+            <td></td>
+
+            <td></td>
+
+            <td></td>
+
+        </tr>
+
+        <tr>
+
+            <td class="left">Opponent Stats</td>
+
+            <td></td>
+
+            <td></td>
+
+            <td></td>
+
+            <td></td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+
+<!-- ===================== SCHEDULE ===================== -->
+
+<h2>Schedule & Game Results</h2>
+
+<table id="scheduleTable">
+
+    <thead>
+
+        <tr>
+
+            <th colspan="9"></th>
+
+            <th colspan="2">Score</th>
+
+            <th colspan="3">Team</th>
+
+            <th colspan="3">Opponent</th>
+
+        </tr>
+
+        <tr>
+
+            <th>Game</th>
+
+            <th>Day</th>
+
+            <th>Date</th>
+
+            <th>Game Link</th>
+
+            <th>Result</th>
+
+            <th>OT</th>
+
+            <th>Record</th>
+
+            <th>H/A</th>
+
+            <th>Opponent</th>
+
+            <th>Tm</th>
+
+            <th>Opp</th>
+
+            <th>Total Yards</th>
+
+            <th>Passing Yards</th>
+
+            <th>Rushing Yards</th>
+
+            <th>Total Yards</th>
+
+            <th>Passing Yards</th>
+
+            <th>Rushing Yards</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+
+<!-- ===================== PASSING ===================== -->
+
+<h2>Passing</h2>
+
+<table id="passingTable">
+
+    <thead>
+
+        <tr>
+
+            <th rowspan="2" class="left">Player</th>
+
+            <th colspan="6">
+
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+
+            </th>
+
+            <th colspan="6" class="fls-header fls-start">
+
+                Free Lance-Star Statistics<span
+                    class="source-note"
+                    title="Free Lance-Star statistics are season totals published by The Free Lance-Star."
+                >2</span>
+
+            </th>
+
+        </tr>
+
+        <tr>
+
+            <th>Cmp</th>
+
+            <th>Att</th>
+
+            <th>Cmp%</th>
+
+            <th>Yds</th>
+
+            <th>TD</th>
+
+            <th>Int</th>
+
+            <th class="fls-header fls-start">Cmp</th>
+
+            <th class="fls-header">Att</th>
+
+            <th class="fls-header">Cmp%</th>
+
+            <th class="fls-header">Yds</th>
+
+            <th class="fls-header">TD</th>
+
+            <th class="fls-header">Int</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody id="passingBody"></tbody>
+
+</table>
+
+
+<!-- ===================== RUSHING + RECEIVING ===================== -->
+
+<h2>Rushing & Receiving</h2>
+
+<table id="rrTable">
+
+    <thead>
+
+        <tr>
+
+            <th rowspan="2" class="left">Player</th>
+
+            <th colspan="9">
+
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+
+            </th>
+
+            <th colspan="9" class="fls-header fls-start">
+
+                Free Lance-Star Statistics<span
+                    class="source-note"
+                    title="Free Lance-Star statistics are season totals published by The Free Lance-Star."
+                >2</span>
+
+            </th>
+
+        </tr>
+
+        <tr>
+
+            <th>Att</th>
+
+            <th>Yds</th>
+
+            <th>TD</th>
+
+            <th>Rec</th>
+
+            <th>Yds</th>
+
+            <th>TD</th>
+
+            <th>Tou</th>
+
+            <th>Yds</th>
+
+            <th>TD</th>
+
+            <th class="fls-header fls-start">Att</th>
+
+            <th class="fls-header">Yds</th>
+
+            <th class="fls-header">TD</th>
+
+            <th class="fls-header">Rec</th>
+
+            <th class="fls-header">Yds</th>
+
+            <th class="fls-header">TD</th>
+
+            <th class="fls-header">Tou</th>
+
+            <th class="fls-header">Yds</th>
+
+            <th class="fls-header">TD</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody id="rrBody"></tbody>
+
+</table>
+
+
+<!-- ===================== KICKING ===================== -->
+
+<h2>Kicking</h2>
+
+<table id="kickingTable">
+
+    <thead>
+
+        <tr>
+
+            <th rowspan="2" class="left">Player</th>
+
+            <th colspan="6">
+
+                Game Statistics<span
+                    class="source-note"
+                    title="Game statistics are compiled from individual game records."
+                >1</span>
+
+            </th>
+
+            <th colspan="6" class="fls-header fls-start">
+
+                Free Lance-Star Statistics<span
+                    class="source-note"
+                    title="Free Lance-Star statistics are season totals published by The Free Lance-Star."
+                >2</span>
+
+            </th>
+
+        </tr>
+
+        <tr>
+
+            <th>XPM</th>
+
+            <th>XPA</th>
+
+            <th>XP%</th>
+
+            <th>FGM</th>
+
+            <th>Long</th>
+
+            <th>Points Scored</th>
+
+            <th class="fls-header fls-start">XPM</th>
+
+            <th class="fls-header">XPA</th>
+
+            <th class="fls-header">XP%</th>
+
+            <th class="fls-header">FGM</th>
+
+            <th class="fls-header">Long</th>
+
+            <th class="fls-header">Points Scored</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody id="kickingBody"></tbody>
+
+</table>
+
+
+<!-- ===================== OTHER SCORING ===================== -->
+
+<h2>Other Scoring Stats</h2>
+
+<table id="otherTable">
+
+    <thead>
+
+        <tr>
+
+            <th class="left">Player</th>
+
+            <th id="patHeader">1PT PAT</th>
+
+            <th>PR TD</th>
+
+            <th>KR TD</th>
+
+            <th>Int TD</th>
+
+            <th>FR TD</th>
+
+            <th>Blocked Punt TD</th>
+
+            <th>Blocked FG TD</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody id="otherBody"></tbody>
+
+</table>
+
+
+<!-- ===================== POINTS ===================== -->
+
+<h2>Points Scored</h2>
+
+<table id="pointsTable">
+
+    <thead>
+
+        <tr>
+
+            <th class="left">Player</th>
+
+            <th>Points Scored</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+
+<!-- ===================== ROSTER ===================== -->
+
+<h2>Roster</h2>
+
+<table id="rosterTable">
+
+    <thead>
+
+        <tr>
+
+            <th>No.</th>
+
+            <th class="left">Player</th>
+
+            <th>Class</th>
+
+            <th>Position</th>
+
+            <th>Height</th>
+
+            <th>Weight</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody id="rosterBody"></tbody>
+
+</table>
+
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const season = params.get("season");
+
+
+// ===================== FORMATTERS =====================
+
+function formatDate(d) {
+
+    const date = new Date(d);
+
+    return date.toLocaleDateString("en-US", {
+
+        month: "long",
+
+        day: "numeric",
+
+        year: String(season).trim() === "2020" ? "numeric" : undefined
+
+    });
+
+}
+
+
+function formatDay(d) {
+
+    return new Date(d).toLocaleDateString("en-US", {
+
+        weekday: "short"
+
+    });
+
+}
+
+
+function formatOT(val) {
+
+    const n = parseInt(val || 0);
+
+    if (!n || n <= 0) return "";
+
+    if (n === 1) return "OT";
+
+    return `${n}OT`;
+
+}
+
+
+// ===================== CSV LOADER =====================
+
+function loadCsv(filename) {
+
+    return fetch(`${filename}?v=${Date.now()}`)
+
+        .then(response => {
+
+            if (!response.ok) {
+
+                throw new Error(`${filename}: HTTP ${response.status}`);
+
+            }
+
+            return response.text();
+
+        });
+
+}
+
+
+// ===================== SORT FUNCTION (SCHEDULE) =====================
+
+function sortTable(table, colIndex, type, asc) {
+
+    const tbody = table.querySelector("tbody");
+
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+
+        let A = a.cells[colIndex]?.innerText.trim() || "";
+
+        let B = b.cells[colIndex]?.innerText.trim() || "";
+
+        if (type === "number") {
+
+            A = parseFloat(A.replace(/[^0-9.-]/g, "")) || 0;
+
+            B = parseFloat(B.replace(/[^0-9.-]/g, "")) || 0;
+
+        }
+
+        if (type === "date") {
+
+            A = new Date(A);
+
+            B = new Date(B);
+
+        }
+
+        return A > B ? dir : A < B ? -dir : 0;
+
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+
+}
+
+
+// ===================== TEAM STATS SORT =====================
+
+function sortTeamStats(colIndex, asc) {
+
+    const table = document.getElementById("teamStatsTable");
+
+    const tbody = table.querySelector("tbody");
+
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+
+        let A = a.cells[colIndex]?.innerText.trim() || "";
+
+        let B = b.cells[colIndex]?.innerText.trim() || "";
+
+        if (colIndex > 0) {
+
+            A = parseFloat(A) || 0;
+
+            B = parseFloat(B) || 0;
+
+        }
+
+        return A > B ? dir : A < B ? -dir : 0;
+
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+
+}
+
+
+// ===================== SIMPLE TABLE SORT =====================
+function sortSimpleTable(table, colIndex, asc) {
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+        // Player columns always sort by player_id, not displayed name
+        if (colIndex === 0) {
+            const aId = a.dataset.playerid || "";
+            const bId = b.dataset.playerid || "";
+
+            return aId.localeCompare(bId, undefined, {
+                numeric: true,
+                sensitivity: "base"
+            }) * dir;
+        }
+
+        let A = a.cells[colIndex]?.innerText.trim() || "";
+        let B = b.cells[colIndex]?.innerText.trim() || "";
+
+        const numA = parseFloat(A.replace(/,/g, ""));
+        const numB = parseFloat(B.replace(/,/g, ""));
+
+        if (!isNaN(numA) && !isNaN(numB)) {
+            return (numA - numB) * dir;
+        }
+
+        return A.localeCompare(B) * dir;
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+}
+
+
+// ===================== ROSTER SORT =====================
+
+function heightToInches(height) {
+    if (!height) return -1;
+
+    let value = String(height)
+        .trim()
+        .replace(/[″”]/g, '"')
+        .replace(/[′’]/g, "'");
+
+    // Accept formats such as:
+    // 5'6"
+    // 5'6.5"
+    // 5'10"
+    // 5'11"
+    // 6'
+    // 6'0"
+    const match = value.match(
+        /^(\d+)\s*'\s*(\d+(?:\.\d+)?)?\s*"?$/
+    );
+
+    if (!match) return -1;
+
+    const feet = parseInt(match[1], 10);
+    const inches = match[2] !== undefined
+        ? parseFloat(match[2])
+        : 0;
+
+    return (feet * 12) + inches;
+}
+
+
+function sortRosterTable(colIndex, asc) {
+    const table = document.getElementById("rosterTable");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+
+        // ================= PLAYER =================
+        // Player column sorts by player_id, NOT player name.
+        if (colIndex === 1) {
+            const aId = a.dataset.playerid || "";
+            const bId = b.dataset.playerid || "";
+
+            return aId.localeCompare(bId, undefined, {
+                numeric: true,
+                sensitivity: "base"
+            }) * dir;
+        }
+
+        // ================= JERSEY NUMBER =================
+        if (colIndex === 0) {
+            const A = a.cells[colIndex]?.innerText.trim() || "";
+            const B = b.cells[colIndex]?.innerText.trim() || "";
+
+            const aBlank = A === "";
+            const bBlank = B === "";
+
+            if (aBlank && bBlank) return 0;
+            if (aBlank) return 1;
+            if (bBlank) return -1;
+
+            const numA = parseFloat(A);
+            const numB = parseFloat(B);
+
+            if (!isNaN(numA) && !isNaN(numB)) {
+                return (numA - numB) * dir;
+            }
+
+            return A.localeCompare(B) * dir;
+        }
+
+        // ================= HEIGHT =================
+        if (colIndex === 4) {
+            const A = a.cells[colIndex]?.innerText.trim() || "";
+            const B = b.cells[colIndex]?.innerText.trim() || "";
+
+            const numA = heightToInches(A);
+            const numB = heightToInches(B);
+
+            const aBlank = numA < 0;
+            const bBlank = numB < 0;
+
+            if (aBlank && bBlank) return 0;
+            if (aBlank) return 1;
+            if (bBlank) return -1;
+
+            return (numA - numB) * dir;
+        }
+
+        // ================= WEIGHT =================
+        if (colIndex === 5) {
+            const A = a.cells[colIndex]?.innerText.trim() || "";
+            const B = b.cells[colIndex]?.innerText.trim() || "";
+
+            const numA = parseFloat(A);
+            const numB = parseFloat(B);
+
+            const aBlank = isNaN(numA);
+            const bBlank = isNaN(numB);
+
+            if (aBlank && bBlank) return 0;
+            if (aBlank) return 1;
+            if (bBlank) return -1;
+
+            return (numA - numB) * dir;
+        }
+
+        // ================= OTHER COLUMNS =================
+        const A = a.cells[colIndex]?.innerText.trim() || "";
+        const B = b.cells[colIndex]?.innerText.trim() || "";
+
+        return A.localeCompare(B) * dir;
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+}
+
+
+// ===================== DATA NORMALIZATION =====================
+
+function normalize(value) {
+
+    return String(value ?? "")
+
+        .trim()
+
+        .toLowerCase();
+
+}
+
+
+function getFlsCategory(row) {
+
+    return normalize(row.stat_category);
+
+}
+
+
+function getFlsStatName(row) {
+
+    return normalize(row.stat_name);
+
+}
+
+
+function isFlsStat(row, category, names) {
+
+    const rowCategory = getFlsCategory(row);
+
+    const rowStat = getFlsStatName(row);
+
+    if (rowCategory !== normalize(category)) {
+
+        return false;
+
+    }
+
+    return names.some(name =>
+
+        rowStat === normalize(name)
+
+    );
+
+}
+
+
+// ===================== POINTS TABLE SORT =====================
+
+function sortPointsTable() {
+
+    const table = document.getElementById("pointsTable");
+
+    const tbody = table.querySelector("tbody");
+
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    rows.sort((a, b) => {
+
+        const nameA = a.cells[0].innerText.trim();
+
+        const nameB = b.cells[0].innerText.trim();
+
+        const ptsA = parseFloat(a.cells[1].innerText) || 0;
+
+        const ptsB = parseFloat(b.cells[1].innerText) || 0;
+
+        if (ptsA !== ptsB) {
+
+            return ptsB - ptsA;
+
+        }
+
+        return nameA.localeCompare(nameB);
+
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+
+}
+
+
+// ===================== LOAD DATA =====================
+
+Promise.all([
+
+    loadCsv("Master_Seasons.csv"),
+
+    loadCsv("Master_GameInfo.csv"),
+
+    loadCsv("Master_TeamStats.csv"),
+
+    loadCsv("Master_IndividualStats.csv"),
+
+    loadCsv("Master_GameEvents.csv"),
+
+    loadCsv("Master_FLSSeasonStats.csv")
+
+        .catch(error => {
+
+            console.error(
+
+                "Could not load Master_FLSSeasonStats.csv:",
+
+                error
+
+            );
+
+            return "";
+
+        }),
+
+    loadCsv("Master_PlayerList.csv")
+
+        .catch(error => {
+
+            console.error(
+
+                "Could not load Master_PlayerList.csv:",
+
+                error
+
+            );
+
+            return "";
+
+        })
+
+]).then(([seasonCSV, gamesCSV, statsCSV, individualCSV, eventsCSV, flsCSV, playerListCSV]) => {
+
+
+    // ===================== PAT HEADER =====================
+
+    const patHeader = document.getElementById("patHeader");
+
+    if (Number(season) >= 1969) {
+
+        patHeader.innerText = "2PT PAT";
+
+    }
+
+    else {
+
+        patHeader.innerText = "1PT PAT";
+
+    }
+
+
+    // ===================== PARSE SEASONS =====================
+
+    const seasons = Papa.parse(seasonCSV, {
+
+        header: true,
+
+        skipEmptyLines: true,
+
+        transformHeader: h =>
+
+            h.trim().toLowerCase()
+
+    }).data;
+
+
+    // ===================== PARSE GAMES =====================
+
+    const games = Papa.parse(gamesCSV, {
+
+        header: true,
+
+        skipEmptyLines: true,
+
+        transformHeader: h =>
+
+            h.trim().toLowerCase()
+
+    }).data.filter(g =>
+
+        String(g.season).trim() === String(season).trim()
+
+    );
+
+
+    // ===================== PARSE TEAM STATS =====================
+
+    const stats = Papa.parse(statsCSV, {
+
+        header: true,
+
+        skipEmptyLines: true,
+
+        transformHeader: h =>
+
+            h.trim().toLowerCase()
+
+    }).data.filter(s =>
+
+        String(s.season).trim() === String(season).trim() &&
+
+        String(s.team).trim().toLowerCase() === "stafford"
+
+    );
+
+
+    // ===================== PARSE INDIVIDUAL STATS =====================
+
+    const individual = Papa.parse(individualCSV, {
+
+        header: true,
+
+        skipEmptyLines: true,
+
+        transformHeader: h =>
+
+            h.trim()
+
+    }).data.filter(p =>
+
+        String(p.season).trim() === String(season).trim()
+
+    );
+
+
+    // ===================== PARSE GAME EVENTS =====================
+
+    const events = Papa.parse(eventsCSV, {
+
+        header: true,
+
+        skipEmptyLines: true,
+
+        transformHeader: h =>
+
+            h.trim()
+
+    }).data.filter(e =>
+
+        String(e.season).trim() === String(season).trim()
+
+    );
+
+
+    // ===================== PARSE FLS =====================
+
+    const flsAll = Papa.parse(flsCSV, {
+
+        header: true,
+
+        skipEmptyLines: true,
+
+        transformHeader: h =>
+
+            h.trim()
+
+    }).data;
+
+
+    const fls = flsAll.filter(row =>
+
+        String(row.season).trim() === String(season).trim()
+
+    );
+
+
+    console.log(
+
+        `FLS total rows loaded: ${flsAll.length}`
+
+    );
+
+    console.log(
+
+        `FLS rows for season ${season}: ${fls.length}`
+
+    );
+
+
+    // ===================== PARSE PLAYER LIST =====================
+
+    const playerList = Papa.parse(playerListCSV, {
+
+        header: true,
+
+        skipEmptyLines: true,
+
+        transformHeader: h =>
+
+            h.trim()
+
+    }).data.filter(p =>
+
+        String(p.season).trim() === String(season).trim()
+
+    );
+
+
+    console.log(
+
+        `Roster rows for season ${season}: ${playerList.length}`
+
+    );
+
+
+    // ===================== GAME-DERIVED DATA =====================
+
+    const players = {};
+
+    const skillPlayers = {};
+
+    const kickingPlayers = {};
+
+    const otherPlayers = {};
+
+    const pointsPlayers = {};
+
+
+    function addPoints(name, playerId, pts) {
+
+        if (!name) return;
+
+        if (!pointsPlayers[name]) {
+
+            pointsPlayers[name] = {
+
+                playerId: playerId,
+
+                points: 0
+
+            };
+
+        }
+
+        pointsPlayers[name].points += pts;
+
+    }
+
+
+    individual.forEach(p => {
+
+        const name = p.player;
+
+        const playerId = p.player_id;
+
+        if (!name) return;
+
+
+        // ================= PASSING =================
+
+        if (!players[name]) {
+
+            players[name] = {
+
+                playerId: playerId,
+
+                cmp: 0,
+
+                att: 0,
+
+                yds: 0,
+
+                td: 0,
+
+                int: 0
+
+            };
+
+        }
+
+
+        const pl = players[name];
+
+        const stat = String(p.stat_name || "").trim();
+
+        const value = Number(p.stat_value || 0);
+
+
+        if (stat === "Completions") {
+
+            pl.cmp += value;
+
+        }
+
+        else if (stat === "Attempts") {
+
+            pl.att += value;
+
+        }
+
+        else if (stat === "PassYards") {
+
+            pl.yds += value;
+
+        }
+
+        else if (stat === "PassTD") {
+
+            pl.td += value;
+
+        }
+
+        else if (stat === "Interceptions") {
+
+            pl.int += value;
+
+        }
+
+
+        // ================= RUSHING + RECEIVING =================
+
+        if (!skillPlayers[name]) {
+
+            skillPlayers[name] = {
+
+                playerId: playerId,
+
+                rushAtt: 0,
+
+                rushYds: 0,
+
+                rushTD: 0,
+
+                rec: 0,
+
+                recYds: 0,
+
+                recTD: 0
+
+            };
+
+        }
+
+
+        const sp = skillPlayers[name];
+
+
+        if (stat === "RushAtt") {
+
+            sp.rushAtt += value;
+
+        }
+
+        else if (stat === "RushYds") {
+
+            sp.rushYds += value;
+
+        }
+
+        else if (stat === "RushTD") {
+
+            sp.rushTD += value;
+
+        }
+
+        else if (stat === "Receptions") {
+
+            sp.rec += value;
+
+        }
+
+        else if (stat === "RecYards") {
+
+            sp.recYds += value;
+
+        }
+
+        else if (stat === "RecTD") {
+
+            sp.recTD += value;
+
+        }
+
+
+        if (stat === "RushTD") {
+
+            addPoints(
+
+                name,
+
+                playerId,
+
+                value * 6
+
+            );
+
+        }
+
+        else if (stat === "RecTD") {
+
+            addPoints(
+
+                name,
+
+                playerId,
+
+                value * 6
+
+            );
+
+        }
+
+
+        // ================= KICKING =================
+
+        if (!kickingPlayers[name]) {
+
+            kickingPlayers[name] = {
+
+                playerId: playerId,
+
+                xpm: 0,
+
+                xpa: 0,
+
+                fgm: 0,
+
+                long: 0
+
+            };
+
+        }
+
+
+        const kp = kickingPlayers[name];
+
+
+        if (stat === "Extra Points Made") {
+
+            kp.xpm += value;
+
+        }
+
+        else if (stat === "Extra Points Attempted") {
+
+            kp.xpa += value;
+
+        }
+
+        else if (stat === "Field Goals Made") {
+
+            kp.fgm += value;
+
+        }
+
+        else if (stat === "Field Goal Distances") {
+
+            const distances = String(p.stat_value)
+
+                .split(",")
+
+                .map(d => parseInt(d.trim()))
+
+                .filter(d => !isNaN(d));
+
+
+            if (distances.length > 0) {
+
+                const maxDist = Math.max(...distances);
+
+                if (maxDist > kp.long) {
+
+                    kp.long = maxDist;
+
+                }
+
+            }
+
+        }
+
+    });
+
+
+    // ================= OTHER SCORING =================
+
+    events.forEach(e => {
+
+        const name = e.scoring_player;
+
+        const playerId = e.scoring_player_id;
+
+        const type = String(e.event_type || "").trim();
+
+        if (!name) return;
+
+        if (type === "team_safety") return;
+
+
+        if (!otherPlayers[name]) {
+
+            otherPlayers[name] = {
+
+                playerId: playerId,
+
+                pat: 0,
+
+                prtd: 0,
+
+                krtd: 0,
+
+                inttd: 0,
+
+                frtd: 0,
+
+                bptd: 0,
+
+                bfgtd: 0
+
+            };
+
+        }
+
+
+        const op = otherPlayers[name];
+
+
+        if (type === "punt_return_td") {
+
+            op.prtd += 1;
+
+            addPoints(name, playerId, 6);
+
+        }
+
+        else if (type === "kick_return_td") {
+
+            op.krtd += 1;
+
+            addPoints(name, playerId, 6);
+
+        }
+
+        else if (type === "interception_return_td") {
+
+            op.inttd += 1;
+
+            addPoints(name, playerId, 6);
+
+        }
+
+        else if (type === "fumble_return_td") {
+
+            op.frtd += 1;
+
+            addPoints(name, playerId, 6);
+
+        }
+
+        else if (type === "blocked_punt_return_td") {
+
+            op.bptd += 1;
+
+            addPoints(name, playerId, 6);
+
+        }
+
+        else if (type === "blocked_field_goal_return_td") {
+
+            op.bfgtd += 1;
+
+            addPoints(name, playerId, 6);
+
+        }
+
+        else if (
+
+            type === "one_pt_rush" ||
+
+            type === "one_pt_pass"
+
+        ) {
+
+            op.pat += 1;
+
+            const pts =
+
+                Number(season) <= 1968 ? 1 : 2;
+
+            addPoints(name, playerId, pts);
+
+        }
+
+        else if (
+
+            type === "two_pt_rush" ||
+
+            type === "two_pt_pass"
+
+        ) {
+
+            op.pat += 1;
+
+            addPoints(name, playerId, 2);
+
+        }
+
+    });
+
+
+    // ============================================================
+
+    // FLS SEASON DATA
+
+    // ============================================================
+
+    const flsPassing = {};
+
+    const flsSkill = {};
+
+    const flsKicking = {};
+
+
+    fls.forEach(row => {
+
+        const name = String(row.player || "").trim();
+
+        const playerId = String(row.player_id || "").trim();
+
+        if (!name || !playerId) return;
+
+
+        // ================= PASSING =================
+
+        if (
+
+            isFlsStat(row, "Passing", [
+
+                "Completions",
+
+                "Attempts",
+
+                "PassYards",
+
+                "PassTD",
+
+                "Interceptions"
+
+            ])
+
+        ) {
+
+            if (!flsPassing[playerId]) {
+
+                flsPassing[playerId] = {
+
+                    name: name,
+
+                    playerId: playerId,
+
+                    cmp: null,
+
+                    att: null,
+
+                    yds: null,
+
+                    td: null,
+
+                    int: null
+
+                };
+
+            }
+
+
+            const fp = flsPassing[playerId];
+
+            const statName = normalize(row.stat_name);
+
+            const rawValue =
+
+                String(row.stat_value ?? "").trim();
+
+
+            if (rawValue === "") return;
+
+
+            const value = Number(rawValue);
+
+            if (isNaN(value)) return;
+
+
+            if (statName === "completions") {
+
+                fp.cmp = value;
+
+            }
+
+            else if (statName === "attempts") {
+
+                fp.att = value;
+
+            }
+
+            else if (statName === "passyards") {
+
+                fp.yds = value;
+
+            }
+
+            else if (statName === "passtd") {
+
+                fp.td = value;
+
+            }
+
+            else if (statName === "interceptions") {
+
+                fp.int = value;
+
+            }
+
+        }
+
+
+        // ================= RUSHING =================
+
+        if (
+
+            isFlsStat(row, "Rushing", [
+
+                "RushAtt",
+
+                "RushYds",
+
+                "RushTD"
+
+            ])
+
+        ) {
+
+            if (!flsSkill[playerId]) {
+
+                flsSkill[playerId] = {
+
+                    name: name,
+
+                    playerId: playerId,
+
+                    rushAtt: null,
+
+                    rushYds: null,
+
+                    rushTD: null,
+
+                    rec: null,
+
+                    recYds: null,
+
+                    recTD: null
+
+                };
+
+            }
+
+
+            const fs = flsSkill[playerId];
+
+            const statName = normalize(row.stat_name);
+
+            const rawValue =
+
+                String(row.stat_value ?? "").trim();
+
+
+            if (rawValue === "") return;
+
+
+            const value = Number(rawValue);
+
+            if (isNaN(value)) return;
+
+
+            if (statName === "rushatt") {
+
+                fs.rushAtt = value;
+
+            }
+
+            else if (statName === "rushyds") {
+
+                fs.rushYds = value;
+
+            }
+
+            else if (statName === "rushtd") {
+
+                fs.rushTD = value;
+
+            }
+
+        }
+
+
+        // ================= RECEIVING =================
+
+        if (
+
+            isFlsStat(row, "Receiving", [
+
+                "Receptions",
+
+                "RecYards",
+
+                "RecTD"
+
+            ])
+
+        ) {
+
+            if (!flsSkill[playerId]) {
+
+                flsSkill[playerId] = {
+
+                    name: name,
+
+                    playerId: playerId,
+
+                    rushAtt: null,
+
+                    rushYds: null,
+
+                    rushTD: null,
+
+                    rec: null,
+
+                    recYds: null,
+
+                    recTD: null
+
+                };
+
+            }
+
+
+            const fs = flsSkill[playerId];
+
+            const statName = normalize(row.stat_name);
+
+            const rawValue =
+
+                String(row.stat_value ?? "").trim();
+
+
+            if (rawValue === "") return;
+
+
+            const value = Number(rawValue);
+
+            if (isNaN(value)) return;
+
+
+            if (statName === "receptions") {
+
+                fs.rec = value;
+
+            }
+
+            else if (statName === "recyards") {
+
+                fs.recYds = value;
+
+            }
+
+            else if (statName === "rectd") {
+
+                fs.recTD = value;
+
+            }
+
+        }
+
+
+        // ================= KICKING =================
+
+        if (
+
+            isFlsStat(row, "Kicking", [
+
+                "Extra Points Made",
+
+                "Extra Points Attempted",
+
+                "Field Goals Made",
+
+                "Longest Field Goal"
+
+            ])
+
+        ) {
+
+            if (!flsKicking[playerId]) {
+
+                flsKicking[playerId] = {
+
+                    name: name,
+
+                    playerId: playerId,
+
+                    xpm: null,
+
+                    xpa: null,
+
+                    xpPct: null,
+
+                    fgm: null,
+
+                    long: null,
+
+                    points: null
+
+                };
+
+            }
+
+
+            const fk = flsKicking[playerId];
+
+            const statName = normalize(row.stat_name);
+
+            const rawValue =
+
+                String(row.stat_value ?? "").trim();
+
+
+            if (rawValue === "") return;
+
+
+            const value = Number(rawValue);
+
+            if (isNaN(value)) return;
+
+
+            if (statName === "extra points made") {
+
+                fk.xpm = value;
+
+            }
+
+            else if (statName === "extra points attempted") {
+
+                fk.xpa = value;
+
+            }
+
+            else if (statName === "field goals made") {
+
+                fk.fgm = value;
+
+            }
+
+            else if (statName === "longest field goal") {
+
+                fk.long = value;
+
+            }
+
+        }
+
+
+        // ================= FLS POINTS SCORED =================
+
+        if (
+
+            normalize(row.stat_category) === "kicking" &&
+
+            normalize(row.stat_name) === "points scored"
+
+        ) {
+
+            if (!flsKicking[playerId]) {
+
+                flsKicking[playerId] = {
+
+                    name: name,
+
+                    playerId: playerId,
+
+                    xpm: null,
+
+                    xpa: null,
+
+                    xpPct: null,
+
+                    fgm: null,
+
+                    long: null,
+
+                    points: null
+
+                };
+
+            }
+
+
+            const rawValue =
+
+                String(row.stat_value ?? "").trim();
+
+
+            if (rawValue !== "") {
+
+                const value = Number(rawValue);
+
+                if (!isNaN(value)) {
+
+                    flsKicking[playerId].points = value;
+
+                }
+
+            }
+
+        }
+
+    });
+
+
+    // ============================================================
+
+    // HEADER
+
+    // ============================================================
+
+    const seasonRow = seasons.find(
+
+        s =>
+
+            String(s.season).trim() ===
+
+            String(season).trim()
+
+    );
+
+
+    document.getElementById("seasonTitle").innerHTML =
+
+        `${season} <a href="seasons.html">Stafford Indians</a> Season`;
+
+
+    const sortedSeasons = seasons
+
+        .map(s => Number(s.season))
+
+        .filter(n => !isNaN(n))
+
+        .sort((a, b) => a - b);
+
+
+    const i =
+
+        sortedSeasons.indexOf(Number(season));
+
+
+    let nav = "";
+
+
+    if (sortedSeasons[i - 1]) {
+
+        nav +=
+
+            `<a href="season.html?season=${sortedSeasons[i - 1]}">Prev Season</a>`;
+
+    }
+
+
+    if (sortedSeasons[i + 1]) {
+
+        nav +=
+
+            `<a href="season.html?season=${sortedSeasons[i + 1]}">Next Season</a>`;
+
+    }
+
+
+    document.getElementById("seasonNav").innerHTML = nav;
+
+
+    document.getElementById("record").innerHTML =
+
+        `<b>Record:</b> ${(seasonRow?.w || 0)}-${(seasonRow?.l || 0)}${seasonRow?.t ? "-" + seasonRow.t : ""}`;
+
+
+    const previewRaw =
+
+        seasonRow?.season_preview || "";
+
+
+    const previewLinks = previewRaw
+
+        .split(/[,;\s]+/)
+
+        .filter(Boolean);
+
+
+    let previewHTML = "";
+
+
+    previewLinks.forEach(link => {
+
+        previewHTML += `
+
+            <div>
+
+                <a href="${link}" target="_blank" rel="noopener">
+
+                    Season Preview
+
+                </a>
+
+            </div>
+
+        `;
+
+    });
+
+
+    document.getElementById("coach").innerHTML =
+
+        `<b>Coach:</b>
+
+        <a href="coach.html?coach=${seasonRow?.coach_id}">
+
+            ${seasonRow?.coach || ""}
+
+        </a>` +
+
+        previewHTML;
+
+
+    // ============================================================
+
+    // PASSING TABLE
+
+    // ============================================================
+
+    const passingBody =
+
+        document.getElementById("passingBody");
+
+    passingBody.innerHTML = "";
+
+
+    const passingIds = new Set([
+
+        ...Object.values(players)
+
+            .filter(p => p.att !== 0)
+
+            .map(p => p.playerId),
+
+        ...Object.keys(flsPassing)
+
+    ]);
+
+
+    passingIds.forEach(playerId => {
+
+        const gameEntry =
+
+            Object.values(players).find(
+
+                p =>
+
+                    p.playerId === playerId &&
+
+                    p.att !== 0
+
+            );
+
+
+        const flsEntry =
+
+            flsPassing[playerId];
+
+
+        if (!gameEntry && !flsEntry) return;
+
+
+        const name =
+
+            flsEntry?.name ||
+
+            Object.keys(players).find(
+
+                n =>
+
+                    players[n].playerId === playerId
+
+            ) ||
+
+            "";
+
+
+        const tr =
+
+            document.createElement("tr");
+
+
+        tr.dataset.playerid = playerId;
+
+
+        let html = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${playerId}">
+
+                    ${name}
+
+                </a>
+
+            </td>
+
+        `;
+
+
+        // ================= GAME BLOCK =================
+
+        if (gameEntry) {
+
+            const cmpPct =
+
+                gameEntry.att
+
+                    ? (gameEntry.cmp / gameEntry.att * 100).toFixed(1)
+
+                    : "0.0";
+
+
+            html += `
+
+                <td>${gameEntry.cmp}</td>
+
+                <td>${gameEntry.att}</td>
+
+                <td>${cmpPct}</td>
+
+                <td>${gameEntry.yds.toLocaleString()}</td>
+
+                <td>${gameEntry.td}</td>
+
+                <td>${gameEntry.int}</td>
+
+            `;
+
+        }
+
+        else {
+
+            html += `
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+            `;
+
+        }
+
+
+        // ================= FLS BLOCK =================
+
+        if (flsEntry) {
+
+            let flsCmpPct = "";
+
+
+            if (
+
+                flsEntry.att !== null &&
+
+                flsEntry.att !== 0 &&
+
+                flsEntry.cmp !== null
+
+            ) {
+
+                flsCmpPct =
+
+                    (flsEntry.cmp / flsEntry.att * 100).toFixed(1);
+
+            }
+
+
+            html += `
+
+                <td class="fls-cell fls-start">
+
+                    ${flsEntry.cmp ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.att ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsCmpPct}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.yds !== null
+
+                        ? flsEntry.yds.toLocaleString()
+
+                        : ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.td ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.int ?? ""}
+
+                </td>
+
+            `;
+
+        }
+
+        else {
+
+            html += `
+
+                <td class="fls-cell fls-start"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+            `;
+
+        }
+
+
+        tr.innerHTML = html;
+
+        passingBody.appendChild(tr);
+
+    });
+
+
+    // Default passing sort = Game Yds
+
+    sortSimpleTable(
+
+        document.getElementById("passingTable"),
+
+        4,
+
+        false
+
+    );
+
+
+    const passingHeaders =
+
+        document.querySelectorAll(
+
+            "#passingTable thead tr:last-child th"
+
+        );
+
+
+    let passingSortState = {};
+
+
+    passingHeaders.forEach(th => {
+
+        th.classList.add("sortable");
+
+
+        const colIndex =
+
+            th.cellIndex + 1;
+
+
+        passingSortState[colIndex] = true;
+
+
+        th.addEventListener("click", () => {
+
+            sortSimpleTable(
+
+                document.getElementById("passingTable"),
+
+                colIndex,
+
+                passingSortState[colIndex]
+
+            );
+
+
+            passingSortState[colIndex] =
+
+                !passingSortState[colIndex];
+
+        });
+
+    });
+
+
+    // ============================================================
+
+    // RUSHING + RECEIVING TABLE
+
+    // ============================================================
+
+    const rrBody =
+
+        document.getElementById("rrBody");
+
+    rrBody.innerHTML = "";
+
+
+    const rrIds = new Set([
+
+        ...Object.values(skillPlayers)
+
+            .filter(p =>
+
+                p.rushAtt !== 0 ||
+
+                p.rushYds !== 0 ||
+
+                p.rushTD !== 0 ||
+
+                p.rec !== 0 ||
+
+                p.recYds !== 0 ||
+
+                p.recTD !== 0
+
+            )
+
+            .map(p => p.playerId),
+
+        ...Object.keys(flsSkill)
+
+    ]);
+
+
+    rrIds.forEach(playerId => {
+
+        const gameEntry =
+
+            Object.values(skillPlayers).find(
+
+                p =>
+
+                    p.playerId === playerId &&
+
+                    (
+
+                        p.rushAtt !== 0 ||
+
+                        p.rushYds !== 0 ||
+
+                        p.rushTD !== 0 ||
+
+                        p.rec !== 0 ||
+
+                        p.recYds !== 0 ||
+
+                        p.recTD !== 0
+
+                    )
+
+            );
+
+
+        const flsEntry =
+
+            flsSkill[playerId];
+
+
+        if (!gameEntry && !flsEntry) return;
+
+
+        const name =
+
+            flsEntry?.name ||
+
+            Object.keys(skillPlayers).find(
+
+                n =>
+
+                    skillPlayers[n].playerId === playerId
+
+            ) ||
+
+            "";
+
+
+        const tr =
+
+            document.createElement("tr");
+
+
+        tr.dataset.playerid = playerId;
+
+
+        let html = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${playerId}">
+
+                    ${name}
+
+                </a>
+
+            </td>
+
+        `;
+
+
+        // ================= GAME BLOCK =================
+
+        if (gameEntry) {
+
+            const totalTouches =
+
+                gameEntry.rushAtt +
+
+                gameEntry.rec;
+
+
+            const totalYds =
+
+                gameEntry.rushYds +
+
+                gameEntry.recYds;
+
+
+            const totalTD =
+
+                gameEntry.rushTD +
+
+                gameEntry.recTD;
+
+
+            html += `
+
+                <td>${gameEntry.rushAtt}</td>
+
+                <td>${gameEntry.rushYds.toLocaleString()}</td>
+
+                <td>${gameEntry.rushTD}</td>
+
+                <td>${gameEntry.rec}</td>
+
+                <td>${gameEntry.recYds.toLocaleString()}</td>
+
+                <td>${gameEntry.recTD}</td>
+
+                <td>${totalTouches}</td>
+
+                <td>${totalYds.toLocaleString()}</td>
+
+                <td>${totalTD}</td>
+
+            `;
+
+        }
+
+        else {
+
+            html += `
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+            `;
+
+        }
+
+
+        // ================= FLS BLOCK =================
+
+        if (flsEntry) {
+
+            const totalTouches =
+
+                (flsEntry.rushAtt ?? 0) +
+
+                (flsEntry.rec ?? 0);
+
+
+            const totalYds =
+
+                (flsEntry.rushYds ?? 0) +
+
+                (flsEntry.recYds ?? 0);
+
+
+            const totalTD =
+
+                (flsEntry.rushTD ?? 0) +
+
+                (flsEntry.recTD ?? 0);
+
+
+            html += `
+
+                <td class="fls-cell fls-start">
+
+                    ${flsEntry.rushAtt ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.rushYds !== null
+
+                        ? flsEntry.rushYds.toLocaleString()
+
+                        : ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.rushTD ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.rec ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.recYds !== null
+
+                        ? flsEntry.recYds.toLocaleString()
+
+                        : ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.recTD ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${totalTouches}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${totalYds.toLocaleString()}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${totalTD}
+
+                </td>
+
+            `;
+
+        }
+
+        else {
+
+            html += `
+
+                <td class="fls-cell fls-start"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+            `;
+
+        }
+
+
+        tr.innerHTML = html;
+
+        rrBody.appendChild(tr);
+
+    });
+
+
+    const rrTable =
+
+        document.getElementById("rrTable");
+
+
+    // Default sort = Game Total Yards
+
+    sortSimpleTable(
+
+        rrTable,
+
+        8,
+
+        false
+
+    );
+
+
+    const rrHeaders =
+
+        rrTable.querySelectorAll(
+
+            "thead tr:last-child th"
+
+        );
+
+
+    let rrSortState = {};
+
+
+    rrHeaders.forEach(th => {
+
+        th.classList.add("sortable");
+
+
+        const colIndex =
+
+            th.cellIndex + 1;
+
+
+        rrSortState[colIndex] = true;
+
+
+        th.addEventListener("click", () => {
+
+            sortSimpleTable(
+
+                rrTable,
+
+                colIndex,
+
+                rrSortState[colIndex]
+
+            );
+
+
+            rrSortState[colIndex] =
+
+                !rrSortState[colIndex];
+
+        });
+
+    });
+
+
+    // ============================================================
+
+    // KICKING TABLE
+
+    // ============================================================
+
+    const kickingBody =
+
+        document.getElementById("kickingBody");
+
+    kickingBody.innerHTML = "";
+
+
+    const kickingIds = new Set([
+
+        ...Object.values(kickingPlayers)
+
+            .filter(p =>
+
+                p.xpm !== 0 ||
+
+                p.xpa !== 0 ||
+
+                p.fgm !== 0 ||
+
+                p.long !== 0
+
+            )
+
+            .map(p => p.playerId),
+
+        ...Object.keys(flsKicking)
+
+    ]);
+
+
+    kickingIds.forEach(playerId => {
+
+        const gameEntry =
+
+            Object.values(kickingPlayers).find(
+
+                p =>
+
+                    p.playerId === playerId &&
+
+                    (
+
+                        p.xpm !== 0 ||
+
+                        p.xpa !== 0 ||
+
+                        p.fgm !== 0 ||
+
+                        p.long !== 0
+
+                    )
+
+            );
+
+
+        const flsEntry =
+
+            flsKicking[playerId];
+
+
+        if (!gameEntry && !flsEntry) return;
+
+
+        const name =
+
+            flsEntry?.name ||
+
+            Object.keys(kickingPlayers).find(
+
+                n =>
+
+                    kickingPlayers[n].playerId === playerId
+
+            ) ||
+
+            "";
+
+
+        const tr =
+
+            document.createElement("tr");
+
+
+        tr.dataset.playerid = playerId;
+
+
+        let html = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${playerId}">
+
+                    ${name}
+
+                </a>
+
+            </td>
+
+        `;
+
+
+        // ================= GAME BLOCK =================
+
+        if (gameEntry) {
+
+            const xpPct =
+
+                gameEntry.xpa
+
+                    ? (gameEntry.xpm / gameEntry.xpa * 100).toFixed(1)
+
+                    : "0.0";
+
+
+            const points =
+
+                (gameEntry.xpm * 1) +
+
+                (gameEntry.fgm * 3);
+
+
+            addPoints(
+
+                name,
+
+                gameEntry.playerId,
+
+                points
+
+            );
+
+
+            html += `
+
+                <td>${gameEntry.xpm}</td>
+
+                <td>${gameEntry.xpa}</td>
+
+                <td>${xpPct}</td>
+
+                <td>${gameEntry.fgm}</td>
+
+                <td>${gameEntry.long}</td>
+
+                <td>${points}</td>
+
+            `;
+
+        }
+
+        else {
+
+            html += `
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+
+            `;
+
+        }
+
+
+        // ================= FLS BLOCK =================
+
+        if (flsEntry) {
+
+            let xpPct = "";
+
+
+            if (
+
+                flsEntry.xpa !== null &&
+
+                flsEntry.xpa !== 0 &&
+
+                flsEntry.xpm !== null
+
+            ) {
+
+                xpPct =
+
+                    (flsEntry.xpm / flsEntry.xpa * 100).toFixed(1);
+
+            }
+
+
+            html += `
+
+                <td class="fls-cell fls-start">
+
+                    ${flsEntry.xpm ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.xpa ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${xpPct}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.fgm ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.long ?? ""}
+
+                </td>
+
+                <td class="fls-cell">
+
+                    ${flsEntry.points ?? ""}
+
+                </td>
+
+            `;
+
+        }
+
+        else {
+
+            html += `
+
+                <td class="fls-cell fls-start"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+                <td class="fls-cell"></td>
+
+            `;
+
+        }
+
+
+        tr.innerHTML = html;
+
+        kickingBody.appendChild(tr);
+
+    });
+
+
+    // Default sort = Game Points Scored
+
+    sortSimpleTable(
+
+        document.getElementById("kickingTable"),
+
+        6,
+
+        false
+
+    );
+
+
+    const kickingHeaders =
+
+        document.querySelectorAll(
+
+            "#kickingTable thead tr:last-child th"
+
+        );
+
+
+    let kickingSortState = {};
+
+
+    kickingHeaders.forEach(th => {
+
+        th.classList.add("sortable");
+
+
+        const colIndex =
+
+            th.cellIndex + 1;
+
+
+        kickingSortState[colIndex] = true;
+
+
+        th.addEventListener("click", () => {
+
+            sortSimpleTable(
+
+                document.getElementById("kickingTable"),
+
+                colIndex,
+
+                kickingSortState[colIndex]
+
+            );
+
+
+            kickingSortState[colIndex] =
+
+                !kickingSortState[colIndex];
+
+        });
+
+    });
+
+
+    // ============================================================
+
+    // OTHER SCORING TABLE
+
+    // ============================================================
+
+    const otherBody =
+
+        document.getElementById("otherBody");
+
+    otherBody.innerHTML = "";
+
+
+    Object.entries(otherPlayers).forEach(([name, p]) => {
+
+        const total =
+
+            p.pat +
+
+            p.prtd +
+
+            p.krtd +
+
+            p.inttd +
+
+            p.frtd +
+
+            p.bptd +
+
+            p.bfgtd;
+
+
+        if (total === 0) return;
+
+
+        const tr =
+
+            document.createElement("tr");
+
+
+        tr.dataset.playerid =
+
+            p.playerId;
+
+
+        tr.innerHTML = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${p.playerId}">
+
+                    ${name}
+
+                </a>
+
+            </td>
+
+            <td>${p.pat}</td>
+
+            <td>${p.prtd}</td>
+
+            <td>${p.krtd}</td>
+
+            <td>${p.inttd}</td>
+
+            <td>${p.frtd}</td>
+
+            <td>${p.bptd}</td>
+
+            <td>${p.bfgtd}</td>
+
+        `;
+
+
+        otherBody.appendChild(tr);
+
+    });
+
+
+    const otherTable =
+
+        document.getElementById("otherTable");
+
+
+    sortSimpleTable(
+
+        otherTable,
+
+        0,
+
+        true
+
+    );
+
+
+    const otherHeaders =
+
+        otherTable.querySelectorAll("thead th");
+
+
+    let otherSortState = {};
+
+
+    otherHeaders.forEach((th, i) => {
+
+        th.classList.add("sortable");
+
+        otherSortState[i] = true;
+
+
+        th.addEventListener("click", () => {
+
+            sortSimpleTable(
+
+                otherTable,
+
+                i,
+
+                otherSortState[i]
+
+            );
+
+
+            otherSortState[i] =
+
+                !otherSortState[i];
+
+        });
+
+    });
+
+
+    // ============================================================
+
+    // TEAM STATS
+
+    // ============================================================
+
+    let totals = {
+
+        pf: 0,
+
+        ty: 0,
+
+        py: 0,
+
+        ry: 0,
+
+        opf: 0,
+
+        oty: 0,
+
+        opy: 0,
+
+        ory: 0
+
+    };
+
+
+    stats.forEach(g => {
+
+        totals.pf +=
+
+            Number(g.points_for || 0);
+
+        totals.ty +=
+
+            Number(g.total_yards || 0);
+
+        totals.py +=
+
+            Number(g.passing_yards || 0);
+
+        totals.ry +=
+
+            Number(g.rushing_yards || 0);
+
+
+        totals.opf +=
+
+            Number(g.points_against || 0);
+
+        totals.oty +=
+
+            Number(g.total_yards_allowed || 0);
+
+        totals.opy +=
+
+            Number(g.passing_yards_allowed || 0);
+
+        totals.ory +=
+
+            Number(g.rushing_yards_allowed || 0);
+
+    });
+
+
+    const teamRows =
+
+        document.querySelectorAll(
+
+            "#teamStatsTable tbody tr"
+
+        );
+
+
+    teamRows[0].cells[1].innerText =
+
+        totals.pf;
+
+    teamRows[0].cells[2].innerText =
+
+        totals.ty.toLocaleString();
+
+    teamRows[0].cells[3].innerText =
+
+        totals.py.toLocaleString();
+
+    teamRows[0].cells[4].innerText =
+
+        totals.ry.toLocaleString();
+
+
+    teamRows[1].cells[1].innerText =
+
+        totals.opf;
+
+    teamRows[1].cells[2].innerText =
+
+        totals.oty.toLocaleString();
+
+    teamRows[1].cells[3].innerText =
+
+        totals.opy.toLocaleString();
+
+    teamRows[1].cells[4].innerText =
+
+        totals.ory.toLocaleString();
+
+
+    // ================= TEAM STATS SORT =================
+
+    const teamHeaders =
+
+        document.querySelectorAll(
+
+            "#teamStatsTable thead th"
+
+        );
+
+
+    let teamSortState = {};
+
+
+    teamHeaders.forEach((th, i) => {
+
+        th.classList.add("sortable");
+
+        teamSortState[i] = true;
+
+
+        th.addEventListener("click", () => {
+
+            sortTeamStats(
+
+                i,
+
+                teamSortState[i]
+
+            );
+
+
+            teamSortState[i] =
+
+                !teamSortState[i];
+
+        });
+
+    });
+
+
+    // ============================================================
+
+    // POINTS SCORED
+
+    // ============================================================
+
+    const pointsTable =
+
+        document.getElementById("pointsTable");
+
+
+    const pointsBody =
+
+        pointsTable.querySelector("tbody");
+
+
+    pointsBody.innerHTML = "";
+
+
+    Object.entries(pointsPlayers).forEach(([name, p]) => {
+
+        if (p.points === 0) return;
+
+
+        const tr =
+
+            document.createElement("tr");
+
+
+        tr.dataset.playerid =
+
+            p.playerId;
+
+
+        tr.innerHTML = `
+
+            <td class="left">
+
+                <a href="player.html?player_id=${p.playerId}">
+
+                    ${name}
+
+                </a>
+
+            </td>
+
+            <td>${p.points}</td>
+
+        `;
+
+
+        pointsBody.appendChild(tr);
+
+    });
+
+
+    sortPointsTable();
+
+
+    // ============================================================
+
+    // ROSTER
+
+    // ============================================================
+
+    const rosterBody =
+
+        document.getElementById("rosterBody");
+
+    rosterBody.innerHTML = "";
+
+
+    playerList.forEach(p => {
+
+        const playerId =
+
+            String(p.player_id || "").trim();
+
+
+        const playerName =
+
+            String(p.player || "").trim();
+
+
+        if (!playerId || !playerName) return;
+
+
+        const tr =
+
+            document.createElement("tr");
+
+
+        tr.dataset.playerid = playerId;
+
+
+        tr.innerHTML = `
+
+            <td>
+
+                ${String(p.jersey_number ?? "").trim()}
+
+            </td>
+
+            <td class="left">
+
+                <a href="player.html?player_id=${playerId}">
+
+                    ${playerName}
+
+                </a>
+
+            </td>
+
+            <td class="center">
+
+                ${String(p.class ?? "").trim()}
+
+            </td>
+
+            <td class="center">
+
+                ${String(p.position ?? "").trim()}
+
+            </td>
+
+            <td class="center">
+
+                ${String(p.height ?? "").trim()}
+
+            </td>
+
+            <td>
+
+                ${String(p.weight ?? "").trim()}
+
+            </td>
+
+        `;
+
+
+        rosterBody.appendChild(tr);
+
+    });
+
+
+    const rosterTable =
+
+        document.getElementById("rosterTable");
+
+
+    // Default roster sort = jersey number ascending
+
+    sortRosterTable(
+
+        0,
+
+        true
+
+    );
+
+
+    const rosterHeaders =
+
+        rosterTable.querySelectorAll("thead th");
+
+
+    let rosterSortState = {};
+
+
+    rosterHeaders.forEach((th, i) => {
+
+        th.classList.add("sortable");
+
+        rosterSortState[i] = true;
+
+
+        th.addEventListener("click", () => {
+
+            sortRosterTable(
+
+                i,
+
+                rosterSortState[i]
+
+            );
+
+
+            rosterSortState[i] =
+
+                !rosterSortState[i];
+
+        });
+
+    });
+
+
+    // ============================================================
+
+    // SCHEDULE
+
+    // ============================================================
+
+    const tbody =
+
+        document.querySelector(
+
+            "#scheduleTable tbody"
+
+        );
+
+
+    let wins = 0;
+
+    let losses = 0;
+
+
+    games.forEach((g, index) => {
+
+        const s =
+
+            stats.find(x =>
+
+                String(x.game_id).trim() ===
+
+                String(g.game_id).trim()
+
+            );
+
+
+        const pf =
+
+            Number(s?.points_for || 0);
+
+
+        const pa =
+
+            Number(s?.points_against || 0);
+
+
+        if (pf > pa) {
+
+            wins++;
+
+        }
+
+        else if (pf < pa) {
+
+            losses++;
+
+        }
+
+
+        const tr =
+
+            document.createElement("tr");
+
+
+        tr.innerHTML = `
+
+            <td class="center">
+
+                ${index + 1}
+
+            </td>
+
+            <td class="center">
+
+                ${formatDay(g.date)}
+
+            </td>
+
+            <td class="nowrap" style="text-align: left;">
+    ${formatDate(g.date)}
+</td>
+
+            <td class="center">
+
+                <a href="game.html?game_id=${g.game_id}">
+
+                    Boxscore
+
+                </a>
+
+            </td>
+
+            <td class="center">
+
+                ${pf > pa ? "W" : pf < pa ? "L" : "T"}
+
+            </td>
+
+            <td class="center">
+
+                ${formatOT(g.overtime_periods)}
+
+            </td>
+
+            <td class="record">
+
+                ${wins}-${losses}
+
+            </td>
+
+            <td class="center">
+
+                ${
+
+                    String(g.home_away || "").trim().toLowerCase() === "a" ||
+
+                    String(g.home_away || "").trim().toLowerCase() === "away"
+
+                        ? "@"
+
+                        : ""
+
+                }
+
+            </td>
+
+            <td class="left nowrap">
+
+                ${g.opponent}
+
+            </td>
+
+            <td>${pf}</td>
+
+            <td>${pa}</td>
+
+            <td>${s?.total_yards || ""}</td>
+
+            <td>${s?.passing_yards || ""}</td>
+
+            <td>${s?.rushing_yards || ""}</td>
+
+            <td>${s?.total_yards_allowed || ""}</td>
+
+            <td>${s?.passing_yards_allowed || ""}</td>
+
+            <td>${s?.rushing_yards_allowed || ""}</td>
+
+        `;
+
+
+        tbody.appendChild(tr);
+
+    });
+
+
+    // ============================================================
+
+    // SCHEDULE SORTING
+
+    // ============================================================
+
+    const scheduleTable =
+
+        document.getElementById("scheduleTable");
+
+
+    const headers =
+
+        scheduleTable.querySelectorAll(
+
+            "thead tr:nth-child(2) th"
+
+        );
+
+
+    const typeMap = [
+
+        "number",
+
+        "string",
+
+        "date",
+
+        "string",
+
+        "string",
+
+        "string",
+
+        "string",
+
+        "string",
+
+        "string",
+
+        "number",
+
+        "number",
+
+        "number",
+
+        "number",
+
+        "number",
+
+        "number",
+
+        "number",
+
+        "number"
+
+    ];
+
+
+    let sortState = {};
+
+
+    headers.forEach((th, i) => {
+
+        if (!th.innerText.trim()) return;
+
+
+        th.classList.add("sortable");
+
+        sortState[i] = true;
+
+
+        th.addEventListener("click", () => {
+
+            sortTable(
+
+                scheduleTable,
+
+                i,
+
+                typeMap[i] || "string",
+
+                sortState[i]
+
+            );
+
+
+            sortState[i] =
+
+                !sortState[i];
+
+        });
+
+    });
+
+});
+
+
+// ============================================================
+
+// BREADCRUMB
+
+// ============================================================
+
+renderBreadcrumb([
+
+    {
+
+        label: "Stafford Indians",
+
+        link: "index.html"
+
+    },
+
+    {
+
+        label: "Seasons",
+
+        link: "seasons.html"
+
+    },
+
+    {
+
+        label: `${season} Season`
+
+    }
+
+]);
+
+</script>
+
+</body>
+
+</html>

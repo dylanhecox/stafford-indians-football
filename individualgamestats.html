@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Individual Stats - Game</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: auto;
+            display: inline-table;
+            margin-bottom: 25px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            white-space: nowrap;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        td {
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        th.sortable {
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s ease;
+        }
+
+        th.sortable:hover {
+            background-color: #dcdcdc;
+        }
+
+        .toggle-link {
+            display: block;
+            
+    margin-top: 8px;
+    margin-bottom: 30px;
+    padding: 6px 12px;
+
+    border: 1px solid #bbb;
+    background-color: #f2f2f2;
+
+    cursor: pointer;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+
+    transition: background-color 0.15s ease;
+}
+
+.toggle-link:hover {
+    background-color: #e0e0e0;
+}
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="nav.js"></script>
+</head>
+
+<body>
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1>Individual Stats - Game</h1>
+<p>
+    <a href="#passing">Passing</a>
+    –
+    <a href="#rr">Rushing & Receiving</a>
+    –
+    <a href="#kicking">Kicking</a>
+    –
+    <a href="#points">Points Scored</a>
+</p>
+<!-- ================= PASSING ================= -->
+
+<h2 id="passing">Passing</h2>
+
+<table id="passingTable">
+    <thead>
+        <tr>
+            <th class="left">Player</th>
+            <th>Cmp</th>
+            <th>Att</th>
+            <th>Cmp%</th>
+            <th>Yds</th>
+            <th>TD</th>
+            <th>Int</th>
+            <th>Date</th>
+            <th class="left">Opponent</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+</table>
+
+<!-- ================= RUSHING & RECEIVING ================= -->
+
+<h2 id="rr">Rushing & Receiving</h2>
+
+<table id="rrTable">
+
+    <thead>
+
+    <tr>
+        <th></th>
+
+        <th colspan="3">Rushing</th>
+        <th colspan="3">Receiving</th>
+        <th colspan="3">Total</th>
+
+        <th colspan="2"></th>
+    </tr>
+
+    <tr>
+        <th class="left">Player</th>
+
+        <th>Att</th>
+        <th>Yds</th>
+        <th>TD</th>
+
+        <th>Rec</th>
+        <th>Yds</th>
+        <th>TD</th>
+
+        <th>Tou</th>
+        <th>Yds</th>
+        <th>TD</th>
+
+        <th>Date</th>
+        <th class="left">Opponent</th>
+    </tr>
+
+</thead>
+
+    <tbody></tbody>
+
+</table>
+
+<!-- ================= KICKING ================= -->
+
+<h2 id="kicking">Kicking</h2>
+
+<table id="kickingTable">
+
+    <thead>
+        <tr>
+            <th class="left">Player</th>
+
+            <th>XPM</th>
+            <th>XPA</th>
+            <th>XP%</th>
+
+            <th>FGM</th>
+            <th>Long</th>
+
+            <th>Date</th>
+            <th class="left">Opponent</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+<h2 id="points">Points Scored</h2>
+
+<table id="pointsTable">
+    <thead>
+        <tr>
+            <th class="left">Player</th>
+            <th>Points Scored</th>
+            <th>Date</th>
+            <th class="left">Opponent</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script>
+
+// ================= SORTING =================
+
+function sortTable(table, colIndex, asc) {
+
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    const dir = asc ? 1 : -1;
+
+    rows.sort((a, b) => {
+
+        // PLAYER SORT
+        if (colIndex === 0) {
+
+            const aId = a.dataset.playerid || "";
+            const bId = b.dataset.playerid || "";
+
+            return aId.localeCompare(bId) * dir;
+        }
+
+        // DATE SORT
+if (
+    (table.id === "passingTable" && colIndex === 7) ||
+    (table.id === "rrTable" && colIndex === 10) ||
+    (table.id === "kickingTable" && colIndex === 6) ||
+    (table.id === "pointsTable" && colIndex === 2)
+) {
+
+    const aDate = new Date(a.dataset.date || "");
+    const bDate = new Date(b.dataset.date || "");
+
+    return (aDate - bDate) * dir;
+}
+
+        let A = a.cells[colIndex].innerText.trim();
+        let B = b.cells[colIndex].innerText.trim();
+
+        const numA = parseFloat(A);
+const numB = parseFloat(B);
+
+// ================= NUMERIC SORT =================
+
+if (!isNaN(numA) && !isNaN(numB)) {
+
+    // primary sort
+    if (numA !== numB) {
+        return (numA - numB) * dir;
+    }
+
+    // tiebreaker = newest date first
+    const aDate = new Date(a.dataset.date || "");
+    const bDate = new Date(b.dataset.date || "");
+
+    return bDate - aDate;
+}
+
+// ================= TEXT SORT =================
+
+const textCompare = A.localeCompare(B);
+
+if (textCompare !== 0) {
+    return textCompare * dir;
+}
+
+// tiebreaker = newest date first
+const aDate = new Date(a.dataset.date || "");
+const bDate = new Date(b.dataset.date || "");
+
+return bDate - aDate;
+    });
+
+    rows.forEach(r => tbody.appendChild(r));
+}
+
+function setupTop10(tableId, defaultSortCol, defaultAsc = false) {
+
+    const table = document.getElementById(tableId);
+    const tbody = table.querySelector("tbody");
+
+    let expanded = false;
+
+    function updateRows() {
+
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+
+        rows.forEach((row, index) => {
+
+            if (!expanded && index >= 10) {
+                row.style.display = "none";
+            }
+
+            else {
+                row.style.display = "";
+            }
+        });
+    }
+
+    const toggle = document.createElement("button");
+
+    toggle.className = "toggle-link";
+    toggle.textContent = "Show Full Table";
+
+    toggle.addEventListener("click", () => {
+
+        expanded = !expanded;
+
+        toggle.textContent =
+            expanded
+            ? "Show Top 10 Only"
+            : "Show Full Table";
+
+        updateRows();
+    });
+
+    table.after(toggle);
+
+    // initial sort
+    sortTable(table, defaultSortCol, defaultAsc);
+
+    // initial hide
+    updateRows();
+
+    // re-hide after sorting
+    const headers = table.querySelectorAll("thead th");
+
+    let sortState = {};
+
+    headers.forEach((th, i) => {
+
+        th.classList.add("sortable");
+
+        sortState[i] = true;
+
+        th.addEventListener("click", () => {
+
+            sortTable(table, i, sortState[i]);
+
+            sortState[i] = !sortState[i];
+
+            updateRows();
+        });
+    });
+}
+// ================= LOAD DATA =================
+
+Promise.all([
+    fetch("Master_IndividualStats.csv").then(r => r.text()),
+    fetch("Master_GameInfo.csv").then(r => r.text()),
+    fetch("Master_GameEvents.csv").then(r => r.text())
+])
+
+.then(([individualCSV, gamesCSV, eventsCSV]) => {
+
+    const individual = Papa.parse(individualCSV, {
+        header: true,
+        skipEmptyLines: true,
+        transformHeader: h => h.trim()
+    }).data;
+
+    const games = Papa.parse(gamesCSV, {
+        header: true,
+        skipEmptyLines: true,
+        transformHeader: h => h.trim().toLowerCase()
+    }).data;
+
+    const events = Papa.parse(eventsCSV, {
+    header: true,
+    skipEmptyLines: true,
+    transformHeader: h => h.trim()
+}).data;
+
+    // ================= BUILD PASSING =================
+
+    const passingGames = {};
+
+    individual.forEach(row => {
+
+        const stat = String(row.stat_name || "").trim();
+
+        const passingStats = [
+            "Completions",
+            "Attempts",
+            "PassYards",
+            "PassTD",
+            "Interceptions"
+        ];
+
+        if (!passingStats.includes(stat)) return;
+
+        const gameId = String(row.game_id || "").trim();
+        const player = String(row.player || "").trim();
+        const playerId = String(row.player_id || "").trim();
+
+        const key = `${gameId}_${playerId}`;
+
+        if (!passingGames[key]) {
+
+            const game = games.find(g =>
+                String(g.game_id).trim() === gameId
+            );
+
+            passingGames[key] = {
+                player: player,
+                playerId: playerId,
+                gameId: gameId,
+                date: game?.date || "",
+                opponent: game?.opponent || "",
+
+                cmp: 0,
+                att: 0,
+                yds: 0,
+                td: 0,
+                int: 0
+            };
+        }
+
+        const pg = passingGames[key];
+
+        const value = Number(row.stat_value || 0);
+
+        if (stat === "Completions") pg.cmp += value;
+        else if (stat === "Attempts") pg.att += value;
+        else if (stat === "PassYards") pg.yds += value;
+        else if (stat === "PassTD") pg.td += value;
+        else if (stat === "Interceptions") pg.int += value;
+    });
+
+    const tbody = document.querySelector("#passingTable tbody");
+
+    Object.values(passingGames).forEach(p => {
+
+        if (p.att === 0) return;
+
+        const cmpPct =
+            p.att
+            ? (p.cmp / p.att * 100).toFixed(1)
+            : "0.0";
+
+        const tr = document.createElement("tr");
+
+        tr.dataset.playerid = p.playerId;
+        tr.dataset.date = p.date;
+
+        tr.innerHTML = `
+        <td class="left">
+    <a href="player.html?player_id=${p.playerId}">
+        ${p.player}
+    </a>
+</td>
+
+            <td>${p.cmp}</td>
+            <td>${p.att}</td>
+            <td>${cmpPct}</td>
+            <td>${p.yds}</td>
+            <td>${p.td}</td>
+            <td>${p.int}</td>
+
+            <td class="center">
+                <a href="game.html?game_id=${p.gameId}">
+                    ${p.date}
+                </a>
+            </td>
+
+            <td class="left">${p.opponent}</td>
+        `;
+
+        tbody.appendChild(tr);
+    });
+
+    // ================= BUILD RUSHING & RECEIVING =================
+
+const rrGames = {};
+
+individual.forEach(row => {
+
+    const stat = String(row.stat_name || "").trim();
+
+    const rrStats = [
+        "RushAtt",
+        "RushYds",
+        "RushTD",
+        "Receptions",
+        "RecYards",
+        "RecTD"
+    ];
+
+    if (!rrStats.includes(stat)) return;
+
+    const gameId = String(row.game_id || "").trim();
+    const player = String(row.player || "").trim();
+    const playerId = String(row.player_id || "").trim();
+
+    const key = `${gameId}_${playerId}`;
+
+    if (!rrGames[key]) {
+
+        const game = games.find(g =>
+            String(g.game_id).trim() === gameId
+        );
+
+        rrGames[key] = {
+
+            player: player,
+            playerId: playerId,
+
+            gameId: gameId,
+            date: game?.date || "",
+            opponent: game?.opponent || "",
+
+            rushAtt: 0,
+            rushYds: 0,
+            rushTD: 0,
+
+            rec: 0,
+            recYds: 0,
+            recTD: 0
+        };
+    }
+
+    const rg = rrGames[key];
+
+    const value = Number(row.stat_value || 0);
+
+    if (stat === "RushAtt") rg.rushAtt += value;
+    else if (stat === "RushYds") rg.rushYds += value;
+    else if (stat === "RushTD") rg.rushTD += value;
+
+    else if (stat === "Receptions") rg.rec += value;
+    else if (stat === "RecYards") rg.recYds += value;
+    else if (stat === "RecTD") rg.recTD += value;
+});
+
+const rrBody = document.querySelector("#rrTable tbody");
+
+Object.values(rrGames).forEach(p => {
+
+    const totalTouches = p.rushAtt + p.rec;
+    const totalYards = p.rushYds + p.recYds;
+    const totalTD = p.rushTD + p.recTD;
+
+    if (
+        totalTouches === 0 &&
+        totalYards === 0 &&
+        totalTD === 0
+    ) return;
+
+    const tr = document.createElement("tr");
+
+    tr.dataset.playerid = p.playerId;
+    tr.dataset.date = p.date;
+
+    tr.innerHTML = `
+
+    <td class="left">
+    <a href="player.html?player_id=${p.playerId}">
+        ${p.player}
+    </a>
+</td>
+
+        <td>${p.rushAtt}</td>
+        <td>${p.rushYds}</td>
+        <td>${p.rushTD}</td>
+
+        <td>${p.rec}</td>
+        <td>${p.recYds}</td>
+        <td>${p.recTD}</td>
+
+        <td>${totalTouches}</td>
+        <td>${totalYards}</td>
+        <td>${totalTD}</td>
+
+        <td class="center">
+            <a href="game.html?game_id=${p.gameId}">
+                ${p.date}
+            </a>
+        </td>
+
+        <td class="left">${p.opponent}</td>
+    `;
+
+    rrBody.appendChild(tr);
+});
+
+// ================= BUILD KICKING =================
+
+const kickingGames = {};
+
+individual.forEach(row => {
+
+    const stat = String(row.stat_name || "").trim();
+
+    const kickingStats = [
+        "Extra Points Made",
+        "Extra Points Attempted",
+        "Field Goals Made",
+        "Field Goal Distances"
+    ];
+
+    if (!kickingStats.includes(stat)) return;
+
+    const gameId = String(row.game_id || "").trim();
+    const player = String(row.player || "").trim();
+    const playerId = String(row.player_id || "").trim();
+
+    const key = `${gameId}_${playerId}`;
+
+    if (!kickingGames[key]) {
+
+        const game = games.find(g =>
+            String(g.game_id).trim() === gameId
+        );
+
+        kickingGames[key] = {
+
+            player: player,
+            playerId: playerId,
+
+            gameId: gameId,
+            date: game?.date || "",
+            opponent: game?.opponent || "",
+
+            xpm: 0,
+            xpa: 0,
+            fgm: 0,
+            long: 0
+        };
+    }
+
+    const kg = kickingGames[key];
+
+    const value = Number(row.stat_value || 0);
+
+    if (stat === "Extra Points Made") {
+        kg.xpm += value;
+    }
+
+    else if (stat === "Extra Points Attempted") {
+        kg.xpa += value;
+    }
+
+    else if (stat === "Field Goals Made") {
+        kg.fgm += value;
+    }
+
+    else if (stat === "Field Goal Distances") {
+
+        const distances = String(row.stat_value)
+            .split(",")
+            .map(x => parseInt(x.trim()))
+            .filter(x => !isNaN(x));
+
+        if (distances.length > 0) {
+
+            const maxDist = Math.max(...distances);
+
+            if (maxDist > kg.long) {
+                kg.long = maxDist;
+            }
+        }
+    }
+});
+
+const kickingBody = document.querySelector("#kickingTable tbody");
+
+Object.values(kickingGames).forEach(p => {
+
+    if (
+        p.xpa === 0 &&
+        p.fgm === 0
+    ) return;
+
+    const xpPct =
+        p.xpa
+        ? (p.xpm / p.xpa * 100).toFixed(1)
+        : "0.0";
+
+    const tr = document.createElement("tr");
+
+    tr.dataset.playerid = p.playerId;
+    tr.dataset.date = p.date;
+
+    tr.innerHTML = `
+
+    <td class="left">
+    <a href="player.html?player_id=${p.playerId}">
+        ${p.player}
+    </a>
+</td>
+
+        <td>${p.xpm}</td>
+        <td>${p.xpa}</td>
+        <td>${xpPct}</td>
+
+        <td>${p.fgm}</td>
+        <td>${p.long}</td>
+
+        <td class="center">
+            <a href="game.html?game_id=${p.gameId}">
+                ${p.date}
+            </a>
+        </td>
+
+        <td class="left">${p.opponent}</td>
+    `;
+
+    kickingBody.appendChild(tr);
+});
+
+// ================= BUILD POINTS SCORED =================
+
+const pointsGames = {};
+
+function addPoints(player, playerId, gameId, date, opponent, pts) {
+
+    const key = `${gameId}_${playerId}`;
+
+    if (!pointsGames[key]) {
+
+        pointsGames[key] = {
+            player,
+            playerId,
+            gameId,
+            date,
+            opponent,
+            pts: 0
+        };
+    }
+
+    pointsGames[key].pts += Number(pts) || 0;
+}
+
+const pointsBody = document.querySelector("#pointsTable tbody");
+
+// ================= FROM RUSH / REC TDS =================
+
+Object.values(rrGames).forEach(p => {
+
+    const totalTD = p.rushTD + p.recTD;
+
+    if (totalTD === 0) return;
+
+    addPoints(
+        p.player,
+        p.playerId,
+        p.gameId,
+        p.date,
+        p.opponent,
+        totalTD * 6
+    );
+});
+
+// ================= FROM GAME EVENTS =================
+
+events.forEach(e => {
+
+    const player = String(e.scoring_player || "").trim();
+    const playerId = String(e.scoring_player_id || "").trim();
+    const gameId = String(e.game_id || "").trim();
+
+    if (!player) return;
+
+    const game = games.find(g =>
+        String(g.game_id).trim() === gameId
+    );
+
+    const date = game?.date || "";
+    const opponent = game?.opponent || "";
+
+    const type = String(e.event_type || "").trim();
+
+    if (
+        type === "punt_return_td" ||
+        type === "kick_return_td" ||
+        type === "interception_return_td" ||
+        type === "fumble_return_td" ||
+        type === "blocked_punt_return_td" ||
+        type === "blocked_field_goal_return_td"
+    ) {
+
+        addPoints(
+            player,
+            playerId,
+            gameId,
+            date,
+            opponent,
+            6
+        );
+    }
+
+    else if (
+        type === "one_pt_rush" ||
+        type === "one_pt_pass"
+    ) {
+
+        addPoints(
+            player,
+            playerId,
+            gameId,
+            date,
+            opponent,
+            1
+        );
+    }
+
+    else if (
+        type === "two_pt_rush" ||
+        type === "two_pt_pass"
+    ) {
+
+        addPoints(
+            player,
+            playerId,
+            gameId,
+            date,
+            opponent,
+            2
+        );
+    }
+});
+
+// ================= RENDER TABLE =================
+
+Object.values(pointsGames).forEach(p => {
+
+    const tr = document.createElement("tr");
+
+    tr.dataset.playerid = p.playerId;
+    tr.dataset.date = p.date;
+
+    tr.innerHTML = `
+    <td class="left">
+    <a href="player.html?player_id=${p.playerId}">
+        ${p.player}
+    </a>
+</td>
+
+        <td>${p.pts}</td>
+
+        <td class="center">
+            <a href="game.html?game_id=${p.gameId}">
+                ${p.date}
+            </a>
+        </td>
+
+        <td class="left">${p.opponent}</td>
+    `;
+
+    pointsBody.appendChild(tr);
+});
+
+setupTop10("passingTable", 4, false);
+setupTop10("rrTable", 8, false);
+setupTop10("kickingTable", 5, false);
+setupTop10("pointsTable", 1, false);
+});
+
+renderBreadcrumb([
+    { label: "Stafford Indians", link: "index.html" },
+    { label: "Individual Stats - Game" }
+]);
+</script>
+
+</body>
+</html>

@@ -3924,10 +3924,44 @@ renderBreadcrumb([
         if (!text) return;
 
         const tooltip = document.createElement("div");
-        tooltip.className = "mobile-source-tooltip";
-        tooltip.textContent = text;
+tooltip.style.cssText = `
+    position: fixed;
+    background: #fff;
+    color: #333;
+    border: 1px solid #aaa;
+    padding: 2px 5px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    z-index: 99999;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: normal;
+    white-space: nowrap;
+`;        tooltip.textContent = text;
 
         document.body.appendChild(tooltip);
+
+const rect = sourceNote.getBoundingClientRect();
+
+let left = rect.left;
+let top = rect.bottom + 8;
+
+// Keep the tooltip inside the screen horizontally
+if (left + tooltip.offsetWidth > window.innerWidth - 10) {
+    left = window.innerWidth - tooltip.offsetWidth - 10;
+}
+
+if (left < 10) {
+    left = 10;
+}
+
+// If there isn't enough room below the note, put it above
+if (top + tooltip.offsetHeight > window.innerHeight - 10) {
+    top = rect.top - tooltip.offsetHeight - 8;
+}
+
+tooltip.style.left = `${left}px`;
+tooltip.style.top = `${top}px`;
         activeSourceTooltip = tooltip;
     });
 </script>

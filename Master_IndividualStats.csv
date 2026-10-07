@@ -88,6 +88,16 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,James Patton,pattonjames,Passing,Interceptions,1
 1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,James Crowe,crowejames,Rushing,RushAtt,9
 1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,James Crowe,crowejames,Rushing,RushYds,48
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,James Patton,pattonjames,Rushing,RushAtt,3
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,James Patton,pattonjames,Rushing,RushYds,10
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,Billy Tex Rittner,rittnerbillytex,Rushing,RushAtt,6
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,Billy Tex Rittner,rittnerbillytex,Rushing,RushYds,2
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,Terry Layton,laytonterry,Rushing,RushAtt,1
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,Terry Layton,laytonterry,Rushing,RushYds,1
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,Jack Wheeler,wheelerjack,Rushing,RushAtt,1
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,Jack Wheeler,wheelerjack,Rushing,RushYds,-6
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,Kenny Ray Shelton,sheltonkennyray,Rushing,RushAtt,1
+1952_11_27_JamesMonroe,1952,11/27/1952,James Monroe,Away,Kenny Ray Shelton,sheltonkennyray,Rushing,RushYds,-7
 1953_09_18_Varina,1953,9/18/1953,Varina,Away,Billy Tex Rittner,rittnerbillytex,Rushing,RushAtt,1
 1953_09_18_Varina,1953,9/18/1953,Varina,Away,Billy Tex Rittner,rittnerbillytex,Rushing,RushYds,15
 1953_09_18_Varina,1953,9/18/1953,Varina,Away,Billy Tex Rittner,rittnerbillytex,Rushing,RushTD,1

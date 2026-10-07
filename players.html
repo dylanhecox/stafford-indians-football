@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -17,6 +16,29 @@
 
     h1 {
         margin-bottom: 15px;
+    }
+
+    #alphabetNav {
+        margin-bottom: 15px;
+    }
+
+    #alphabetNav a,
+    #alphabetNav span {
+        margin-right: 8px;
+    }
+
+    #alphabetNav a {
+        color: blue;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #alphabetNav a:hover {
+        text-decoration: underline;
+    }
+
+    #alphabetNav span {
+        color: #aaa;
     }
 
     table {
@@ -68,6 +90,7 @@
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
 <script src="nav.js"></script>
 
 </head>
@@ -78,16 +101,24 @@
 
 <h1>Stafford Indians Players Directory</h1>
 
+<div id="alphabetNav"></div>
+
 <table id="playersTable">
 
 <thead>
 
     <tr>
+
         <th>Player</th>
+
         <th>Seasons</th>
+
         <th>Height</th>
+
         <th>Weight</th>
+
         <th>No.</th>
+
     </tr>
 
 </thead>
@@ -105,9 +136,13 @@ fetch("Master_PlayerList.csv")
 .then(csv => {
 
     const playerData = Papa.parse(csv, {
+
         header: true,
+
         skipEmptyLines: true,
+
         transformHeader: h => h.trim().toLowerCase()
+
     }).data;
 
     const players = {};
@@ -117,7 +152,9 @@ fetch("Master_PlayerList.csv")
     playerData.forEach(row => {
 
         const name = (row.player || "").trim();
+
         const playerId = (row.player_id || "").trim();
+
         const season = Number(row.season);
 
         if (!name || !playerId || !season) return;
@@ -125,9 +162,13 @@ fetch("Master_PlayerList.csv")
         if (!players[playerId]) {
 
             players[playerId] = {
+
                 name: name,
+
                 seasons: [],
+
                 records: []
+
             };
 
         }
@@ -135,12 +176,19 @@ fetch("Master_PlayerList.csv")
         players[playerId].seasons.push(season);
 
         players[playerId].records.push({
+
             season: season,
+
             position: (row.position || "").trim(),
+
             height: (row.height || "").trim(),
+
             weight: (row.weight || "").trim(),
+
             number: (row["jersey number"] || row.jersey_number || row.number || "").trim(),
+
             class: (row.class || "").trim().toLowerCase()
+
         });
 
     });
@@ -150,11 +198,17 @@ fetch("Master_PlayerList.csv")
     function getDisplayInfo(records) {
 
         if (!records.length) {
+
             return {
+
                 height: "",
+
                 weight: "",
+
                 number: ""
+
             };
+
         }
 
         /*
@@ -166,15 +220,21 @@ fetch("Master_PlayerList.csv")
          */
 
         const seniorRecords = records
+
             .filter(r => r.class === "senior")
+
             .sort((a, b) => b.season - a.season);
 
         const latestRecords = [...records]
+
             .sort((a, b) => b.season - a.season);
 
         const preferredRecords =
+
             seniorRecords.length > 0
+
                 ? seniorRecords
+
                 : latestRecords;
 
         /*
@@ -186,24 +246,37 @@ fetch("Master_PlayerList.csv")
         function getField(field) {
 
             for (const record of preferredRecords) {
+
                 if (record[field]) {
+
                     return record[field];
+
                 }
+
             }
 
             for (const record of latestRecords) {
+
                 if (record[field]) {
+
                     return record[field];
+
                 }
+
             }
 
             return "";
+
         }
 
         return {
+
             height: getField("height"),
+
             weight: getField("weight"),
+
             number: getField("number")
+
         };
 
     }
@@ -215,15 +288,21 @@ fetch("Master_PlayerList.csv")
     Object.entries(players).forEach(([playerId, p]) => {
 
         const years = [...new Set(p.seasons)]
+
             .map(Number)
+
             .sort((a, b) => a - b);
 
         const firstYear = years[0];
+
         const lastYear = years[years.length - 1];
 
         const seasonRange =
+
             firstYear === lastYear
+
                 ? `${firstYear}`
+
                 : `${firstYear}-${lastYear}`;
 
         const displayInfo = getDisplayInfo(p.records);
@@ -231,18 +310,27 @@ fetch("Master_PlayerList.csv")
         const tr = document.createElement("tr");
 
         tr.dataset.playerid = playerId;
+
         tr.dataset.firstyear = firstYear;
+
         tr.dataset.lastyear = lastYear;
+
         tr.dataset.height = displayInfo.height;
+
         tr.dataset.weight = displayInfo.weight;
+
         tr.dataset.number = displayInfo.number;
 
         tr.innerHTML = `
 
             <td>
+
                 <a href="player.html?player_id=${playerId}">
+
                     ${p.name}
+
                 </a>
+
             </td>
 
             <td>${seasonRange}</td>
@@ -262,6 +350,7 @@ fetch("Master_PlayerList.csv")
     // ================= SORTING =================
 
     const table = document.getElementById("playersTable");
+
     const headers = table.querySelectorAll("thead th");
 
     let sortState = {};
@@ -274,55 +363,74 @@ fetch("Master_PlayerList.csv")
 
         rows.sort((a, b) => {
 
-// PLAYER COLUMN
-if (colIndex === 0) {
-    const aId = a.dataset.playerid;
-    const bId = b.dataset.playerid;
+            // PLAYER COLUMN
 
-    const aUndetermined = aId === "undetermined_14" || aId === "undetermined_33";
-const bUndetermined = bId === "undetermined_14" || bId === "undetermined_33";
+            if (colIndex === 0) {
 
-    if (aUndetermined && !bUndetermined) return 1;
-    if (!aUndetermined && bUndetermined) return -1;
+                const aId = a.dataset.playerid;
 
-    return aId.localeCompare(bId) * dir;
-}
+                const bId = b.dataset.playerid;
+
+                const aUndetermined = aId === "undetermined_14" || aId === "undetermined_33";
+
+                const bUndetermined = bId === "undetermined_14" || bId === "undetermined_33";
+
+                if (aUndetermined && !bUndetermined) return 1;
+
+                if (!aUndetermined && bUndetermined) return -1;
+
+                return aId.localeCompare(bId) * dir;
+
+            }
+
             // SEASONS COLUMN
+
             if (colIndex === 1) {
 
                 const aYear = Number(a.dataset.lastyear);
+
                 const bYear = Number(b.dataset.lastyear);
 
                 return (aYear - bYear) * dir;
 
             }
 
-// HEIGHT COLUMN
-if (colIndex === 2) {
-    function heightInches(value) {
-        const match = value.match(/^(\d+)'(?:\s*(\d+(?:\.\d+)?)\s*"?\s*)?$/);
+            // HEIGHT COLUMN
 
-        if (!match) return -1;
+            if (colIndex === 2) {
 
-        const feet = Number(match[1]);
-        const inches = match[2] ? Number(match[2]) : 0;
+                function heightInches(value) {
 
-        return feet * 12 + inches;
-    }
+                    const match = value.match(/^(\d+)'(?:\s*(\d+(?:\.\d+)?)\s*"?)?\s*$/);
 
-    const aHeight = heightInches(a.dataset.height);
-    const bHeight = heightInches(b.dataset.height);
+                    if (!match) return -1;
 
-    return (aHeight - bHeight) * dir;
-}
+                    const feet = Number(match[1]);
+
+                    const inches = match[2] ? Number(match[2]) : 0;
+
+                    return feet * 12 + inches;
+
+                }
+
+                const aHeight = heightInches(a.dataset.height);
+
+                const bHeight = heightInches(b.dataset.height);
+
+                return (aHeight - bHeight) * dir;
+
+            }
 
             // WEIGHT COLUMN
+
             if (colIndex === 3) {
 
                 const aWeight = parseFloat(a.dataset.weight);
+
                 const bWeight = parseFloat(b.dataset.weight);
 
                 const aValue = Number.isNaN(aWeight) ? -1 : aWeight;
+
                 const bValue = Number.isNaN(bWeight) ? -1 : bWeight;
 
                 return (aValue - bValue) * dir;
@@ -330,12 +438,15 @@ if (colIndex === 2) {
             }
 
             // NUMBER COLUMN
+
             if (colIndex === 4) {
 
                 const aNumber = parseInt(a.dataset.number);
+
                 const bNumber = parseInt(b.dataset.number);
 
                 const aValue = Number.isNaN(aNumber) ? -1 : aNumber;
+
                 const bValue = Number.isNaN(bNumber) ? -1 : bNumber;
 
                 return (aValue - bValue) * dir;
@@ -368,6 +479,50 @@ if (colIndex === 2) {
 
     sortPlayersTable(0, true);
 
+// ================= A-Z PLAYER JUMPS =================
+
+const alphabetNav = document.getElementById("alphabetNav");
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+letters.forEach(letter => {
+
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    const matchingRow = rows.find(row => {
+
+        const playerId = row.dataset.playerid || "";
+
+        const surname = playerId.split("_")[0];
+
+        return surname.charAt(0).toUpperCase() === letter;
+
+    });
+
+    if (!matchingRow) {
+
+        const span = document.createElement("span");
+
+        span.textContent = letter;
+
+        alphabetNav.appendChild(span);
+
+        return;
+
+    }
+
+    matchingRow.id = letter;
+
+    const link = document.createElement("a");
+
+    link.href = `#${letter}`;
+
+    link.textContent = letter;
+
+    alphabetNav.appendChild(link);
+
+});
+
 })
 
 .catch(error => {
@@ -375,6 +530,7 @@ if (colIndex === 2) {
     console.error("Error loading Master_PlayerList.csv:", error);
 
 });
+
 
 
 // ================= BREADCRUMB =================

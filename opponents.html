@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opponent History</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: max-content;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        td.left-align {
+            text-align: left;
+        }
+
+        th {
+            cursor: pointer;
+            background-color: #f2f2f2;
+        }
+
+        th:hover {
+            background-color: #ddd;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        #loading {
+            margin-top: 20px;
+        }
+    </style>
+
+    <script src="nav.js"></script>
+</head>
+
+<body>
+
+<div id="breadcrumb" style="margin-bottom: 10px; font-size: 14px;"></div>
+
+<h1>Stafford Indians Opponent History</h1>
+
+<div id="loading">Loading...</div>
+
+<table id="opponentTable" style="display: none;">
+    <tr>
+        <th onclick="sortTable(0)">Opponent</th>
+        <th onclick="sortTable(1)">First Meeting</th>
+        <th onclick="sortTable(2)">Last Meeting</th>
+        <th onclick="sortTable(3)">Games</th>
+        <th onclick="sortTable(4)">Wins</th>
+        <th onclick="sortTable(5)">Losses</th>
+        <th onclick="sortTable(6)">Ties</th>
+        <th onclick="sortTable(7)">Win %</th>
+    </tr>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+<script>
+
+let opponents = [];
+
+let sortDirection = {};
+
+Promise.all([
+    loadCSV("Master_GameInfo.csv"),
+    loadCSV("Master_TeamStats.csv")
+])
+.then(function(results) {
+
+    const gameInfo = results[0];
+    const teamStats = results[1];
+
+    buildOpponentTable(gameInfo, teamStats);
+})
+.catch(function(error) {
+
+    console.error("Opponent history error:", error);
+
+    document.getElementById("loading").textContent =
+        "Unable to load opponent history.";
+});
+
+function loadCSV(file) {
+
+    return new Promise(function(resolve, reject) {
+
+        Papa.parse(file, {
+
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+
+            transformHeader: function(header) {
+                return header.trim().toLowerCase();
+            },
+
+            complete: function(results) {
+
+                if (
+                    results.errors &&
+                    results.errors.length > 0
+                ) {
+                    console.warn(
+                        "CSV parsing warnings for " + file,
+                        results.errors
+                    );
+                }
+
+                resolve(results.data);
+            },
+
+            error: function(error) {
+                reject(error);
+            }
+        });
+    });
+}
+
+function buildOpponentTable(gameInfo, teamStats) {
+
+    const staffordStats = {};
+
+    teamStats.forEach(function(row) {
+
+        if (
+            row.team &&
+            row.team.trim().toLowerCase() === "stafford" &&
+            row.game_id
+        ) {
+
+            staffordStats[row.game_id.trim()] = row;
+        }
+    });
+
+    const grouped = {};
+
+    gameInfo.forEach(function(row) {
+
+        const opponentId = row.opponent_id
+            ? row.opponent_id.trim()
+            : "";
+
+        const gameId = row.game_id
+            ? row.game_id.trim()
+            : "";
+
+        const date = row.date
+            ? row.date.trim()
+            : "";
+
+        if (!opponentId || !gameId || !date) {
+            return;
+        }
+
+        if (!grouped[opponentId]) {
+            grouped[opponentId] = [];
+        }
+
+        grouped[opponentId].push({
+
+            gameId: gameId,
+
+            opponent: row.opponent
+                ? row.opponent.trim()
+                : "",
+
+            teamName: row.team_name
+                ? row.team_name.trim()
+                : "",
+
+            date: date
+        });
+    });
+
+    opponents = Object.keys(grouped).map(function(opponentId) {
+
+        const games = grouped[opponentId];
+
+        games.sort(function(a, b) {
+            return parseDate(a.date) - parseDate(b.date);
+        });
+
+        const firstGame = games[0];
+        const lastGame = games[games.length - 1];
+
+        let wins = 0;
+        let losses = 0;
+        let ties = 0;
+
+        games.forEach(function(game) {
+
+            const stats = staffordStats[game.gameId];
+
+            if (!stats) {
+                return;
+            }
+
+            const pointsFor =
+                Number(stats.points_for);
+
+            const pointsAgainst =
+                Number(stats.points_against);
+
+            if (
+                Number.isNaN(pointsFor) ||
+                Number.isNaN(pointsAgainst)
+            ) {
+                return;
+            }
+
+            if (pointsFor > pointsAgainst) {
+                wins++;
+            }
+            else if (pointsFor < pointsAgainst) {
+                losses++;
+            }
+            else {
+                ties++;
+            }
+        });
+
+        const totalGames =
+            wins + losses + ties;
+
+        const winPct =
+            totalGames > 0
+                ? (wins + (ties * 0.5)) / totalGames
+                : 0;
+
+        const displayOpponent =
+            lastGame.opponent +
+            (
+                lastGame.teamName
+                    ? " " + lastGame.teamName
+                    : ""
+            );
+
+        return {
+
+            opponentId: opponentId,
+
+            opponent: displayOpponent,
+
+            firstDate: firstGame.date,
+            firstGameId: firstGame.gameId,
+
+            lastDate: lastGame.date,
+            lastGameId: lastGame.gameId,
+
+            games: totalGames,
+            wins: wins,
+            losses: losses,
+            ties: ties,
+
+            winPct: winPct
+        };
+    });
+
+    opponents.sort(function(a, b) {
+
+        return a.opponent.localeCompare(
+            b.opponent
+        );
+    });
+
+    document.getElementById("loading").style.display =
+        "none";
+
+    document.getElementById("opponentTable").style.display =
+        "table";
+
+    renderTable();
+}
+
+function parseDate(dateString) {
+
+    if (!dateString) {
+        return new Date(0);
+    }
+
+    const parts = dateString.split("/");
+
+    if (parts.length === 3) {
+
+        const month = Number(parts[0]);
+        const day = Number(parts[1]);
+        const year = Number(parts[2]);
+
+        return new Date(
+            year,
+            month - 1,
+            day
+        );
+    }
+
+    const parsed =
+        new Date(dateString);
+
+    if (!Number.isNaN(parsed.getTime())) {
+        return parsed;
+    }
+
+    return new Date(0);
+}
+
+function formatDate(dateString) {
+
+    const date =
+        parseDate(dateString);
+
+    if (date.getTime() === 0) {
+        return dateString;
+    }
+
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            month: "long",
+            day: "numeric",
+            year: "numeric"
+        }
+    );
+}
+
+function renderTable() {
+
+    const table =
+        document.getElementById("opponentTable");
+
+    while (table.rows.length > 1) {
+        table.deleteRow(1);
+    }
+
+    opponents.forEach(function(opponent) {
+
+        const row =
+            table.insertRow();
+
+        const opponentCell =
+            row.insertCell();
+
+        opponentCell.className =
+            "left-align";
+
+        opponentCell.innerHTML =
+            '<a href="opponent.html?opponent_id=' +
+            encodeURIComponent(
+                opponent.opponentId
+            ) +
+            '">' +
+            opponent.opponent +
+            '</a>';
+
+        const firstCell =
+            row.insertCell();
+
+        firstCell.className =
+            "left-align";
+
+        firstCell.innerHTML =
+            '<a href="game.html?game_id=' +
+            encodeURIComponent(
+                opponent.firstGameId
+            ) +
+            '">' +
+            formatDate(
+                opponent.firstDate
+            ) +
+            '</a>';
+
+        const lastCell =
+            row.insertCell();
+
+        lastCell.className =
+            "left-align";
+
+        lastCell.innerHTML =
+            '<a href="game.html?game_id=' +
+            encodeURIComponent(
+                opponent.lastGameId
+            ) +
+            '">' +
+            formatDate(
+                opponent.lastDate
+            ) +
+            '</a>';
+
+        row.insertCell().textContent =
+            opponent.games;
+
+        row.insertCell().textContent =
+            opponent.wins;
+
+        row.insertCell().textContent =
+            opponent.losses;
+
+        row.insertCell().textContent =
+            opponent.ties;
+
+        row.insertCell().textContent =
+            opponent.winPct.toFixed(3);
+    });
+}
+
+function sortTable(colIndex) {
+
+    const table =
+        document.getElementById(
+            "opponentTable"
+        );
+
+    const rows =
+        Array.from(table.rows).slice(1);
+
+    sortDirection[colIndex] =
+        !sortDirection[colIndex];
+
+    rows.sort(function(a, b) {
+
+        let valA =
+            a.cells[colIndex]
+                .innerText
+                .trim();
+
+        let valB =
+            b.cells[colIndex]
+                .innerText
+                .trim();
+
+        if (
+            colIndex === 1 ||
+            colIndex === 2
+        ) {
+
+            valA = parseDate(valA);
+            valB = parseDate(valB);
+
+            return sortDirection[colIndex]
+                ? valA - valB
+                : valB - valA;
+        }
+
+        if (colIndex >= 3) {
+
+            const numA =
+                parseFloat(valA);
+
+            const numB =
+                parseFloat(valB);
+
+            return sortDirection[colIndex]
+                ? numA - numB
+                : numB - numA;
+        }
+
+        return sortDirection[colIndex]
+            ? valA.localeCompare(valB)
+            : valB.localeCompare(valA);
+    });
+
+    rows.forEach(function(row) {
+        table.appendChild(row);
+    });
+}
+
+renderBreadcrumb([
+    {
+        label: "Stafford Indians",
+        link: "index.html"
+    },
+    {
+        label: "Opponent History"
+    }
+]);
+
+</script>
+
+</body>
+</html>

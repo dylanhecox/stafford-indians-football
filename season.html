@@ -3900,7 +3900,7 @@ renderBreadcrumb([
 <script>
     let activeSourceTooltip = null;
 
-    document.addEventListener("click", function (event) {
+    document.addEventListener("touchend", function (event) {
         const sourceNote = event.target.closest(".source-note");
 
         // Clicking somewhere other than a source note closes the tooltip

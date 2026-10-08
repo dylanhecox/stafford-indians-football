@@ -1,6 +1,6 @@
 game_id,season,date,team,opponent,home_away,points_for,points_against,total_yards,passing_yards,rushing_yards,total_yards_allowed,passing_yards_allowed,rushing_yards_allowed
-2026_10_02_ColonialForge,2026,10/2/2026,Stafford,Colonial Forge,Away,7,45,,,,,,
-2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Stafford,Home,45,7,,,,,,
+2026_10_02_ColonialForge,2026,10/2/2026,Stafford,Colonial Forge,Away,7,45,232,83,149,266,96,170
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Stafford,Home,45,7,266,96,170,232,83,149
 2026_08_28_Woodbridge,2026,8/28/2026,Stafford,Woodbridge,Away,16,15,309,207,102,162,,100
 2026_08_28_Woodbridge,2026,8/28/2026,Woodbridge,Stafford,Home,15,16,162,,100,309,207,102
 2026_09_03_UnityReed,2026,9/3/2026,Stafford,Unity Reed,Home,70,0,518,36,482,-5,,

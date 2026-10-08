@@ -16311,6 +16311,34 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 2026_09_25_MountainView,2026,9/25/2026,Mountain View,Home,Colin Robinson,robinsoncolin,Kicking,Extra Points Attempted,4
 2026_09_25_MountainView,2026,9/25/2026,Mountain View,Home,Colin Robinson,robinsoncolin,Kicking,Field Goals Made,3
 2026_09_25_MountainView,2026,9/25/2026,Mountain View,Home,Colin Robinson,robinsoncolin,Kicking,Field Goal Distances,"31, 38, 37"
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Brayden Dalton,daltonbrayden,Passing,Completions,9
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Brayden Dalton,daltonbrayden,Passing,Attempts,21
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Brayden Dalton,daltonbrayden,Passing,PassYards,83
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Brayden Dalton,daltonbrayden,Passing,PassTD,0
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Brayden Dalton,daltonbrayden,Passing,Interceptions,5
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Passing,Completions,0
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Passing,Attempts,1
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Passing,PassYards,0
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Passing,PassTD,0
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Passing,Interceptions,0
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Brayden Dalton,daltonbrayden,Rushing,RushAtt,15
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Brayden Dalton,daltonbrayden,Rushing,RushYds,110
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Rushing,RushAtt,2
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Rushing,RushYds,7
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Xavier Parker,parkerxavier,Rushing,RushAtt,1
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Xavier Parker,parkerxavier,Rushing,RushYds,0
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Dajuan Lawton,lawtondajuan,Rushing,RushAtt,1
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Dajuan Lawton,lawtondajuan,Rushing,RushYds,1
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Kani Strother,strotherkani,Rushing,RushAtt,2
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Kani Strother,strotherkani,Rushing,RushYds,20
 2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Kani Strother,strotherkani,Rushing,RushTD,1
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Nana Koranteng,korantengnana,Rushing,RushAtt,3
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Nana Koranteng,korantengnana,Rushing,RushYds,11
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Kani Strother,strotherkani,Receiving,Receptions,2
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Kani Strother,strotherkani,Receiving,RecYards,38
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Receiving,Receptions,6
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Luke Flynn,flynnluke,Receiving,RecYards,37
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Zech Waters,waterszech,Receiving,Receptions,1
+2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Zech Waters,waterszech,Receiving,RecYards,8
 2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Colin Robinson,robinsoncolin,Kicking,Extra Points Made,1
 2026_10_02_ColonialForge,2026,10/2/2026,Colonial Forge,Away,Colin Robinson,robinsoncolin,Kicking,Extra Points Attempted,1

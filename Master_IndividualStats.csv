@@ -16483,3 +16483,41 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 2026_10_23_Riverbend,2026,10/23/2026,Riverbend,Away,Colin Robinson,robinsoncolin,Kicking,Extra Points Attempted,3
 2026_10_23_Riverbend,2026,10/23/2026,Riverbend,Away,Colin Robinson,robinsoncolin,Kicking,Field Goals Made,1
 2026_10_23_Riverbend,2026,10/23/2026,Riverbend,Away,Colin Robinson,robinsoncolin,Kicking,Field Goal Distances,40
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Brayden Dalton,daltonbrayden,Passing,Completions,6
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Brayden Dalton,daltonbrayden,Passing,Attempts,14
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Brayden Dalton,daltonbrayden,Passing,PassYards,106
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Brayden Dalton,daltonbrayden,Passing,PassTD,3
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Brayden Dalton,daltonbrayden,Passing,Interceptions,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Brayden Dalton,daltonbrayden,Rushing,RushAtt,20
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Brayden Dalton,daltonbrayden,Rushing,RushYds,191
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Brayden Dalton,daltonbrayden,Rushing,RushTD,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Luke Flynn,flynnluke,Rushing,RushAtt,3
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Luke Flynn,flynnluke,Rushing,RushYds,-4
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Luke Flynn,flynnluke,Rushing,RushTD,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Zech Waters,waterszech,Rushing,RushAtt,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Zech Waters,waterszech,Rushing,RushYds,5
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Easton Hibberd,hibberdeaston,Rushing,RushAtt,2
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Easton Hibberd,hibberdeaston,Rushing,RushYds,0
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Dajuan Lawton,lawtondajuan,Rushing,RushAtt,2
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Dajuan Lawton,lawtondajuan,Rushing,RushYds,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Max Penn,pennmax,Rushing,RushAtt,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Max Penn,pennmax,Rushing,RushYds,9
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Max Penn,pennmax,Rushing,RushTD,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Nana Koranteng,korantengnana,Rushing,RushAtt,2
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Nana Koranteng,korantengnana,Rushing,RushYds,6
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Kaleb Oglesby,oglesbykaleb,Rushing,RushAtt,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Kaleb Oglesby,oglesbykaleb,Rushing,RushYds,3
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Nate Clute,clutenate,Rushing,RushAtt,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Nate Clute,clutenate,Rushing,RushYds,4
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Zech Waters,waterszech,Receiving,Receptions,2
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Zech Waters,waterszech,Receiving,RecYards,30
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Egon Gonzalez Escalante,gonzalezescalanteegon,Receiving,Receptions,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Egon Gonzalez Escalante,gonzalezescalanteegon,Receiving,RecYards,24
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Egon Gonzalez Escalante,gonzalezescalanteegon,Receiving,RecTD,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Sebastian Smith,smithsebastian,Receiving,Receptions,3
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Sebastian Smith,smithsebastian,Receiving,RecYards,52
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Sebastian Smith,smithsebastian,Receiving,RecTD,2
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Colin Robinson,robinsoncolin,Kicking,Extra Points Made,4
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Colin Robinson,robinsoncolin,Kicking,Extra Points Attempted,5
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Colin Robinson,robinsoncolin,Kicking,Field Goals Made,1
+2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Colin Robinson,robinsoncolin,Kicking,Field Goal Distances,36

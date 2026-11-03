@@ -2847,8 +2847,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,John Jackson,jacksonjohn,Rushing,RushYds,-18
 1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,Robbie Jones,jonesrobbie,Rushing,RushAtt,1
 1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,Robbie Jones,jonesrobbie,Rushing,RushYds,-3
-1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,9
-1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,42
+1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,9
+1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,42
 1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,John Gallahan,gallahanjohn,Receiving,Receptions,1
 1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,John Gallahan,gallahanjohn,Receiving,RecYards,11
 1972_10_20_Fauquier,1972,10/20/1972,Fauquier,Home,Chester Branham,branhamchester,Receiving,Receptions,3
@@ -2865,8 +2865,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Chester Branham,branhamchester,Rushing,RushAtt,28
 1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Chester Branham,branhamchester,Rushing,RushYds,68
 1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Chester Branham,branhamchester,Rushing,RushTD,1
-1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,6
-1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,34
+1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,6
+1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,34
 1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Jeff Wholey,wholeyjeff,Rushing,RushAtt,3
 1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Jeff Wholey,wholeyjeff,Rushing,RushYds,-11
 1972_10_27_GarField,1972,10/27/1972,Gar-Field,Away,Johnny Vines,vinesjohnny,Rushing,RushAtt,1
@@ -2887,8 +2887,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1972_11_03_Lane,1972,11/3/1972,Lane,Home,Chester Branham,branhamchester,Rushing,RushAtt,10
 1972_11_03_Lane,1972,11/3/1972,Lane,Home,Chester Branham,branhamchester,Rushing,RushYds,17
 1972_11_03_Lane,1972,11/3/1972,Lane,Home,Chester Branham,branhamchester,Rushing,RushTD,1
-1972_11_03_Lane,1972,11/3/1972,Lane,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,6
-1972_11_03_Lane,1972,11/3/1972,Lane,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,35
+1972_11_03_Lane,1972,11/3/1972,Lane,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,6
+1972_11_03_Lane,1972,11/3/1972,Lane,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,35
 1972_11_03_Lane,1972,11/3/1972,Lane,Home,Jeff Wholey,wholeyjeff,Rushing,RushAtt,6
 1972_11_03_Lane,1972,11/3/1972,Lane,Home,Jeff Wholey,wholeyjeff,Rushing,RushYds,-25
 1972_11_03_Lane,1972,11/3/1972,Lane,Home,Johnny Vines,vinesjohnny,Rushing,RushAtt,1
@@ -2925,9 +2925,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Jim Shacklette,shacklettejim,Receiving,Receptions,3
 1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Jim Shacklette,shacklettejim,Receiving,RecYards,44
 1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Jim Shacklette,shacklettejim,Receiving,RecTD,1
-1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Norman Sullivan,sullivannorman,Receiving,Receptions,2
-1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Norman Sullivan,sullivannorman,Receiving,RecYards,31
-1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Norman Sullivan,sullivannorman,Receiving,RecTD,1
+1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Norman Sullivan,sullivannorman2,Receiving,Receptions,2
+1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Norman Sullivan,sullivannorman2,Receiving,RecYards,31
+1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Norman Sullivan,sullivannorman2,Receiving,RecTD,1
 1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Doug Cox,coxdoug,Kicking,Extra Points Made,1
 1972_11_10_JamesMonroe,1972,11/10/1972,James Monroe,Home,Doug Cox,coxdoug,Kicking,Extra Points Attempted,2
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Jeff Wholey,wholeyjeff,Passing,Completions,5
@@ -2940,11 +2940,11 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Johnny Vines,vinesjohnny,Passing,PassYards,27
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Johnny Vines,vinesjohnny,Passing,PassTD,1
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Johnny Vines,vinesjohnny,Passing,Interceptions,0
-1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman,Passing,Completions,1
-1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman,Passing,Attempts,1
-1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman,Passing,PassYards,23
-1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman,Passing,PassTD,1
-1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman,Passing,Interceptions,0
+1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman2,Passing,Completions,1
+1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman2,Passing,Attempts,1
+1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman2,Passing,PassYards,23
+1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman2,Passing,PassTD,1
+1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman2,Passing,Interceptions,0
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Rick Phillips,phillipsrick,Passing,Completions,0
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Rick Phillips,phillipsrick,Passing,Attempts,1
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Rick Phillips,phillipsrick,Passing,PassYards,0
@@ -2953,9 +2953,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Johnny Vines,vinesjohnny,Rushing,RushAtt,8
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Johnny Vines,vinesjohnny,Rushing,RushYds,85
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Johnny Vines,vinesjohnny,Rushing,RushTD,2
-1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,10
-1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,86
-1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman,Rushing,RushTD,1
+1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,10
+1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,86
+1973_09_07_Handley,1973,9/7/1973,Handley,Home,Norman Sullivan,sullivannorman2,Rushing,RushTD,1
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Jeff Lowery,loweryjeff,Rushing,RushAtt,6
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Jeff Lowery,loweryjeff,Rushing,RushYds,62
 1973_09_07_Handley,1973,9/7/1973,Handley,Home,Jeff Lowery,loweryjeff,Rushing,RushTD,1
@@ -2987,8 +2987,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_09_15_Lane,1973,9/15/1973,Lane,Away,Rick Phillips,phillipsrick,Passing,Interceptions,2
 1973_09_15_Lane,1973,9/15/1973,Lane,Away,Johnny Vines,vinesjohnny,Rushing,RushAtt,8
 1973_09_15_Lane,1973,9/15/1973,Lane,Away,Johnny Vines,vinesjohnny,Rushing,RushYds,40
-1973_09_15_Lane,1973,9/15/1973,Lane,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,5
-1973_09_15_Lane,1973,9/15/1973,Lane,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,22
+1973_09_15_Lane,1973,9/15/1973,Lane,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,5
+1973_09_15_Lane,1973,9/15/1973,Lane,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,22
 1973_09_15_Lane,1973,9/15/1973,Lane,Away,Jeff Lowery,loweryjeff,Rushing,RushAtt,5
 1973_09_15_Lane,1973,9/15/1973,Lane,Away,Jeff Lowery,loweryjeff,Rushing,RushYds,27
 1973_09_15_Lane,1973,9/15/1973,Lane,Away,Rick Phillips,phillipsrick,Rushing,RushAtt,4
@@ -3010,8 +3010,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Jeff Wholey,wholeyjeff,Passing,Interceptions,3
 1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Johnny Vines,vinesjohnny,Rushing,RushAtt,2
 1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Johnny Vines,vinesjohnny,Rushing,RushYds,15
-1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,15
-1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,66
+1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,15
+1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,66
 1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Jeff Lowery,loweryjeff,Rushing,RushAtt,6
 1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Jeff Lowery,loweryjeff,Rushing,RushYds,32
 1973_09_21_Woodbridge,1973,9/21/1973,Woodbridge,Away,Rick Phillips,phillipsrick,Rushing,RushAtt,3
@@ -3037,8 +3037,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Jeff Wholey,wholeyjeff,Passing,Interceptions,2
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Johnny Vines,vinesjohnny,Rushing,RushAtt,2
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Johnny Vines,vinesjohnny,Rushing,RushYds,2
-1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,7
-1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,20
+1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,7
+1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,20
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Jeff Lowery,loweryjeff,Rushing,RushAtt,2
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Jeff Lowery,loweryjeff,Rushing,RushYds,16
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Jeff Wholey,wholeyjeff,Rushing,RushAtt,8
@@ -3049,8 +3049,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Tom Furcron,furcrontom,Receiving,RecYards,9
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Johnny Vines,vinesjohnny,Receiving,Receptions,1
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Johnny Vines,vinesjohnny,Receiving,RecYards,8
-1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Norman Sullivan,sullivannorman,Receiving,Receptions,1
-1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Norman Sullivan,sullivannorman,Receiving,RecYards,12
+1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Norman Sullivan,sullivannorman2,Receiving,Receptions,1
+1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Norman Sullivan,sullivannorman2,Receiving,RecYards,12
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Jim Shacklette,shacklettejim,Receiving,Receptions,3
 1973_09_28_Fauquier,1973,9/28/1973,Fauquier,Home,Jim Shacklette,shacklettejim,Receiving,RecYards,37
 1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Jeff Wholey,wholeyjeff,Passing,Completions,3
@@ -3060,9 +3060,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Jeff Wholey,wholeyjeff,Passing,Interceptions,0
 1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Johnny Vines,vinesjohnny,Rushing,RushAtt,17
 1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Johnny Vines,vinesjohnny,Rushing,RushYds,145
-1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,17
-1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,104
-1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Norman Sullivan,sullivannorman,Rushing,RushTD,3
+1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,17
+1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,104
+1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Norman Sullivan,sullivannorman2,Rushing,RushTD,3
 1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Jeff Lowery,loweryjeff,Rushing,RushAtt,17
 1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Jeff Lowery,loweryjeff,Rushing,RushYds,91
 1973_10_05_GarField,1973,10/5/1973,Gar-Field,Home,Jeff Lowery,loweryjeff,Rushing,RushTD,2
@@ -3083,8 +3083,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Jeff Wholey,wholeyjeff,Passing,Interceptions,0
 1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Johnny Vines,vinesjohnny,Rushing,RushAtt,12
 1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Johnny Vines,vinesjohnny,Rushing,RushYds,16
-1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,17
-1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,59
+1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,17
+1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,59
 1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Jeff Lowery,loweryjeff,Rushing,RushAtt,8
 1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Jeff Lowery,loweryjeff,Rushing,RushYds,7
 1973_10_12_StonewallJackson-Manassas,1973,10/12/1973,Stonewall Jackson-Manassas,Away,Jeff Lowery,loweryjeff,Rushing,RushTD,1
@@ -3106,9 +3106,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Jeff Wholey,wholeyjeff,Passing,Interceptions,1
 1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Johnny Vines,vinesjohnny,Rushing,RushAtt,9
 1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Johnny Vines,vinesjohnny,Rushing,RushYds,24
-1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,10
-1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,57
-1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Norman Sullivan,sullivannorman,Rushing,RushTD,1
+1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,10
+1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,57
+1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Norman Sullivan,sullivannorman2,Rushing,RushTD,1
 1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Jeff Lowery,loweryjeff,Rushing,RushAtt,8
 1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Jeff Lowery,loweryjeff,Rushing,RushYds,42
 1973_10_26_Osbourn,1973,10/26/1973,Osbourn,Home,Jeff Lowery,loweryjeff,Rushing,RushTD,1
@@ -3132,8 +3132,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Johnny Vines,vinesjohnny,Rushing,RushAtt,16
 1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Johnny Vines,vinesjohnny,Rushing,RushYds,63
 1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Johnny Vines,vinesjohnny,Rushing,RushTD,1
-1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,8
-1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,29
+1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,8
+1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,29
 1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Jeff Lowery,loweryjeff,Rushing,RushAtt,10
 1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Jeff Lowery,loweryjeff,Rushing,RushYds,70
 1973_11_02_JamesWood,1973,11/2/1973,James Wood,Home,Jeff Wholey,wholeyjeff,Rushing,RushAtt,6
@@ -3158,9 +3158,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Jeff Lowery,loweryjeff,Passing,Interceptions,0
 1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Johnny Vines,vinesjohnny,Rushing,RushAtt,21
 1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Johnny Vines,vinesjohnny,Rushing,RushYds,161
-1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,13
-1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,82
-1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Norman Sullivan,sullivannorman,Rushing,RushTD,1
+1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,13
+1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,82
+1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Norman Sullivan,sullivannorman2,Rushing,RushTD,1
 1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Jeff Lowery,loweryjeff,Rushing,RushAtt,19
 1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Jeff Lowery,loweryjeff,Rushing,RushYds,127
 1973_11_09_Albemarle,1973,11/9/1973,Albemarle,Away,Jeff Lowery,loweryjeff,Rushing,RushTD,2
@@ -3192,9 +3192,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Johnny Vines,vinesjohnny,Rushing,RushAtt,18
 1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Johnny Vines,vinesjohnny,Rushing,RushYds,177
 1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Johnny Vines,vinesjohnny,Rushing,RushTD,1
-1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,7
-1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,25
-1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Norman Sullivan,sullivannorman,Rushing,RushTD,2
+1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,7
+1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,25
+1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Norman Sullivan,sullivannorman2,Rushing,RushTD,2
 1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Jeff Lowery,loweryjeff,Rushing,RushAtt,17
 1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Jeff Lowery,loweryjeff,Rushing,RushYds,141
 1973_11_16_JamesMonroe,1973,11/16/1973,James Monroe,Away,Jeff Lowery,loweryjeff,Rushing,RushTD,2
@@ -3227,8 +3227,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Jeff Lowery,loweryjeff,Rushing,RushYds,52
 1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Keith Buckner,bucknerkeith,Rushing,RushAtt,10
 1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Keith Buckner,bucknerkeith,Rushing,RushYds,33
-1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,7
-1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,15
+1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,7
+1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,15
 1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Jeff Wholey,wholeyjeff,Rushing,RushAtt,14
 1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Jeff Wholey,wholeyjeff,Rushing,RushYds,-40
 1974_09_13_StonewallJackson-Manassas,1974,9/13/1974,Stonewall Jackson-Manassas,Home,Jim Shacklette,shacklettejim,Receiving,Receptions,3
@@ -3250,9 +3250,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Keith Buckner,bucknerkeith,Rushing,RushAtt,11
 1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Keith Buckner,bucknerkeith,Rushing,RushYds,176
 1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Keith Buckner,bucknerkeith,Rushing,RushTD,1
-1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,7
-1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,36
-1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Norman Sullivan,sullivannorman,Rushing,RushTD,1
+1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,7
+1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,36
+1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Norman Sullivan,sullivannorman2,Rushing,RushTD,1
 1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Jeff Wholey,wholeyjeff,Rushing,RushAtt,12
 1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Jeff Wholey,wholeyjeff,Rushing,RushYds,29
 1974_09_20_Albemarle,1974,9/20/1974,Albemarle,Home,Jeff Wholey,wholeyjeff,Rushing,RushTD,1
@@ -3284,8 +3284,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Jeff Lowery,loweryjeff,Rushing,RushYds,18
 1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Keith Buckner,bucknerkeith,Rushing,RushAtt,1
 1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Keith Buckner,bucknerkeith,Rushing,RushYds,3
-1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,8
-1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,50
+1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,8
+1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,50
 1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Jeff Wholey,wholeyjeff,Rushing,RushAtt,5
 1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Jeff Wholey,wholeyjeff,Rushing,RushYds,-18
 1974_09_27_GarField,1974,9/27/1974,Gar-Field,Away,Brad Froman,fromanbrad,Rushing,RushAtt,3
@@ -3306,9 +3306,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Jeff Lowery,loweryjeff,Rushing,RushTD,1
 1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Keith Buckner,bucknerkeith,Rushing,RushAtt,3
 1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Keith Buckner,bucknerkeith,Rushing,RushYds,5
-1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,22
-1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,112
-1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Norman Sullivan,sullivannorman,Rushing,RushTD,1
+1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,22
+1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,112
+1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Norman Sullivan,sullivannorman2,Rushing,RushTD,1
 1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Jeff Wholey,wholeyjeff,Rushing,RushAtt,9
 1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Jeff Wholey,wholeyjeff,Rushing,RushYds,15
 1974_10_04_Fauquier,1974,10/4/1974,Fauquier,Away,Jim Shacklette,shacklettejim,Receiving,Receptions,1
@@ -3327,8 +3327,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Keith Buckner,bucknerkeith,Rushing,RushAtt,4
 1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Keith Buckner,bucknerkeith,Rushing,RushYds,26
 1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Keith Buckner,bucknerkeith,Rushing,RushTD,1
-1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,4
-1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,11
+1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,4
+1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,11
 1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Jeff Wholey,wholeyjeff,Rushing,RushAtt,19
 1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Jeff Wholey,wholeyjeff,Rushing,RushYds,124
 1974_10_11_JamesWood,1974,10/11/1974,James Wood,Away,Jeff Wholey,wholeyjeff,Rushing,RushTD,1
@@ -3387,9 +3387,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Jeff Lowery,loweryjeff,Rushing,RushTD,1
 1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Keith Buckner,bucknerkeith,Rushing,RushAtt,13
 1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Keith Buckner,bucknerkeith,Rushing,RushYds,91
-1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,8
-1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,69
-1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Norman Sullivan,sullivannorman,Rushing,RushTD,2
+1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,8
+1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,69
+1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Norman Sullivan,sullivannorman2,Rushing,RushTD,2
 1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Jeff Wholey,wholeyjeff,Rushing,RushAtt,3
 1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Jeff Wholey,wholeyjeff,Rushing,RushYds,6
 1974_10_25_Charlottesville,1974,10/25/1974,Charlottesville,Home,Jeff Wholey,wholeyjeff,Rushing,RushTD,1
@@ -3427,9 +3427,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Jeff Lowery,loweryjeff,Rushing,RushYds,46
 1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Keith Buckner,bucknerkeith,Rushing,RushAtt,4
 1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Keith Buckner,bucknerkeith,Rushing,RushYds,25
-1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,6
-1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,30
-1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Norman Sullivan,sullivannorman,Rushing,RushTD,2
+1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,6
+1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,30
+1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Norman Sullivan,sullivannorman2,Rushing,RushTD,2
 1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Jeff Wholey,wholeyjeff,Rushing,RushAtt,3
 1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Jeff Wholey,wholeyjeff,Rushing,RushYds,39
 1974_11_01_Osbourn,1974,11/1/1974,Osbourn,Away,Jeff Wholey,wholeyjeff,Rushing,RushTD,2
@@ -3466,9 +3466,9 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Jeff Lowery,loweryjeff,Rushing,RushYds,25
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Keith Buckner,bucknerkeith,Rushing,RushAtt,5
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Keith Buckner,bucknerkeith,Rushing,RushYds,24
-1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman,Rushing,RushAtt,8
-1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman,Rushing,RushYds,39
-1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman,Rushing,RushTD,1
+1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman2,Rushing,RushAtt,8
+1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman2,Rushing,RushYds,39
+1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman2,Rushing,RushTD,1
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Jeff Wholey,wholeyjeff,Rushing,RushAtt,3
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Jeff Wholey,wholeyjeff,Rushing,RushYds,4
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Brad Froman,fromanbrad,Rushing,RushAtt,10
@@ -3478,8 +3478,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Jim Shacklette,shacklettejim,Receiving,RecTD,2
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Eddie Chapman,chapmaneddie,Receiving,Receptions,2
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Eddie Chapman,chapmaneddie,Receiving,RecYards,16
-1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman,Receiving,Receptions,1
-1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman,Receiving,RecYards,-6
+1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman2,Receiving,Receptions,1
+1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Norman Sullivan,sullivannorman2,Receiving,RecYards,-6
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Eddie Chapman,chapmaneddie,Kicking,Extra Points Made,1
 1974_11_08_JamesMonroe,1974,11/8/1974,James Monroe,Home,Eddie Chapman,chapmaneddie,Kicking,Extra Points Attempted,1
 1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Jeff Wholey,wholeyjeff,Passing,Completions,2
@@ -3504,8 +3504,8 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Jeff Lowery,loweryjeff,Rushing,RushTD,2
 1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Keith Buckner,bucknerkeith,Rushing,RushAtt,7
 1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Keith Buckner,bucknerkeith,Rushing,RushYds,10
-1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Norman Sullivan,sullivannorman,Rushing,RushAtt,18
-1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Norman Sullivan,sullivannorman,Rushing,RushYds,105
+1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Norman Sullivan,sullivannorman2,Rushing,RushAtt,18
+1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Norman Sullivan,sullivannorman2,Rushing,RushYds,105
 1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Jeff Wholey,wholeyjeff,Rushing,RushAtt,4
 1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Jeff Wholey,wholeyjeff,Rushing,RushYds,0
 1974_11_15_Spotsylvania,1974,11/15/1974,Spotsylvania,Away,Jim Shacklette,shacklettejim,Rushing,RushAtt,1

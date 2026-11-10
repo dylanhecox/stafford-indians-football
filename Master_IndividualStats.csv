@@ -16521,3 +16521,34 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Colin Robinson,robinsoncolin,Kicking,Extra Points Attempted,5
 2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Colin Robinson,robinsoncolin,Kicking,Field Goals Made,1
 2026_10_30_NorthStafford,2026,10/30/2026,North Stafford,Home,Colin Robinson,robinsoncolin,Kicking,Field Goal Distances,36
+1952_09_18_Varina,1952,9/18/1952,Varina,Home,James Crowe,crowejames,Defensive,interceptions,1
+1952_09_18_Varina,1952,9/18/1952,Varina,Home,Billy Tex Rittner,rittnerbillytex,Defensive,interceptions,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Passing,Completions,6
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Passing,Attempts,23
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Passing,PassYards,47
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Passing,PassTD,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Passing,Interceptions,0
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Passing,Completions,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Passing,Attempts,3
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Passing,PassYards,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Passing,PassTD,0
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Passing,Interceptions,0
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Rushing,RushAtt,19
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Rushing,RushYds,101
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Rushing,RushAtt,5
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Rushing,RushYds,6
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Dajuan Lawton,lawtondajuan,Rushing,RushAtt,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Dajuan Lawton,lawtondajuan,Rushing,RushYds,0
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Max Penn,pennmax,Rushing,RushAtt,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Max Penn,pennmax,Rushing,RushYds,-1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Receiving,Receptions,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Brayden Dalton,daltonbrayden,Receiving,RecYards,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Receiving,Receptions,4
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Receiving,RecYards,16
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Luke Flynn,flynnluke,Receiving,RecTD,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Zech Waters,waterszech,Receiving,Receptions,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Zech Waters,waterszech,Receiving,RecYards,16
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Egon Gonzalez Escalante,gonzalezescalanteegon,Receiving,Receptions,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Egon Gonzalez Escalante,gonzalezescalanteegon,Receiving,RecYards,15
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Colin Robinson,robinsoncolin,Kicking,Extra Points Made,1
+2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Colin Robinson,robinsoncolin,Kicking,Extra Points Attempted,1

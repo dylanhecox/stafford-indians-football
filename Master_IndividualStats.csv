@@ -16552,3 +16552,24 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Egon Gonzalez Escalante,gonzalezescalanteegon,Receiving,RecYards,15
 2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Colin Robinson,robinsoncolin,Kicking,Extra Points Made,1
 2026_11_06_BrookePoint,2026,11/6/2026,Brooke Point,Home,Colin Robinson,robinsoncolin,Kicking,Extra Points Attempted,1
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Brayden Dalton,daltonbrayden,Passing,Completions,13
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Brayden Dalton,daltonbrayden,Passing,Attempts,21
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Brayden Dalton,daltonbrayden,Passing,PassYards,75
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Brayden Dalton,daltonbrayden,Passing,PassTD,0
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Brayden Dalton,daltonbrayden,Passing,Interceptions,0
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Brayden Dalton,daltonbrayden,Rushing,RushAtt,15
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Brayden Dalton,daltonbrayden,Rushing,RushYds,56
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Luke Flynn,flynnluke,Rushing,RushAtt,2
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Luke Flynn,flynnluke,Rushing,RushYds,7
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Easton Hibberd,hibberdeaston,Rushing,RushAtt,1
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Easton Hibberd,hibberdeaston,Rushing,RushYds,2
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Nana Koranteng,korantengnana,Rushing,RushAtt,1
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Nana Koranteng,korantengnana,Rushing,RushYds,2
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Zech Waters,waterszech,Receiving,Receptions,4
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Zech Waters,waterszech,Receiving,RecYards,24
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Egon Gonzalez Escalante,gonzalezescalanteegon,Receiving,Receptions,2
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Egon Gonzalez Escalante,gonzalezescalanteegon,Receiving,RecYards,17
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Easton Hibberd,hibberdeaston,Receiving,Receptions,6
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Easton Hibberd,hibberdeaston,Receiving,RecYards,35
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Sebastian Smith,smithsebastian,Receiving,Receptions,1
+2026_11_13_Battlefield,2026,11/13/2026,Battlefield,Away,Sebastian Smith,smithsebastian,Receiving,RecYards,-1

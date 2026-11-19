@@ -5525,11 +5525,11 @@ game_id,season,date,opponent,home_away,player,player_id,stat_category,stat_name,
 1983_09_16_Courtland,1983,9/16/1983,Courtland,Away,Ray Stephens,stephensray,Receiving,RecYards,32
 1983_09_16_Courtland,1983,9/16/1983,Courtland,Away,Robert Elswick,elswickrobert,Kicking,Extra Points Made,1
 1983_09_16_Courtland,1983,9/16/1983,Courtland,Away,Robert Elswick,elswickrobert,Kicking,Extra Points Attempted,1
-1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Phil Jones,jonesphil,Passing,Completions,6
-1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Phil Jones,jonesphil,Passing,Attempts,28
-1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Phil Jones,jonesphil,Passing,PassYards,81
-1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Phil Jones,jonesphil,Passing,PassTD,0
-1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Phil Jones,jonesphil,Passing,Interceptions,2
+1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Scott Starnes,starnesscott,Passing,Completions,6
+1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Scott Starnes,starnesscott,Passing,Attempts,28
+1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Scott Starnes,starnesscott,Passing,PassYards,81
+1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Scott Starnes,starnesscott,Passing,PassTD,0
+1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Scott Starnes,starnesscott,Passing,Interceptions,2
 1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Darryl Smith,smithdarryl,Rushing,RushAtt,5
 1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Darryl Smith,smithdarryl,Rushing,RushYds,12
 1983_09_23_GarField,1983,9/23/1983,Gar-Field,Home,Kevin Mathews,mathewskevin,Rushing,RushAtt,6
